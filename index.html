@@ -201,6 +201,14 @@ ul{margin:0; padding:0; list-style:none;}
 .gallery{display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:18px;}
 .gallery .frame{cursor:zoom-in; transition:border-color .15s var(--ease);}
 .gallery .frame:hover{border-color:var(--border-strong);}
+/* presentation page section index */
+.subnav{position:sticky; top:64px; z-index:40; display:flex; gap:8px; overflow-x:auto; padding:14px 0; margin-bottom:8px; background:var(--bg); border-bottom:1px solid var(--border-soft);}
+.subnav::-webkit-scrollbar{height:0;}
+.subnav button{flex:0 0 auto; font:500 12px var(--sans); color:var(--text-3); background:transparent; border:1px solid var(--border-strong); border-radius:999px; padding:7px 15px; cursor:pointer; white-space:nowrap; transition:color .15s var(--ease), border-color .15s var(--ease), background .15s var(--ease);}
+.subnav button:hover{color:var(--accent); border-color:var(--accent);}
+.subnav button.active{background:var(--accent); border-color:var(--accent); color:#fff;}
+.pp-sec{scroll-margin-top:128px;}
+.subnav + .pp-sec{padding-top:40px;}
 
 /* point list */
 .points{border-top:1px solid var(--border-soft);}
@@ -409,6 +417,7 @@ ul{margin:0; padding:0; list-style:none;}
     <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">☰</button>
     <nav class="nav-links" id="navlinks" aria-label="Primary">
       <button class="nav-link" data-route="home">Home</button>
+      <button class="nav-link" data-route="presentation">Presentation</button>
       <div class="dropdown">
         <button class="nav-link" aria-haspopup="true">Use Cases ▾</button>
         <div class="dropdown-menu">
@@ -439,6 +448,180 @@ ul{margin:0; padding:0; list-style:none;}
   <div class="main">
     <main class="content" id="content">
       <div class="content-inner">
+
+      <!-- ============ PRESENTATION ============ -->
+      <div class="page" id="page-presentation">
+
+        <!-- Hero -->
+        <section class="reveal">
+          <p class="eyebrow">Opportunity overview</p>
+          <h2>Former Olympia Brewery — Tumwater, Washington</h2>
+          <p class="lead">The Former Olympia Brewery is a 34.182-acre riverfront assemblage in Tumwater, centered on the 1906 brewhouse and four additional historic structures.</p>
+          <p class="measure sub" style="margin-top:18px;">AGM is positioning it as a differentiated redevelopment opportunity: the site combines landmark identity, riverfront context, completed concept work, and a more advanced pre-development record than a typical off-market assignment.</p>
+          <ul class="points">
+            <li>34.182-acre assemblage</li>
+            <li>Historic core anchored by the 1906 brewhouse</li>
+            <li>Four additional historic structures support the broader redevelopment story</li>
+            <li>Confidential offering with design, market, and civil materials already assembled</li>
+          </ul>
+          <!-- IMAGE: best full-site hero showing the 1906 brewhouse and broader site context -->
+          <div class="frame wide topo" style="margin-top:32px;" role="img" aria-label="Full-site hero image of the 1906 brewhouse and broader site context">
+            <div><p class="ft">Exhibit · Site hero</p><p class="fd">Best full-site image showing the brewhouse and the broader site context.</p></div>
+          </div>
+        </section>
+
+        <!-- Section index -->
+        <nav class="subnav" aria-label="Section index">
+          <button data-scroll="pp-1">Why it stands out</button>
+          <button data-scroll="pp-2">Work done</button>
+          <button data-scroll="pp-3">Hospitality</button>
+          <button data-scroll="pp-4">Market</button>
+          <button data-scroll="pp-5">Constraints</button>
+          <button data-scroll="pp-6">Timing</button>
+          <button data-scroll="pp-7">Takeaway</button>
+        </nav>
+
+        <!-- Section 1 -->
+        <section class="reveal pp-sec" id="pp-1">
+          <p class="eyebrow">Section 1</p>
+          <h2>Why this site is getting attention</h2>
+          <p class="lead">This is not a standard land listing, and it should not be understood that way. What stands out is the combination of historic building fabric, adjacency to Tumwater Falls and the Deschutes River corridor, and the fact that the existing materials already support multiple credible redevelopment paths.</p>
+          <p class="measure sub" style="margin-top:18px;">The site is framed through several use-case lenses because different groups evaluate it through different priorities. Hospitality is currently the clearest lead story, but the broader offering also supports membership/lifestyle, tribal, and investor interpretations.</p>
+          <ul class="points">
+            <li>Landmark setting rather than commodity real estate</li>
+            <li>Riverfront and falls adjacency strengthen place identity</li>
+            <li>Existing studies support more than one use-case narrative</li>
+            <li>Opportunity can be understood through multiple acquisition lenses</li>
+          </ul>
+          <!-- IMAGE: collage — brewhouse exterior, river/falls context, plan excerpt -->
+          <div class="grid grid-3" style="margin-top:32px;">
+            <div class="frame topo" role="img" aria-label="Brewhouse exterior"><div><p class="ft">Exhibit</p><p class="fd">Brewhouse exterior</p></div></div>
+            <div class="frame topo" role="img" aria-label="River and falls context"><div><p class="ft">Exhibit</p><p class="fd">River &amp; falls context</p></div></div>
+            <div class="frame topo" role="img" aria-label="Plan excerpt"><div><p class="ft">Exhibit</p><p class="fd">Plan excerpt</p></div></div>
+          </div>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="reveal pp-sec" id="pp-2">
+          <p class="eyebrow">Section 2</p>
+          <h2>What has already been done</h2>
+          <p class="lead">One of the strongest aspects of this assignment is that the property is not starting from zero. The materials include conceptual design by GCH Architecture, civil due diligence by KPFF, and market analysis by the Concord Group — more structure than a typical historic redevelopment conversation.</p>
+          <p class="measure sub" style="margin-top:18px;">That matters because the property can be discussed as a site with a documented redevelopment framework rather than a purely speculative vision. For brokerage, leasing, and strategic representation, that is a meaningful difference.</p>
+          <div class="grid grid-3" style="margin-top:28px;">
+            <div class="card"><h4>Conceptual design</h4><p>Prepared by GCH Architecture — program, plans, and building-by-building reuse across the existing structures.</p></div>
+            <div class="card"><h4>Civil due diligence</h4><p>Prepared by KPFF — access, utilities, critical areas, flood, and environmental condition.</p></div>
+            <div class="card"><h4>Market analysis</h4><p>Prepared by the Concord Group — competitive lodging supply, demand, and boutique supportability.</p></div>
+          </div>
+          <p class="measure sub" style="margin-top:24px;">Together, the existing studies create a credible starting point for further pursuit.</p>
+          <!-- IMAGE: three-part graphic — concept plan, civil exhibit, market graphic -->
+          <div class="frame wide topo" style="margin-top:24px;" role="img" aria-label="Concept, civil, and market exhibits shown together">
+            <div><p class="ft">Exhibit · Three-part</p><p class="fd">A concept plan, a civil exhibit, and a market graphic shown together.</p></div>
+          </div>
+        </section>
+
+        <!-- Section 3 -->
+        <section class="reveal pp-sec" id="pp-3">
+          <p class="eyebrow">Section 3</p>
+          <h2>Hospitality is the clearest lead concept</h2>
+          <p class="lead">The hospitality concept is one of the clearest ways to explain the site: it translates the property's historic character and riverfront setting into a specific, legible business program. The current concept includes a 72-key boutique hotel, a 26,185-square-foot event center, a 15,540-square-foot wellness center, food and beverage uses, and a 298-stall parking structure.</p>
+          <p class="measure sub" style="margin-top:18px;">The key point is that this is not framed as a standard hotel project, but as a destination-oriented hospitality environment with several reinforcing revenue components.</p>
+          <div class="metrics" style="margin-top:28px;">
+            <div class="metric"><div class="num">72</div><div class="lbl">key boutique hotel</div></div>
+            <div class="metric"><div class="num">26,185</div><div class="lbl">SF event center</div></div>
+            <div class="metric"><div class="num">15,540</div><div class="lbl">SF wellness component</div></div>
+            <div class="metric"><div class="num">298</div><div class="lbl">structured parking stalls</div></div>
+          </div>
+          <p class="form-note" style="margin-top:16px;">Food and beverage is integrated into the concept rather than treated as a separate use.</p>
+          <!-- IMAGE: Concept D1 site plan or labeled building-program diagram -->
+          <div class="frame wide topo" style="margin-top:24px;" role="img" aria-label="Concept D1 site plan or labeled building-program diagram">
+            <div><p class="ft">Exhibit · Concept D1</p><p class="fd">Concept D1 site plan or labeled building-program diagram.</p></div>
+          </div>
+        </section>
+
+        <!-- Section 4 -->
+        <section class="reveal pp-sec" id="pp-4">
+          <p class="eyebrow">Section 4</p>
+          <h2>Why the market angle matters</h2>
+          <p class="lead">The market story is based more on differentiation than on simple growth language. The materials describe roughly 1,700 hotel rooms in the competitive market area, note that the inventory skews older and more midscale/economy, and state that no heritage boutique or destination-resort comparable currently operates in the market.</p>
+          <p class="measure sub" style="margin-top:18px;">That explains why the site is positioned around scarcity and product gap rather than demand volume alone: it may support a lodging concept the local market does not currently offer.</p>
+          <div class="metrics" style="margin-top:28px;">
+            <div class="metric"><div class="num">~1,700</div><div class="lbl">rooms in the competitive market area</div></div>
+            <div class="metric"><div class="num">~20 yr</div><div class="lbl">average competitive property age</div></div>
+            <div class="metric"><div class="num">None</div><div class="lbl">heritage boutique / destination-resort comparable</div></div>
+          </div>
+          <ul class="points">
+            <li>Current study indicates boutique demand supportability</li>
+            <li>Market assumptions should still be refreshed during active diligence</li>
+          </ul>
+          <!-- IMAGE: market map or destination-resort comparison graphic -->
+          <div class="frame wide topo" style="margin-top:24px;" role="img" aria-label="Market map or destination-resort comparison graphic">
+            <div><p class="ft">Exhibit · Market</p><p class="fd">Market map or destination-resort comparison graphic from the offering materials.</p></div>
+          </div>
+        </section>
+
+        <!-- Section 5 -->
+        <section class="reveal pp-sec" id="pp-5">
+          <p class="eyebrow">Section 5</p>
+          <h2>The main constraints are already visible</h2>
+          <div class="grid grid-2" style="align-items:start; margin-top:8px;">
+            <div>
+              <p class="measure">This site is compelling, but it is not simple. The existing due-diligence record already identifies the core issues that matter most — access-road geometry, flood conditions, critical-area overlays, environmental conditions, and utility requirements.</p>
+              <p class="measure sub" style="margin-top:16px;">That is part of why the site reads as more credible than a typical redevelopment teaser: the central issues are already visible, organized, and documented.</p>
+            </div>
+            <!-- IMAGE: KPFF constraints diagram or utilities overlay -->
+            <div class="frame topo" role="img" aria-label="KPFF constraints diagram or utilities overlay"><div><p class="ft">Exhibit · KPFF</p><p class="fd">Constraints diagram or utilities overlay.</p></div></div>
+          </div>
+          <ul class="points">
+            <li>Boston Street access requires coordination and possible widening</li>
+            <li>Portions of the site lie in FEMA Zone AE</li>
+            <li>Riparian, wetland, and slope constraints are documented</li>
+            <li>Soil and groundwater contamination require more study</li>
+            <li>Water, sewer, gas, and three-phase power are present, with identified fire-flow upgrades</li>
+          </ul>
+        </section>
+
+        <!-- Section 6 -->
+        <section class="reveal pp-sec" id="pp-6">
+          <p class="eyebrow">Section 6</p>
+          <h2>Why timing is part of the opportunity</h2>
+          <p class="lead">The site is also framed around timing, not just location and architecture. The materials note that the Washington Department of Enterprise Services selected the estuary restoration alternative in the final EIS, and that this is projected to lower the base flood elevation in extreme river-flood events over time.</p>
+          <p class="measure sub" style="margin-top:18px;">Related infrastructure work is already documented, including Custer Way frontage work and an earlier upgrade to the sanitary lift station serving the property. Together, these help explain why the site is discussed as part of a changing public and environmental context rather than a static legacy property.</p>
+          <ul class="points">
+            <li>Estuary restoration selected in the final EIS</li>
+            <li>Lower flood elevation projected over time in extreme river-flood events</li>
+            <li>Custer Way frontage work identified in the site materials</li>
+            <li>On-site sewer lift station previously upgraded</li>
+          </ul>
+          <!-- IMAGE: estuary / riverfront context map or South Basin relationship graphic -->
+          <div class="frame wide topo" style="margin-top:24px;" role="img" aria-label="Estuary and riverfront context map">
+            <div><p class="ft">Exhibit · Estuary</p><p class="fd">Estuary / riverfront context map or South Basin relationship graphic.</p></div>
+          </div>
+        </section>
+
+        <!-- Section 7 -->
+        <section class="reveal pp-sec" id="pp-7">
+          <p class="eyebrow">Section 7</p>
+          <h2>What to take away from this opportunity</h2>
+          <p class="lead">The core takeaway is that this is a differentiated site with real upside, real complexity, and more pre-development work behind it than most comparable assignments. The historic setting is genuine, the redevelopment options are multiple, and the early work needed to frame the opportunity has already been done.</p>
+          <p class="measure sub" style="margin-top:18px;">A serious look would likely focus first on updated market assumptions, site-control details, environmental scope, city coordination, and the best-fit path for the concept being pursued. That is where the next level of real evaluation begins.</p>
+          <ul class="points">
+            <li>Landmark site with multiple possible redevelopment paths</li>
+            <li>Existing studies strengthen credibility</li>
+            <li>Constraints are significant, but they are not hidden</li>
+            <li>Hospitality is the clearest lead story today</li>
+            <li>Differentiated and already somewhat defined — which is why it merits attention</li>
+          </ul>
+          <!-- IMAGE: signature exterior image of the brewhouse / strong closing hero -->
+          <div class="frame wide topo" style="margin-top:24px;" role="img" aria-label="Signature exterior image of the brewhouse">
+            <div><p class="ft">Exhibit · Closing</p><p class="fd">Signature exterior image of the brewhouse, or a strong closing hero image.</p></div>
+          </div>
+          <div style="margin-top:36px; display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn btn-primary btn-arrow" data-route="contact">Request the offering materials</button>
+            <button class="btn btn-ghost" data-route="site">View property details</button>
+          </div>
+        </section>
+
+      </div>
 
       <!-- ============ HOME ============ -->
       <div class="page" id="page-home">
@@ -1186,6 +1369,13 @@ var RAILS = {
     primary:['contact','Request information'], secondary:['site','View property details'],
     foot:'Presented by AGM Real Estate Group to qualified parties under confidentiality.'
   },
+  'presentation': {
+    eyebrow:'Presentation', title:'Opportunity overview.',
+    pos:'A sectioned briefing on the former Olympia Brewery — what stands out, what has been studied, and where the main constraints lie.',
+    glance:[['Assemblage','34.182 acres'],['Heritage','1906 brewhouse'],['Lead concept','Hospitality'],['Materials','Design · civil · market'],['Status','Confidential offering']],
+    primary:['contact','Request the offering materials'], secondary:['site','View property details'],
+    foot:'A summary briefing. Program per GCH (2022–23); civil per KPFF (2024); market per the Concord Group.'
+  },
   'use-resort': {
     eyebrow:'Resort & Hotel Development', title:'A destination hotel, differentiated by place.',
     pos:'A landmark 1906 setting at the falls of the Deschutes, with a studied program spanning hotel, events, wellness, and structured parking.',
@@ -1273,9 +1463,10 @@ function renderRail(route){
 /* ============================================================
    Router
    ============================================================ */
-var ROUTES = ['home','use-resort','use-club','use-tribal','use-investors','history','site','news','contact'];
+var ROUTES = ['home','presentation','use-resort','use-club','use-tribal','use-investors','history','site','news','contact'];
 var TITLES = {
   'home':'The Former Olympia Brewery — AGM Real Estate Group',
+  'presentation':'Opportunity Overview — The Former Olympia Brewery',
   'use-resort':'Resort & Hotel Development — The Former Olympia Brewery',
   'use-club':'Membership & Lifestyle Clubs — The Former Olympia Brewery',
   'use-tribal':'Tribal Nations — The Former Olympia Brewery',
@@ -1527,6 +1718,29 @@ document.addEventListener('click', function(e){
   var t = e.target.closest('[data-cta="site-visit"]');
   if (t){ setTimeout(function(){ var r = document.getElementById('f-req'); if (r) r.value = 'Arrange a site visit'; }, 60); }
 });
+
+/* presentation page: in-page section index */
+document.addEventListener('click', function(e){
+  var s = e.target.closest('.subnav button[data-scroll]');
+  if (s){
+    var el = document.getElementById(s.getAttribute('data-scroll'));
+    if (el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); track('pp_section', {section:s.getAttribute('data-scroll')}); }
+  }
+});
+(function(){
+  var spy = document.querySelectorAll('#page-presentation .pp-sec');
+  var navbtns = document.querySelectorAll('.subnav button[data-scroll]');
+  if (!spy.length || !('IntersectionObserver' in window)) return;
+  var so = new IntersectionObserver(function(ents){
+    ents.forEach(function(en){
+      if (en.isIntersecting){
+        var id = en.target.id;
+        navbtns.forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-scroll')===id); });
+      }
+    });
+  }, {rootMargin:'-128px 0px -65% 0px', threshold:0});
+  spy.forEach(function(s){ so.observe(s); });
+})();
 
 /* init */
 showRoute(currentRoute());
