@@ -209,6 +209,9 @@ ul{margin:0; padding:0; list-style:none;}
 .subnav button.active{background:var(--accent); border-color:var(--accent); color:#fff;}
 .pp-sec{scroll-margin-top:128px;}
 .subnav + .pp-sec{padding-top:40px;}
+.pp-cell{padding:22px 24px; display:flex; gap:13px; align-items:flex-start;}
+.pp-cell::before{content:""; flex:0 0 auto; width:6px; height:6px; margin-top:7px; border-radius:50%; background:var(--accent);}
+.pp-cell p{margin:0; color:var(--text-2); font-size:14px; line-height:1.55;}
 
 /* point list */
 .points{border-top:1px solid var(--border-soft);}
@@ -458,12 +461,12 @@ ul{margin:0; padding:0; list-style:none;}
           <h2>Former Olympia Brewery — Tumwater, Washington</h2>
           <p class="lead">The Former Olympia Brewery is a 34.182-acre riverfront assemblage in Tumwater, centered on the 1906 brewhouse and four additional historic structures.</p>
           <p class="measure sub" style="margin-top:18px;">AGM is positioning it as a differentiated redevelopment opportunity: the site combines landmark identity, riverfront context, completed concept work, and a more advanced pre-development record than a typical off-market assignment.</p>
-          <ul class="points">
-            <li>34.182-acre assemblage</li>
-            <li>Historic core anchored by the 1906 brewhouse</li>
-            <li>Four additional historic structures support the broader redevelopment story</li>
-            <li>Confidential offering with design, market, and civil materials already assembled</li>
-          </ul>
+          <div class="grid grid-2" style="margin-top:24px;">
+            <div class="card pp-cell"><p>34.182-acre assemblage</p></div>
+            <div class="card pp-cell"><p>Historic core anchored by the 1906 brewhouse</p></div>
+            <div class="card pp-cell"><p>Four additional historic structures support the broader redevelopment story</p></div>
+            <div class="card pp-cell"><p>Confidential offering with design, market, and civil materials already assembled</p></div>
+          </div>
           <!-- IMAGE: best full-site hero showing the 1906 brewhouse and broader site context -->
           <div class="frame wide topo" style="margin-top:32px;" role="img" aria-label="Full-site hero image of the 1906 brewhouse and broader site context">
             <div><p class="ft">Exhibit · Site hero</p><p class="fd">Best full-site image showing the brewhouse and the broader site context.</p></div>
@@ -487,12 +490,12 @@ ul{margin:0; padding:0; list-style:none;}
           <h2>Why this site is getting attention</h2>
           <p class="lead">This is not a standard land listing, and it should not be understood that way. What stands out is the combination of historic building fabric, adjacency to Tumwater Falls and the Deschutes River corridor, and the fact that the existing materials already support multiple credible redevelopment paths.</p>
           <p class="measure sub" style="margin-top:18px;">The site is framed through several use-case lenses because different groups evaluate it through different priorities. Hospitality is currently the clearest lead story, but the broader offering also supports membership/lifestyle, tribal, and investor interpretations.</p>
-          <ul class="points">
-            <li>Landmark setting rather than commodity real estate</li>
-            <li>Riverfront and falls adjacency strengthen place identity</li>
-            <li>Existing studies support more than one use-case narrative</li>
-            <li>Opportunity can be understood through multiple acquisition lenses</li>
-          </ul>
+          <div class="grid grid-2" style="margin-top:24px;">
+            <div class="card pp-cell"><p>Landmark setting rather than commodity real estate</p></div>
+            <div class="card pp-cell"><p>Riverfront and falls adjacency strengthen place identity</p></div>
+            <div class="card pp-cell"><p>Existing studies support more than one use-case narrative</p></div>
+            <div class="card pp-cell"><p>Opportunity can be understood through multiple acquisition lenses</p></div>
+          </div>
           <!-- IMAGE: collage — brewhouse exterior, river/falls context, plan excerpt -->
           <div class="grid grid-3" style="margin-top:32px;">
             <div class="frame topo" role="img" aria-label="Brewhouse exterior"><div><p class="ft">Exhibit</p><p class="fd">Brewhouse exterior</p></div></div>
@@ -549,10 +552,10 @@ ul{margin:0; padding:0; list-style:none;}
             <div class="metric"><div class="num">~20 yr</div><div class="lbl">average competitive property age</div></div>
             <div class="metric"><div class="num">None</div><div class="lbl">heritage boutique / destination-resort comparable</div></div>
           </div>
-          <ul class="points">
-            <li>Current study indicates boutique demand supportability</li>
-            <li>Market assumptions should still be refreshed during active diligence</li>
-          </ul>
+          <div class="grid grid-2" style="margin-top:24px;">
+            <div class="card pp-cell"><p>Current study indicates boutique demand supportability</p></div>
+            <div class="card pp-cell"><p>Market assumptions should still be refreshed during active diligence</p></div>
+          </div>
           <!-- IMAGE: market map or destination-resort comparison graphic -->
           <div class="frame wide topo" style="margin-top:24px;" role="img" aria-label="Market map or destination-resort comparison graphic">
             <div><p class="ft">Exhibit · Market</p><p class="fd">Market map or destination-resort comparison graphic from the offering materials.</p></div>
@@ -571,13 +574,13 @@ ul{margin:0; padding:0; list-style:none;}
             <!-- IMAGE: KPFF constraints diagram or utilities overlay -->
             <div class="frame topo" role="img" aria-label="KPFF constraints diagram or utilities overlay"><div><p class="ft">Exhibit · KPFF</p><p class="fd">Constraints diagram or utilities overlay.</p></div></div>
           </div>
-          <ul class="points">
-            <li>Boston Street access requires coordination and possible widening</li>
-            <li>Portions of the site lie in FEMA Zone AE</li>
-            <li>Riparian, wetland, and slope constraints are documented</li>
-            <li>Soil and groundwater contamination require more study</li>
-            <li>Water, sewer, gas, and three-phase power are present, with identified fire-flow upgrades</li>
-          </ul>
+          <div class="grid grid-2" style="margin-top:24px;">
+            <div class="card pp-cell"><p>Boston Street access requires coordination and possible widening</p></div>
+            <div class="card pp-cell"><p>Portions of the site lie in FEMA Zone AE</p></div>
+            <div class="card pp-cell"><p>Riparian, wetland, and slope constraints are documented</p></div>
+            <div class="card pp-cell"><p>Soil and groundwater contamination require more study</p></div>
+            <div class="card pp-cell"><p>Water, sewer, gas, and three-phase power are present, with identified fire-flow upgrades</p></div>
+          </div>
         </section>
 
         <!-- Section 6 -->
@@ -586,12 +589,12 @@ ul{margin:0; padding:0; list-style:none;}
           <h2>Why timing is part of the opportunity</h2>
           <p class="lead">The site is also framed around timing, not just location and architecture. The materials note that the Washington Department of Enterprise Services selected the estuary restoration alternative in the final EIS, and that this is projected to lower the base flood elevation in extreme river-flood events over time.</p>
           <p class="measure sub" style="margin-top:18px;">Related infrastructure work is already documented, including Custer Way frontage work and an earlier upgrade to the sanitary lift station serving the property. Together, these help explain why the site is discussed as part of a changing public and environmental context rather than a static legacy property.</p>
-          <ul class="points">
-            <li>Estuary restoration selected in the final EIS</li>
-            <li>Lower flood elevation projected over time in extreme river-flood events</li>
-            <li>Custer Way frontage work identified in the site materials</li>
-            <li>On-site sewer lift station previously upgraded</li>
-          </ul>
+          <div class="grid grid-2" style="margin-top:24px;">
+            <div class="card pp-cell"><p>Estuary restoration selected in the final EIS</p></div>
+            <div class="card pp-cell"><p>Lower flood elevation projected over time in extreme river-flood events</p></div>
+            <div class="card pp-cell"><p>Custer Way frontage work identified in the site materials</p></div>
+            <div class="card pp-cell"><p>On-site sewer lift station previously upgraded</p></div>
+          </div>
           <!-- IMAGE: estuary / riverfront context map or South Basin relationship graphic -->
           <div class="frame wide topo" style="margin-top:24px;" role="img" aria-label="Estuary and riverfront context map">
             <div><p class="ft">Exhibit · Estuary</p><p class="fd">Estuary / riverfront context map or South Basin relationship graphic.</p></div>
@@ -604,13 +607,13 @@ ul{margin:0; padding:0; list-style:none;}
           <h2>What to take away from this opportunity</h2>
           <p class="lead">The core takeaway is that this is a differentiated site with real upside, real complexity, and more pre-development work behind it than most comparable assignments. The historic setting is genuine, the redevelopment options are multiple, and the early work needed to frame the opportunity has already been done.</p>
           <p class="measure sub" style="margin-top:18px;">A serious look would likely focus first on updated market assumptions, site-control details, environmental scope, city coordination, and the best-fit path for the concept being pursued. That is where the next level of real evaluation begins.</p>
-          <ul class="points">
-            <li>Landmark site with multiple possible redevelopment paths</li>
-            <li>Existing studies strengthen credibility</li>
-            <li>Constraints are significant, but they are not hidden</li>
-            <li>Hospitality is the clearest lead story today</li>
-            <li>Differentiated and already somewhat defined — which is why it merits attention</li>
-          </ul>
+          <div class="grid grid-2" style="margin-top:24px;">
+            <div class="card pp-cell"><p>Landmark site with multiple possible redevelopment paths</p></div>
+            <div class="card pp-cell"><p>Existing studies strengthen credibility</p></div>
+            <div class="card pp-cell"><p>Constraints are significant, but they are not hidden</p></div>
+            <div class="card pp-cell"><p>Hospitality is the clearest lead story today</p></div>
+            <div class="card pp-cell"><p>Differentiated and already somewhat defined — which is why it merits attention</p></div>
+          </div>
           <!-- IMAGE: signature exterior image of the brewhouse / strong closing hero -->
           <div class="frame wide topo" style="margin-top:24px;" role="img" aria-label="Signature exterior image of the brewhouse">
             <div><p class="ft">Exhibit · Closing</p><p class="fd">Signature exterior image of the brewhouse, or a strong closing hero image.</p></div>
