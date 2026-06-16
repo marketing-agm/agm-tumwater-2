@@ -425,6 +425,7 @@ ul{margin:0; padding:0; list-style:none;}
     <nav class="nav-links" id="navlinks" aria-label="Primary">
       <button class="nav-link" data-route="home">Home</button>
       <button class="nav-link" data-route="presentation">Presentation</button>
+      <button class="nav-link" data-route="presentation-2">Presentation 2</button>
       <div class="dropdown">
         <button class="nav-link" aria-haspopup="true">Use Cases ▾</button>
         <div class="dropdown-menu">
@@ -670,6 +671,81 @@ ul{margin:0; padding:0; list-style:none;}
             <button class="btn btn-primary btn-arrow" data-route="contact">Request the offering materials</button>
             <button class="btn btn-ghost" data-route="site">View property details</button>
           </div>
+        </section>
+
+      </div>
+
+      <!-- ============ PRESENTATION 2 ============ -->
+      <div class="page" id="page-presentation-2">
+
+        <!-- Section index — chips begin at the top of the page -->
+        <nav class="subnav" aria-label="Section index">
+          <button data-scroll="p2-overview">Offering Overview</button>
+          <button data-scroll="p2-history">Site History</button>
+          <button data-scroll="p2-property">Property Overview</button>
+          <button data-scroll="p2-econ">Economic Development Alignment</button>
+          <button data-scroll="p2-vision">Development Vision</button>
+          <button data-scroll="p2-market">Market Overview</button>
+        </nav>
+
+        <!-- Offering Overview -->
+        <section class="reveal pp-sec" id="p2-overview">
+          <p class="eyebrow">Offering overview</p>
+          <h2>Offering Overview</h2>
+          <!-- TODO: content to be added in a future prompt -->
+        </section>
+
+        <!-- Site History -->
+        <section class="reveal pp-sec" id="p2-history">
+          <p class="eyebrow">Site history</p>
+          <h2>Site History</h2>
+          <!-- TODO: content to be added in a future prompt -->
+        </section>
+
+        <!-- Property Overview -->
+        <section class="reveal pp-sec" id="p2-property">
+          <p class="eyebrow">Property overview</p>
+          <h2>Property Overview</h2>
+          <!-- TODO: section intro to be added in a future prompt -->
+
+          <!-- Property Overview › Site Maps & Visual Orientation -->
+          <div class="reveal pp-sub" id="p2-property-maps" style="margin-top:36px;">
+            <h3>Site Maps &amp; Visual Orientation</h3>
+            <!-- TODO: content to be added in a future prompt -->
+          </div>
+
+          <!-- Property Overview › Existing Conditions -->
+          <div class="reveal pp-sub" id="p2-property-conditions" style="margin-top:36px;">
+            <h3>Existing Conditions</h3>
+            <!-- TODO: content to be added in a future prompt -->
+          </div>
+
+          <!-- Property Overview › Zoning -->
+          <div class="reveal pp-sub" id="p2-property-zoning" style="margin-top:36px;">
+            <h3>Zoning</h3>
+            <!-- TODO: content to be added in a future prompt -->
+          </div>
+        </section>
+
+        <!-- Economic Development Alignment -->
+        <section class="reveal pp-sec" id="p2-econ">
+          <p class="eyebrow">Economic development alignment</p>
+          <h2>Economic Development Alignment</h2>
+          <!-- TODO: content to be added in a future prompt -->
+        </section>
+
+        <!-- Development Vision / Conceptual Plan -->
+        <section class="reveal pp-sec" id="p2-vision">
+          <p class="eyebrow">Development vision</p>
+          <h2>Development Vision / Conceptual Plan</h2>
+          <!-- TODO: content to be added in a future prompt -->
+        </section>
+
+        <!-- Market Overview -->
+        <section class="reveal pp-sec" id="p2-market">
+          <p class="eyebrow">Market overview</p>
+          <h2>Market Overview</h2>
+          <!-- TODO: content to be added in a future prompt -->
         </section>
 
       </div>
@@ -1427,6 +1503,13 @@ var RAILS = {
     primary:['contact','Request the offering materials'], secondary:['site','View property details'],
     foot:'A summary briefing. Program per GCH (2022–23); civil per KPFF (2024); market per the Concord Group.'
   },
+  'presentation-2': {
+    eyebrow:'Presentation', title:'Offering overview.',
+    pos:'A structured walkthrough of the former Olympia Brewery offering — site history, property overview, economic development alignment, development vision, and market.',
+    glance:[['Assemblage','34.182 acres'],['Heritage','1906 brewhouse'],['Lead concept','Hospitality'],['Materials','Design · civil · market'],['Status','Confidential offering']],
+    primary:['contact','Request the offering materials'], secondary:['site','View property details'],
+    foot:'A summary briefing. Program per GCH (2022–23); civil per KPFF (2024); market per the Concord Group.'
+  },
   'use-resort': {
     eyebrow:'Resort & Hotel Development', title:'A destination hotel, differentiated by place.',
     pos:'A landmark 1906 setting at the falls of the Deschutes, with a studied program spanning hotel, events, wellness, and structured parking.',
@@ -1514,10 +1597,11 @@ function renderRail(route){
 /* ============================================================
    Router
    ============================================================ */
-var ROUTES = ['home','presentation','use-resort','use-club','use-tribal','use-investors','history','site','news','contact'];
+var ROUTES = ['home','presentation','presentation-2','use-resort','use-club','use-tribal','use-investors','history','site','news','contact'];
 var TITLES = {
   'home':'The Former Olympia Brewery — AGM Real Estate Group',
   'presentation':'Opportunity Overview — The Former Olympia Brewery',
+  'presentation-2':'Offering Overview — The Former Olympia Brewery',
   'use-resort':'Resort & Hotel Development — The Former Olympia Brewery',
   'use-club':'Membership & Lifestyle Clubs — The Former Olympia Brewery',
   'use-tribal':'Tribal Nations — The Former Olympia Brewery',
@@ -1779,18 +1863,21 @@ document.addEventListener('click', function(e){
   }
 });
 (function(){
-  var spy = document.querySelectorAll('#page-presentation .pp-sec');
-  var navbtns = document.querySelectorAll('.subnav button[data-scroll]');
-  if (!spy.length || !('IntersectionObserver' in window)) return;
-  var so = new IntersectionObserver(function(ents){
-    ents.forEach(function(en){
-      if (en.isIntersecting){
-        var id = en.target.id;
-        navbtns.forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-scroll')===id); });
-      }
-    });
-  }, {rootMargin:'-128px 0px -65% 0px', threshold:0});
-  spy.forEach(function(s){ so.observe(s); });
+  if (!('IntersectionObserver' in window)) return;
+  document.querySelectorAll('.page').forEach(function(page){
+    var spy = page.querySelectorAll('.pp-sec');
+    var navbtns = page.querySelectorAll('.subnav button[data-scroll]');
+    if (!spy.length) return;
+    var so = new IntersectionObserver(function(ents){
+      ents.forEach(function(en){
+        if (en.isIntersecting){
+          var id = en.target.id;
+          navbtns.forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-scroll')===id); });
+        }
+      });
+    }, {rootMargin:'-128px 0px -65% 0px', threshold:0});
+    spy.forEach(function(s){ so.observe(s); });
+  });
 })();
 
 /* init */
