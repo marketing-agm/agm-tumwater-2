@@ -456,6 +456,43 @@ ul{margin:0; padding:0; list-style:none;}
 .tlmodal-close{position:absolute; top:12px; right:12px; width:34px; height:34px; border-radius:50%; border:none; background:var(--surface); color:var(--text); font-size:22px; line-height:1; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,.15); z-index:1;}
 .tlmodal-close:hover{background:var(--surface-2);}
 @media(max-width:560px){.tl-card{flex-basis:240px; width:240px;} .tlmodal-photo{height:220px;}}
+
+/* ============================================================
+   INTERACTIVE FLOOR PLAN + BUILDING CARDS
+   ============================================================ */
+.fp-wrap{position:relative; border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; background:var(--surface);}
+.fp-wrap img{display:block; width:100%; height:auto;}
+.fp-pin{position:absolute; transform:translate(-50%,-50%); width:30px; height:30px; border-radius:50%; border:2px solid #fff; background:var(--accent); color:#fff; font-family:var(--serif); font-weight:700; font-size:13px; cursor:pointer; box-shadow:0 2px 10px rgba(0,0,0,.32); display:flex; align-items:center; justify-content:center; transition:transform .15s var(--ease), background .15s var(--ease); z-index:2;}
+.fp-pin::after{content:''; position:absolute; inset:-7px; border-radius:50%; border:2px solid var(--accent); opacity:.5; animation:fppulse 2.4s var(--ease) infinite;}
+@keyframes fppulse{0%{transform:scale(.7); opacity:.55;}70%{transform:scale(1.5); opacity:0;}100%{opacity:0;}}
+.fp-pin:hover,.fp-pin:focus-visible{transform:translate(-50%,-50%) scale(1.18); background:var(--accent-hover); outline:none;}
+.fp-lbl{position:absolute; bottom:135%; left:50%; transform:translateX(-50%); white-space:nowrap; background:var(--text); color:var(--bg); font-family:var(--sans); font-size:11px; font-weight:600; padding:4px 9px; border-radius:4px; opacity:0; pointer-events:none; transition:opacity .15s;}
+.fp-pin:hover .fp-lbl,.fp-pin:focus-visible .fp-lbl{opacity:1;}
+@media(prefers-reduced-motion:reduce){.fp-pin::after{animation:none;}}
+.bldg-row{display:grid; grid-template-columns:repeat(5,1fr); gap:16px;}
+.bldg-card{text-align:left; cursor:pointer; font-family:inherit; color:inherit; padding:22px; position:relative; transition:border-color .15s var(--ease), transform .15s var(--ease), box-shadow .15s var(--ease);}
+.bldg-card:hover,.bldg-card:focus-visible{border-color:var(--accent); transform:translateY(-3px); box-shadow:0 10px 24px rgba(0,0,0,.06); outline:none;}
+.bldg-card .bldg-n{font-family:var(--serif); font-weight:700; color:var(--accent); font-size:13px;}
+.bldg-card h4{margin:6px 0 8px;}
+.bldg-card p{font-size:12.5px; color:var(--text-3); line-height:1.5; margin:0;}
+@media(max-width:980px){.bldg-row{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.bldg-row{grid-template-columns:1fr;}}
+.bmodal{position:fixed; inset:0; background:rgba(12,9,8,.62); display:none; align-items:center; justify-content:center; z-index:200; padding:24px;}
+.bmodal.open{display:flex;}
+.bmodal-box{background:var(--surface); border:1px solid var(--border); border-radius:8px; max-width:900px; width:100%; max-height:90vh; overflow:auto; position:relative; box-shadow:0 30px 80px rgba(0,0,0,.35);}
+.bmodal-grid{display:grid; grid-template-columns:1fr 1fr;}
+.bmodal-photo{background:var(--surface-2); border-right:1px solid var(--border-soft); min-height:340px; display:flex; align-items:center; justify-content:center; text-align:center; padding:18px; color:var(--faint); font-size:12px; letter-spacing:.04em; text-transform:uppercase;}
+.bmodal-body{padding:34px 36px 36px;}
+.bmodal-era{font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:.06em; color:var(--accent); margin:0 0 8px;}
+.bmodal-body h3{font-size:22px; margin:0 0 14px;}
+.bmodal-body > p:nth-of-type(2){font-size:15px; line-height:1.65; color:var(--text-2);}
+.bmodal-rolelbl{font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--text-3); font-weight:600; margin:22px 0 12px;}
+.bmodal-roles{list-style:none; margin:0; padding:0;}
+.bmodal-roles li{position:relative; padding-left:18px; margin-bottom:10px; font-size:13.5px; color:var(--text-2); line-height:1.5;}
+.bmodal-roles li::before{content:''; position:absolute; left:0; top:8px; width:6px; height:6px; border-radius:50%; background:var(--accent);}
+.bmodal-close{position:absolute; top:12px; right:12px; width:34px; height:34px; border-radius:50%; border:none; background:var(--surface); color:var(--text); font-size:22px; line-height:1; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,.15); z-index:1;}
+.bmodal-close:hover{background:var(--surface-2);}
+@media(max-width:680px){.bmodal-grid{grid-template-columns:1fr;} .bmodal-photo{border-right:none; border-bottom:1px solid var(--border-soft); min-height:200px;}}
 </style>
 </head>
 <body>
@@ -644,15 +681,21 @@ ul{margin:0; padding:0; list-style:none;}
             </button>
           </div>
           <p class="eyebrow" style="margin-top:30px;">Building Identity</p>
-          <div class="grid grid-2" style="margin-top:12px;">
-            <div class="frame topo" role="img" aria-label="Bird's-eye view of the brewery campus"><div><p class="ft">Image · Bird's-eye view</p><p class="fd">Aerial of the five-building campus (to be added).</p></div></div>
-            <div>
-              <div class="card" style="margin-bottom:10px;"><h4>Brewhouse</h4><p>Six-story 1906 landmark; the campus’s visual anchor.</p></div>
-              <div class="card" style="margin-bottom:10px;"><h4>Cellar</h4><p>Five-story masonry building suited to lodging.</p></div>
-              <div class="card" style="margin-bottom:10px;"><h4>Keg House</h4><p>Two-story building suited to wellness uses.</p></div>
-              <div class="card" style="margin-bottom:10px;"><h4>Warehouse</h4><p>Large-floorplate building for retail and events.</p></div>
-              <div class="card"><h4>North Storage</h4><p>Ancillary structure at the plaza edge.</p></div>
-            </div>
+          <p class="sub" style="margin:0 0 14px;">Five historic structures across the campus. Select a marker on the plan, or a building below, to read its character and strategic role.</p>
+          <div class="fp-wrap" id="fpWrap">
+            <img src="images/tb-2d-as-built-floor-plan.png" alt="As-built site plan of the five-building Olympia Brewery campus" />
+            <button class="fp-pin" data-bldg="brewhouse" style="left:16%; top:31%;">1<span class="fp-lbl">Brewhouse</span></button>
+            <button class="fp-pin" data-bldg="northstorage" style="left:40%; top:27%;">5<span class="fp-lbl">North Storage</span></button>
+            <button class="fp-pin" data-bldg="keghouse" style="left:87%; top:42%;">3<span class="fp-lbl">Keg House</span></button>
+            <button class="fp-pin" data-bldg="cellar" style="left:16%; top:67%;">2<span class="fp-lbl">Cellar</span></button>
+            <button class="fp-pin" data-bldg="warehouse" style="left:54%; top:67%;">4<span class="fp-lbl">Warehouse</span></button>
+          </div>
+          <div class="bldg-row" style="margin-top:18px;">
+            <button class="card bldg-card" data-bldg="brewhouse"><span class="bldg-n">1</span><h4>Brewhouse</h4><p>City-owned six-story landmark; public focal point.</p></button>
+            <button class="card bldg-card" data-bldg="cellar"><span class="bldg-n">2</span><h4>Cellar</h4><p>Five-story riverfront building suited to lodging.</p></button>
+            <button class="card bldg-card" data-bldg="keghouse"><span class="bldg-n">3</span><h4>Keg House</h4><p>Concrete building suited to wellness.</p></button>
+            <button class="card bldg-card" data-bldg="warehouse"><span class="bldg-n">4</span><h4>Warehouse</h4><p>Clear-span upper level for events; retail below.</p></button>
+            <button class="card bldg-card" data-bldg="northstorage"><span class="bldg-n">5</span><h4>North Storage</h4><p>Open, daylit building framing the courtyard.</p></button>
           </div>
         </section>
 
@@ -2788,6 +2831,23 @@ ul{margin:0; padding:0; list-style:none;}
   </div>
 </div>
 
+<!-- ===================== BUILDING MODAL ===================== -->
+<div class="bmodal" id="bldgModal" role="dialog" aria-modal="true" aria-label="Building detail">
+  <div class="bmodal-box">
+    <button class="bmodal-close" id="bldgClose" aria-label="Close">×</button>
+    <div class="bmodal-grid">
+      <div class="bmodal-photo" id="bmPhoto"></div>
+      <div class="bmodal-body">
+        <p class="bmodal-era" id="bmEra"></p>
+        <h3 id="bmTitle"></h3>
+        <p id="bmIntro"></p>
+        <p class="bmodal-rolelbl">Strategic role</p>
+        <ul class="bmodal-roles" id="bmRole"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
 /* ============================================================
    Analytics stub — named events per brief §6/§8
@@ -3150,6 +3210,48 @@ lightbox.addEventListener('click', function(e){ if(e.target===lightbox) closeLig
     if (e.target === modal || e.target.closest('#tlClose')) closeTL();
   });
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeTL(); });
+})();
+
+/* ============================================================
+   Building identity modal (floor-plan hotspots + cards)
+   ============================================================ */
+(function(){
+  var modal = document.getElementById('bldgModal');
+  if (!modal) return;
+  var BLD = {
+    brewhouse:{era:'City-owned · 6 stories', title:'The Brewhouse', photo:'Photo · Brewhouse interior',
+      intro:'A six-story unreinforced-masonry landmark owned by the City of Tumwater, currently undergoing stabilization and masonry restoration.',
+      roles:['The most identifiable, visually prominent structure on the site','A publicly accessible focal point for the campus','Programming developed to complement the surrounding buildings','Anchor for community interest and placemaking']},
+    cellar:{era:'5 stories · riverfront', title:'The Cellar', photo:'Photo · Cellar interior',
+      intro:'A five-story unreinforced-masonry building closest to the Deschutes River, with consistent river-facing fenestration and reasonable floor plates.',
+      roles:['River views and orientation suited to lodging','Reasonable floor plates for repeatable program','Severely deteriorating envelope requires restoration','Mixed structural system']},
+    keghouse:{era:'2 stories · concrete', title:'The Keg House', photo:'Photo · Keg House interior',
+      intro:'A two-story concrete building with heavy structure and small punched openings, giving dark, enclosed interiors. It is the most isolated structure, set off the site’s east-west axis.',
+      roles:['Enclosed, low-light interiors suited to wellness and spa','Heavy concrete structure','Isolated position farthest east on the site','Off the primary east-west building axis']},
+    warehouse:{era:'2 stories · largest floor area', title:'The Warehouse', photo:'Photo · Warehouse upper level',
+      intro:'A two-story building whose lower level is a daylit grid of concrete columns and whose upper level is a clear-spanning steel-truss space with wood decking and large windows.',
+      roles:['Lower level suits compartmentalized retail program','Upper level a magnificent clear-span event space','Strong north and south daylight','Largest floor area on the campus']},
+    northstorage:{era:'2 stories · concrete', title:'North Storage', photo:'Photo · North Storage interior',
+      intro:'A two-story concrete structure with an open first floor and a bright, daylit second level.',
+      roles:['Helps define the central courtyard','Supporting program to the Brewhouse','Open ground floor for activation','Bright, daylit upper level']}
+  };
+  var pEra=document.getElementById('bmEra'), pTitle=document.getElementById('bmTitle'),
+      pIntro=document.getElementById('bmIntro'), pRole=document.getElementById('bmRole'),
+      pPhoto=document.getElementById('bmPhoto');
+  function openBldg(key){
+    var d=BLD[key]; if(!d) return;
+    pEra.textContent=d.era; pTitle.textContent=d.title; pIntro.textContent=d.intro; pPhoto.textContent=d.photo;
+    pRole.innerHTML='';
+    d.roles.forEach(function(r){ var li=document.createElement('li'); li.textContent=r; pRole.appendChild(li); });
+    modal.classList.add('open');
+    track('building_open', {building:key});
+  }
+  document.addEventListener('click', function(e){
+    var t=e.target.closest('[data-bldg]');
+    if(t){ openBldg(t.getAttribute('data-bldg')); return; }
+    if(e.target===modal || e.target.closest('#bldgClose')) modal.classList.remove('open');
+  });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') modal.classList.remove('open'); });
 })();
 
 /* ============================================================
