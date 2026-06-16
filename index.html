@@ -207,6 +207,8 @@ ul{margin:0; padding:0; list-style:none;}
 .subnav button{flex:0 0 auto; font:500 12px var(--sans); color:var(--text-3); background:transparent; border:1px solid var(--border-strong); border-radius:999px; padding:7px 15px; cursor:pointer; white-space:nowrap; transition:color .15s var(--ease), border-color .15s var(--ease), background .15s var(--ease);}
 .subnav button:hover{color:var(--accent); border-color:var(--accent);}
 .subnav button.active{background:var(--accent); border-color:var(--accent); color:#fff;}
+.subnav .subnav-print{margin-left:auto; color:var(--accent); border-color:var(--accent);}
+.subnav .subnav-print:hover{background:var(--accent); color:#fff;}
 .pp-sec{scroll-margin-top:128px;}
 .subnav + .pp-sec{padding-top:40px;}
 .pp-cell{padding:22px 24px; display:flex; gap:13px; align-items:flex-start;}
@@ -363,7 +365,7 @@ ul{margin:0; padding:0; list-style:none;}
 
 /* print tear-sheets (C10) */
 @media print{
-  .topbar,.hamburger,.theme-toggle,.btn,.rail-cta,.lightbox,.hs-pin,.hs-pop,.map-tip,.toggle3{display:none!important;}
+  .topbar,.hamburger,.theme-toggle,.btn,.subnav,.rail-cta,.lightbox,.hs-pin,.hs-pop,.map-tip,.toggle3{display:none!important;}
   body{background:#fff; color:#000; font-size:11pt;}
   .shell{display:block; max-width:none; border:none;}
   .rail{border:none; border-bottom:1.5pt solid #000;}
@@ -531,6 +533,7 @@ ul{margin:0; padding:0; list-style:none;}
           <button data-scroll="pp-5">Constraints</button>
           <button data-scroll="pp-6">Timing</button>
           <button data-scroll="pp-7">Takeaway</button>
+          <button type="button" class="subnav-print" onclick="track('print_page',{page:location.hash});window.print();" title="Print this page">⎙ Print Page</button>
         </nav>
 
         <!-- Section 1 -->
@@ -686,6 +689,7 @@ ul{margin:0; padding:0; list-style:none;}
           <button data-scroll="p2-econ">Economic Development Alignment</button>
           <button data-scroll="p2-vision">Development Vision</button>
           <button data-scroll="p2-market">Market Overview</button>
+          <button type="button" class="subnav-print" onclick="track('print_page',{page:location.hash});window.print();" title="Print this page">⎙ Print Page</button>
         </nav>
 
         <!-- Offering Overview -->
