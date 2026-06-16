@@ -431,6 +431,31 @@ ul{margin:0; padding:0; list-style:none;}
 /* balance: consistent metric rhythm + tidy placeholder frames on wide pages */
 .page.wide .metrics{gap:30px 44px;}
 .page.wide .gallery .frame{min-height:150px;}
+
+/* ============================================================
+   INTERACTIVE TIMELINE
+   ============================================================ */
+.tl-rail{display:flex; gap:18px; overflow-x:auto; padding:6px 2px 18px; scroll-snap-type:x proximity;}
+.tl-rail::-webkit-scrollbar{height:8px;}
+.tl-rail::-webkit-scrollbar-thumb{background:var(--border-strong); border-radius:8px;}
+.tl-card{scroll-snap-align:start; flex:0 0 300px; width:300px; text-align:left; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:0; overflow:hidden; cursor:pointer; font-family:inherit; color:inherit; display:flex; flex-direction:column; transition:border-color .15s var(--ease), transform .18s var(--ease), box-shadow .18s var(--ease);}
+.tl-card:hover,.tl-card:focus-visible{border-color:var(--accent); transform:translateY(-4px); box-shadow:0 14px 30px rgba(0,0,0,.08); outline:none;}
+.tl-photo{height:160px; background:var(--surface-2); border-bottom:1px solid var(--border-soft); display:flex; align-items:center; justify-content:center; text-align:center; padding:12px; color:var(--faint); font-size:11px; letter-spacing:.04em; text-transform:uppercase;}
+.tl-card .tl-yr{font-family:var(--serif); font-weight:700; color:var(--accent); font-size:15px; letter-spacing:-0.01em; margin:20px 22px 0;}
+.tl-card h4{margin:6px 22px 9px;}
+.tl-card .tl-short{margin:0 22px 16px; font-size:13px; color:var(--text-3); line-height:1.55;}
+.tl-card .tl-more{margin:auto 22px 20px; font-size:12px; font-weight:600; color:var(--accent);}
+.tlmodal{position:fixed; inset:0; background:rgba(12,9,8,.62); display:none; align-items:center; justify-content:center; z-index:200; padding:24px;}
+.tlmodal.open{display:flex;}
+.tlmodal-box{background:var(--surface); border:1px solid var(--border); border-radius:8px; max-width:660px; width:100%; max-height:88vh; overflow:auto; position:relative; box-shadow:0 30px 80px rgba(0,0,0,.35);}
+.tlmodal-photo{height:300px; background:var(--surface-2); border-bottom:1px solid var(--border-soft); display:flex; align-items:center; justify-content:center; text-align:center; padding:16px; color:var(--faint); font-size:12px; letter-spacing:.04em; text-transform:uppercase;}
+.tlmodal-body{padding:30px 36px 36px;}
+.tlmodal-era{font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:.06em; color:var(--accent); margin:0 0 10px;}
+.tlmodal-body h3{font-size:21px; margin:0 0 14px;}
+.tlmodal-body p:last-child{font-size:15px; line-height:1.7; color:var(--text-2); margin:0;}
+.tlmodal-close{position:absolute; top:12px; right:12px; width:34px; height:34px; border-radius:50%; border:none; background:var(--surface); color:var(--text); font-size:22px; line-height:1; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,.15); z-index:1;}
+.tlmodal-close:hover{background:var(--surface-2);}
+@media(max-width:560px){.tl-card{flex-basis:240px; width:240px;} .tlmodal-photo{height:220px;}}
 </style>
 </head>
 <body>
@@ -531,13 +556,92 @@ ul{margin:0; padding:0; list-style:none;}
           <p class="measure sub">The original brewery campus was selected for its access to water, power, and regional transportation advantages. Its history gives the redevelopment a built-in sense of place that would be difficult to recreate through new construction alone.</p>
           <p class="measure sub" style="margin-top:16px;">Leopold Schmidt founded the Olympia Brewing Company on the falls of the Deschutes, drawing on the artesian water behind the “It’s the Water” identity. The brewhouse rose in 1906 and the campus grew into one of the Pacific Northwest’s most recognized industrial landmarks before operations ceased in 2003.</p>
           <p class="eyebrow" style="margin-top:30px;">Timeline</p>
-          <div style="display:flex; gap:12px; overflow-x:auto; padding-bottom:10px; margin-top:12px;">
-            <div class="card" style="min-width:160px; flex:0 0 auto;"><h4>1896</h4><p>Leopold Schmidt purchases the site.</p></div>
-            <div class="card" style="min-width:160px; flex:0 0 auto;"><h4>1905</h4><p>Cellar and early brewery structures.</p></div>
-            <div class="card" style="min-width:160px; flex:0 0 auto;"><h4>1906</h4><p>Brewhouse constructed.</p></div>
-            <div class="card" style="min-width:160px; flex:0 0 auto;"><h4>1916</h4><p>Prohibition halts brewery production.</p></div>
-            <div class="card" style="min-width:160px; flex:0 0 auto;"><h4>1920s</h4><p>Warehouse and storage additions.</p></div>
-            <div class="card" style="min-width:160px; flex:0 0 auto;"><h4>2003</h4><p>Operations cease.</p></div>
+          <p class="sub" style="margin:0 0 14px;">A site shaped over millennia. Select any era to expand the image and the full account.</p>
+          <div class="tl-rail" id="tlRail">
+            <button class="tl-card" data-era="13,000–366 BP">
+              <div class="tl-photo">Steh-chass village · 1855 map</div>
+              <div class="tl-yr">13,000–366 BP</div><h4>Steh-chass Homeland</h4>
+              <p class="tl-short">The Deschutes falls were home to the Steh-chass people, documented here for millennia.</p>
+              <span class="tl-more">Read more →</span>
+              <div class="tl-full" hidden>The Deschutes falls were home to the Steh-chass people. Excavation at the Tumwater site documents habitation from about 2,380 years ago, with some implements dating to 13,000 BP. T.T. Waterman’s 1855 maps locate the village and a permanent trading post here, with direct access to the inlet — the site’s first and deepest layer of significance.</div>
+            </button>
+            <button class="tl-card" data-era="1845">
+              <div class="tl-photo">Oregon Trail settlement</div>
+              <div class="tl-yr">1845</div><h4>Settlement Displaces the Steh-chass</h4>
+              <p class="tl-short">Oregon Trail settlers displaced the Steh-chass from their village and trading post.</p>
+              <span class="tl-more">Read more →</span>
+              <div class="tl-full" hidden>Extension of the Oregon Trail brought white settlers who displaced the Steh-chass from their village and permanent trading post. The same central waterway and land access that made the site a trading hub now drew newcomers, beginning its transition from Indigenous stewardship.</div>
+            </button>
+            <button class="tl-card" data-era="1853 + 1875">
+              <div class="tl-photo">Olympia / Tumwater</div>
+              <div class="tl-yr">1853 + 1875</div><h4>Olympia Becomes the Capital</h4>
+              <p class="tl-short">Olympia became the territorial capital and trade crossroads; Tumwater incorporated.</p>
+              <span class="tl-more">Read more →</span>
+              <div class="tl-full" hidden>Olympia became the capital of Washington Territory and the crossroads for regional trade, and Tumwater incorporated in 1875. Accessible by water and later by rail, the area was central to commerce at a time before Seattle emerged as the dominant port.</div>
+            </button>
+            <button class="tl-card" data-era="1896–1902">
+              <div class="tl-photo">Capital Brewing Co.</div>
+              <div class="tl-yr">1896–1902</div><h4>Schmidt Buys the Site</h4>
+              <p class="tl-short">Leopold Schmidt bought the site in 1896 and built Capital Brewing, later Olympia Brewing Company.</p>
+              <span class="tl-more">Read more →</span>
+              <div class="tl-full" hidden>Leopold Schmidt, a German brewmaster from Montana, purchased the site in 1896 and built the Capital Brewing Company, which became the Olympia Brewing Company. He chose it for the falls, which supplied power, and the artesian springs beneath it, whose pure water he believed ideal for brewing — the basis for the slogan “It’s the Water.”</div>
+            </button>
+            <button class="tl-card" data-era="1905">
+              <div class="tl-photo">The Cellar</div>
+              <div class="tl-yr">1905</div><h4>The Cellar Is Built</h4>
+              <p class="tl-short">The Cellar building was constructed as the brewery expanded.</p>
+              <span class="tl-more">Read more →</span>
+              <div class="tl-full" hidden>The Cellar building was constructed as the brewery expanded. It is one of three original brewery structures still standing, alongside the brewhouse tower and the keg house.</div>
+            </button>
+            <button class="tl-card" data-era="1906">
+              <div class="tl-photo">The Brewhouse</div>
+              <div class="tl-yr">1906</div><h4>The Brewhouse Is Built</h4>
+              <p class="tl-short">The six-story brewhouse tower rose in 1906 and remains the campus’s landmark.</p>
+              <span class="tl-more">Read more →</span>
+              <div class="tl-full" hidden>The six-story brewhouse tower rose in 1906 and remains the campus’s defining landmark. Visible from I-5, it anchors the site’s identity and is the centerpiece of the adaptive-reuse vision.</div>
+            </button>
+            <button class="tl-card" data-era="1907">
+              <div class="tl-photo">Cellar addition &amp; Keg House</div>
+              <div class="tl-yr">1907</div><h4>Cellar Addition &amp; Keg House</h4>
+              <p class="tl-short">A west addition to the Cellar and the Keg House were completed.</p>
+              <span class="tl-more">Read more →</span>
+              <div class="tl-full" hidden>A west addition to the Cellar and the Keg House were completed in 1907. These finish the trio of pre-Prohibition brewery buildings that survive on the site today.</div>
+            </button>
+            <button class="tl-card" data-era="1916">
+              <div class="tl-photo">Prohibition</div>
+              <div class="tl-yr">1916</div><h4>Prohibition Halts Brewing</h4>
+              <p class="tl-short">Washington’s prohibition halted production; the site briefly became a juice factory.</p>
+              <span class="tl-more">Read more →</span>
+              <div class="tl-full" hidden>Washington’s prohibition halted brewery production, and the site never operated as a brewery again, briefly converting to a juice factory. The brewery had run only about 14 years; its buildings would serve mostly storage thereafter.</div>
+            </button>
+            <button class="tl-card" data-era="1927">
+              <div class="tl-photo">Tumwater Paper Co.</div>
+              <div class="tl-yr">1927</div><h4>Tumwater Paper Company</h4>
+              <p class="tl-short">Leased to the Tumwater Paper Company, which built the Warehouse and North Storage.</p>
+              <span class="tl-more">Read more →</span>
+              <div class="tl-full" hidden>The site was leased to the Tumwater Paper Company, which built the long Warehouse and the North Storage building in the 1920s. These two join the three brewery structures to form the five-building campus that stands today.</div>
+            </button>
+            <button class="tl-card" data-era="1933">
+              <div class="tl-photo">Repeal of Prohibition</div>
+              <div class="tl-yr">1933</div><h4>Brewing Moves South</h4>
+              <p class="tl-short">After repeal, Olympia Beer built larger facilities south; the originals became storage.</p>
+              <span class="tl-more">Read more →</span>
+              <div class="tl-full" hidden>After Prohibition’s repeal, Olympia Beer built larger facilities to the south and the original buildings were used mainly for storage. The old warehouse was used intermittently to manufacture aircraft parts for Boeing and to build cabinets and furniture.</div>
+            </button>
+            <button class="tl-card" data-era="1983">
+              <div class="tl-photo">Sold to Pabst</div>
+              <div class="tl-yr">1983</div><h4>Sold to Pabst</h4>
+              <p class="tl-short">The site was sold to Pabst and continued in storage use.</p>
+              <span class="tl-more">Read more →</span>
+              <div class="tl-full" hidden>The site was sold to Pabst and continued to be used for storage. Ownership changes through the late 20th century left the historic core intact but underused.</div>
+            </button>
+            <button class="tl-card" data-era="2003–Present">
+              <div class="tl-photo">Aerial today</div>
+              <div class="tl-yr">2003–Present</div><h4>Operations Cease</h4>
+              <p class="tl-short">All operations ceased in 2003, with little maintenance since.</p>
+              <span class="tl-more">Read more →</span>
+              <div class="tl-full" hidden>All operations ceased in 2003, with little to no maintenance since. The structures remain significant and await adaptive reuse — the opportunity at the center of this offering.</div>
+            </button>
           </div>
           <p class="eyebrow" style="margin-top:30px;">Building Identity</p>
           <div class="grid grid-2" style="margin-top:12px;">
@@ -2671,6 +2775,19 @@ ul{margin:0; padding:0; list-style:none;}
   <figure class="lb-fig"><img id="lbImg" alt="" /><figcaption id="lbTitle"></figcaption></figure>
 </div>
 
+<!-- ===================== TIMELINE MODAL ===================== -->
+<div class="tlmodal" id="tlModal" role="dialog" aria-modal="true" aria-label="Timeline detail">
+  <div class="tlmodal-box">
+    <button class="tlmodal-close" id="tlClose" aria-label="Close">×</button>
+    <div class="tlmodal-photo" id="tlmPhoto"></div>
+    <div class="tlmodal-body">
+      <p class="tlmodal-era" id="tlmEra"></p>
+      <h3 id="tlmTitle"></h3>
+      <p id="tlmText"></p>
+    </div>
+  </div>
+</div>
+
 <script>
 /* ============================================================
    Analytics stub — named events per brief §6/§8
@@ -3005,6 +3122,35 @@ document.addEventListener('keydown', function(e){
 });
 document.getElementById('lbClose').addEventListener('click', closeLightbox);
 lightbox.addEventListener('click', function(e){ if(e.target===lightbox) closeLightbox(); });
+
+/* ============================================================
+   Interactive timeline modal
+   ============================================================ */
+(function(){
+  var modal = document.getElementById('tlModal');
+  if (!modal) return;
+  var mEra = document.getElementById('tlmEra'),
+      mTitle = document.getElementById('tlmTitle'),
+      mText = document.getElementById('tlmText'),
+      mPhoto = document.getElementById('tlmPhoto');
+  function openTL(card){
+    mEra.textContent = card.getAttribute('data-era') || '';
+    mTitle.textContent = (card.querySelector('h4')||{}).textContent || '';
+    var full = card.querySelector('.tl-full');
+    mText.textContent = full ? full.textContent : '';
+    var ph = card.querySelector('.tl-photo');
+    mPhoto.textContent = ph ? ph.textContent : '';
+    modal.classList.add('open');
+    track('timeline_open', {era: card.getAttribute('data-era')});
+  }
+  function closeTL(){ modal.classList.remove('open'); }
+  document.addEventListener('click', function(e){
+    var card = e.target.closest('.tl-card');
+    if (card){ openTL(card); return; }
+    if (e.target === modal || e.target.closest('#tlClose')) closeTL();
+  });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeTL(); });
+})();
 
 /* ============================================================
    Contact form
