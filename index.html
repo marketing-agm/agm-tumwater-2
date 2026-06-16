@@ -418,26 +418,32 @@ ul{margin:0; padding:0; list-style:none;}
 <!-- ===================== TOP BAR (full width) ===================== -->
 <header class="topbar">
   <div class="topbar-inner">
-    <div class="brand" data-route="home" role="button" tabindex="0">
+    <div class="brand" data-route="opportunity" role="button" tabindex="0">
       The&nbsp;Tumwater&nbsp;Brewery <span class="mark">AGM</span>
     </div>
     <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">☰</button>
     <nav class="nav-links" id="navlinks" aria-label="Primary">
-      <button class="nav-link" data-route="home">Home</button>
-      <button class="nav-link" data-route="presentation">Presentation</button>
+      <button class="nav-link" data-route="opportunity">The Opportunity</button>
+      <button class="nav-link" data-route="vision">The Vision</button>
+      <button class="nav-link" data-route="public-investment">Public Investment</button>
+      <button class="nav-link" data-route="due-diligence">Due Diligence</button>
+      <button class="nav-link" data-route="sources">News &amp; Sources</button>
       <div class="dropdown">
-        <button class="nav-link" aria-haspopup="true">Use Cases ▾</button>
+        <button class="nav-link" aria-haspopup="true">Old Tabs ▾</button>
         <div class="dropdown-menu">
+          <button class="dropdown-item" data-route="home">Home<small>Original landing</small></button>
+          <button class="dropdown-item" data-route="presentation">Presentation<small>Full offering memorandum</small></button>
           <button class="dropdown-item" data-route="use-resort">Resort &amp; Hotel Development<small>Destination resort program</small></button>
           <button class="dropdown-item" data-route="use-club">Membership &amp; Lifestyle Clubs<small>Heritage clubhouse setting</small></button>
           <button class="dropdown-item" data-route="use-tribal">Tribal Nations<small>Riverfront stewardship &amp; development</small></button>
           <button class="dropdown-item" data-route="use-investors">Investors &amp; Family Offices<small>Land basis &amp; phased development</small></button>
+          <button class="dropdown-item" data-route="history">History<small>Origins &amp; buildings</small></button>
+          <button class="dropdown-item" data-route="site">The Site<small>Property record</small></button>
+          <button class="dropdown-item" data-route="news">News<small>Original news log</small></button>
+          <button class="dropdown-item" data-route="contact">Request Information<small>Original contact page</small></button>
         </div>
       </div>
-      <button class="nav-link" data-route="history">History</button>
-      <button class="nav-link" data-route="site">The Site</button>
-      <button class="nav-link" data-route="news">News</button>
-      <button class="nav-cta" data-route="contact">Request Information</button>
+      <button class="nav-cta" data-route="request">Request Information</button>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">◐</button>
     </nav>
   </div>
@@ -455,6 +461,514 @@ ul{margin:0; padding:0; list-style:none;}
   <div class="main">
     <main class="content" id="content">
       <div class="content-inner">
+
+      <!-- ============ THE OPPORTUNITY (landing) ============ -->
+      <div class="page" id="page-opportunity">
+
+        <section class="reveal">
+          <p class="eyebrow">Public investment creating private value</p>
+          <h2>Public money is improving this property before a private dollar is committed.</h2>
+          <p class="lead">The former Olympia Brewery is a 34-acre Deschutes riverfront assemblage in Tumwater, Washington, anchored by the 1906 brewhouse. State and federal agencies are funding the work that usually falls to a developer: restoring the estuary on the property's frontage, assessing its environmental condition, and rebuilding its access. The land is still privately acquirable. Whoever holds it captures the value that public spending is creating.</p>
+          <p class="measure sub" style="margin-top:18px;">AGM is presenting the property off-market to a selected group of qualified parties. Conceptual design (GCH Architecture, 2022–23), civil due diligence (KPFF, 2024), and a market analysis (the Concord Group) are complete. Materials are available under a confidentiality agreement.</p>
+          <div class="frame wide topo" style="margin-top:32px;" role="img" aria-label="Full-site hero image of the 1906 brewhouse and the broader site context">
+            <div><p class="ft">Exhibit · Site hero</p><p class="fd">Full-site image of the brewhouse and the river setting.</p></div>
+          </div>
+        </section>
+
+        <section class="reveal">
+          <p class="eyebrow">The thesis</p>
+          <h2>Three public commitments are already at work on the site.</h2>
+          <p class="measure sub" style="margin-bottom:8px;">Each is documented and dated. Each reduces a cost, a risk, or an approval the buyer would otherwise carry.</p>
+          <div class="grid grid-3" style="margin-top:20px;">
+            <div class="card">
+              <h4>$500,000 EPA Brownfields grant</h4>
+              <p>In 2023 the City of Tumwater was awarded an EPA Brownfields grant to assess environmental conditions across the brewery properties and support cleanup planning. Public funding now advances environmental work a buyer would otherwise scope and finance alone.</p>
+              <p class="src" style="margin:8px 0 0; font-size:11px; color:var(--faint);">Source: EPA / City of Tumwater (2023).</p>
+            </div>
+            <div class="card">
+              <h4>State-funded estuary restoration</h4>
+              <p>Washington is removing the 5th Avenue Dam and restoring roughly 260 acres of the Deschutes Estuary. The Final EIS projects a lower base flood elevation in extreme river-flood events along the property's frontage.</p>
+              <p class="src" style="margin:8px 0 0; font-size:11px; color:var(--faint);">Source: WA DES, Capitol Lake–Deschutes Estuary Final EIS (Oct 2022).</p>
+            </div>
+            <div class="card">
+              <h4>Municipal capital on the frontage</h4>
+              <p>The City repaved the Custer Way frontage at the I-5 interchange and previously upgraded the sanitary lift station serving the site, with a force main routed beneath the Deschutes.</p>
+              <p class="src" style="margin:8px 0 0; font-size:11px; color:var(--faint);">Sources: KPFF civil due diligence (2024); City of Tumwater Public Works as-builts (2008).</p>
+            </div>
+          </div>
+          <div style="margin-top:24px;"><button class="btn btn-ghost btn-arrow" data-route="public-investment">See the full public-investment record</button></div>
+        </section>
+
+        <section class="reveal">
+          <p class="eyebrow">Why Tumwater</p>
+          <h2>A capital-city market with no comparable product.</h2>
+          <p class="measure sub">Tumwater sits at the I-5 interchange beside Olympia and the Washington State Capitol, midway on the Seattle–Portland corridor. State government anchors weekday demand. The competitive lodging set runs near 64 percent occupancy, with government-related business near 70 percent of occupancy during the legislative quarter. That set holds roughly 1,700 rooms averaging about twenty years old, and no heritage boutique or destination resort operates within it.</p>
+          <div class="metrics" style="margin-top:24px;">
+            <div class="metric"><div class="num">1,700</div><div class="lbl">rooms in the competitive set</div></div>
+            <div class="metric"><div class="num">~20</div><div class="lbl">yr average property age</div></div>
+            <div class="metric"><div class="num">64%</div><div class="lbl">market occupancy</div></div>
+            <div class="metric"><div class="num" data-static>0</div><div class="lbl">boutique / resort comparables</div></div>
+          </div>
+          <p class="src" style="margin:12px 0 0; font-size:11px; color:var(--faint);">Market figures per the Concord Group study (2014 base year). Refresh with current STR / CoStar data recommended before underwriting.</p>
+        </section>
+
+        <section class="reveal">
+          <p class="eyebrow">Why this property</p>
+          <h2>A landmark that cannot be rebuilt.</h2>
+          <p class="measure sub">The 1906 brewhouse stands at the falls of the Deschutes, on 34 acres adjoining Brewery Park at Tumwater Falls. Five masonry structures hold more than 100,000 square feet of existing building area. The falls, the scale, and the historic fabric are fixed assets a new-build hotel cannot reproduce, and they are the basis for premium positioning.</p>
+          <div class="glance" style="margin-top:22px;">
+            <div><div class="g-lbl">Assemblage</div><div class="g-val">34.18 acres</div></div>
+            <div><div class="g-lbl">Anchor</div><div class="g-val">1906 brewhouse</div></div>
+            <div><div class="g-lbl">Existing area</div><div class="g-val">100,000+ SF</div></div>
+            <div><div class="g-lbl">Setting</div><div class="g-val">Falls of the Deschutes</div></div>
+          </div>
+          <p class="src" style="margin:12px 0 0; font-size:11px; color:var(--faint);">Building inventory per the GCH Olympia Brewery Conceptual Design Report (2022–23).</p>
+        </section>
+
+        <section class="reveal">
+          <p class="eyebrow">Why now</p>
+          <h2>The public timeline is moving; the land is still acquirable.</h2>
+          <ul class="points">
+            <li><strong>Estuary.</strong> The Final EIS selected the dam-removal alternative in October 2022; design and permitting are underway (WA DES).</li>
+            <li><strong>Funding.</strong> The EPA Brownfields grant was awarded in 2023, advancing site assessment and cleanup planning (EPA / City of Tumwater).</li>
+            <li><strong>Access.</strong> Custer Way frontage repaving was observed complete at the June 2024 site walk (KPFF).</li>
+            <li><strong>Market.</strong> No boutique or destination-resort product operates in the competitive set (Concord Group).</li>
+          </ul>
+          <p class="measure" style="margin-top:18px;">The value this public work creates accrues to whoever holds the land when it concludes. The property is available now, off-market.</p>
+          <div class="grid grid-3" style="margin-top:24px;">
+            <button class="card card-link" data-route="vision"><h3>The vision</h3><p>The studied hospitality program.</p><span class="more">Explore →</span></button>
+            <button class="card card-link" data-route="public-investment"><h3>Public investment</h3><p>Grants, restoration, city capital, incentives.</p><span class="more">Review →</span></button>
+            <button class="card card-link" data-route="due-diligence"><h3>Due diligence</h3><p>Parcels, zoning, environmental, infrastructure.</p><span class="more">Open →</span></button>
+          </div>
+        </section>
+      </div>
+
+      <!-- ============ THE VISION ============ -->
+      <div class="page" id="page-vision">
+
+        <section class="reveal">
+          <p class="eyebrow">The vision</p>
+          <h2>A destination hospitality campus in the 1906 brewhouse.</h2>
+          <p class="lead">The studied program turns the brewery into a boutique resort that competes on place rather than room count. GCH Architecture developed it through conceptual design in 2022–23, documenting floor plans, square footages, and circulation across the five historic structures.</p>
+          <div class="metrics" style="margin-top:26px;">
+            <div class="metric"><div class="num">72</div><div class="lbl">key boutique hotel</div></div>
+            <div class="metric"><div class="num">26,185</div><div class="lbl">SF event center</div></div>
+            <div class="metric"><div class="num">15,540</div><div class="lbl">SF wellness / spa</div></div>
+            <div class="metric"><div class="num">~192K</div><div class="lbl">SF total program</div></div>
+          </div>
+          <p class="src" style="margin:12px 0 0; font-size:11px; color:var(--faint);">Program per GCH conceptual design (2022–23). Illustrative, not prescriptive; the final program is buyer-controlled.</p>
+        </section>
+
+        <section class="reveal">
+          <p class="eyebrow">Program</p>
+          <h2>One historic core, several revenue drivers.</h2>
+          <div class="grid grid-2" style="margin-top:8px;">
+            <div class="card"><h4>72-key boutique hotel</h4><p>Standard, premium, suite, and penthouse rooms within the five-story Cellar building, with river-facing suites at the west end of each floor.</p></div>
+            <div class="card"><h4>26,185 SF event center</h4><p>A double-height event volume in the Warehouse, supported by three outdoor venues and a waterfront plaza for weddings, retreats, and private events.</p></div>
+            <div class="card"><h4>15,540 SF wellness center</h4><p>Bathhouse, spa, salon, fitness, and café within the Keg House, serving hotel guests and a membership base.</p></div>
+            <div class="card"><h4>Brewing and food &amp; beverage</h4><p>The six-story brew tower is illustrated for public brewing and dining, consistent with its historic use. The tower is a City-owned outparcel, coordinated with the program.</p></div>
+            <div class="card"><h4>298-stall parking structure</h4><p>Three parking levels recessed into the southern hillside, with grade-separated entry and tunnel connections to the principal buildings.</p></div>
+            <div class="card"><h4>Residential overlay</h4><p>Two upland zones along the rail corridor, studied at 10–30 units per acre (roughly 43–130 units), adding a recurring income layer and phasing flexibility.</p></div>
+          </div>
+          <div class="frame wide topo" style="margin-top:28px;" role="img" aria-label="GCH Concept D1 site plan and section">
+            <div><p class="ft">Exhibit · Concept D1</p><p class="fd">GCH conceptual master plan (2023). Draft issue, as published.</p></div>
+          </div>
+        </section>
+
+        <section class="reveal">
+          <p class="eyebrow">Why the program works</p>
+          <h2>Differentiation by place.</h2>
+          <ul class="points">
+            <li><strong>Scarcity, not visibility.</strong> Most hotel sites compete on access and replacement cost. This one competes on a 1906 landmark, the falls, and a public-park setting that new construction cannot replicate.</li>
+            <li><strong>Diversified revenue.</strong> Rooms, weddings and events, wellness memberships, and food and beverage each carry the property; the concept notes these uses reinforce one another's utilization.</li>
+            <li><strong>A market gap.</strong> The competitive set holds roughly 1,700 rooms, skewed older and midscale, with no boutique or destination-resort comparable (Concord Group, 2014 base year).</li>
+            <li><strong>Phasing capacity.</strong> Land and entitlement can be secured ahead of vertical investment, letting capital follow demand and the estuary timeline.</li>
+          </ul>
+        </section>
+
+        <section class="reveal">
+          <p class="eyebrow">Regional context</p>
+          <h2>The only destination site in the South Sound.</h2>
+          <p class="measure sub">Every destination resort in western Washington sits east in the mountains, west on Hood Canal, north at the border, or south in the Columbia Gorge. None operates in the South Sound, and none occupies a pre-war industrial landmark on the I-5 corridor between Seattle and Portland.</p>
+          <div class="table-wrap" style="margin-top:22px;">
+            <table class="table">
+              <thead><tr><th>Property</th><th>Keys</th><th>Setting</th><th>Drive (approx.)</th></tr></thead>
+              <tbody>
+                <tr class="comp-row-site"><td>The Tumwater Brewery (subject)</td><td>72 studied</td><td>Deschutes riverfront, at the falls</td><td>Seattle 1 hr · Portland 1¾ hr</td></tr>
+                <tr><td>Salish Lodge &amp; Spa — Snoqualmie</td><td>86</td><td>Snoqualmie Falls</td><td>Seattle 30 min</td></tr>
+                <tr><td>Suncadia — Cle Elum</td><td>≈250 + 18</td><td>Cascade foothills</td><td>Seattle 1½ hr</td></tr>
+                <tr><td>Alderbrook Resort &amp; Spa — Union</td><td>77 + 16</td><td>Hood Canal waterfront</td><td>Seattle 2 hr</td></tr>
+                <tr><td>Semiahmoo Resort — Blaine</td><td>196</td><td>Semiahmoo Bay spit</td><td>Seattle 2 hr</td></tr>
+                <tr><td>Skamania Lodge — Stevenson</td><td>254</td><td>Columbia River Gorge</td><td>Portland 45 min</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="src" style="margin:12px 0 0; font-size:11px; color:var(--faint);">Key counts per operator publications, reviewed June 2026. Drive times approximate. Subject figures per the GCH conceptual design.</p>
+        </section>
+
+        <section class="reveal">
+          <p class="eyebrow">Alternative paths</p>
+          <h2>Other readings of the same asset.</h2>
+          <p class="measure sub">Hospitality is the most developed path. Three others were evaluated against the site and are retained for acquirers whose model differs. Detail for each is archived under Old Tabs.</p>
+          <div class="grid grid-3" style="margin-top:20px;">
+            <button class="card card-link" data-route="use-club"><h3>Membership &amp; lifestyle club</h3><p>1906 masonry, guest rooms, and wellness organized as an integrated clubhouse.</p><span class="more">Archived detail →</span></button>
+            <button class="card card-link" data-route="use-tribal"><h3>Tribal-nation stewardship</h3><p>Riverfront land on the estuary's South Basin, suited to cultural and sovereign development.</p><span class="more">Archived detail →</span></button>
+            <button class="card card-link" data-route="use-investors"><h3>Investor land basis</h3><p>A documented constraints record and a phased path to entitled, program-ready land.</p><span class="more">Archived detail →</span></button>
+          </div>
+        </section>
+
+        <section class="reveal">
+          <p class="eyebrow">Best fit</p>
+          <h2>Who this site suits.</h2>
+          <p class="measure sub">The strongest fit is a developer or operator that turns identity into revenue and treats adaptive reuse, events, food and beverage, and wellness as primary drivers. It suits boutique and soft-brand hospitality, adaptive-reuse sponsors, event-led operators, and wellness-integrated concepts. It is a weaker fit for a standardized lodging strategy.</p>
+          <div style="margin-top:22px;"><button class="btn btn-primary" data-route="request">Request the offering materials</button> <button class="btn btn-ghost" data-route="due-diligence">Open due diligence</button></div>
+        </section>
+      </div>
+
+      <!-- ============ PUBLIC INVESTMENT ============ -->
+      <div class="page" id="page-public-investment">
+
+        <section class="reveal">
+          <p class="eyebrow">Public investment</p>
+          <h2>Public capital is de-risking a private redevelopment.</h2>
+          <p class="lead">The offering rests on public money and public action that are documented and underway. Each item below improves a cost, a risk, or an approval the buyer would otherwise carry alone. The point is timing: this work is being done while the land remains privately acquirable.</p>
+        </section>
+
+        <section class="reveal">
+          <p class="eyebrow">Commitments in place</p>
+          <h2>What the public sector is funding.</h2>
+          <div class="table-wrap" style="margin-top:18px;">
+            <table class="table">
+              <thead><tr><th>Public action</th><th>Status / date</th><th>Effect on the developer</th></tr></thead>
+              <tbody>
+                <tr><td>Deschutes Estuary restoration and 5th Avenue Dam removal</td><td>Final EIS Oct 2022; design and permitting underway</td><td>Restores ~260 acres; projected lower base flood elevation in extreme river floods on the frontage</td></tr>
+                <tr><td>EPA Brownfields assessment grant</td><td>Awarded 2023 ($500,000)</td><td>Publicly funded environmental assessment and cleanup planning across the brewery properties</td></tr>
+                <tr><td>Custer Way frontage paving</td><td>Observed complete, June 2024</td><td>Rebuilt arterial frontage at the I-5 interchange</td></tr>
+                <tr><td>Sanitary lift station and river force main</td><td>City capital project, 2008</td><td>Sewer path with stated capacity for redevelopment flows</td></tr>
+                <tr><td>Brewery District redevelopment planning</td><td>City planning, ongoing</td><td>Policy context and stated municipal interest in redevelopment</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="src" style="margin:12px 0 0; font-size:11px; color:var(--faint);">Sources: WA DES Final EIS (2022); EPA / City of Tumwater (2023); KPFF civil due diligence (2024); City of Tumwater Public Works as-builts (2008).</p>
+        </section>
+
+        <section class="reveal">
+          <p class="eyebrow">Incentives available</p>
+          <h2>Tools the developer can capture.</h2>
+          <p class="measure sub" style="margin-bottom:8px;">The site's profile, a historic structure, brownfield conditions, and strong public redevelopment interest, fits several public funding tools. Eligibility is to be confirmed during diligence.</p>
+          <div class="grid grid-3" style="margin-top:18px;">
+            <div class="card"><h4>Historic tax credits</h4><p>Federal and Washington State credits (20% + 20%) may apply to certified rehabilitation of the historic structures.</p></div>
+            <div class="card"><h4>Tax increment financing</h4><p>Washington's LIFT and Community Revitalization Financing programs can fund qualifying public infrastructure.</p></div>
+            <div class="card"><h4>Brownfield cleanup funding</h4><p>EPA Brownfields and Ecology voluntary cleanup incentives may support environmental investigation and remediation.</p></div>
+            <div class="card"><h4>Lodging tax / tourism support</h4><p>LTAC programs administered by the City and Thurston County may support marketing and tourism promotion.</p></div>
+            <div class="card"><h4>Public infrastructure grants</h4><p>Transportation Improvement Board funds and federal RAISE grants may support road, utility, and access work.</p></div>
+            <div class="card"><h4>Conservation &amp; habitat funding</h4><p>Trail, riparian, and estuary-adjacent components may qualify for state and federal conservation grants.</p></div>
+          </div>
+        </section>
+
+        <section class="reveal">
+          <p class="eyebrow">The value bridge</p>
+          <h2>How public action becomes private basis.</h2>
+          <ul class="points">
+            <li><strong>Lower flood risk.</strong> The projected reduction in base flood elevation eases elevated-construction cost and entitlement friction over the hold (WA DES Final EIS, 2022).</li>
+            <li><strong>Funded environmental work.</strong> The Brownfields assessment narrows the Phase II scope and the remediation gap a buyer would otherwise fund (EPA / City, 2023).</li>
+            <li><strong>Frontage and utilities in place.</strong> Repaved access and an upgraded sewer path are infrastructure the buyer does not finance alone (KPFF 2024; City 2008).</li>
+            <li><strong>A legible entitlement path.</strong> Stated municipal support and the Brewery District plan give the site a policy context rather than a standalone application.</li>
+          </ul>
+          <p class="measure" style="margin-top:18px;">Acquiring before this work concludes is how a developer converts public spending into private value.</p>
+          <div style="margin-top:22px;"><button class="btn btn-primary" data-route="request">Request the offering materials</button> <button class="btn btn-ghost btn-arrow" data-route="due-diligence">Review the supporting record</button></div>
+        </section>
+      </div>
+
+      <!-- ============ DUE DILIGENCE ============ -->
+      <div class="page" id="page-due-diligence">
+
+        <section class="reveal">
+          <p class="eyebrow">Due diligence</p>
+          <h2>The supporting record.</h2>
+          <p class="lead">The material below backs the offering. It is documented in third-party studies and available in full to qualified parties under confidentiality. The conditions are not hidden; they are quantified, and several are improving through the public work described under Public Investment.</p>
+        </section>
+
+        <nav class="subnav" aria-label="Section index">
+          <button data-scroll="dd-parcels">Property &amp; Parcels</button>
+          <button data-scroll="dd-buildings">Heritage &amp; Buildings</button>
+          <button data-scroll="dd-zoning">Zoning &amp; Entitlement</button>
+          <button data-scroll="dd-environmental">Environmental &amp; Critical Areas</button>
+          <button data-scroll="dd-infra">Access &amp; Infrastructure</button>
+          <button data-scroll="dd-underwriting">Feasibility &amp; Underwriting</button>
+          <button data-scroll="dd-reports">Reports &amp; Status</button>
+          <button data-scroll="dd-exhibits">Drawings &amp; Exhibits</button>
+          <button data-scroll="dd-faq">Questions</button>
+        </nav>
+
+        <section class="reveal pp-sec" id="dd-parcels">
+          <h2>Property and parcels.</h2>
+          <p class="measure sub">A four-parcel assemblage totaling 34.18 acres in the City of Tumwater, Thurston County. Parcel B (32.07 acres) holds the historic brewhouse complex. The City-owned brew-tower outparcel within Parcel B is excluded from the assemblage.</p>
+          <div class="table-wrap" style="margin-top:20px;">
+            <table class="table">
+              <thead><tr><th>Parcel</th><th>Address</th><th>Acres</th><th>Notes</th></tr></thead>
+              <tbody>
+                <tr><td>A · 45700700001</td><td>240 Custer Way SW</td><td>1.253</td><td>Upper access / entry parcel</td></tr>
+                <tr><td>B · 78100300000</td><td>3233 Boston St SW</td><td>32.067</td><td>Primary parcel; historic structures</td></tr>
+                <tr><td>C West · 45701200000</td><td>—</td><td>0.464</td><td>Contiguous</td></tr>
+                <tr><td>C East · 45701100000</td><td>—</td><td>0.398</td><td>Contiguous</td></tr>
+              </tbody>
+              <tfoot><tr><td colspan="3">Total assemblage</td><td>34.182 ac</td></tr></tfoot>
+            </table>
+          </div>
+        </section>
+
+        <section class="reveal pp-sec" id="dd-buildings">
+          <h2>Heritage and buildings.</h2>
+          <p class="measure sub">The Olympia Brewing Company built its brewhouse at the falls of the Deschutes in 1905–1906, drawing on the artesian water its advertising made famous. Five masonry structures hold more than 100,000 square feet of existing building area. The Olympia marks belong to their current owner; the water, the falls, and the buildings remain with the site.</p>
+          <div class="table-wrap" style="margin-top:20px;">
+            <table class="table">
+              <thead><tr><th>Building</th><th>Scale</th><th>Approx. area</th><th>Studied reuse</th></tr></thead>
+              <tbody>
+                <tr><td>Brewhouse / Brew Tower</td><td>6 stories</td><td>~13,000 SF</td><td>Brewing and public program (City-owned outparcel)</td></tr>
+                <tr><td>Cellar Building</td><td>5 stories</td><td>~37,500 SF</td><td>72-key boutique hotel</td></tr>
+                <tr><td>Warehouse</td><td>2 stories</td><td>~46,600 SF</td><td>Event space and retail</td></tr>
+                <tr><td>Keg House</td><td>2 stories</td><td>~12,500 SF</td><td>Wellness center</td></tr>
+                <tr><td>North Storage</td><td>2 stories</td><td>~6,800 SF</td><td>Event and retail at the plaza edge</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="src" style="margin:12px 0 0; font-size:11px; color:var(--faint);">Building inventory per the GCH Olympia Brewery Conceptual Design Report.</p>
+        </section>
+
+        <section class="reveal pp-sec" id="dd-zoning">
+          <h2>Zoning and entitlement.</h2>
+          <p class="measure sub">The site carries Historic Commercial zoning with applicable overlays. Permitted uses, height, coverage, and parking are to be confirmed with the City during diligence. The anticipated approval sequence follows.</p>
+          <div class="reality" style="margin-top:20px;">
+            <div class="constraint"><div class="ch"><span class="ct">Pre-application conference</span><span class="chip">Early step</span></div><p>City of Tumwater meeting to confirm zoning, critical-areas process, the access-road section, and the permit roadmap.</p></div>
+            <div class="constraint"><div class="ch"><span class="ct">Critical-areas delineation</span><span class="chip warn">Required</span></div><p>Wetland delineation, riparian assessment, and steep-slope geotechnical study before site-plan approval.</p></div>
+            <div class="constraint"><div class="ch"><span class="ct">SEPA review</span><span class="chip warn">Likely EIS</span></div><p>Environmental review required; an EIS is likely given program scale and site complexity.</p></div>
+            <div class="constraint"><div class="ch"><span class="ct">Shoreline permit</span><span class="chip warn">Required</span></div><p>Substantial Development or Conditional Use Permit for work within shoreline jurisdiction on the Deschutes.</p></div>
+            <div class="constraint"><div class="ch"><span class="ct">Historic review</span><span class="chip warn">Required</span></div><p>Tumwater Historic Preservation Commission review for work affecting the historic structures.</p></div>
+          </div>
+        </section>
+
+        <section class="reveal pp-sec" id="dd-environmental">
+          <h2>Environmental and critical areas.</h2>
+          <div class="reality" style="margin-top:8px;">
+            <h3>Per KPFF civil due diligence (2024)</h3>
+            <p class="sub" style="margin-bottom:8px;">Documented conditions and the treatment each indicates. The estuary restoration and EPA assessment described under Public Investment bear directly on the flood and environmental items.</p>
+            <div class="constraint"><div class="ch"><span class="ct">Flood (FEMA Zone AE)</span><span class="chip warn">Design condition</span></div><p>Portions of Parcel B lie in the 1-percent-annual-chance flood zone (base flood elevation 15 ft; flood-protection elevation 16 ft). Elevated and crawl-space construction is an established treatment. The estuary restoration is projected to lower this elevation over the hold.</p></div>
+            <div class="constraint"><div class="ch"><span class="ct">Riparian and wetland buffers</span><span class="chip warn">Delineation required</span></div><p>The Deschutes is a fish-bearing Type F stream with a 250-ft riparian buffer, reducible to 150 ft for habitat restoration. Wetland buffers of 50–100 ft are assumed pending categorization by a licensed biologist.</p></div>
+            <div class="constraint"><div class="ch"><span class="ct">Steep slopes</span><span class="chip warn">Setback applies</span></div><p>Eastern slopes exceed 40 percent (approaching 70 percent in places) and carry landslide-hazard buffers, reducible with geotechnical justification.</p></div>
+            <div class="constraint"><div class="ch"><span class="ct">Environmental condition</span><span class="chip danger">Further study required</span></div><p>Soil and groundwater contamination (arsenic and priority metals) is documented; a 2002 voluntary cleanup reached industrial levels. A 2018 fire and a 2019 transformer release warrant further investigation. Phase II scoping is a standard diligence item, now supported by the City's Brownfields assessment.</p></div>
+            <div class="constraint"><div class="ch"><span class="ct">Dam removal</span><span class="chip ok">Favorable</span></div><p>The estuary restoration is projected to lower the base flood elevation in extreme river-flood events, improving a principal constraint over the hold.</p></div>
+          </div>
+        </section>
+
+        <section class="reveal pp-sec" id="dd-infra">
+          <h2>Access and infrastructure.</h2>
+          <div class="reality" style="margin-top:8px;">
+            <h3>Per KPFF civil due diligence (draft, 2024)</h3>
+            <div class="constraint"><div class="ch"><span class="ct">Access road</span><span class="chip warn">Subject to negotiation</span></div><p>Boston St SE descends ~110 vertical feet at grades of 8–15 percent. The study finds the alignment can meet fire-apparatus standards if widened; the road section is a matter for negotiation with the City. A 298-stall parking structure is studied into the hillside.</p></div>
+            <div class="constraint"><div class="ch"><span class="ct">Water</span><span class="chip warn">Upgrade required</span></div><p>A 6-inch line is present at over 100 PSI. An upgrade to a looped 8-inch main is required for a 2,000 GPM fire flow.</p></div>
+            <div class="constraint"><div class="ch"><span class="ct">Sewer</span><span class="chip ok">Serviceable</span></div><p>Sanitary service runs through an upgraded on-site lift station to the LOTT Clean Water Alliance system. Capacity confirmation is recommended for the proposed density.</p></div>
+            <div class="constraint"><div class="ch"><span class="ct">Stormwater</span><span class="chip warn">Design required</span></div><p>Enhanced water-quality treatment and a conveyance network are required, coordinated with critical-areas delineation and the shoreline permit.</p></div>
+            <div class="constraint"><div class="ch"><span class="ct">Power &amp; gas</span><span class="chip ok">Present / extendable</span></div><p>Three-phase power is present. PSE gas is extendable. Undergrounding would be evaluated against road-corridor costs.</p></div>
+          </div>
+        </section>
+
+        <section class="reveal pp-sec" id="dd-underwriting">
+          <h2>Feasibility and underwriting.</h2>
+          <p class="measure sub">The current materials do not include a developer pro forma. The framework below supports preliminary underwriting; buyers should build their own model on independent assumptions.</p>
+          <ul class="points" style="margin-top:14px;">
+            <li><strong>Land basis as the value event.</strong> The spread between acquisition basis and entitled, program-ready land is the principal return driver. The entitlement work to achieve it is identified in the existing studies.</li>
+            <li><strong>Effective buildable area.</strong> Critical-area buffers constrain the envelope; the civil study identifies it, and the concept documents an ~192,000 SF program within it.</li>
+            <li><strong>Staged capital.</strong> Land and entitlement can be secured first, with infrastructure and vertical investment staged against demand and the estuary timeline.</li>
+            <li><strong>Multiple exit paths.</strong> Resort, membership club, residential overlay (~43–130 units), and tribal pathways preserve optionality at disposition.</li>
+          </ul>
+          <div class="table-wrap" style="margin-top:20px;">
+            <table class="table">
+              <thead><tr><th>Underwriting item</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>Asking price / pricing guidance</td><td>Available to qualified parties under NDA</td></tr>
+                <tr><td>Infrastructure cost range</td><td>Access, water, stormwater, retaining — confirm with civil engineer</td></tr>
+                <tr><td>Adaptive reuse / seismic cost</td><td>Structural assessment and estimate needed</td></tr>
+                <tr><td>Environmental / remediation</td><td>Phase II ESA and remediation estimate needed</td></tr>
+                <tr><td>Hotel operating assumptions</td><td>Current market study and operator input recommended</td></tr>
+                <tr><td>Stabilized NOI / yield on cost</td><td>Buyer to develop from program and operator inputs</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="reveal pp-sec" id="dd-reports">
+          <h2>Reports and status.</h2>
+          <div class="table-wrap" style="margin-top:8px;">
+            <table class="table">
+              <thead><tr><th>Report / study</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>ALTA survey</td><td>Completed</td></tr>
+                <tr><td>Civil due diligence (KPFF)</td><td>Completed draft (2024)</td></tr>
+                <tr><td>Conceptual design package (GCH)</td><td>Completed (2022–23)</td></tr>
+                <tr><td>Market study (Concord Group)</td><td>Historical (2014 base year) — refresh recommended</td></tr>
+                <tr><td>Phase I / Phase II ESA</td><td>Confirm status / order; Phase II recommended</td></tr>
+                <tr><td>Wetland delineation · geotechnical · structural</td><td>Needed</td></tr>
+                <tr><td>Historic building &amp; hazardous-materials assessment</td><td>Needed</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="reveal pp-sec" id="dd-exhibits">
+          <h2>Drawings and exhibits.</h2>
+          <p class="measure sub">Source drawings are available in the confidential data room. Representative exhibits below.</p>
+          <div class="gallery" style="margin-top:18px;">
+            <div class="frame topo" role="button" tabindex="0" aria-label="Parcel map with assemblage boundary"><div><p class="ft">Parcel map</p><p class="fd">Assemblage boundary overlay.</p></div></div>
+            <div class="frame topo" role="button" tabindex="0" aria-label="GCH Concept D1 site plan"><div><p class="ft">Concept D1</p><p class="fd">GCH site plan and section (2023).</p></div></div>
+            <div class="frame topo" role="button" tabindex="0" aria-label="KPFF civil constraints diagram"><div><p class="ft">Civil constraints</p><p class="fd">KPFF utilities and critical-areas overlay (2024).</p></div></div>
+          </div>
+        </section>
+
+        <section class="reveal pp-sec" id="dd-faq">
+          <h2>Questions most parties raise first.</h2>
+          <details class="faq"><summary>Is the brew tower included in the assemblage?</summary><p>No. The historic brew-tower outparcel within Parcel B is owned by the City of Tumwater and excluded from the 34.182-acre total. The concept programs it for public brewing and dining in coordination with the City, a relationship most parties define early in entitlement.</p></details>
+          <details class="faq"><summary>What is the environmental exposure?</summary><p>Soil and groundwater contamination (arsenic and priority metals) is documented, attributed to the former paint-shop area. A 2002 voluntary cleanup reached industrial levels. A 2018 fire and a 2019 transformer release warrant further investigation; defining a Phase II scope is a standard item, supported by the City's EPA Brownfields assessment. Agency records are in the data room.</p></details>
+          <details class="faq"><summary>Can the access road support development?</summary><p>The civil study finds the Boston St SE alignment can meet fire-apparatus standards if widened, with preliminary 20- and 30-foot sections. The final section is a matter for negotiation with the City; the study recommends meeting early.</p></details>
+          <details class="faq"><summary>How is flood risk addressed?</summary><p>Portions of Parcel B lie in FEMA Zone AE (base flood elevation 15 ft; flood-protection elevation 16 ft). Elevated and crawl-space construction is the established treatment, and the estuary restoration is projected to lower the base flood elevation in extreme river floods.</p></details>
+          <div style="margin-top:24px;"><button class="btn btn-primary" data-route="request">Request the data room</button></div>
+        </section>
+      </div>
+
+      <!-- ============ NEWS & SOURCES ============ -->
+      <div class="page" id="page-sources">
+
+        <section class="reveal">
+          <p class="eyebrow">News &amp; sources</p>
+          <h2>Developments and source materials.</h2>
+          <p class="lead">A dated record of public actions affecting the property, and the studies behind this offering. Entries are anchored to source documents and appended on a recurring schedule.</p>
+        </section>
+
+        <section class="reveal">
+          <p class="eyebrow">Developments</p>
+          <h2>Public actions on the record.</h2>
+          <div style="margin-top:18px;">
+            <div class="news-item">
+              <div class="news-date">Oct 2022</div>
+              <div>
+                <h3>Estuary restoration advances toward dam removal</h3>
+                <p>The Washington Department of Enterprise Services finalized the EIS for the Capitol Lake–Deschutes Estuary, selecting an alternative that removes the 5th Avenue Dam and restores roughly 260 acres. The EIS indicates dam removal would lower the base flood elevation in extreme river floods at the South Basin, which the property fronts.</p>
+                <div class="src">Source: WA DES, Capitol Lake–Deschutes Estuary Final EIS (October 2022).</div>
+              </div>
+            </div>
+            <div class="news-item">
+              <div class="news-date">2023</div>
+              <div>
+                <h3>City awarded $500,000 EPA Brownfields grant</h3>
+                <p>The City of Tumwater was awarded an EPA Brownfields grant to assess environmental conditions across the brewery properties and support cleanup planning.</p>
+                <div class="src">Source: EPA / City of Tumwater announcements (2023).</div>
+              </div>
+            </div>
+            <div class="news-item">
+              <div class="news-date">2024</div>
+              <div>
+                <h3>Custer Way frontage paving observed complete</h3>
+                <p>The City identified Custer Way, the property's arterial frontage, as a priority street for repairs. Pavement upgrades appeared complete at the project frontage as of the June 2024 site walk.</p>
+                <div class="src">Source: KPFF civil due diligence (2024), citing City of Tumwater.</div>
+              </div>
+            </div>
+            <div class="news-item">
+              <div class="news-date">2008</div>
+              <div>
+                <h3>On-site sewer lift station upgraded</h3>
+                <p>A City capital improvement upgraded the sanitary lift station serving the property and installed a force main beneath the Deschutes to a second station in Tumwater Historical Park, establishing a sewer path with stated capacity for redevelopment flows.</p>
+                <div class="src">Source: City of Tumwater Public Works as-built plans (2008), via KPFF.</div>
+              </div>
+            </div>
+          </div>
+          <p class="src" style="margin:16px 0 0; font-size:11px; color:var(--faint);"><span class="chip warn">Verify before release</span> Reserved for scheduled updates: current Tumwater permit activity, capital and transportation projects, utility upgrades, and Brewery / Craft District planning.</p>
+        </section>
+
+        <section class="reveal">
+          <p class="eyebrow">Source materials</p>
+          <h2>The studies behind the offering.</h2>
+          <div class="studies" style="margin-top:18px;">
+            <div class="study"><div class="s-k">Conceptual design</div><div class="s-v">GCH Architecture</div><div class="s-d">2022–23 · Building program, site concepts A–D, sections, residential overlay</div></div>
+            <div class="study"><div class="s-k">Civil due diligence</div><div class="s-v">KPFF</div><div class="s-d">2024 · Access, utilities, critical areas, flood, environmental condition</div></div>
+            <div class="study"><div class="s-k">Market analysis</div><div class="s-v">The Concord Group</div><div class="s-d">2014 base year · Lodging, residential, and retail demand; comparable conversions</div></div>
+            <div class="study"><div class="s-k">Estuary EIS</div><div class="s-v">WA Dept. of Enterprise Services</div><div class="s-d">2022 · Capitol Lake–Deschutes Estuary Final EIS; dam removal alternative</div></div>
+            <div class="study"><div class="s-k">Brownfields grant</div><div class="s-v">EPA / City of Tumwater</div><div class="s-d">2023 · $500,000 assessment award across the brewery properties</div></div>
+            <div class="study"><div class="s-k">ALTA survey</div><div class="s-v">On file</div><div class="s-d">Completed · Available in the confidential data room</div></div>
+          </div>
+          <p class="src" style="margin:14px 0 0; font-size:11px; color:var(--faint);">Full documents are available to qualified parties in the confidential data room.</p>
+        </section>
+      </div>
+
+      <!-- ============ REQUEST INFORMATION ============ -->
+      <div class="page" id="page-request">
+
+        <section class="reveal">
+          <p class="eyebrow">Request information</p>
+          <h2>Request the offering materials.</h2>
+          <p class="lead">The property is offered off-market through AGM Real Estate Group. Information is released in stages as parties qualify. Troy Gessel, Selling Principal, is the single point of contact and coordinates each step directly.</p>
+        </section>
+
+        <section class="reveal">
+          <p class="eyebrow">Process</p>
+          <h2>How the offering works.</h2>
+          <div class="steps" style="margin-top:18px;">
+            <div class="step"><h4>1 · Confidentiality agreement</h4><p>Qualified parties execute a confidentiality agreement. The offering is pre-market and is not publicly listed.</p></div>
+            <div class="step"><h4>2 · Materials &amp; data room</h4><p>AGM provides the materials relevant to your interest, the conceptual program, market analysis, and KPFF civil due diligence, with access to the confidential data room.</p></div>
+            <div class="step"><h4>3 · Site visit</h4><p>Tours of the property and the existing structures are arranged for parties operating under confidentiality.</p></div>
+            <div class="step"><h4>4 · Expression of interest</h4><p>Interested parties submit an expression of interest or a letter of intent outlining proposed terms, basis, and intended use.</p></div>
+          </div>
+        </section>
+
+        <section class="reveal">
+          <p class="eyebrow">Contact</p>
+          <h2>Exclusively represented by Troy Gessel.</h2>
+          <div class="glance" style="margin-top:18px;">
+            <div><div class="g-lbl">Principal</div><div class="g-val">Troy Gessel</div></div>
+            <div><div class="g-lbl">Firm</div><div class="g-val">AGM Real Estate Group</div></div>
+            <div><div class="g-lbl">Direct</div><div class="g-val">206.622.8600</div></div>
+            <div><div class="g-lbl">Email</div><div class="g-val">troy@agmrealestate.com</div></div>
+          </div>
+          <p class="src" style="margin:14px 0 0; font-size:11px; color:var(--faint);"><span class="chip warn">Verify before release</span> Add Troy's bio and track record (years in Pacific Northwest commercial real estate, representative adaptive-reuse / hospitality / land transactions, aggregate volume, relevant relationships).</p>
+        </section>
+
+        <section class="reveal">
+          <p class="eyebrow">Request</p>
+          <h2>Tell us what to send.</h2>
+          <p class="measure sub">Indicate your area of interest and AGM will respond with the materials appropriate to your evaluation.</p>
+          <div class="form-ok" id="nfOk">Your request has been received. AGM Real Estate Group will respond with materials appropriate to your stated interest.</div>
+          <div class="form" id="nfForm" style="margin-top:18px;">
+            <div class="row-2">
+              <div class="field"><label for="nf-name">Name</label><input id="nf-name" type="text" autocomplete="name" /></div>
+              <div class="field"><label for="nf-org">Organization</label><input id="nf-org" type="text" autocomplete="organization" /></div>
+            </div>
+            <div class="field"><label for="nf-email">Email</label><input id="nf-email" type="email" autocomplete="email" /></div>
+            <div class="field">
+              <label for="nf-type">Area of interest</label>
+              <select id="nf-type">
+                <option value="">Select…</option>
+                <option>Resort and hotel development</option>
+                <option>Membership / lifestyle club</option>
+                <option>Tribal nation</option>
+                <option>Investor / family office</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="nf-req">Request type</label>
+              <select id="nf-req">
+                <option>Request information</option>
+                <option>Data-room access</option>
+                <option>Arrange a site visit</option>
+              </select>
+            </div>
+            <div class="field"><label for="nf-msg">Requested materials</label><textarea id="nf-msg" placeholder="Program documentation, market analysis, civil due diligence, offering terms…"></textarea></div>
+            <div>
+              <button class="btn btn-primary" id="nfSubmit">Submit request</button>
+              <p class="form-note" style="margin-top:16px;">Materials are shared under a confidentiality agreement. This site is not indexed.</p>
+            </div>
+          </div>
+        </section>
+      </div>
 
       <!-- ============ PRESENTATION ============ -->
       <div class="page" id="page-presentation">
@@ -1784,6 +2298,48 @@ function track(event, props){
    RAIL CONTENT — adapts per route
    ============================================================ */
 var RAILS = {
+  'opportunity': {
+    eyebrow:'Confidential · Pre-Market Offering', title:'Public investment creating private value.',
+    pos:'A 34-acre Deschutes riverfront assemblage in Tumwater, anchored by the 1906 brewhouse. Public agencies are restoring the estuary, assessing the site, and rebuilding access while the land is still privately acquirable.',
+    glance:[['Assemblage','34.18 acres'],['Anchor','1906 brewhouse'],['Estuary','260 acres restored'],['EPA grant','$500,000 (2023)'],['Status','Off-market']],
+    primary:['request','Request information'], secondary:['public-investment','See the public investment'],
+    foot:'Presented by AGM Real Estate Group to qualified parties under confidentiality.'
+  },
+  'vision': {
+    eyebrow:'The Vision', title:'A destination hospitality campus in the 1906 brewhouse.',
+    pos:'A boutique resort that competes on place: 72 keys, a 26,185 SF event center, a 15,540 SF wellness facility, and structured parking, studied across the five historic structures.',
+    glance:[['Hotel','72 keys'],['Event','26,185 SF'],['Wellness','15,540 SF'],['Total program','~192K SF'],['Parking','298 stalls']],
+    primary:['request','Request the offering materials'], secondary:['due-diligence','Open due diligence'],
+    foot:'Program per GCH conceptual design (2022–23). Final program is buyer-controlled.'
+  },
+  'public-investment': {
+    eyebrow:'Public Investment', title:'Public capital is de-risking a private redevelopment.',
+    pos:'A state estuary restoration, a $500,000 EPA Brownfields grant, and municipal capital on the frontage are improving the property before acquisition.',
+    glance:[['Estuary EIS','WA DES, 2022'],['EPA grant','$500,000 (2023)'],['Frontage','Repaved (2024)'],['Sewer','Upgraded (2008)'],['Incentives','HTC · TIF · LTAC']],
+    primary:['request','Request the offering materials'], secondary:['due-diligence','Review the record'],
+    foot:'Sources: WA DES Final EIS (2022); EPA / City of Tumwater (2023); KPFF (2024).'
+  },
+  'due-diligence': {
+    eyebrow:'Due Diligence', title:'The supporting record.',
+    pos:'Parcels, heritage, zoning, environmental and critical areas, infrastructure, feasibility, reports, and drawings, documented in third-party studies and available under confidentiality.',
+    glance:[['Assemblage','34.182 acres'],['Parcels','Four (B: 32.07 ac)'],['Civil study','KPFF, 2024'],['Concept','GCH, 2022–23'],['Buildings','Five historic']],
+    primary:['request','Request the data room'], secondary:['public-investment','Public investment'],
+    foot:'Conditions per the KPFF civil due diligence (draft, 2024). Buyer to verify independently.'
+  },
+  'sources': {
+    eyebrow:'News & Sources', title:'Developments and source materials.',
+    pos:'A dated, sourced record of public actions affecting the property, alongside the studies behind this offering.',
+    glance:[['Estuary EIS','Oct 2022'],['EPA grant','2023'],['Frontage paving','2024'],['Sewer upgrade','2008']],
+    primary:['request','Request information'], secondary:['public-investment','Public investment'],
+    foot:'Entries are anchored to source documents and appended on a recurring schedule.'
+  },
+  'request': {
+    eyebrow:'Request Information', title:'Request the offering materials.',
+    pos:'Indicate your area of interest and AGM will provide the materials relevant to your evaluation: program documentation, market analysis, civil due diligence, and offering terms.',
+    glance:[['Principal','Troy Gessel'],['Firm','AGM Real Estate Group'],['Telephone','206.622.8600'],['Office','Bellevue, WA']],
+    primary:null, secondary:null,
+    foot:'troy@agmrealestate.com · 12330 Northup Way, Bellevue, WA 98005. Materials are shared under a confidentiality agreement.'
+  },
   'home': {
     eyebrow:'Confidential · Pre-Market Offering', title:'The Former Olympia Brewery, Tumwater, Washington.',
     pos:'A 34-acre riverfront assemblage on the Deschutes River, anchored by the 1906 brewhouse and supported by completed conceptual design, market, and civil engineering studies.',
@@ -1885,8 +2441,14 @@ function renderRail(route){
 /* ============================================================
    Router
    ============================================================ */
-var ROUTES = ['home','presentation','use-resort','use-club','use-tribal','use-investors','history','site','news','contact'];
+var ROUTES = ['opportunity','vision','public-investment','due-diligence','sources','request','home','presentation','use-resort','use-club','use-tribal','use-investors','history','site','news','contact'];
 var TITLES = {
+  'opportunity':'The Opportunity — The Former Olympia Brewery',
+  'vision':'The Vision — The Former Olympia Brewery',
+  'public-investment':'Public Investment — The Former Olympia Brewery',
+  'due-diligence':'Due Diligence — The Former Olympia Brewery',
+  'sources':'News & Sources — The Former Olympia Brewery',
+  'request':'Request Information — The Former Olympia Brewery',
   'home':'The Former Olympia Brewery — AGM Real Estate Group',
   'presentation':'Opportunity Overview — The Former Olympia Brewery',
   'use-resort':'Resort & Hotel Development — The Former Olympia Brewery',
@@ -1900,7 +2462,7 @@ var TITLES = {
 };
 function currentRoute(){
   var h = (location.hash || '').replace(/^#\/?/,'');
-  return ROUTES.indexOf(h) >= 0 ? h : 'home';
+  return ROUTES.indexOf(h) >= 0 ? h : 'opportunity';
 }
 function showRoute(route){
   ROUTES.forEach(function(r){
@@ -2014,6 +2576,24 @@ document.getElementById('submitBtn').addEventListener('click', function(){
   document.getElementById('contactForm').style.display='none';
   document.getElementById('formOk').classList.add('show');
 });
+
+/* new Request Information page form */
+(function(){
+  var btn = document.getElementById('nfSubmit');
+  if (!btn) return;
+  btn.addEventListener('click', function(){
+    var name = document.getElementById('nf-name').value.trim();
+    var email = document.getElementById('nf-email').value.trim();
+    if (!name || !email){
+      if (!name) document.getElementById('nf-name').focus();
+      else document.getElementById('nf-email').focus();
+      return;
+    }
+    track('request_info_submitted', {lens:document.getElementById('nf-type').value || 'unspecified', req:(document.getElementById('nf-req')||{}).value || 'unspecified'});
+    document.getElementById('nfForm').style.display='none';
+    document.getElementById('nfOk').classList.add('show');
+  });
+})();
 
 /* ============================================================
    Interactive site plan (hotspots)
