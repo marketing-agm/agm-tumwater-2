@@ -157,8 +157,9 @@ ul{margin:0; padding:0; list-style:none;}
 
 .grid{display:grid; gap:14px;}
 .grid-2{grid-template-columns:repeat(2,1fr);}
-.grid-3{grid-template-columns:repeat(3,1fr);}
-@media(max-width:880px){.grid-2,.grid-3{grid-template-columns:1fr;}}
+.grid-3{grid-template-columns:repeat(2,1fr);}
+.grid-2 > :last-child:nth-child(odd),.grid-3 > :last-child:nth-child(odd){grid-column:1 / -1;}
+@media(max-width:880px){.grid-2,.grid-3{grid-template-columns:1fr;} .grid-2 > :last-child:nth-child(odd),.grid-3 > :last-child:nth-child(odd){grid-column:auto;}}
 
 .card{background:transparent; border:1px solid var(--border); border-radius:0; padding:34px 32px;}
 .card h3{margin-bottom:14px; transition:color .15s var(--ease);}
@@ -507,7 +508,42 @@ ul{margin:0; padding:0; list-style:none;}
 .checklist{list-style:none; margin:16px 0 0; padding:0;}
 .checklist li{position:relative; padding:0 0 0 28px; margin-bottom:12px; font-size:14px; line-height:1.55; color:var(--text-2); max-width:64ch;}
 .checklist li::before{content:"\2713"; position:absolute; left:0; top:0; color:var(--accent); font-weight:700;}
+
+/* ============================================================
+   EXECUTIVE SUMMARY GALLERY
+   ============================================================ */
+.es-main{width:100%; aspect-ratio:16/9; background:var(--surface-2); border:1px solid var(--border); overflow:hidden;}
+.es-main img{width:100%; height:100%; object-fit:cover; display:block;}
+.es-thumbs{display:flex; gap:10px; margin-top:10px;}
+.es-thumb{flex:1 1 0; aspect-ratio:16/9; padding:0; border:1px solid var(--border); background:var(--surface-2); cursor:pointer; overflow:hidden; opacity:.55; transition:opacity .15s var(--ease), border-color .15s var(--ease);}
+.es-thumb img{width:100%; height:100%; object-fit:cover; display:block;}
+.es-thumb:hover,.es-thumb:focus-visible{opacity:.85; outline:none;}
+.es-thumb.is-active{opacity:1; border-color:var(--accent);}
 </style>
+
+<!-- ===================== PostHog product analytics ===================== -->
+<!-- Captures: tab/page views & counts, time-per-tab, button & link clicks
+     (autocapture), session replay, and click/scroll heatmaps. The site's
+     track() helper (see end of <body>) forwards all named events here too.
+     Project token is a public client-side key, safe to ship. US Cloud. -->
+<link rel="preconnect" href="https://us.i.posthog.com" crossorigin />
+<link rel="preconnect" href="https://us-assets.i.posthog.com" crossorigin />
+<script>
+!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
+  api_host: 'https://us.i.posthog.com',
+  ui_host: 'https://us.posthog.com',
+  person_profiles: 'always',
+  autocapture: true,            // every button & link click
+  capture_pageview: false,      // SPA: pageviews fired manually in showRoute()
+  capture_pageleave: true,      // time-on-site / per-page exit
+  enable_heatmaps: true,        // click + scroll heatmaps
+  disable_session_recording: false,
+  session_recording: { maskAllInputs: true }  // confidential: mask form fields
+});
+</script>
+<!-- =================== /PostHog product analytics ===================== -->
+
 </head>
 <body>
 <a class="skip" href="#content">Skip to content</a>
@@ -591,7 +627,15 @@ ul{margin:0; padding:0; list-style:none;}
           <p class="eyebrow">Olympia Brewery District</p>
           <h2>The South Sound&rsquo;s Defining Redevelopment Opportunity</h2>
           <p class="lead">A rare opportunity to reposition one of Washington&rsquo;s most recognizable historic assets into a phased mixed-use district combining heritage, hospitality, recreation, housing, and long-term regional placemaking.</p>
-          <div class="frame wide topo" style="margin-top:28px;" role="img" aria-label="Full-screen historic brewery image"><div><p class="ft">Image &middot; Historic brewery</p><p class="fd">Full-bleed view of the 1906 brewhouse and riverfront campus.</p></div></div>
+          <div class="es-gallery" style="margin-top:28px;">
+            <div class="es-main"><img id="esMainImg" src="images/tb-overhead-main.png" alt="Aerial view of the Olympia Brewery riverfront campus" /></div>
+            <div class="es-thumbs">
+              <button class="es-thumb is-active" data-src="images/tb-overhead-main.png" aria-label="Aerial view of the Olympia Brewery riverfront campus"><img src="images/tb-overhead-main.png" alt="" /></button>
+              <button class="es-thumb" data-src="images/tb-og-eyelevel-across-river.png" aria-label="Eye-level view of the brewery across the Deschutes River"><img src="images/tb-og-eyelevel-across-river.png" alt="" /></button>
+              <button class="es-thumb" data-src="images/tb-main-img%20(1).png" aria-label="The historic brewhouse and campus"><img src="images/tb-main-img%20(1).png" alt="" /></button>
+              <button class="es-thumb" data-src="images/tb-main-img-2%20(1).png" aria-label="The brewery campus and river setting"><img src="images/tb-main-img-2%20(1).png" alt="" /></button>
+            </div>
+          </div>
           <p class="measure sub" style="margin-top:24px;">The 34-acre riverfront assemblage at 3233 Boston Street SW is anchored by the historic Olympia Brewery and framed by the Deschutes River, Tumwater Falls, Interstate 5 visibility, and proximity to the Washington State Capitol. Its scale, frontage, historic identity, and regional brand support a destination-oriented development unlike a conventional hotel, residential, or commercial project.</p>
           <div style="margin-top:22px; display:flex; gap:10px; flex-wrap:wrap;">
             <button class="btn btn-primary" data-route="investment-opportunity">Investment Overview</button>
@@ -3669,6 +3713,11 @@ function showRoute(route){
   runReveal();
   engageRoute(route);
   track('page_view', {page:route});
+  /* Report each tab as a native PostHog pageview so tab views, counts and
+     time-per-tab show up in Web Analytics (hash routing isn't auto-detected). */
+  if (window.posthog && window.posthog.capture){
+    try { window.posthog.capture('$pageview', {route:route, $current_url:location.href}); } catch(e){}
+  }
 }
 function go(route){
   if (location.hash === '#/'+route) { showRoute(route); }
@@ -4029,6 +4078,20 @@ document.addEventListener('click', function(e){
     track('request_info_submitted', {req:'data-room', page:'call-to-action'});
     document.getElementById('caForm').style.display='none';
     document.getElementById('caOk').classList.add('show');
+  });
+})();
+
+/* Executive Summary gallery */
+(function(){
+  var main = document.getElementById('esMainImg');
+  if (!main) return;
+  document.addEventListener('click', function(e){
+    var t = e.target.closest('.es-thumb');
+    if (!t) return;
+    main.src = t.getAttribute('data-src');
+    main.alt = t.getAttribute('aria-label') || '';
+    document.querySelectorAll('.es-thumb').forEach(function(b){ b.classList.toggle('is-active', b===t); });
+    track('es_gallery', {src: t.getAttribute('data-src')});
   });
 })();
 
