@@ -88,6 +88,8 @@ ul{margin:0; padding:0; list-style:none;}
 .nav-link.active{color:var(--accent);}
 .nav-cta{font-size:13px; font-weight:500; color:#fff; background:var(--accent); padding:8px 16px; border-radius:var(--radius); cursor:pointer; border:none; font-family:var(--sans); transition:background .15s var(--ease); white-space:nowrap;}
 .nav-cta:hover{background:var(--accent-hover);}
+.nav-print{font-size:13px; font-weight:500; color:var(--text-3); background:none; padding:8px 12px; border-radius:var(--radius); cursor:pointer; border:1px solid var(--border-soft); font-family:var(--sans); transition:color .15s var(--ease), background .15s var(--ease), border-color .15s var(--ease); white-space:nowrap;}
+.nav-print:hover{color:var(--text); border-color:var(--accent);}
 .dropdown{position:relative;}
 .dropdown-menu{position:absolute; top:calc(100% + 8px); left:0; min-width:260px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:8px; opacity:0; visibility:hidden; transform:translateY(-4px); transition:opacity .15s var(--ease), transform .15s var(--ease), visibility .15s; z-index:110;}
 .dropdown:hover .dropdown-menu, .dropdown:focus-within .dropdown-menu{opacity:1; visibility:visible; transform:translateY(0);}
@@ -371,8 +373,13 @@ ul{margin:0; padding:0; list-style:none;}
 
 /* print tear-sheets (C10) */
 @media print{
-  .topbar,.hamburger,.theme-toggle,.btn,.rail-cta,.lightbox,.hs-pin,.hs-pop,.map-tip,.toggle3{display:none!important;}
+  .topbar,.hamburger,.theme-toggle,.btn,.rail-cta,.lightbox,.hs-pin,.hs-pop,.map-tip,.toggle3,.nav-print{display:none!important;}
   body{background:#fff; color:#000; font-size:11pt;}
+  /* Full-prospectus print: reveal every current section, one per page */
+  body.print-all .page.print-include{display:block!important; animation:none!important; break-after:page;}
+  body.print-all .page.print-include:last-of-type{break-after:auto;}
+  body.print-all .rail{display:none!important;}
+  body.print-all .content{padding:0;}
   .shell{display:block; max-width:none; border:none;}
   .rail{border:none; border-bottom:1.5pt solid #000;}
   .rail-stick{position:static; max-height:none; overflow:visible; padding:0 0 14pt;}
@@ -570,6 +577,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
       <button class="nav-link" data-route="financial-upside">Financial</button>
       </div>
       <div class="nav-right">
+      <button class="nav-print" id="printPdf" aria-label="Print or save the prospectus as PDF" title="Print / save as PDF">⤓ PDF</button>
       <button class="nav-cta" data-route="call-to-action">Contact</button>
       <div class="dropdown nav-archive">
         <button class="nav-link" aria-haspopup="true">Archive ▾</button>
@@ -3879,6 +3887,32 @@ hamburger.addEventListener('click', function(){
   hamburger.setAttribute('aria-expanded', open ? 'true':'false');
 });
 function closeMobileNav(){ navlinks.classList.remove('open'); hamburger.setAttribute('aria-expanded','false'); }
+
+/* ============================================================
+   Print / Save full prospectus as PDF
+   Reveals every current section so the whole prospectus prints,
+   then restores the single-page SPA view afterwards.
+   ============================================================ */
+var PRINT_ROUTES = ['executive-summary','investment-opportunity','investment-thesis','city-investing-first','dev-vision','location-overview','growth-drivers','development-advantages','property-overview','master-plan','financial-upside','call-to-action'];
+function printProspectus(){
+  track('prospectus_print', {});
+  PRINT_ROUTES.forEach(function(r){
+    var el = document.getElementById('page-'+r);
+    if (el){ el.classList.add('print-include'); el.querySelectorAll('.reveal').forEach(function(n){ n.classList.add('in'); }); }
+  });
+  document.body.classList.add('print-all');
+  var cleanup = function(){
+    document.body.classList.remove('print-all');
+    PRINT_ROUTES.forEach(function(r){
+      var el = document.getElementById('page-'+r);
+      if (el) el.classList.remove('print-include');
+    });
+    window.removeEventListener('afterprint', cleanup);
+  };
+  window.addEventListener('afterprint', cleanup);
+  window.print();
+}
+document.getElementById('printPdf').addEventListener('click', printProspectus);
 
 var root = document.documentElement;
 document.getElementById('themeToggle').addEventListener('click', function(){
