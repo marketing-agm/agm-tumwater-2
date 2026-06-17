@@ -29,7 +29,7 @@
   --ok:#1a7a3a; --ok-wash:#e3f5e6;
   --warn:#8b6a00; --warn-wash:#fdf3da;
   --radius:6px; --radius-sm:4px;
-  --rail-w:380px; --shell-w:1400px; --hdr:64px;
+  --rail-w:360px; --shell-w:1480px; --hdr:64px;
   --ease:cubic-bezier(.4,0,.2,1);
   --serif:'Source Serif 4', Georgia, serif;
   --sans:'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -76,7 +76,10 @@ ul{margin:0; padding:0; list-style:none;}
 .topbar-inner{display:flex; align-items:center; gap:20px; min-height:64px; padding:9px 40px;}
 .brand{display:flex; align-items:baseline; gap:9px; font-family:var(--serif); font-weight:700; color:var(--text); font-size:16px; letter-spacing:-0.01em; cursor:pointer; white-space:nowrap;}
 .brand .mark{font-size:10px; font-weight:600; letter-spacing:.14em; color:var(--accent); text-transform:uppercase; font-family:var(--sans);}
-.nav-links{display:flex; align-items:center; flex-wrap:wrap; justify-content:flex-end; gap:4px; margin-left:auto;}
+.nav-links{display:flex; flex:1; align-items:center; gap:18px; margin-left:0;}
+.nav-tabs{flex:1; display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:4px;}
+.nav-right{display:flex; align-items:center; gap:8px; flex:0 0 auto;}
+.nav-archive .dropdown-menu{right:0; left:auto;}
 .nav-archive .nav-link{color:var(--faint);}
 .nav-archive .nav-link:hover{color:var(--text-2);}
 .dd-group{font-size:10px; text-transform:uppercase; letter-spacing:.06em; color:var(--faint); font-weight:700; padding:10px 12px 4px;}
@@ -122,7 +125,7 @@ ul{margin:0; padding:0; list-style:none;}
 /* RIGHT COLUMN */
 .main{min-width:0; display:flex; flex-direction:column;}
 .content{flex:1; padding:64px 72px 88px;}
-.content-inner{max-width:880px;}
+.content-inner{max-width:1000px;}
 .page{display:none;}
 .page.active{display:block;}
 
@@ -157,8 +160,7 @@ ul{margin:0; padding:0; list-style:none;}
 .grid-3{grid-template-columns:repeat(3,1fr);}
 @media(max-width:880px){.grid-2,.grid-3{grid-template-columns:1fr;}}
 
-.card{background:var(--surface); border:1px solid var(--border); border-radius:0; padding:34px 32px; transition:border-color .15s var(--ease), background .15s var(--ease);}
-.card:hover{border-color:var(--accent); background:var(--surface-2);}
+.card{background:transparent; border:1px solid var(--border); border-radius:0; padding:34px 32px;}
 .card h3{margin-bottom:14px; transition:color .15s var(--ease);}
 .card h4{margin-bottom:14px; color:var(--text); letter-spacing:-0.01em; line-height:1.32;}
 .card .eyebrow{margin-bottom:14px;}
@@ -408,7 +410,8 @@ ul{margin:0; padding:0; list-style:none;}
   .content{padding:44px 24px 64px;}
   .footer{padding:36px 24px;}
   .topbar-inner{padding:0 20px;}
-  .nav-links{position:fixed; inset:var(--hdr) 0 auto 0; flex-direction:column; flex-wrap:nowrap; align-items:stretch; gap:2px; background:var(--bg); border-bottom:1px solid var(--border); padding:12px 18px 18px; margin-left:0; transform:translateY(-130%); transition:transform .2s var(--ease); max-height:calc(100vh - var(--hdr)); overflow:auto; z-index:90;}
+  .nav-links{position:fixed; inset:var(--hdr) 0 auto 0; flex-direction:column; flex-wrap:nowrap; align-items:stretch; gap:6px; background:var(--bg); border-bottom:1px solid var(--border); padding:12px 18px 18px; margin-left:0; transform:translateY(-130%); transition:transform .2s var(--ease); max-height:calc(100vh - var(--hdr)); overflow:auto; z-index:90;}
+  .nav-tabs,.nav-right{display:flex; flex-direction:column; align-items:stretch; width:100%; gap:2px; flex:none;}
   .nav-links.open{transform:translateY(0);}
   .nav-link,.nav-cta{text-align:left; padding:12px;}
   .dropdown-menu{position:static; opacity:1; visibility:visible; transform:none; border:none; padding:0 0 0 14px; background:none; min-width:0;}
@@ -512,6 +515,7 @@ ul{margin:0; padding:0; list-style:none;}
     </div>
     <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">☰</button>
     <nav class="nav-links" id="navlinks" aria-label="Primary">
+      <div class="nav-tabs">
       <button class="nav-link" data-route="executive-summary">Executive Summary</button>
       <button class="nav-link" data-route="investment-opportunity">Investment Opportunity</button>
       <button class="nav-link" data-route="investment-thesis">Thesis</button>
@@ -523,6 +527,8 @@ ul{margin:0; padding:0; list-style:none;}
       <button class="nav-link" data-route="property-overview">Property</button>
       <button class="nav-link" data-route="master-plan">Master Plan</button>
       <button class="nav-link" data-route="financial-upside">Financial</button>
+      </div>
+      <div class="nav-right">
       <button class="nav-cta" data-route="call-to-action">Contact</button>
       <div class="dropdown nav-archive">
         <button class="nav-link" aria-haspopup="true">Archive ▾</button>
@@ -556,6 +562,7 @@ ul{margin:0; padding:0; list-style:none;}
         </div>
       </div>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">◐</button>
+      </div>
     </nav>
   </div>
 </header>
