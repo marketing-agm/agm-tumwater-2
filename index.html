@@ -557,16 +557,12 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
     <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">☰</button>
     <nav class="nav-links" id="navlinks" aria-label="Primary">
       <div class="nav-tabs">
-      <button class="nav-link" data-route="executive-summary">Executive Summary</button>
-      <button class="nav-link" data-route="investment-opportunity">Investment Opportunity</button>
-      <button class="nav-link" data-route="investment-thesis">Thesis</button>
-      <button class="nav-link" data-route="city-investing-first">City Investing First</button>
-      <button class="nav-link" data-route="dev-vision">Development Vision</button>
+      <button class="nav-link" data-route="executive-summary">Overview</button>
+      <button class="nav-link" data-route="investment-opportunity">Heritage</button>
+      <button class="nav-link" data-route="dev-vision">Vision</button>
+      <button class="nav-link" data-route="city-investing-first">Why Now</button>
       <button class="nav-link" data-route="location-overview">Location</button>
-      <button class="nav-link" data-route="growth-drivers">Growth Drivers</button>
-      <button class="nav-link" data-route="development-advantages">Advantages</button>
       <button class="nav-link" data-route="property-overview">Property</button>
-      <button class="nav-link" data-route="master-plan">Master Plan</button>
       <button class="nav-link" data-route="financial-upside">Financial</button>
       </div>
       <div class="nav-right">
@@ -621,9 +617,39 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
     <main class="content" id="content">
       <div class="content-inner">
 
-      <!-- ================= TAB 1 · EXECUTIVE SUMMARY ================= -->
+      <!-- ================= TAB 1 · OVERVIEW ================= -->
       <div class="page wide" id="page-executive-summary">
-        <!-- §1 · At a Glance -->
+
+        <!-- §1 · Hero -->
+        <section class="reveal">
+          <p class="eyebrow">Confidential Pre-Market Offering &middot; Olympia Brewery District</p>
+          <h2 style="max-width:20ch;">Suncadia Meets the Distillery District</h2>
+          <p class="lead">A 34-acre heritage riverfront campus in Tumwater, Washington, where the Deschutes River, Tumwater Falls, 1906 architecture, and direct Interstate&nbsp;5 visibility converge, anchoring a destination unlike any other in the Pacific Northwest.</p>
+          <div class="es-gallery" style="margin-top:28px;">
+            <div class="es-main"><img id="esMainImg" src="images/tb-overhead-main.png" alt="Aerial view of the Olympia Brewery riverfront campus" /></div>
+            <div class="es-thumbs">
+              <button class="es-thumb is-active" data-src="images/tb-overhead-main.png" aria-label="Aerial view of the Olympia Brewery riverfront campus"><img src="images/tb-overhead-main.png" alt="" /></button>
+              <button class="es-thumb" data-src="images/tb-og-eyelevel-across-river.png" aria-label="Eye-level view of the brewery across the Deschutes River"><img src="images/tb-og-eyelevel-across-river.png" alt="" /></button>
+              <button class="es-thumb" data-src="images/tb-main-img%20(1).png" aria-label="The historic brewhouse and campus"><img src="images/tb-main-img%20(1).png" alt="" /></button>
+              <button class="es-thumb" data-src="images/tb-main-img-2%20(1).png" aria-label="The brewery campus and river setting"><img src="images/tb-main-img-2%20(1).png" alt="" /></button>
+            </div>
+          </div>
+          <div class="metrics" style="margin-top:26px;">
+            <div class="metric"><div class="num">34.18</div><div class="lbl">acre riverfront assemblage</div></div>
+            <div class="metric"><div class="num">5</div><div class="lbl">historic 1906 masonry buildings</div></div>
+            <div class="metric"><div class="num">120+</div><div class="lbl">years of regional identity</div></div>
+            <div class="metric"><div class="num">2M+</div><div class="lbl">annual regional visitors</div></div>
+            <div class="metric"><div class="num">24,000+</div><div class="lbl">state jobs in Thurston County</div></div>
+            <div class="metric"><div class="num">100K+</div><div class="lbl">vehicles a day past the site on I-5</div></div>
+          </div>
+          <div style="margin-top:26px; display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn btn-primary" data-route="call-to-action">Request the Data Room</button>
+            <button class="btn btn-ghost btn-arrow" data-route="investment-opportunity">See why it can&rsquo;t be replicated</button>
+            <button class="btn btn-ghost btn-arrow" data-route="city-investing-first">See why now</button>
+          </div>
+        </section>
+
+        <!-- §2 · At a Glance -->
         <section class="reveal">
           <p class="eyebrow">At a Glance</p>
           <h2>Rare by Every Measure</h2>
@@ -642,31 +668,42 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
             <div><div class="g-lbl">Potential</div><div class="g-val">Resort-style, mixed-use destination</div></div>
             <div><div class="g-lbl">Strategy</div><div class="g-val">Adaptive reuse &amp; new development</div></div>
           </div>
-          <div class="metrics" style="margin-top:26px;">
-            <div class="metric"><div class="num">34.18</div><div class="lbl">acre riverfront assemblage</div></div>
-            <div class="metric"><div class="num">5</div><div class="lbl">historic 1906 masonry buildings</div></div>
-            <div class="metric"><div class="num">120+</div><div class="lbl">years of regional identity</div></div>
-            <div class="metric"><div class="num">2M+</div><div class="lbl">annual regional visitors</div></div>
-            <div class="metric"><div class="num">24,000+</div><div class="lbl">state jobs in Thurston County</div></div>
-            <div class="metric"><div class="num">100K+</div><div class="lbl">vehicles a day past the site on I-5</div></div>
-          </div>
         </section>
 
-        <!-- §2 · The Opportunity & The Setting -->
+        <!-- §3 · Why It Matters -->
         <section class="reveal">
-          <p class="eyebrow">Olympia Brewery District</p>
-          <h2>The South Sound&rsquo;s Defining Riverfront Opportunity: a Beautiful, Walkable Site That Establishes Place</h2>
-          <p class="lead">The Tumwater Brewery site represents one of the most distinctive redevelopment opportunities in the Pacific Northwest: a 34-acre riverfront assemblage positioned at the intersection of heritage, hospitality, recreation, housing, and long-term regional placemaking.</p>
-          <div class="es-gallery" style="margin-top:28px;">
-            <div class="es-main"><img id="esMainImg" src="images/tb-overhead-main.png" alt="Aerial view of the Olympia Brewery riverfront campus" /></div>
-            <div class="es-thumbs">
-              <button class="es-thumb is-active" data-src="images/tb-overhead-main.png" aria-label="Aerial view of the Olympia Brewery riverfront campus"><img src="images/tb-overhead-main.png" alt="" /></button>
-              <button class="es-thumb" data-src="images/tb-og-eyelevel-across-river.png" aria-label="Eye-level view of the brewery across the Deschutes River"><img src="images/tb-og-eyelevel-across-river.png" alt="" /></button>
-              <button class="es-thumb" data-src="images/tb-main-img%20(1).png" aria-label="The historic brewhouse and campus"><img src="images/tb-main-img%20(1).png" alt="" /></button>
-              <button class="es-thumb" data-src="images/tb-main-img-2%20(1).png" aria-label="The brewery campus and river setting"><img src="images/tb-main-img-2%20(1).png" alt="" /></button>
-            </div>
+          <p class="eyebrow">Why It Matters</p>
+          <h2>Three Forces Converge on One Riverfront Campus</h2>
+          <p class="lead">The opportunity is not to acquire land, but to reposition a legacy asset into a resort-style hospitality and mixed-use destination, on a site whose beauty, history, and public-sector momentum are already in place. The first question every investor asks: <strong>&ldquo;Why should I care?&rdquo;</strong> Three answers.</p>
+          <div class="grid grid-3" style="margin-top:24px;">
+            <div class="card"><p class="eyebrow">Historic Asset</p><h4>120+ years of irreplaceable identity</h4><p>Since 1906, the Olympia Brewery has defined Tumwater. Its brand recognition, cultural weight, and authentic structures cannot be built new, only acquired.</p></div>
+            <div class="card"><p class="eyebrow">Public-Sector Alignment</p><h4>Millions already committed</h4><p>The public sector is investing ahead of private capital. Grants, environmental work, and Brewery District planning are already advancing the site and defining the execution path.</p></div>
+            <div class="card"><p class="eyebrow">Regional Growth</p><h4>State government, airport growth, tourism</h4><p>Three demand engines converge on one location, state employment, airport-area expansion, and 2M+ annual visitors, deep enough to carry lodging, events, dining, and housing together.</p></div>
           </div>
-          <p class="measure sub" style="margin-top:24px;">Five 1906 masonry structures rise above the Deschutes River, with Brewery Park at Tumwater Falls and the river&rsquo;s walking paths a short stroll away, heavy public foot and vehicle traffic along Custer Way, direct Interstate 5 visibility, and the Washington State Capitol minutes to the north. The site carries rare physical and cultural attributes: scale, river frontage, historic identity, and regional brand recognition that together support a destination-oriented development unlike a conventional hotel, residential, or commercial project.</p>
+          <p class="eyebrow" style="margin-top:30px;">The Thesis in Five Pillars</p>
+          <div class="grid grid-3" style="margin-top:12px;">
+            <div class="card"><span class="bldg-n">01</span><h4>Public Investment Creating Private Value</h4><p>Public planning, environmental review, infrastructure analysis, and municipal alignment create a defined framework for private capital.</p></div>
+            <div class="card"><span class="bldg-n">02</span><h4>Entitlement Fast Track</h4><p>HC, Historic Commercial zoning supports hotel, restaurant, retail, office, multifamily, recreation, breweries, parking, and open space, subject to applicable review.</p></div>
+            <div class="card"><span class="bldg-n">03</span><h4>Historic Tax Credit Potential</h4><p>The historic structures may support historic rehabilitation incentive analysis, subject to final eligibility, scope, and preservation requirements.</p></div>
+            <div class="card"><span class="bldg-n">04</span><h4>Regional Destination Opportunity</h4><p>Brand recognition, riverfront setting, and I-5 visibility support demand for lodging, food and beverage, events, wellness, and retail.</p></div>
+            <div class="card"><span class="bldg-n">05</span><h4>Institutional Scale</h4><p>The ~34-acre assemblage provides scale to support phasing, infrastructure delivery, multiple revenue drivers, and a long-term master plan.</p></div>
+          </div>
+          <div style="margin-top:24px; display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn btn-primary" data-route="investment-opportunity">Explore the heritage</button>
+            <button class="btn btn-ghost btn-arrow" data-route="dev-vision">See the development vision</button>
+          </div>
+        </section>
+      </div>
+
+      <!-- ================= TAB 2 · HERITAGE ================= -->
+      <div class="page wide" id="page-investment-opportunity">
+
+        <!-- §1 · It's the Water -->
+        <section class="reveal">
+          <p class="eyebrow">The Story</p>
+          <h2>Why This Site Can&rsquo;t Be Replicated</h2>
+          <p class="lead">Leopold Schmidt built his brewery here in 1896 for two reasons that still define the site: the falls of the Deschutes, which supplied power, and the artesian springs beneath it, whose pure water became the basis for a slogan the whole country knew, <em class="hl">&ldquo;It&rsquo;s the Water.&rdquo;</em> A century later, that combination of water, falls, heritage, and visibility is exactly what a new development cannot manufacture.</p>
+          <p class="measure sub" style="margin-top:14px;">Five 1906 masonry structures rise above the Deschutes River, with Brewery Park at Tumwater Falls and the river&rsquo;s walking paths a short stroll away, heavy public foot and vehicle traffic along Custer Way, direct Interstate 5 visibility, and the Washington State Capitol minutes to the north. Scale, river frontage, historic identity, and regional brand recognition together support a destination unlike a conventional hotel, residential, or commercial project.</p>
           <div class="grid grid-3" style="margin-top:26px;">
             <div class="card"><h4>A Century of Architecture</h4><p>Five 1906 masonry structures give the campus instant identity, brand depth, and adaptive-reuse character that new construction cannot replicate.</p></div>
             <div class="card"><h4>Tumwater Falls, on Foot</h4><p>A natural landmark and Brewery Park anchor the site a short walk away on existing public paths, a setting no new-build location can manufacture.</p></div>
@@ -675,19 +712,143 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
             <div class="card"><h4>Minutes to the State Capitol</h4><p>Proximity to the Capitol campus and downtown Olympia supplies year-round daytime population, government demand, and event draw.</p></div>
             <div class="card"><h4>Public Paths &amp; Open Space</h4><p>An existing network of sidewalks, parks, and river trail already connects the site to the community, walkability that is built, not promised.</p></div>
           </div>
-          <div style="margin-top:22px; display:flex; gap:10px; flex-wrap:wrap;">
-            <button class="btn btn-primary" data-route="investment-opportunity">Investment Overview</button>
-            <button class="btn btn-ghost" data-route="call-to-action">Download OM</button>
-            <button class="btn btn-ghost" data-route="call-to-action">Data Room Access</button>
+        </section>
+
+        <!-- §2 · Heritage Timeline -->
+        <section class="reveal">
+          <p class="eyebrow">Heritage Timeline</p>
+          <h2>A Site Shaped Over Millennia</h2>
+          <p class="sub" style="margin:0 0 14px;">From Steh-chass homeland to brewing landmark to adaptive-reuse opportunity. Select any era to expand the image and the full account.</p>
+          <div class="tl-rail" id="tlRail">
+            <button class="tl-card" data-era="13,000&ndash;366 BP">
+              <div class="tl-photo">Steh-chass village &middot; 1855 map</div>
+              <div class="tl-yr">13,000&ndash;366 BP</div><h4>Steh-chass Homeland</h4>
+              <p class="tl-short">The Deschutes falls were home to the Steh-chass people, documented here for millennia.</p>
+              <span class="tl-more">Read more &rarr;</span>
+              <div class="tl-full" hidden>The Deschutes falls were home to the Steh-chass people. Excavation at the Tumwater site documents habitation from about 2,380 years ago, with some implements dating to 13,000 BP. T.T. Waterman&rsquo;s 1855 maps locate the village and a permanent trading post here, with direct access to the inlet, the site&rsquo;s first and deepest layer of significance.</div>
+            </button>
+            <button class="tl-card" data-era="1845">
+              <div class="tl-photo">Oregon Trail settlement</div>
+              <div class="tl-yr">1845</div><h4>Settlement Displaces the Steh-chass</h4>
+              <p class="tl-short">Oregon Trail settlers displaced the Steh-chass from their village and trading post.</p>
+              <span class="tl-more">Read more &rarr;</span>
+              <div class="tl-full" hidden>Extension of the Oregon Trail brought white settlers who displaced the Steh-chass from their village and permanent trading post. The same central waterway and land access that made the site a trading hub now drew newcomers, beginning its transition from Indigenous stewardship.</div>
+            </button>
+            <button class="tl-card" data-era="1853 + 1875">
+              <div class="tl-photo">Olympia / Tumwater</div>
+              <div class="tl-yr">1853 + 1875</div><h4>Olympia Becomes the Capital</h4>
+              <p class="tl-short">Olympia became the territorial capital and trade crossroads; Tumwater incorporated.</p>
+              <span class="tl-more">Read more &rarr;</span>
+              <div class="tl-full" hidden>Olympia became the capital of Washington Territory and the crossroads for regional trade, and Tumwater incorporated in 1875. Accessible by water and later by rail, the area was central to commerce at a time before Seattle emerged as the dominant port.</div>
+            </button>
+            <button class="tl-card" data-era="1896&ndash;1902">
+              <div class="tl-photo">Capital Brewing Co.</div>
+              <div class="tl-yr">1896&ndash;1902</div><h4>Schmidt Buys the Site</h4>
+              <p class="tl-short">Leopold Schmidt bought the site in 1896 and built Capital Brewing, later Olympia Brewing Company.</p>
+              <span class="tl-more">Read more &rarr;</span>
+              <div class="tl-full" hidden>Leopold Schmidt, a German brewmaster from Montana, purchased the site in 1896 and built the Capital Brewing Company, which became the Olympia Brewing Company. He chose it for the falls, which supplied power, and the artesian springs beneath it, whose pure water he believed ideal for brewing, the basis for the slogan &ldquo;It&rsquo;s the Water.&rdquo;</div>
+            </button>
+            <button class="tl-card" data-era="1905">
+              <div class="tl-photo">The Cellar</div>
+              <div class="tl-yr">1905</div><h4>The Cellar Is Built</h4>
+              <p class="tl-short">The Cellar building was constructed as the brewery expanded.</p>
+              <span class="tl-more">Read more &rarr;</span>
+              <div class="tl-full" hidden>The Cellar building was constructed as the brewery expanded. It is one of three original brewery structures still standing, alongside the brewhouse tower and the keg house.</div>
+            </button>
+            <button class="tl-card" data-era="1906">
+              <div class="tl-photo">The Brewhouse</div>
+              <div class="tl-yr">1906</div><h4>The Brewhouse Is Built</h4>
+              <p class="tl-short">The six-story brewhouse tower rose in 1906 and remains the campus&rsquo;s landmark.</p>
+              <span class="tl-more">Read more &rarr;</span>
+              <div class="tl-full" hidden>The six-story brewhouse tower rose in 1906 and remains the campus&rsquo;s defining landmark. Visible from I-5, it anchors the site&rsquo;s identity and is the centerpiece of the adaptive-reuse vision.</div>
+            </button>
+            <button class="tl-card" data-era="1907">
+              <div class="tl-photo">Cellar addition &amp; Keg House</div>
+              <div class="tl-yr">1907</div><h4>Cellar Addition &amp; Keg House</h4>
+              <p class="tl-short">A west addition to the Cellar and the Keg House were completed.</p>
+              <span class="tl-more">Read more &rarr;</span>
+              <div class="tl-full" hidden>A west addition to the Cellar and the Keg House were completed in 1907. These finish the trio of pre-Prohibition brewery buildings that survive on the site today.</div>
+            </button>
+            <button class="tl-card" data-era="1916">
+              <div class="tl-photo">Prohibition</div>
+              <div class="tl-yr">1916</div><h4>Prohibition Halts Brewing</h4>
+              <p class="tl-short">Washington&rsquo;s prohibition halted production; the site briefly became a juice factory.</p>
+              <span class="tl-more">Read more &rarr;</span>
+              <div class="tl-full" hidden>Washington&rsquo;s prohibition halted brewery production, and the site never operated as a brewery again, briefly converting to a juice factory. The brewery had run only about 14 years; its buildings would serve mostly storage thereafter.</div>
+            </button>
+            <button class="tl-card" data-era="1927">
+              <div class="tl-photo">Tumwater Paper Co.</div>
+              <div class="tl-yr">1927</div><h4>Tumwater Paper Company</h4>
+              <p class="tl-short">Leased to the Tumwater Paper Company, which built the Warehouse and North Storage.</p>
+              <span class="tl-more">Read more &rarr;</span>
+              <div class="tl-full" hidden>The site was leased to the Tumwater Paper Company, which built the long Warehouse and the North Storage building in the 1920s. These two join the three brewery structures to form the five-building campus that stands today.</div>
+            </button>
+            <button class="tl-card" data-era="1933">
+              <div class="tl-photo">Repeal of Prohibition</div>
+              <div class="tl-yr">1933</div><h4>Brewing Moves South</h4>
+              <p class="tl-short">After repeal, Olympia Beer built larger facilities south; the originals became storage.</p>
+              <span class="tl-more">Read more &rarr;</span>
+              <div class="tl-full" hidden>After Prohibition&rsquo;s repeal, Olympia Beer built larger facilities to the south and the original buildings were used mainly for storage. The old warehouse was used intermittently to manufacture aircraft parts for Boeing and to build cabinets and furniture.</div>
+            </button>
+            <button class="tl-card" data-era="1983">
+              <div class="tl-photo">Sold to Pabst</div>
+              <div class="tl-yr">1983</div><h4>Sold to Pabst</h4>
+              <p class="tl-short">The site was sold to Pabst and continued in storage use.</p>
+              <span class="tl-more">Read more &rarr;</span>
+              <div class="tl-full" hidden>The site was sold to Pabst and continued to be used for storage. Ownership changes through the late 20th century left the historic core intact but underused.</div>
+            </button>
+            <button class="tl-card" data-era="2003&ndash;Present">
+              <div class="tl-photo">Aerial today</div>
+              <div class="tl-yr">2003&ndash;Present</div><h4>Operations Cease</h4>
+              <p class="tl-short">All operations ceased in 2003, with little maintenance since.</p>
+              <span class="tl-more">Read more &rarr;</span>
+              <div class="tl-full" hidden>All operations ceased in 2003, with little to no maintenance since. The structures remain significant and await adaptive reuse, the opportunity at the center of this offering.</div>
+            </button>
           </div>
         </section>
 
-        <!-- §3 · The Vision -->
+        <!-- §3 · The City Wants a Destination -->
         <section class="reveal">
-          <p class="eyebrow">The Vision</p>
-          <h2>Not Land to Buy: a Legacy Asset to Reposition Into a Destination</h2>
-          <p class="lead">The opportunity is not simply to acquire land, but to reposition a legacy asset into a resort-style hospitality and mixed-use destination. Prior concept work has studied a program that may include boutique lodging, destination food and beverage, event and wedding venues, spa and wellness uses, residential overlay opportunities, public open space, trails, river access, and adaptive reuse of the historic brewery structures.</p>
-          <p class="measure sub" style="margin-top:14px;">The highest-value path is a destination, district-scale program, not a conventional warehouse or distribution conversion, which has met zoning resistance, and the site&rsquo;s current owner has publicly described a boutique-hotel vision overlooking the river and falls <a href="https://www.theolympian.com/news/local/article312267636.html" target="_blank" rel="noopener">(The Olympian)</a>.</p>
+          <p class="eyebrow">A Validated Direction</p>
+          <h2>The City Has Already Chosen Destination Over Commodity</h2>
+          <p class="lead">The thesis is not aspirational, it has been tested. When the current owner pursued warehouse and distribution use, the City resisted, and the owner has since publicly described a boutique-hotel vision overlooking the river and falls <a href="https://www.theolympian.com/news/local/article312267636.html" target="_blank" rel="noopener">(The Olympian)</a>. The highest-value path, a destination, district-scale program, is the one the City is actively working to enable.</p>
+          <div style="margin-top:20px; display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn btn-primary" data-route="dev-vision">See the development vision</button>
+            <button class="btn btn-ghost btn-arrow" data-route="city-investing-first">See why now</button>
+          </div>
+        </section>
+      </div>
+
+      <!-- ================= TAB 3 · VISION & MASTER PLAN ================= -->
+      <div class="page wide" id="page-dev-vision">
+
+        <!-- §1 · The Vision -->
+        <section class="reveal">
+          <p class="eyebrow">Development Vision</p>
+          <h2>Suncadia Meets the Distillery District</h2>
+          <p class="lead">The site should be positioned as a complete destination rather than a single-use project. The strongest concept combines historic adaptive reuse, hospitality, riverfront public space, food and beverage, wellness, event programming, and residential activity into one coordinated campus.</p>
+          <p class="eyebrow" style="margin-top:26px;">Potential Uses</p>
+          <div style="margin-top:12px; display:flex; flex-wrap:wrap; gap:8px;">
+            <span class="chip">Hotel</span><span class="chip">Conference Center</span><span class="chip">Residential</span><span class="chip">Riverfront Retail</span><span class="chip">Craft Beverage</span><span class="chip">Wellness</span><span class="chip">Event Space</span>
+          </div>
+          <p class="eyebrow" style="margin-top:30px;">Vision Board</p>
+          <div class="gallery" style="margin-top:12px;">
+            <div class="frame has-img" role="button" tabindex="0" aria-label="Historic brick architecture"><img src="images/tb-main-img%20(1).png" alt="" /><div><p class="ft">Historic brick architecture</p></div></div>
+            <div class="frame has-img" role="button" tabindex="0" aria-label="Riverfront setting"><img src="images/tb-og-eyelevel-across-river.png" alt="" /><div><p class="ft">Riverfront setting</p></div></div>
+            <div class="frame has-img" role="button" tabindex="0" aria-label="The campus from above"><img src="images/tb-overhead-shot.png" alt="" /><div><p class="ft">Campus &amp; river</p></div></div>
+            <div class="frame has-img" role="button" tabindex="0" aria-label="The brewhouse landmark"><img src="images/tb-main-img.png" alt="" /><div><p class="ft">The brewhouse landmark</p></div></div>
+            <div class="frame has-img" role="button" tabindex="0" aria-label="River and falls setting"><img src="images/tb-main-img-2.png" alt="" /><div><p class="ft">River &amp; falls setting</p></div></div>
+            <div class="frame has-img" role="button" tabindex="0" aria-label="Concept aerial"><img src="images/tb-main-img-2%20(1).png" alt="" /><div><p class="ft">Concept aerial</p></div></div>
+          </div>
+          <p class="measure sub" style="margin-top:22px;">The existing buildings provide the authenticity and regional recognition required to differentiate the project from conventional new construction. New site improvements can support arrival experience, pedestrian circulation, courtyard activation, open space, and riverfront access.</p>
+          <p class="src" style="margin:12px 0 0; font-size:11px; color:var(--faint);">Conceptual Design developed by Weinstein A+U, dated August 30, 2022. Illustrative; final program is buyer-controlled.</p>
+        </section>
+
+        <!-- §2 · Studied Uses -->
+        <section class="reveal">
+          <p class="eyebrow">Studied Uses</p>
+          <h2>A Program That Reinforces Itself</h2>
+          <p class="lead">Prior concept work has studied a program that may include boutique lodging, destination food and beverage, event and wedding venues, spa and wellness uses, residential overlay opportunities, public open space, trails, river access, and adaptive reuse of the historic brewery structures.</p>
           <div class="table-wrap" style="margin-top:24px;">
             <table class="table">
               <thead><tr><th>Studied use</th><th>Strategic fit</th></tr></thead>
@@ -704,164 +865,67 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
             </table>
           </div>
           <p class="src" style="margin:12px 0 0; font-size:11px; color:var(--faint);">Concepts are illustrative; a future developer shapes the final program based on market demand, capital strategy, operating model, and entitlement path.</p>
-          <div style="margin-top:20px; display:flex; gap:10px; flex-wrap:wrap;">
-            <button class="btn btn-ghost btn-arrow" data-route="dev-vision">See the development vision</button>
-            <button class="btn btn-ghost btn-arrow" data-route="master-plan">Explore master-plan options</button>
-          </div>
         </section>
 
-        <!-- §4 · Public Momentum -->
+        <!-- §3 · Master Plan -->
         <section class="reveal">
-          <p class="eyebrow">Public Momentum</p>
+          <p class="eyebrow">Master Plan Opportunities</p>
+          <h2>A Flexible Redevelopment Framework, Not a Fixed Outcome</h2>
+          <p class="lead">The site can support multiple scenarios while preserving the historic identity of the brewery campus, allowing the final program to respond to capital, infrastructure, entitlement, and market timing.</p>
+          <p class="eyebrow" style="margin-top:24px;">Development Scenarios</p>
+          <div style="margin-top:12px; display:flex; flex-wrap:wrap; gap:8px;">
+            <span class="chip">Hotel</span><span class="chip">Mixed-Use</span><span class="chip">Residential</span><span class="chip">Entertainment</span><span class="chip">Conference</span><span class="chip">Adaptive Reuse</span>
+          </div>
+          <p class="eyebrow" style="margin-top:28px;">Program Framework</p>
+          <div class="grid grid-3" style="margin-top:12px;">
+            <div class="card"><h4>Heritage Anchor</h4><p>Brewhouse as the public-facing focal point.</p></div>
+            <div class="card"><h4>Hospitality Core</h4><p>Boutique lodging within the historic structures.</p></div>
+            <div class="card"><h4>Residential Overlay</h4><p>Recurring activity and a phased income layer.</p></div>
+            <div class="card"><h4>Food &amp; Beverage Activation</h4><p>Destination dining and craft beverage.</p></div>
+            <div class="card"><h4>Event &amp; Conference</h4><p>Weddings, retreats, and meetings programming.</p></div>
+            <div class="card"><h4>Wellness &amp; Riverfront Open Space</h4><p>Spa, trails, and public-facing placemaking.</p></div>
+          </div>
+          <div class="frame wide topo" style="margin-top:24px;" role="img" aria-label="Concept D1 / D2 scenario diagrams"><div><p class="ft">Concept D1 / D2 scenario diagrams</p><p class="fd">Scenario and phasing diagrams (Weinstein A+U, 2022), available in the data room.</p></div></div>
+          <p class="measure sub" style="margin-top:20px;">The strongest scenarios combine destination hospitality and event programming with supporting residential, retail, food and beverage, wellness, and open-space uses. Early activation establishes campus identity while later phases deliver broader district value.</p>
+        </section>
+
+        <!-- §4 · Complexity is the Moat -->
+        <section class="reveal">
+          <div class="card" style="border-color:var(--accent);">
+            <p class="eyebrow">Execution</p>
+            <h3 style="margin-top:4px;">The Complexity Is the Moat</h3>
+            <p class="measure sub" style="margin-top:8px;">Access, topography, floodplain, shoreline, historic preservation, and infrastructure all shape the strategy, and they are also what make this site impossible to replicate once it is entitled, cleaned up, and repositioned. The full constraint set and supporting diligence are detailed under Property.</p>
+            <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+              <button class="btn btn-ghost btn-arrow" data-route="property-overview">Review the property &amp; diligence</button>
+              <button class="btn btn-ghost btn-arrow" data-route="financial-upside">See the financial upside</button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ================= TAB 4 · WHY NOW · THE CITY IS INVESTING FIRST ================= -->
+      <div class="page wide" id="page-city-investing-first">
+
+        <!-- §1 · The City Is Investing First -->
+        <section class="reveal">
+          <p class="eyebrow">Why Now &middot; Public Investment Creating Private Value</p>
           <h2>You&rsquo;re Not Starting From Zero: You&rsquo;re Inheriting a Decade of City Groundwork</h2>
-          <p class="lead">The brewery is not a standalone parcel. It is the anchor of the City of Tumwater&rsquo;s adopted Brewery District Plan, and the City is advancing the predevelopment work private capital needs, planning, environmental review, transportation strategy, and a public-realm framework, creating momentum a developer inherits rather than builds.</p>
+          <p class="lead">The brewery is not a standalone parcel. It is the anchor of the City of Tumwater&rsquo;s adopted Brewery District Plan, and an <em class="hl">unusual level of municipal commitment</em> is reducing the cost, complexity, and timeline of redevelopment before private capital arrives, planning, environmental review, transportation strategy, and a public-realm framework a developer inherits rather than builds.</p>
           <div class="grid grid-3" style="margin-top:24px;">
             <div class="card"><h4>Brewery District Plan (2014 / 2020)</h4><p>An adopted policy framework designates the brewery and its surroundings a special subarea for sense of place, access, safety, and economic opportunity.</p><p class="src" style="margin-top:10px; font-size:11px; color:var(--faint);"><a href="https://www.ci.tumwater.wa.us/departments/community-development-department/long-range-planning/brewery-district-plan" target="_blank" rel="noopener">City of Tumwater</a></p></div>
             <div class="card"><h4>Planned Action EIS &amp; Brownfield Work</h4><p>The City is defining environmental, floodplain, wetland, traffic, and utility requirements ahead of a private proposal, improving redevelopment readiness.</p><p class="src" style="margin-top:10px; font-size:11px; color:var(--faint);"><a href="https://www.ci.tumwater.wa.us/business/the-brewery/brownfields" target="_blank" rel="noopener">City, Brownfields</a></p></div>
             <div class="card"><h4>$6.6M E Street Connection</h4><p>A 2026 legislative priority (with a $550K EIS request) to connect Capitol Boulevard and Cleveland Avenue, cross the river and rail line, and support district redevelopment.</p><p class="src" style="margin-top:10px; font-size:11px; color:var(--faint);"><a href="https://www.ci.tumwater.wa.us/government/legislative-priorities" target="_blank" rel="noopener">City, Legislative Priorities</a></p></div>
             <div class="card"><h4>$2.5M Deschutes Valley Trail</h4><p>A funded trail-design contract plus Tumwater Historical Park, Brewery Park at the Falls, and Falls Fest reinforce the riverfront destination thesis.</p><p class="src" style="margin-top:10px; font-size:11px; color:var(--faint);"><a href="https://www.thejoltnews.com/stories/tumwater-city-council-approves-25m-contract-to-design-deschutes-valley-trail,26715" target="_blank" rel="noopener">The JOLT</a></p></div>
             <div class="card"><h4>State-Level Attention (HB 1742)</h4><p>A sustainable-urban-design framework whose criteria point directly at the former brewery, a signal the site is no longer just a local issue.</p><p class="src" style="margin-top:10px; font-size:11px; color:var(--faint);"><a href="https://app.leg.wa.gov/BillSummary/?BillNumber=1742&amp;Year=2026" target="_blank" rel="noopener">WA Legislature</a></p></div>
-          </div>
-          <div style="margin-top:20px;">
-            <button class="btn btn-ghost btn-arrow" data-route="city-investing-first">See how the City is investing first</button>
+            <div class="card"><h4>Funded Environmental Work</h4><p>EPA Brownfields and Washington Ecology partnerships fund Phase I/II assessments and cleanup planning ahead of acquisition.</p><p class="src" style="margin-top:10px; font-size:11px; color:var(--faint);"><a href="https://www.theolympian.com/news/local/article276496471.html" target="_blank" rel="noopener">The Olympian, EPA grant</a></p></div>
           </div>
         </section>
 
-        <!-- §5 · The Developer Opportunity -->
+        <!-- §2 · The Window Is Open Now -->
         <section class="reveal">
-          <p class="eyebrow">The Opportunity</p>
-          <h2>Acquire the Site, Inherit the Momentum, Build a Generational Flagship</h2>
-          <p class="lead">For a qualified developer, the Tumwater Brewery site offers the foundation for a generational project: a heritage riverfront resort and mixed-use campus that can align with Tumwater&rsquo;s broader economic development goals, activate a historically significant property, and create a new regional destination for lodging, events, dining, wellness, recreation, and residential use.</p>
-          <p class="measure sub" style="margin-top:14px;">It is a rare canvas on which to establish a flagship brand, franchise, or headquarters, on a site whose beauty, uniqueness, and public-sector momentum are already in place.</p>
-          <p class="eyebrow" style="margin-top:26px;">What a Developer Acquires</p>
-          <ul class="hl-list">
-            <li>An irreplaceable riverfront setting and authentic historic architecture</li>
-            <li>A walkable destination anchored by Tumwater Falls and Brewery Park</li>
-            <li>Regional access and direct Interstate 5 visibility</li>
-            <li>Active City funding, grants, environmental work, and entitlement support</li>
-            <li>The anchor position within an adopted Brewery District framework</li>
-            <li>A flexible, buyer-controlled program across hospitality, F&amp;B, events, wellness, and housing</li>
-          </ul>
-        </section>
-
-        <!-- §6 · Complexity & Execution -->
-        <section class="reveal">
-          <p class="eyebrow">Execution</p>
-          <h2>The Complexity Is the Moat: It Makes This Site Impossible to Replicate</h2>
-          <p class="lead">The property also comes with meaningful complexity. Access, topography, floodplain conditions, wetlands, shoreline considerations, historic preservation, utilities, and infrastructure all influence the development strategy. Preliminary civil due diligence has already identified the primary constraints and infrastructure considerations.</p>
-          <p class="measure sub" style="margin-top:14px;">These constraints are real, but they are also the moat. The same barriers that have kept the site dormant are what make it impossible to replicate once it is entitled, cleaned up, and repositioned.</p>
-          <ul class="hl-list" style="margin-top:18px;">
-            <li>Boston Street descent and fire-apparatus access requirements</li>
-            <li>Water-service upgrades and stormwater management</li>
-            <li>Flood-resilient design within FEMA Zone AE</li>
-            <li>Shoreline, critical-area, steep-slope, and riparian setbacks</li>
-            <li>Environmental review, including the documented 2019 PCB / oil spill (an Ecology settlement was reached in 2023)</li>
-            <li>Fragmented ownership, the City-owned historic Brewhouse Tower outparcel sits within the assemblage and is excluded from the 34.18 acres</li>
-          </ul>
-          <div style="margin-top:20px; display:flex; gap:10px; flex-wrap:wrap;">
-            <button class="btn btn-ghost btn-arrow" data-route="development-advantages">Review development advantages</button>
-            <button class="btn btn-ghost btn-arrow" data-route="property-overview">See the property overview</button>
-          </div>
-        </section>
-
-        <!-- §7 · Next Steps -->
-        <section class="reveal">
-          <p class="eyebrow">Next Steps</p>
-          <h2>A Defined Path From Concept to Execution</h2>
-          <p class="lead">This presentation is intended to introduce the opportunity, summarize the site and existing diligence, outline the development vision, and identify the next steps required to move from concept to feasibility, underwriting, entitlement, and execution.</p>
-          <div class="flow">
-            <div class="node"><h4>Concept</h4><p>Confirm the destination thesis and program direction.</p></div>
-            <div class="node"><h4>Feasibility</h4><p>Test program, phasing, and capital strategy against the site.</p></div>
-            <div class="node"><h4>Underwriting</h4><p>Price the basis, incentives, and value-creation path.</p></div>
-            <div class="node"><h4>Entitlement</h4><p>Advance approvals within the Brewery District framework.</p></div>
-            <div class="node"><h4>Execution</h4><p>Deliver the phased, mixed-use destination.</p></div>
-          </div>
-          <div style="margin-top:24px; display:flex; gap:10px; flex-wrap:wrap;">
-            <button class="btn btn-primary" data-route="call-to-action">Request the Data Room</button>
-            <button class="btn btn-ghost" data-route="investment-opportunity">Investment Overview</button>
-          </div>
-        </section>
-
-        <!-- §8 · Sources & Public Record -->
-        <section class="reveal">
-          <p class="eyebrow">Public Record</p>
-          <h2>The Opportunity Is Supported by a Documented Public Record</h2>
-          <p class="measure sub" style="margin-top:12px;">City planning, environmental, transportation, legislative, and news sources, grouped for diligence. Links open in a new tab.</p>
-          <div style="margin-top:14px;">
-            <details class="faq"><summary>City of Tumwater</summary><p><a href="https://www.ci.tumwater.wa.us/business/the-brewery" target="_blank" rel="noopener">The Brewery</a> &middot; <a href="https://www.ci.tumwater.wa.us/business/the-brewery/brownfields" target="_blank" rel="noopener">Brownfields</a> &middot; <a href="https://www.ci.tumwater.wa.us/departments/community-development-department/long-range-planning/brewery-district-plan" target="_blank" rel="noopener">Brewery District Plan</a> &middot; <a href="https://www.ci.tumwater.wa.us/departments/community-development-department/long-range-planning/brewery-district-plan/brewery-district-fall-2024-update" target="_blank" rel="noopener">Brewery District Fall 2024 Update</a> &middot; <a href="https://www.ci.tumwater.wa.us/government/legislative-priorities" target="_blank" rel="noopener">Legislative Priorities</a> &middot; <a href="https://www.ci.tumwater.wa.us/business/the-brewery/brewery-district-transportation-improvements" target="_blank" rel="noopener">Brewery District Transportation Improvements</a> &middot; <a href="https://www.ci.tumwater.wa.us/Home/Components/FacilityDirectory/FacilityDirectory/26/479" target="_blank" rel="noopener">Tumwater Historical Park</a> &middot; <a href="https://www.ci.tumwater.wa.us/departments/parks-recreation-department/parks-trails/deschutes-valley-trail" target="_blank" rel="noopener">Deschutes Valley Trail</a> &middot; <a href="https://www.ci.tumwater.wa.us/departments/parks-recreation-department/events/falls-fest" target="_blank" rel="noopener">Falls Fest</a></p></details>
-            <details class="faq"><summary>State Legislature</summary><p><a href="https://app.leg.wa.gov/BillSummary/?BillNumber=1742&amp;Year=2026" target="_blank" rel="noopener">HB 1742, Bill Summary (2026)</a> &middot; <a href="https://lawfilesext.leg.wa.gov/biennium/2025-26/Pdf/Bill%20Reports/House/1742%20HBR%20APP%2026.pdf?q=20260212053607" target="_blank" rel="noopener">HB 1742, House Bill Report</a></p></details>
-            <details class="faq"><summary>Environmental, WA Ecology</summary><p><a href="https://ecology.wa.gov/about-us/who-we-are/news/2021/feb-11-olympia-brewery-spill-to-capitol-lake" target="_blank" rel="noopener">2019 PCB / oil spill to Capitol Lake</a> &middot; <a href="https://ecology.wa.gov/about-us/who-we-are/news/2023/nov-8-ecology-olympia-brewery-owner-reach-settlement-over-2019-spill" target="_blank" rel="noopener">2023 spill settlement</a> &middot; <a href="https://ecology.wa.gov/ecologys-work-near-you/regional-work/southwest-region/deschutes-estuary-restoration" target="_blank" rel="noopener">Deschutes Estuary Restoration</a></p></details>
-            <details class="faq"><summary>Local News</summary><p><a href="https://www.thejoltnews.com/stories/house-approves-bill-supporting-redevelopment-of-shuttered-olympia-brewery-site,28223" target="_blank" rel="noopener">The JOLT, House approves redevelopment bill</a> &middot; <a href="https://www.thejoltnews.com/stories/tumwater-city-council-approves-25m-contract-to-design-deschutes-valley-trail,26715" target="_blank" rel="noopener">The JOLT, Trail design contract</a> &middot; <a href="https://www.thejoltnews.com/stories/tumwater-continues-environmental-assessment-of-old-warehouse-site-at-former-olympia-brewery,29022" target="_blank" rel="noopener">The JOLT, Warehouse environmental assessment</a> &middot; <a href="https://www.theolympian.com/news/local/article276496471.html" target="_blank" rel="noopener">The Olympian, EPA grant</a> &middot; <a href="https://www.theolympian.com/news/local/article289600336.html" target="_blank" rel="noopener">The Olympian, Public/private partnership</a> &middot; <a href="https://www.theolympian.com/news/local/article301954989.html" target="_blank" rel="noopener">The Olympian, Warehouse zoning conflict</a> &middot; <a href="https://www.theolympian.com/news/local/article312267636.html" target="_blank" rel="noopener">The Olympian, Owner&rsquo;s boutique-hotel vision</a> &middot; <a href="https://www.theolympian.com/news/local/article315833663.html" target="_blank" rel="noopener">The Olympian, Public-safety concerns</a> &middot; <a href="https://www.thurstontalk.com/2013/06/20/tumwater-brewery-redevelopment-2/" target="_blank" rel="noopener">ThurstonTalk, Alcohol-production covenant removed</a></p></details>
-            <details class="faq"><summary>Foundations</summary><p><a href="https://olytumfoundation.org/" target="_blank" rel="noopener">Olympia Tumwater Foundation</a></p></details>
-          </div>
-        </section>
-        <section class="reveal">
-          <p class="eyebrow">Public Investment Creating Private Value</p>
-          <h2>The City Is Investing Ahead of Private Capital</h2>
-          <p class="lead">An <em class="hl">unusual level of municipal commitment</em> is reducing the cost, complexity, and timeline of redevelopment before private capital arrives. The City of Tumwater is actively removing barriers and positioning the Brewery District for investment.</p>
-          <div class="grid grid-3" style="margin-top:24px;">
-            <div class="card"><h4>Entitlement Acceleration</h4><p>A Planned Action EIS positions qualifying projects for district-wide review and a faster, more certain approval path.</p></div>
-            <div class="card"><h4>Funded Environmental Work</h4><p>EPA Brownfields and Washington Ecology partnerships fund Phase I/II assessments and cleanup planning ahead of acquisition.</p></div>
-            <div class="card"><h4>Capital Stack Enhancement</h4><p>Historic Tax Credit potential and layered incentives can reduce project basis and improve returns.</p></div>
-            <div class="card"><h4>Municipal Alignment</h4><p>The Brewery District is the City&rsquo;s highest redevelopment priority, backed by staff, funding, and policy.</p></div>
-          </div>
-          <div style="margin-top:22px;"><button class="btn btn-ghost btn-arrow" data-route="city-investing-first">See how the City is investing first</button></div>
-        </section>
-      </div>
-
-      <!-- ================= TAB 2 · THE INVESTMENT OPPORTUNITY ================= -->
-      <div class="page wide" id="page-investment-opportunity">
-        <section class="reveal">
-          <p class="eyebrow">Public Investment Creating Private Value</p>
-          <h2>A Rare Public-Private Redevelopment Opportunity</h2>
-          <p class="lead">The Olympia Brewery redevelopment benefits from an <em class="hl">unusual level of municipal commitment and public-sector investment</em>. Unlike many large-scale brownfield redevelopment projects, the City of Tumwater has assumed a proactive role in removing development barriers, reducing entitlement risk, and positioning the Brewery District for private investment.</p>
-          <p class="measure sub" style="margin-top:14px;">The City&rsquo;s objective is clear: transform the former Olympia Brewing Company property into a signature mixed-use destination that serves as a catalyst for economic growth throughout the South Sound region. To achieve this objective, Tumwater has invested significant resources in environmental due diligence, infrastructure planning, permitting streamlining, and economic development initiatives that directly benefit future development partners.</p>
-          <p class="measure sub" style="margin-top:14px;">The first question every investor asks: <strong>&ldquo;Why should I care?&rdquo;</strong></p>
-          <div class="grid grid-3" style="margin-top:24px;">
-            <div class="card"><p class="eyebrow">Historic Asset</p><h4>120+ years of irreplaceable identity</h4><p>Since 1906, the Olympia Brewery has defined Tumwater. Its brand recognition, cultural weight, and authentic structures cannot be built new, only acquired.</p></div>
-            <div class="card"><p class="eyebrow">Public-Sector Alignment</p><h4>Millions already committed</h4><p>The public sector is investing ahead of private capital. Grants, environmental work, and Brewery District planning are already advancing the site and defining the execution path.</p></div>
-            <div class="card"><p class="eyebrow">Regional Growth</p><h4>State government, airport growth, tourism</h4><p>Three demand engines converge on one location, state employment, airport-area expansion, and 2M+ annual visitors, deep enough to carry lodging, events, dining, and housing together.</p></div>
-          </div>
-        </section>
-      </div>
-
-      <!-- ================= TAB 3 · INVESTMENT THESIS ================= -->
-      <div class="page wide" id="page-investment-thesis">
-        <section class="reveal">
-          <p class="eyebrow">Investment Thesis</p>
-          <h2>Repositioning a Riverfront Campus Into a Mixed-Use Destination</h2>
-          <p class="lead">The thesis rests on the convergence of historic identity, regional access, public-sector alignment, and flexible adaptive reuse. The opportunity is not simply redevelopment of legacy structures; it is the repositioning of a highly visible riverfront campus into a hospitality-led, mixed-use destination.</p>
-          <div class="grid grid-3" style="margin-top:24px;">
-            <div class="card"><span class="bldg-n">01</span><h4>Public Investment Creating Private Value</h4><p>Public planning, environmental review, infrastructure analysis, and municipal alignment create a more defined framework for private capital.</p></div>
-            <div class="card"><span class="bldg-n">02</span><h4>Entitlement Fast Track</h4><p>HC, Historic Commercial zoning supports hotel, restaurant, retail, office, multifamily, recreation, breweries, parking, and open space, subject to applicable review.</p></div>
-            <div class="card"><span class="bldg-n">03</span><h4>Historic Tax Credit Potential</h4><p>The historic structures may support historic rehabilitation incentive analysis, subject to final eligibility, scope, and preservation requirements.</p></div>
-            <div class="card"><span class="bldg-n">04</span><h4>Regional Destination Opportunity</h4><p>Brand recognition, riverfront setting, and I-5 visibility support demand for lodging, food and beverage, events, wellness, and retail.</p></div>
-            <div class="card"><span class="bldg-n">05</span><h4>Institutional Scale</h4><p>The ~34-acre assemblage provides scale to support phasing, infrastructure delivery, multiple revenue drivers, and a long-term master plan.</p></div>
-          </div>
-        </section>
-        <section class="reveal">
-          <p class="eyebrow">The Thesis in Brief</p>
-          <h2>Where Public Investment Reduces Cost, Complexity, and Timeline</h2>
-          <p class="lead">The Olympia Brewery redevelopment represents a unique opportunity where public-sector investment is actively reducing the costs, complexity, and timelines traditionally associated with complex brownfield redevelopment.</p>
-          <ul class="checklist">
-            <li>Entitlement acceleration through Planned Action EIS</li>
-            <li>Publicly funded environmental due diligence</li>
-            <li>Brownfield risk mitigation</li>
-            <li>Historic Tax Credit eligibility potential</li>
-            <li>Strong municipal support and policy alignment</li>
-            <li>Opportunity for layered incentive financing</li>
-            <li>Strategic location within the Washington State government and South Sound economic corridor</li>
-          </ul>
-          <p class="measure sub" style="margin-top:18px;">Few redevelopment opportunities in the Pacific Northwest offer the combination of historic significance, public-sector support, environmental risk mitigation, and capital stack enhancement currently being assembled within the Brewery District.</p>
-        </section>
-      </div>
-
-      <!-- ================= TAB 4 · THE CITY IS INVESTING FIRST ================= -->
-      <div class="page wide" id="page-city-investing-first">
-        <section class="reveal">
-          <p class="eyebrow">The City Is Investing First</p>
-          <h2>Public-Sector Alignment That Defines the Execution Path</h2>
-          <p class="lead">The site is directly aligned with the City&rsquo;s economic development direction. A hospitality-led, mixed-use adaptive reuse project advances multiple public objectives at once: Brewery District revitalization, craft beverage tourism, corridor reinvestment, infrastructure activation, job creation, tax-base growth, and reuse of a highly visible legacy property.</p>
+          <p class="eyebrow">The Window</p>
+          <h2>The Basis Advantage Compresses as the District Activates</h2>
+          <p class="lead">The public investments above are dated and underway, the 2026 E Street legislative ask, the estuary restoration in design, the funded trail, HB 1742 in the current session. Each one that completes makes the site more valuable and more contested. The basis advantage available to an early developer narrows as the district moves from planning to delivery.</p>
           <div class="flow">
             <div class="node"><h4>EPA / Ecology Grants</h4><p>Public funding supports environmental work.</p></div>
             <div class="node"><h4>Environmental Studies</h4><p>Conditions assessed and documented.</p></div>
@@ -870,33 +934,12 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
             <div class="node"><h4>Private Investment</h4><p>Capital formation against a clear path.</p></div>
           </div>
         </section>
+
+        <!-- §3 · Planned Action EIS -->
         <section class="reveal">
-          <p class="eyebrow">Alignment Themes</p>
-          <h2>One of Tumwater&rsquo;s Most Visible Redevelopment Positions</h2>
-          <div class="grid grid-3" style="margin-top:8px;">
-            <div class="card"><h4>Brewery District Redevelopment</h4><p>A heritage anchor within the City&rsquo;s district revitalization vision.</p></div>
-            <div class="card"><h4>Tumwater Craft District</h4><p>Craft beverage identity and tourism positioning.</p></div>
-            <div class="card"><h4>Capitol Boulevard Corridor</h4><p>Corridor reinvestment and gateway improvement.</p></div>
-            <div class="card"><h4>Transportation &amp; Infrastructure</h4><p>Public infrastructure activation around the site.</p></div>
-            <div class="card"><h4>Business Attraction &amp; Support</h4><p>Job creation and tax-base growth objectives.</p></div>
-            <div class="card"><h4>Brownfield / Distressed Property</h4><p>Reuse of a highly visible legacy property.</p></div>
-          </div>
-          <div class="table-wrap" style="margin-top:26px;">
-            <table class="table">
-              <thead><tr><th>Public action</th><th>Status / date</th><th>Source</th></tr></thead>
-              <tbody>
-                <tr><td>Deschutes Estuary restoration &amp; 5th Avenue Dam removal</td><td>Final EIS Oct 2022; design underway</td><td>WA DES Final EIS (2022)</td></tr>
-                <tr><td>EPA Brownfields assessment grant ($500,000)</td><td>Awarded 2023</td><td>EPA / City of Tumwater (2023)</td></tr>
-                <tr><td>Custer Way frontage paving</td><td>Observed complete, June 2024</td><td>KPFF (2024), citing City</td></tr>
-                <tr><td>Sanitary lift station &amp; river force main</td><td>City capital project, 2008</td><td>City of Tumwater (2008)</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-        <section class="reveal">
-          <p class="eyebrow">Development Risk Reduction</p>
-          <h2>Planned Action EIS: Entitlement Acceleration and Cost Savings</h2>
-          <p class="lead">The City is preparing a <em class="hl">Planned Action Environmental Impact Statement (EIS)</em> for the Brewery District, a strategic initiative designed to substantially reduce development uncertainty and expedite future approvals.</p>
+          <p class="eyebrow">Entitlement Acceleration</p>
+          <h2>Planned Action EIS: A Development &ldquo;Fast Lane&rdquo;</h2>
+          <p class="lead">The City is preparing a <em class="hl">Planned Action Environmental Impact Statement (EIS)</em> for the Brewery District, designed to substantially reduce development uncertainty and expedite future approvals.</p>
           <p class="measure sub" style="margin-top:14px;">Upon completion, qualifying projects may rely upon district-wide environmental analysis rather than undertaking extensive project-specific environmental review. Benefits include:</p>
           <ul class="hl-list">
             <li>Reduced SEPA entitlement risk</li>
@@ -908,60 +951,54 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
           </ul>
           <p class="measure sub" style="margin-top:16px;">For large-scale mixed-use projects, the value of entitlement certainty often exceeds the value of direct grant funding by reducing carrying costs, accelerating construction starts, and improving capital market execution. Tumwater has publicly described the Planned Action EIS as a mechanism to create a development &ldquo;fast lane&rdquo; for projects aligned with the Brewery District vision.</p>
         </section>
+
+        <!-- §4 · Commitments & Alignment -->
         <section class="reveal">
-          <p class="eyebrow">Municipal Alignment</p>
-          <h2>The City&rsquo;s Highest Redevelopment Priority</h2>
-          <p class="lead">The Brewery District is widely recognized as Tumwater&rsquo;s most significant redevelopment opportunity and a cornerstone of the City&rsquo;s long-term economic development strategy.</p>
-          <p class="measure sub" style="margin-top:14px;">Municipal priorities include:</p>
+          <p class="eyebrow">The Record</p>
+          <h2>Public Commitments on the Record</h2>
+          <div class="table-wrap" style="margin-top:8px;">
+            <table class="table">
+              <thead><tr><th>Public action</th><th>Status / date</th><th>Source</th></tr></thead>
+              <tbody>
+                <tr><td>Deschutes Estuary restoration &amp; 5th Avenue Dam removal</td><td>Final EIS Oct 2022; design underway</td><td>WA DES Final EIS (2022)</td></tr>
+                <tr><td>EPA Brownfields assessment grant ($500,000)</td><td>Awarded 2023</td><td>EPA / City of Tumwater (2023)</td></tr>
+                <tr><td>Custer Way frontage paving</td><td>Observed complete, June 2024</td><td>KPFF (2024), citing City</td></tr>
+                <tr><td>Sanitary lift station &amp; river force main</td><td>City capital project, 2008</td><td>City of Tumwater (2008)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="eyebrow" style="margin-top:28px;">Where the City and a Developer Align</p>
+          <p class="measure sub" style="margin-top:8px;">A hospitality-led, mixed-use adaptive reuse project advances multiple public objectives at once, which is why the Brewery District is the City&rsquo;s highest redevelopment priority, backed by staff, funding, and policy.</p>
           <div class="grid grid-3" style="margin-top:14px;">
-            <div class="card"><h4>Hospitality &amp; Tourism</h4><p>Destination lodging, dining, and visitor activity.</p></div>
-            <div class="card"><h4>Mixed-Use Commercial</h4><p>A vibrant, walkable commercial district.</p></div>
+            <div class="card"><h4>Hospitality &amp; Tourism</h4><p>Destination lodging, dining, and craft-beverage visitor activity.</p></div>
+            <div class="card"><h4>Mixed-Use &amp; Housing</h4><p>A vibrant, walkable district with residential activation.</p></div>
             <div class="card"><h4>Historic Preservation</h4><p>Adaptive reuse of the brewery structures.</p></div>
-            <div class="card"><h4>Housing &amp; Residential</h4><p>Residential activation across the campus.</p></div>
-            <div class="card"><h4>Public Gathering Spaces</h4><p>Plazas, open space, and the riverfront.</p></div>
-            <div class="card"><h4>Employment &amp; Destination</h4><p>Job generation and a regional destination.</p></div>
+            <div class="card"><h4>Corridor &amp; Infrastructure</h4><p>Capitol Boulevard reinvestment and public infrastructure activation.</p></div>
+            <div class="card"><h4>Jobs &amp; Tax Base</h4><p>Employment generation and tax-base growth.</p></div>
+            <div class="card"><h4>Brownfield Reuse</h4><p>Reuse of a highly visible legacy property.</p></div>
           </div>
-          <p class="measure sub" style="margin-top:16px;">The City has already invested considerable political capital, staff resources, environmental funding, and planning efforts to support redevelopment. As a result, future development partners benefit from a level of municipal alignment that is uncommon for projects of this scale.</p>
+          <div style="margin-top:22px; display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn btn-primary" data-route="property-overview">See the property overview</button>
+            <button class="btn btn-ghost btn-arrow" data-route="location-overview">Location &amp; regional demand</button>
+          </div>
         </section>
       </div>
 
-      <!-- ================= TAB 5 · DEVELOPMENT VISION ================= -->
-      <div class="page wide" id="page-dev-vision">
-        <section class="reveal">
-          <p class="eyebrow">Development Vision</p>
-          <h2>Suncadia Meets the Distillery District</h2>
-          <p class="lead">The site should be positioned as a complete destination rather than a single-use project. The strongest concept combines historic adaptive reuse, hospitality, riverfront public space, food and beverage, wellness, event programming, and residential activity into one coordinated campus.</p>
-          <p class="eyebrow" style="margin-top:26px;">Potential Uses</p>
-          <div style="margin-top:12px; display:flex; flex-wrap:wrap; gap:8px;">
-            <span class="chip">Hotel</span><span class="chip">Conference Center</span><span class="chip">Residential</span><span class="chip">Riverfront Retail</span><span class="chip">Craft Beverage</span><span class="chip">Wellness</span><span class="chip">Event Space</span>
-          </div>
-          <p class="eyebrow" style="margin-top:30px;">Vision Board</p>
-          <div class="gallery" style="margin-top:12px;">
-            <div class="frame topo" role="button" tabindex="0" aria-label="Historic brick architecture"><div><p class="ft">Historic brick architecture</p></div></div>
-            <div class="frame topo" role="button" tabindex="0" aria-label="Riverfront plaza"><div><p class="ft">Riverfront plaza</p></div></div>
-            <div class="frame topo" role="button" tabindex="0" aria-label="Boutique hotel"><div><p class="ft">Boutique hotel</p></div></div>
-            <div class="frame topo" role="button" tabindex="0" aria-label="Event lawn"><div><p class="ft">Event lawn</p></div></div>
-            <div class="frame topo" role="button" tabindex="0" aria-label="Spa and wellness"><div><p class="ft">Spa / wellness</p></div></div>
-            <div class="frame topo" role="button" tabindex="0" aria-label="Craft beverage"><div><p class="ft">Craft beverage</p></div></div>
-            <div class="frame topo" role="button" tabindex="0" aria-label="Concept rendering"><div><p class="ft">Concept rendering</p></div></div>
-            <div class="frame topo" role="button" tabindex="0" aria-label="Trails and water access"><div><p class="ft">Trails &amp; water access</p></div></div>
-          </div>
-          <p class="measure sub" style="margin-top:22px;">The existing buildings provide the authenticity and regional recognition required to differentiate the project from conventional new construction. New site improvements can support arrival experience, pedestrian circulation, courtyard activation, open space, and riverfront access.</p>
-          <p class="src" style="margin:12px 0 0; font-size:11px; color:var(--faint);">Conceptual Design developed by Weinstein A+U, dated August 30, 2022. Illustrative; final program is buyer-controlled.</p>
-        </section>
-      </div>
-
-      <!-- ================= TAB 6 · LOCATION ================= -->
+      <!-- ================= TAB 5 · LOCATION & REGIONAL DEMAND ================= -->
       <div class="page wide" id="page-location-overview">
+
+        <!-- §1 · Location -->
         <section class="reveal">
           <p class="eyebrow">Location</p>
           <h2>At the Junction of I-5 and the Deschutes River Valley</h2>
           <p class="lead">The site is located in Tumwater, Washington, the southernmost city in the Puget Sound region, minutes from the Washington State Capitol campus and downtown Olympia, with direct I-5 visibility and access from the Custer Way interchange.</p>
-          <div class="frame wide topo" style="margin-top:22px;" role="img" aria-label="Regional map with key nodes"><div><p class="ft">Map &middot; Regional access</p><p class="fd">Seattle, Tacoma, JBLM, Olympia, Port of Olympia, airport, I-5, government center, and travel times.</p></div></div>
+          <div class="frame wide has-img" style="margin-top:22px;" role="button" tabindex="0" aria-label="The site in its regional setting"><img src="images/tb-overhead-shot.png" alt="The brewery campus and Deschutes River in context" /><div><p class="ft">The site in context</p><p class="fd">Detailed regional access map available in the data room.</p></div></div>
           <div style="margin-top:16px; display:flex; flex-wrap:wrap; gap:8px;">
             <span class="chip">Seattle</span><span class="chip">Tacoma</span><span class="chip">JBLM</span><span class="chip">Olympia</span><span class="chip">Port of Olympia</span><span class="chip">Airport</span><span class="chip">I-5</span><span class="chip">Government Center</span>
           </div>
         </section>
+
+        <!-- §2 · Adjacencies -->
         <section class="reveal">
           <p class="eyebrow">Adjacencies</p>
           <h2>A Setting That Serves Local Demand and Regional Visitors</h2>
@@ -974,10 +1011,8 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
             <div class="card"><h4>Brewery / Craft District</h4><p>Surrounding redevelopment context.</p></div>
           </div>
         </section>
-      </div>
 
-      <!-- ================= TAB 7 · REGIONAL GROWTH DRIVERS ================= -->
-      <div class="page wide" id="page-growth-drivers">
+        <!-- §3 · Regional Growth Drivers -->
         <section class="reveal">
           <p class="eyebrow">Regional Growth Drivers</p>
           <h2>Demand Anchored by Government, Defense, Tourism, and Logistics</h2>
@@ -990,65 +1025,14 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
             <div class="card"><h4>Defense</h4><p>JBLM is a major regional employment and population driver.</p><p class="src" style="margin-top:8px; font-size:11px; color:var(--faint);">50,000+ JBLM military / civilian jobs</p></div>
             <div class="card"><h4>Tourism</h4><p>Captures visitors between the Capitol, Puget Sound, the Olympic Peninsula, Mount Rainier, and the coast.</p><p class="src" style="margin-top:8px; font-size:11px; color:var(--faint);">2M+ annual visitors; 1M+ overnight</p></div>
           </div>
-          <p class="src" style="margin:14px 0 0; font-size:11px; color:var(--faint);">Figures per prior strategic market analysis (2014 base year).</p>
+          <p class="src" style="margin:14px 0 0; font-size:11px; color:var(--faint);">Figures per prior strategic market analysis (2014 base year); directional and to be refreshed in underwriting.</p>
         </section>
       </div>
 
-      <!-- ================= TAB 8 · DEVELOPMENT ADVANTAGES ================= -->
-      <div class="page wide" id="page-development-advantages">
-        <section class="reveal">
-          <p class="eyebrow">Development Advantages</p>
-          <h2>An Infrastructure-Led Adaptive Reuse Opportunity</h2>
-          <p class="lead">The site&rsquo;s value is tied to the same characteristics that require careful execution: historic structures, riverfront positioning, significant topography, environmental overlays, and infrastructure requirements. These are also what make it difficult to replicate.</p>
-          <div class="grid grid-3" style="margin-top:24px;">
-            <div class="card"><h4>Planned Action EIS</h4><p>A municipal planning tool that can clarify environmental review and support coordinated redevelopment.</p></div>
-            <div class="card"><h4>Brownfields</h4><p>Prior industrial use and cleanup activity are part of the context; environmental investigation aligns with potential public funding.</p></div>
-            <div class="card"><h4>Historic Tax Credits</h4><p>Rehabilitation incentives may support the capital stack, subject to eligibility, scope, and preservation review.</p></div>
-            <div class="card"><h4>Opportunity Zone Potential</h4><p>Eligibility and structuring should be evaluated within the broader incentive and capital strategy.</p></div>
-            <div class="card"><h4>EB-5 Potential</h4><p>Scale, job creation, and regional impact should be evaluated for EB-5 capital alignment.</p></div>
-          </div>
-        </section>
-        <section class="reveal">
-          <p class="eyebrow">Environmental Liability Mitigation</p>
-          <h2>Publicly Funded Environmental Investigation</h2>
-          <p class="lead">Public funding is addressing one of the most significant barriers to redevelopment, <em class="hl">environmental uncertainty</em>, in advance of private acquisition.</p>
-          <h3 style="margin-top:24px;">EPA Brownfields Assessment Program</h3>
-          <p class="measure sub" style="margin-top:8px;">The City has secured EPA Brownfields funding to complete critical environmental investigations throughout the Brewery District. Publicly funded work includes:</p>
-          <ul class="hl-list">
-            <li>Phase I Environmental Site Assessments</li>
-            <li>Phase II Environmental Site Assessments</li>
-            <li>Soil and groundwater testing</li>
-            <li>Contamination mapping</li>
-            <li>Cleanup planning</li>
-            <li>Site reuse analysis</li>
-          </ul>
-          <p class="measure sub" style="margin-top:14px;">By funding environmental investigations ahead of private acquisition, the City is helping establish a clearer understanding of site conditions, remediation requirements, and redevelopment feasibility. For developers, lenders, and institutional capital partners, the value lies not in the grant amount itself, but in the reduction of unknown environmental liability and underwriting risk.</p>
-          <h3 style="margin-top:26px;">Washington Department of Ecology Partnership</h3>
-          <p class="measure sub" style="margin-top:8px;">The City has also secured support from the Washington Department of Ecology for brownfield planning and redevelopment readiness initiatives. These efforts include:</p>
-          <ul class="hl-list">
-            <li>Environmental assessment support</li>
-            <li>Redevelopment planning</li>
-            <li>Brownfield strategy development</li>
-            <li>Coordination for future remediation funding opportunities</li>
-          </ul>
-          <p class="measure sub" style="margin-top:14px;">This work further advances the site toward development readiness while creating pathways to additional cleanup funding sources that may directly offset future remediation costs.</p>
-        </section>
-        <section class="reveal">
-          <p class="eyebrow">Supporting Diligence</p>
-          <h2>Additional Detail</h2>
-          <div style="margin-top:10px;">
-            <details class="faq"><summary>Entitlements &amp; zoning</summary><p>HC, Historic Commercial zoning supports a broad range of uses. Modifications to historic structures are subject to Historic Preservation Commission review; permitted uses, height, coverage, and parking are confirmed with the City during diligence.</p></details>
-            <details class="faq"><summary>Shoreline &amp; floodplain</summary><p>The Deschutes carries shoreline jurisdiction, and portions of Parcel B lie in FEMA Zone AE (base flood elevation 15 ft; flood-protection elevation 16 ft). Elevated and crawl-space construction is an established treatment; the estuary restoration is projected to lower the base flood elevation over time.</p></details>
-            <details class="faq"><summary>Critical areas &amp; wetlands</summary><p>The Deschutes is a fish-bearing Type F stream with a 250-ft riparian buffer (reducible to 150 ft with restoration). Wetland buffers of 50&ndash;100 ft are assumed pending delineation; eastern slopes exceed 40% and carry landslide-hazard setbacks.</p></details>
-            <details class="faq"><summary>Access &amp; circulation</summary><p>Boston St SE descends ~110 vertical feet at 8&ndash;15% grades. KPFF finds the alignment can meet fire-apparatus standards if widened; the final road section is a matter for negotiation with the City.</p></details>
-            <details class="faq"><summary>Utilities &amp; infrastructure</summary><p>Water service is present (an upgrade to a looped 8-inch main supports fire flow); sanitary service runs through an upgraded lift station to LOTT; PSE gas is extendable; three-phase power is present. Stormwater conveyance and treatment are design conditions.</p></details>
-            <details class="faq"><summary>Environmental review status</summary><p>Documented soil and groundwater conditions (a 2002 voluntary cleanup reached industrial levels) make Phase II scoping a standard diligence item, supported by the City&rsquo;s EPA Brownfields assessment.</p></details>
-          </div>
-        </section>
-      </div>
-
-      <!-- ================= TAB 9 · PROPERTY OVERVIEW ================= -->
+      <!-- ================= TAB 6 · THE PROPERTY & DILIGENCE ================= -->
       <div class="page wide" id="page-property-overview">
+
+        <!-- §1 · The Assemblage -->
         <section class="reveal">
           <p class="eyebrow">Property Overview</p>
           <h2>A Four-Parcel, ~34-Acre Riverfront Assemblage</h2>
@@ -1074,6 +1058,8 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
             </table>
           </div>
         </section>
+
+        <!-- §2 · Building Inventory -->
         <section class="reveal">
           <p class="eyebrow">Building Inventory</p>
           <h2>Five Historic Structures, One Adaptive-Reuse Platform</h2>
@@ -1094,128 +1080,76 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
             <button class="card bldg-card" data-bldg="northstorage"><span class="bldg-n">5</span><h4>North Storage</h4><p>Courtyard-defining structure for events, catering, caf&eacute;, retail, or guest services.</p></button>
           </div>
         </section>
+
+        <!-- §3 · Ownership Note -->
         <section class="reveal">
-          <p class="eyebrow">Heritage Timeline</p>
-          <h2>A Site Shaped Over Millennia</h2>
-          <p class="sub" style="margin:0 0 14px;">Select any era to expand the image and the full account.</p>
-          <div class="tl-rail" id="tlRail">
-            <button class="tl-card" data-era="13,000–366 BP">
-              <div class="tl-photo">Steh-chass village · 1855 map</div>
-              <div class="tl-yr">13,000–366 BP</div><h4>Steh-chass Homeland</h4>
-              <p class="tl-short">The Deschutes falls were home to the Steh-chass people, documented here for millennia.</p>
-              <span class="tl-more">Read more →</span>
-              <div class="tl-full" hidden>The Deschutes falls were home to the Steh-chass people. Excavation at the Tumwater site documents habitation from about 2,380 years ago, with some implements dating to 13,000 BP. T.T. Waterman’s 1855 maps locate the village and a permanent trading post here, with direct access to the inlet, the site’s first and deepest layer of significance.</div>
-            </button>
-            <button class="tl-card" data-era="1845">
-              <div class="tl-photo">Oregon Trail settlement</div>
-              <div class="tl-yr">1845</div><h4>Settlement Displaces the Steh-chass</h4>
-              <p class="tl-short">Oregon Trail settlers displaced the Steh-chass from their village and trading post.</p>
-              <span class="tl-more">Read more →</span>
-              <div class="tl-full" hidden>Extension of the Oregon Trail brought white settlers who displaced the Steh-chass from their village and permanent trading post. The same central waterway and land access that made the site a trading hub now drew newcomers, beginning its transition from Indigenous stewardship.</div>
-            </button>
-            <button class="tl-card" data-era="1853 + 1875">
-              <div class="tl-photo">Olympia / Tumwater</div>
-              <div class="tl-yr">1853 + 1875</div><h4>Olympia Becomes the Capital</h4>
-              <p class="tl-short">Olympia became the territorial capital and trade crossroads; Tumwater incorporated.</p>
-              <span class="tl-more">Read more →</span>
-              <div class="tl-full" hidden>Olympia became the capital of Washington Territory and the crossroads for regional trade, and Tumwater incorporated in 1875. Accessible by water and later by rail, the area was central to commerce at a time before Seattle emerged as the dominant port.</div>
-            </button>
-            <button class="tl-card" data-era="1896–1902">
-              <div class="tl-photo">Capital Brewing Co.</div>
-              <div class="tl-yr">1896–1902</div><h4>Schmidt Buys the Site</h4>
-              <p class="tl-short">Leopold Schmidt bought the site in 1896 and built Capital Brewing, later Olympia Brewing Company.</p>
-              <span class="tl-more">Read more →</span>
-              <div class="tl-full" hidden>Leopold Schmidt, a German brewmaster from Montana, purchased the site in 1896 and built the Capital Brewing Company, which became the Olympia Brewing Company. He chose it for the falls, which supplied power, and the artesian springs beneath it, whose pure water he believed ideal for brewing, the basis for the slogan “It’s the Water.”</div>
-            </button>
-            <button class="tl-card" data-era="1905">
-              <div class="tl-photo">The Cellar</div>
-              <div class="tl-yr">1905</div><h4>The Cellar Is Built</h4>
-              <p class="tl-short">The Cellar building was constructed as the brewery expanded.</p>
-              <span class="tl-more">Read more →</span>
-              <div class="tl-full" hidden>The Cellar building was constructed as the brewery expanded. It is one of three original brewery structures still standing, alongside the brewhouse tower and the keg house.</div>
-            </button>
-            <button class="tl-card" data-era="1906">
-              <div class="tl-photo">The Brewhouse</div>
-              <div class="tl-yr">1906</div><h4>The Brewhouse Is Built</h4>
-              <p class="tl-short">The six-story brewhouse tower rose in 1906 and remains the campus’s landmark.</p>
-              <span class="tl-more">Read more →</span>
-              <div class="tl-full" hidden>The six-story brewhouse tower rose in 1906 and remains the campus’s defining landmark. Visible from I-5, it anchors the site’s identity and is the centerpiece of the adaptive-reuse vision.</div>
-            </button>
-            <button class="tl-card" data-era="1907">
-              <div class="tl-photo">Cellar addition &amp; Keg House</div>
-              <div class="tl-yr">1907</div><h4>Cellar Addition &amp; Keg House</h4>
-              <p class="tl-short">A west addition to the Cellar and the Keg House were completed.</p>
-              <span class="tl-more">Read more →</span>
-              <div class="tl-full" hidden>A west addition to the Cellar and the Keg House were completed in 1907. These finish the trio of pre-Prohibition brewery buildings that survive on the site today.</div>
-            </button>
-            <button class="tl-card" data-era="1916">
-              <div class="tl-photo">Prohibition</div>
-              <div class="tl-yr">1916</div><h4>Prohibition Halts Brewing</h4>
-              <p class="tl-short">Washington’s prohibition halted production; the site briefly became a juice factory.</p>
-              <span class="tl-more">Read more →</span>
-              <div class="tl-full" hidden>Washington’s prohibition halted brewery production, and the site never operated as a brewery again, briefly converting to a juice factory. The brewery had run only about 14 years; its buildings would serve mostly storage thereafter.</div>
-            </button>
-            <button class="tl-card" data-era="1927">
-              <div class="tl-photo">Tumwater Paper Co.</div>
-              <div class="tl-yr">1927</div><h4>Tumwater Paper Company</h4>
-              <p class="tl-short">Leased to the Tumwater Paper Company, which built the Warehouse and North Storage.</p>
-              <span class="tl-more">Read more →</span>
-              <div class="tl-full" hidden>The site was leased to the Tumwater Paper Company, which built the long Warehouse and the North Storage building in the 1920s. These two join the three brewery structures to form the five-building campus that stands today.</div>
-            </button>
-            <button class="tl-card" data-era="1933">
-              <div class="tl-photo">Repeal of Prohibition</div>
-              <div class="tl-yr">1933</div><h4>Brewing Moves South</h4>
-              <p class="tl-short">After repeal, Olympia Beer built larger facilities south; the originals became storage.</p>
-              <span class="tl-more">Read more →</span>
-              <div class="tl-full" hidden>After Prohibition’s repeal, Olympia Beer built larger facilities to the south and the original buildings were used mainly for storage. The old warehouse was used intermittently to manufacture aircraft parts for Boeing and to build cabinets and furniture.</div>
-            </button>
-            <button class="tl-card" data-era="1983">
-              <div class="tl-photo">Sold to Pabst</div>
-              <div class="tl-yr">1983</div><h4>Sold to Pabst</h4>
-              <p class="tl-short">The site was sold to Pabst and continued in storage use.</p>
-              <span class="tl-more">Read more →</span>
-              <div class="tl-full" hidden>The site was sold to Pabst and continued to be used for storage. Ownership changes through the late 20th century left the historic core intact but underused.</div>
-            </button>
-            <button class="tl-card" data-era="2003–Present">
-              <div class="tl-photo">Aerial today</div>
-              <div class="tl-yr">2003–Present</div><h4>Operations Cease</h4>
-              <p class="tl-short">All operations ceased in 2003, with little maintenance since.</p>
-              <span class="tl-more">Read more →</span>
-              <div class="tl-full" hidden>All operations ceased in 2003, with little to no maintenance since. The structures remain significant and await adaptive reuse, the opportunity at the center of this offering.</div>
-            </button>
+          <div class="card" style="border-color:var(--accent);">
+            <p class="eyebrow">Ownership, Stated Plainly</p>
+            <h3 style="margin-top:4px;">The Brewhouse Tower Is City-Owned, and That Is an Advantage</h3>
+            <p class="measure sub" style="margin-top:8px;">The iconic six-story Brewhouse Tower, the structure visible from I-5 and the centerpiece of the adaptive-reuse vision, is owned by the City of Tumwater and sits as an outparcel within the assemblage; it is <strong>excluded</strong> from the 34.18 acres. The City is undertaking stabilization and masonry restoration of the tower. For a developer this means the landmark is being preserved at public expense and creates a natural point of public-private partnership around the campus&rsquo;s front door, rather than a structure to underwrite alone.</p>
+          </div>
+        </section>
+
+        <!-- §4 · Development Advantages -->
+        <section class="reveal">
+          <p class="eyebrow">Development Advantages</p>
+          <h2>An Infrastructure-Led Adaptive Reuse Opportunity</h2>
+          <p class="lead">The site&rsquo;s value is tied to the same characteristics that require careful execution: historic structures, riverfront positioning, significant topography, environmental overlays, and infrastructure requirements. These are also what make it difficult to replicate, and several public tools support the capital stack.</p>
+          <div class="grid grid-3" style="margin-top:24px;">
+            <div class="card"><h4>Planned Action EIS</h4><p>A municipal planning tool that can clarify environmental review and support coordinated redevelopment.</p></div>
+            <div class="card"><h4>Brownfields</h4><p>Prior industrial use and cleanup activity are part of the context; environmental investigation aligns with potential public funding.</p></div>
+            <div class="card"><h4>Historic Tax Credits</h4><p>Rehabilitation incentives may support the capital stack, subject to eligibility, scope, and preservation review.</p></div>
+            <div class="card"><h4>Opportunity Zone Potential</h4><p>Eligibility and structuring should be evaluated within the broader incentive and capital strategy.</p></div>
+            <div class="card"><h4>EB-5 Potential</h4><p>Scale, job creation, and regional impact should be evaluated for EB-5 capital alignment.</p></div>
+          </div>
+        </section>
+
+        <!-- §5 · Environmental Status -->
+        <section class="reveal">
+          <p class="eyebrow">Environmental Status</p>
+          <h2>One Clear Picture of What&rsquo;s in the Ground</h2>
+          <p class="lead">For a brownfield of this age the environmental question is decisive, so here is the full picture in one place: what has happened, what is publicly funded, and what remains for buyer diligence.</p>
+          <div class="grid grid-3" style="margin-top:22px;">
+            <div class="card"><h4>What has happened</h4><p>A 2002 voluntary cleanup reached industrial levels. A 2019 PCB / oil spill reached Capitol Lake; the owner and Washington Ecology reached a settlement in 2023. Documented soil and groundwater conditions are known and on the public record.</p></div>
+            <div class="card"><h4>What is publicly funded</h4><p>An EPA Brownfields assessment grant ($500,000, 2023) and a Washington Ecology partnership fund Phase I/II assessments, soil and groundwater testing, contamination mapping, and cleanup planning, ahead of private acquisition.</p></div>
+            <div class="card"><h4>What remains</h4><p>Phase II scoping is a standard diligence item, supported by the City&rsquo;s EPA assessment, and creates pathways to additional remediation funding that may offset future cleanup costs. Buyer to verify independently.</p></div>
+          </div>
+          <p class="measure sub" style="margin-top:16px;">For developers, lenders, and institutional capital partners, the value lies not in the grant amount itself, but in the reduction of unknown environmental liability and underwriting uncertainty before capital is committed.</p>
+          <p class="src" style="margin:12px 0 0; font-size:11px; color:var(--faint);">Sources: WA Ecology (2021 spill notice; 2023 settlement); EPA / City of Tumwater Brownfields (2023). See Contact for the full source record.</p>
+        </section>
+
+        <!-- §6 · Complexity & Supporting Diligence -->
+        <section class="reveal">
+          <p class="eyebrow">Execution</p>
+          <h2>The Constraints, and Why They&rsquo;re Solvable</h2>
+          <p class="lead">Preliminary civil due diligence has already identified the primary constraints and infrastructure considerations. The same barriers that have kept the site dormant are the moat that protects it once entitled.</p>
+          <ul class="hl-list" style="margin-top:18px;">
+            <li>Boston Street descent (~110 vertical feet) and fire-apparatus access requirements</li>
+            <li>Water-service upgrades and stormwater management</li>
+            <li>Flood-resilient design within FEMA Zone AE</li>
+            <li>Shoreline, critical-area, steep-slope, and riparian setbacks</li>
+            <li>Environmental review (see Environmental Status, above)</li>
+            <li>Fragmented ownership, the City-owned Brewhouse Tower outparcel (see Ownership, above)</li>
+          </ul>
+          <p class="eyebrow" style="margin-top:26px;">Supporting Diligence</p>
+          <div style="margin-top:10px;">
+            <details class="faq"><summary>Entitlements &amp; zoning</summary><p>HC, Historic Commercial zoning supports a broad range of uses. Modifications to historic structures are subject to Historic Preservation Commission review; permitted uses, height, coverage, and parking are confirmed with the City during diligence.</p></details>
+            <details class="faq"><summary>Shoreline &amp; floodplain</summary><p>The Deschutes carries shoreline jurisdiction, and portions of Parcel B lie in FEMA Zone AE (base flood elevation 15 ft; flood-protection elevation 16 ft). Elevated and crawl-space construction is an established treatment; the estuary restoration is projected to lower the base flood elevation over time.</p></details>
+            <details class="faq"><summary>Critical areas &amp; wetlands</summary><p>The Deschutes is a fish-bearing Type F stream with a 250-ft riparian buffer (reducible to 150 ft with restoration). Wetland buffers of 50&ndash;100 ft are assumed pending delineation; eastern slopes exceed 40% and carry landslide-hazard setbacks.</p></details>
+            <details class="faq"><summary>Access &amp; circulation</summary><p>Boston St SE descends ~110 vertical feet at 8&ndash;15% grades. KPFF finds the alignment can meet fire-apparatus standards if widened; the final road section is a matter for negotiation with the City.</p></details>
+            <details class="faq"><summary>Utilities &amp; infrastructure</summary><p>Water service is present (an upgrade to a looped 8-inch main supports fire flow); sanitary service runs through an upgraded lift station to LOTT; PSE gas is extendable; three-phase power is present. Stormwater conveyance and treatment are design conditions.</p></details>
+          </div>
+          <div style="margin-top:20px; display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn btn-primary" data-route="financial-upside">See the financial upside</button>
+            <button class="btn btn-ghost" data-route="call-to-action">Request the Data Room</button>
           </div>
         </section>
       </div>
 
-      <!-- ================= TAB 10 · MASTER PLAN OPPORTUNITIES ================= -->
-      <div class="page wide" id="page-master-plan">
-        <section class="reveal">
-          <p class="eyebrow">Master Plan Opportunities</p>
-          <h2>A Flexible Redevelopment Framework, Not a Fixed Outcome</h2>
-          <p class="lead">The site can support multiple scenarios while preserving the historic identity of the brewery campus, allowing the final program to respond to capital, infrastructure, entitlement, and market timing.</p>
-          <p class="eyebrow" style="margin-top:26px;">Development Scenarios</p>
-          <div style="margin-top:12px; display:flex; flex-wrap:wrap; gap:8px;">
-            <span class="chip">Hotel</span><span class="chip">Mixed-Use</span><span class="chip">Residential</span><span class="chip">Entertainment</span><span class="chip">Conference</span><span class="chip">Adaptive Reuse</span>
-          </div>
-        </section>
-        <section class="reveal">
-          <p class="eyebrow">Program Framework</p>
-          <h2>Reinforcing Uses Across One Campus</h2>
-          <div class="grid grid-3" style="margin-top:8px;">
-            <div class="card"><h4>Heritage Anchor</h4><p>Brewhouse as the public-facing focal point.</p></div>
-            <div class="card"><h4>Hospitality Core</h4><p>Boutique lodging within the historic structures.</p></div>
-            <div class="card"><h4>Residential Overlay</h4><p>Recurring activity and a phased income layer.</p></div>
-            <div class="card"><h4>Food &amp; Beverage Activation</h4><p>Destination dining and craft beverage.</p></div>
-            <div class="card"><h4>Event &amp; Conference</h4><p>Weddings, retreats, and meetings programming.</p></div>
-            <div class="card"><h4>Wellness &amp; Riverfront Open Space</h4><p>Spa, trails, and public-facing placemaking.</p></div>
-          </div>
-          <div class="frame wide topo" style="margin-top:24px;" role="img" aria-label="Concept D1 / D2 scenario diagrams"><div><p class="ft">Diagram &middot; Concept D1 / D2</p><p class="fd">Scenario and phasing diagrams (Weinstein A+U, 2022).</p></div></div>
-          <p class="measure sub" style="margin-top:20px;">The strongest scenarios combine destination hospitality and event programming with supporting residential, retail, food and beverage, wellness, and open-space uses. Early activation establishes campus identity while later phases deliver broader district value.</p>
-        </section>
-      </div>
-
-      <!-- ================= TAB 11 · FINANCIAL UPSIDE ================= -->
+      <!-- ================= TAB 7 · THE NUMBERS ================= -->
       <div class="page wide" id="page-financial-upside">
+
+        <!-- §1 · Value Creation -->
         <section class="reveal">
           <p class="eyebrow">Financial Upside</p>
           <h2>Phased Value Creation Across Multiple Drivers</h2>
@@ -1230,6 +1164,8 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
             <div class="card"><h4>Residential Absorption</h4><p>For-sale or rental overlay over time.</p></div>
           </div>
         </section>
+
+        <!-- §2 · Historic Tax Credit -->
         <section class="reveal">
           <p class="eyebrow">Capital Stack Enhancement</p>
           <h2>Historic Tax Credit Potential</h2>
@@ -1245,13 +1181,11 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
               </tbody>
             </table>
           </div>
-          <p class="measure sub" style="margin-top:14px;">When syndicated, these credits can generate significant project equity, reduce sponsor capital requirements, and improve overall returns. For adaptive reuse projects of this scale, HTC proceeds often represent one of the largest sources of non-dilutive capital available.</p>
-          <p class="eyebrow" style="margin-top:26px;">Potential Incentive Layering</p>
-          <div style="margin-top:12px; display:flex; flex-wrap:wrap; gap:8px;">
-            <span class="chip">Historic Tax Credit equity</span><span class="chip">Brownfield remediation funding</span><span class="chip">Opportunity Zone equity (subject to designation)</span><span class="chip">EB-5 investment capital</span><span class="chip">State &amp; federal infrastructure funding</span><span class="chip">Conventional construction financing</span>
-          </div>
-          <p class="measure sub" style="margin-top:14px;">The ability to combine multiple incentive programs may materially reduce overall project basis and improve risk-adjusted returns. Illustrative figures only; eligibility, scope, and structuring are subject to diligence.</p>
+          <p class="measure sub" style="margin-top:14px;">When syndicated, these credits can generate significant project equity, reduce sponsor capital requirements, and improve overall returns. For adaptive reuse projects of this scale, HTC proceeds often represent one of the largest sources of non-dilutive capital available. The ability to layer HTC equity with brownfield remediation funding, Opportunity Zone equity (subject to designation), EB-5 capital, and state and federal infrastructure funding may materially reduce overall project basis and improve risk-adjusted returns.</p>
+          <p class="src" style="margin:8px 0 0; font-size:11px; color:var(--faint);">Illustrative figures only; eligibility, scope, and structuring are subject to diligence.</p>
         </section>
+
+        <!-- §3 · Market Capture -->
         <section class="reveal">
           <p class="eyebrow">Illustrative Market Capture</p>
           <h2>Phased Buildout Over a 10-Year Horizon</h2>
@@ -1272,8 +1206,10 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
         </section>
       </div>
 
-      <!-- ================= TAB 12 · CALL TO ACTION ================= -->
+      <!-- ================= TAB 8 · CONTACT / DATA ROOM ================= -->
       <div class="page wide" id="page-call-to-action">
+
+        <!-- §1 · The Process -->
         <section class="reveal">
           <p class="eyebrow">Call to Action</p>
           <h2>A Controlled Investor Process</h2>
@@ -1284,7 +1220,17 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
             <div><div class="g-lbl">Email</div><div class="g-val">troy@agmrealestate.com</div></div>
             <div><div class="g-lbl">Office</div><div class="g-val">Bellevue, Washington</div></div>
           </div>
+          <p class="eyebrow" style="margin-top:30px;">From Concept to Execution</p>
+          <div class="flow">
+            <div class="node"><h4>Concept</h4><p>Confirm the destination thesis and program direction.</p></div>
+            <div class="node"><h4>Feasibility</h4><p>Test program, phasing, and capital strategy against the site.</p></div>
+            <div class="node"><h4>Underwriting</h4><p>Price the basis, incentives, and value-creation path.</p></div>
+            <div class="node"><h4>Entitlement</h4><p>Advance approvals within the Brewery District framework.</p></div>
+            <div class="node"><h4>Execution</h4><p>Deliver the phased, mixed-use destination.</p></div>
+          </div>
         </section>
+
+        <!-- §2 · Request the Data Room -->
         <section class="reveal">
           <p class="eyebrow">Request Access</p>
           <h2>Request the Data Room</h2>
@@ -1302,6 +1248,20 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
               <button class="btn btn-ghost" data-route="call-to-action">Download OM</button>
               <p class="form-note" style="margin-top:16px;">Access is subject to a confidentiality review and investor qualification. This site is not indexed.</p>
             </div>
+          </div>
+        </section>
+
+        <!-- §3 · Public Record / Sources -->
+        <section class="reveal">
+          <p class="eyebrow">Public Record</p>
+          <h2>The Opportunity Is Supported by a Documented Public Record</h2>
+          <p class="measure sub" style="margin-top:12px;">City planning, environmental, transportation, legislative, and news sources, grouped for diligence. Links open in a new tab.</p>
+          <div style="margin-top:14px;">
+            <details class="faq"><summary>City of Tumwater</summary><p><a href="https://www.ci.tumwater.wa.us/business/the-brewery" target="_blank" rel="noopener">The Brewery</a> &middot; <a href="https://www.ci.tumwater.wa.us/business/the-brewery/brownfields" target="_blank" rel="noopener">Brownfields</a> &middot; <a href="https://www.ci.tumwater.wa.us/departments/community-development-department/long-range-planning/brewery-district-plan" target="_blank" rel="noopener">Brewery District Plan</a> &middot; <a href="https://www.ci.tumwater.wa.us/departments/community-development-department/long-range-planning/brewery-district-plan/brewery-district-fall-2024-update" target="_blank" rel="noopener">Brewery District Fall 2024 Update</a> &middot; <a href="https://www.ci.tumwater.wa.us/government/legislative-priorities" target="_blank" rel="noopener">Legislative Priorities</a> &middot; <a href="https://www.ci.tumwater.wa.us/business/the-brewery/brewery-district-transportation-improvements" target="_blank" rel="noopener">Brewery District Transportation Improvements</a> &middot; <a href="https://www.ci.tumwater.wa.us/Home/Components/FacilityDirectory/FacilityDirectory/26/479" target="_blank" rel="noopener">Tumwater Historical Park</a> &middot; <a href="https://www.ci.tumwater.wa.us/departments/parks-recreation-department/parks-trails/deschutes-valley-trail" target="_blank" rel="noopener">Deschutes Valley Trail</a> &middot; <a href="https://www.ci.tumwater.wa.us/departments/parks-recreation-department/events/falls-fest" target="_blank" rel="noopener">Falls Fest</a></p></details>
+            <details class="faq"><summary>State Legislature</summary><p><a href="https://app.leg.wa.gov/BillSummary/?BillNumber=1742&amp;Year=2026" target="_blank" rel="noopener">HB 1742, Bill Summary (2026)</a> &middot; <a href="https://lawfilesext.leg.wa.gov/biennium/2025-26/Pdf/Bill%20Reports/House/1742%20HBR%20APP%2026.pdf?q=20260212053607" target="_blank" rel="noopener">HB 1742, House Bill Report</a></p></details>
+            <details class="faq"><summary>Environmental, WA Ecology</summary><p><a href="https://ecology.wa.gov/about-us/who-we-are/news/2021/feb-11-olympia-brewery-spill-to-capitol-lake" target="_blank" rel="noopener">2019 PCB / oil spill to Capitol Lake</a> &middot; <a href="https://ecology.wa.gov/about-us/who-we-are/news/2023/nov-8-ecology-olympia-brewery-owner-reach-settlement-over-2019-spill" target="_blank" rel="noopener">2023 spill settlement</a> &middot; <a href="https://ecology.wa.gov/ecologys-work-near-you/regional-work/southwest-region/deschutes-estuary-restoration" target="_blank" rel="noopener">Deschutes Estuary Restoration</a></p></details>
+            <details class="faq"><summary>Local News</summary><p><a href="https://www.thejoltnews.com/stories/house-approves-bill-supporting-redevelopment-of-shuttered-olympia-brewery-site,28223" target="_blank" rel="noopener">The JOLT, House approves redevelopment bill</a> &middot; <a href="https://www.thejoltnews.com/stories/tumwater-city-council-approves-25m-contract-to-design-deschutes-valley-trail,26715" target="_blank" rel="noopener">The JOLT, Trail design contract</a> &middot; <a href="https://www.thejoltnews.com/stories/tumwater-continues-environmental-assessment-of-old-warehouse-site-at-former-olympia-brewery,29022" target="_blank" rel="noopener">The JOLT, Warehouse environmental assessment</a> &middot; <a href="https://www.theolympian.com/news/local/article276496471.html" target="_blank" rel="noopener">The Olympian, EPA grant</a> &middot; <a href="https://www.theolympian.com/news/local/article289600336.html" target="_blank" rel="noopener">The Olympian, Public/private partnership</a> &middot; <a href="https://www.theolympian.com/news/local/article301954989.html" target="_blank" rel="noopener">The Olympian, Warehouse zoning conflict</a> &middot; <a href="https://www.theolympian.com/news/local/article312267636.html" target="_blank" rel="noopener">The Olympian, Owner&rsquo;s boutique-hotel vision</a> &middot; <a href="https://www.theolympian.com/news/local/article315833663.html" target="_blank" rel="noopener">The Olympian, Public-safety concerns</a> &middot; <a href="https://www.thurstontalk.com/2013/06/20/tumwater-brewery-redevelopment-2/" target="_blank" rel="noopener">ThurstonTalk, Alcohol-production covenant removed</a></p></details>
+            <details class="faq"><summary>Foundations</summary><p><a href="https://olytumfoundation.org/" target="_blank" rel="noopener">Olympia Tumwater Foundation</a></p></details>
           </div>
         </section>
       </div>
@@ -3514,74 +3474,46 @@ function track(event, props){
    ============================================================ */
 var RAILS = {
   'executive-summary': {
-    eyebrow:'Olympia Brewery District', title:'The South Sound’s Defining Redevelopment Opportunity',
-    pos:'A walkable, irreplaceable riverfront site, historic 1906 architecture, Tumwater Falls, and the Deschutes River, anchoring the City&rsquo;s Brewery District Plan, with public-sector momentum a developer inherits rather than builds.',
+    eyebrow:'Olympia Brewery District', title:'Suncadia Meets the Distillery District',
+    pos:'A 34-acre heritage riverfront campus, historic 1906 architecture, Tumwater Falls, and the Deschutes River, anchoring the City&rsquo;s Brewery District Plan, with public-sector momentum a developer inherits rather than builds.',
     glance:[['Assemblage','~34 acres'],['Anchor','Historic Olympia Brewery'],['Setting','Deschutes River & Falls'],['Visibility','Interstate 5'],['Proximity','State Capitol']],
-    primary:['investment-opportunity','Investment overview'], secondary:['call-to-action','Request data room'],
+    primary:['call-to-action','Request the data room'], secondary:['investment-opportunity','Explore the heritage'],
     foot:'Presented by AGM Real Estate Group to qualified parties under confidentiality.'
   },
   'investment-opportunity': {
-    eyebrow:'Public Investment Creating Private Value', title:'A Rare Public-Private Redevelopment Opportunity',
-    pos:'An unusual level of municipal commitment is removing development barriers and positioning the Brewery District for private investment, supported by environmental due diligence, infrastructure planning, and permitting initiatives.',
-    glance:[['Public role','Proactive'],['Entitlement','Planned Action EIS'],['Environmental','EPA / Ecology funded'],['Capital stack','HTC potential'],['Alignment','City priority']],
-    primary:['investment-thesis','Read the thesis'], secondary:['call-to-action','Request information'],
-    foot:'Historic structures developed between 1905 and 1916.'
-  },
-  'investment-thesis': {
-    eyebrow:'Investment Thesis', title:'Repositioning a Riverfront Campus',
-    pos:'Five pillars: public investment creating private value, an entitlement fast track, historic tax credit potential, regional destination demand, and institutional scale.',
-    glance:[['Pillar 01','Public investment'],['Pillar 02','Entitlement'],['Pillar 03','Historic credits'],['Pillar 04','Destination demand'],['Pillar 05','Institutional scale']],
-    primary:['city-investing-first','How the City is aligned'], secondary:['call-to-action','Request information'],
-    foot:'Zoning HC, Historic Commercial; uses subject to applicable review.'
-  },
-  'city-investing-first': {
-    eyebrow:'The City Is Investing First', title:'Public-Sector Alignment That Defines the Path',
-    pos:'Public planning, grants, environmental review, and infrastructure activation advance Brewery District revitalization and create a defined framework for private capital.',
-    glance:[['EPA grant','$500,000 (2023)'],['Estuary EIS','WA DES, 2022'],['Frontage','Repaved 2024'],['Partner','City of Tumwater']],
-    primary:['dev-vision','See the vision'], secondary:['call-to-action','Request data room'],
-    foot:'Sources: WA DES Final EIS (2022); EPA / City of Tumwater (2023); KPFF (2024).'
+    eyebrow:'The Story', title:'Why This Site Can&rsquo;t Be Replicated',
+    pos:'Built where the Deschutes falls meet the artesian springs that gave Olympia Beer its name, &ldquo;It&rsquo;s the Water&rdquo;, the site carries 13,000 years of significance and a century of architecture no new build can manufacture.',
+    glance:[['Founded','1896 (Schmidt)'],['Brewhouse','1906'],['Buildings','Five historic'],['Heritage','13,000 yrs of place'],['Brand','&ldquo;It&rsquo;s the Water&rdquo;']],
+    primary:['dev-vision','See the vision'], secondary:['city-investing-first','See why now'],
+    foot:'History and building inventory per the GCH conceptual design report.'
   },
   'dev-vision': {
-    eyebrow:'Development Vision', title:'Suncadia Meets the Distillery District',
-    pos:'A complete destination combining adaptive reuse, hospitality, riverfront public space, food and beverage, wellness, events, and residential activity in one campus.',
+    eyebrow:'Vision & Master Plan', title:'Suncadia Meets the Distillery District',
+    pos:'A complete destination combining adaptive reuse, hospitality, riverfront public space, food and beverage, wellness, events, and residential activity, across a flexible master-plan framework.',
     glance:[['Hotel','Boutique lodging'],['Events','Conference & weddings'],['Wellness','Spa'],['F&B','Craft beverage'],['Open space','Riverfront']],
-    primary:['master-plan','Master plan options'], secondary:['call-to-action','Request information'],
+    primary:['property-overview','Review the property'], secondary:['call-to-action','Request information'],
     foot:'Conceptual Design by Weinstein A+U, August 30, 2022. Illustrative.'
   },
+  'city-investing-first': {
+    eyebrow:'Why Now', title:'You&rsquo;re Inheriting a Decade of City Groundwork',
+    pos:'Public planning, grants, environmental review, and infrastructure activation advance Brewery District revitalization and create a defined framework for private capital, before private capital arrives.',
+    glance:[['EPA grant','$500,000 (2023)'],['E Street','$6.6M (2026 ask)'],['Trail','$2.5M design'],['Estuary EIS','WA DES, 2022'],['Partner','City of Tumwater']],
+    primary:['property-overview','See the property'], secondary:['call-to-action','Request data room'],
+    foot:'Sources: WA DES Final EIS (2022); EPA / City of Tumwater (2023); KPFF (2024).'
+  },
   'location-overview': {
-    eyebrow:'Location', title:'At the Junction of I-5 and the Deschutes',
-    pos:'Tumwater, Washington, the southernmost Puget Sound city, minutes from the State Capitol and downtown Olympia, with direct I-5 visibility at the Custer Way interchange.',
-    glance:[['Freeway','I-5 Exit 103'],['Capitol','~2 miles'],['Airport','Olympia Regional'],['Port','Port of Olympia']],
-    primary:['growth-drivers','Regional growth'], secondary:['call-to-action','Request information'],
-    foot:'Regional context per the conceptual design report.'
-  },
-  'growth-drivers': {
-    eyebrow:'Regional Growth Drivers', title:'Government, Defense, Tourism, and Logistics',
-    pos:'Public employment, JBLM, tourism, I-5 connectivity, manufacturing, and the Olympia-Tumwater-Lacey market support a mixed-use program.',
-    glance:[['State jobs','24,000+'],['JBLM','50,000+ jobs'],['I-5','100K–150K/day'],['Visitors','2M+ annual']],
-    primary:['development-advantages','Development advantages'], secondary:['call-to-action','Request information'],
-    foot:'Figures per prior strategic market analysis (2014 base year).'
-  },
-  'development-advantages': {
-    eyebrow:'Development Advantages', title:'An Infrastructure-Led Adaptive Reuse',
-    pos:'Planned Action EIS, brownfield alignment, historic tax credits, Opportunity Zone and EB-5 potential, with documented entitlement and infrastructure detail.',
-    glance:[['Zoning','HC, Historic Commercial'],['EIS','Planned Action'],['Credits','Historic / brownfield'],['Capital','OZ / EB-5 potential']],
-    primary:['property-overview','Property overview'], secondary:['call-to-action','Request data room'],
-    foot:'Technical detail per the KPFF civil due diligence (2024).'
+    eyebrow:'Location & Regional Demand', title:'At the Junction of I-5 and the Deschutes',
+    pos:'Tumwater, Washington, minutes from the State Capitol and downtown Olympia, with demand anchored by government, defense, tourism, and logistics, and direct I-5 visibility at the Custer Way interchange.',
+    glance:[['Freeway','I-5 Exit 103'],['State jobs','24,000+'],['JBLM','50,000+ jobs'],['I-5','100K–150K/day'],['Visitors','2M+ annual']],
+    primary:['property-overview','Property overview'], secondary:['call-to-action','Request information'],
+    foot:'Demand figures per prior strategic market analysis (2014 base year); directional.'
   },
   'property-overview': {
-    eyebrow:'Property Overview', title:'A Four-Parcel, ~34-Acre Assemblage',
-    pos:'Four parcels totaling 34.18 acres; Parcel B (32.07 acres) holds the five-building historic brewhouse complex, with Deschutes River frontage.',
+    eyebrow:'Property & Diligence', title:'A Four-Parcel, ~34-Acre Assemblage',
+    pos:'Four parcels totaling 34.18 acres; Parcel B (32.07 acres) holds the five-building historic brewhouse complex, with development advantages, environmental status, and supporting diligence in one place.',
     glance:[['Assemblage','34.182 acres'],['Parcels','Four'],['Primary','Parcel B · 32.07 ac'],['Buildings','Five historic'],['Zoning','HC']],
-    primary:['master-plan','Master plan options'], secondary:['call-to-action','Request data room'],
+    primary:['financial-upside','Financial upside'], secondary:['call-to-action','Request data room'],
     foot:'Parcels and buildings per the KPFF civil due diligence and GCH report.'
-  },
-  'master-plan': {
-    eyebrow:'Master Plan Opportunities', title:'A Flexible Redevelopment Framework',
-    pos:'Multiple scenarios, hotel, mixed-use, residential, entertainment, conference, adaptive reuse, while preserving the historic identity of the campus.',
-    glance:[['Scenarios','Six+'],['Anchor','Heritage core'],['Phasing','Catalyst → district'],['Program','Mixed-use']],
-    primary:['financial-upside','Financial upside'], secondary:['call-to-action','Request information'],
-    foot:'Concept diagrams per Weinstein A+U (2022). Illustrative.'
   },
   'financial-upside': {
     eyebrow:'Financial Upside', title:'Phased Value Creation Across Drivers',
@@ -3789,18 +3721,14 @@ function renderRail(route){
 /* ============================================================
    Router
    ============================================================ */
-var ROUTES = ['executive-summary','investment-opportunity','investment-thesis','city-investing-first','dev-vision','location-overview','growth-drivers','development-advantages','property-overview','master-plan','financial-upside','call-to-action','summary','relevance','thesis','public-redevelopment','development-vision','location','growth','opportunity','vision','public-investment','due-diligence','sources','request','home','presentation','use-resort','use-club','use-tribal','use-investors','history','site','news','contact'];
+var ROUTES = ['executive-summary','investment-opportunity','dev-vision','city-investing-first','location-overview','property-overview','financial-upside','call-to-action','summary','relevance','thesis','public-redevelopment','development-vision','location','growth','opportunity','vision','public-investment','due-diligence','sources','request','home','presentation','use-resort','use-club','use-tribal','use-investors','history','site','news','contact'];
 var TITLES = {
-  'executive-summary':'Executive Summary, Olympia Brewery District',
-  'investment-opportunity':'The Investment Opportunity, Olympia Brewery District',
-  'investment-thesis':'Investment Thesis, Olympia Brewery District',
-  'city-investing-first':'The City Is Investing First, Olympia Brewery District',
-  'dev-vision':'Development Vision, Olympia Brewery District',
-  'location-overview':'Location, Olympia Brewery District',
-  'growth-drivers':'Regional Growth Drivers, Olympia Brewery District',
-  'development-advantages':'Development Advantages, Olympia Brewery District',
-  'property-overview':'Property Overview, Olympia Brewery District',
-  'master-plan':'Master Plan Opportunities, Olympia Brewery District',
+  'executive-summary':'Overview, Olympia Brewery District',
+  'investment-opportunity':'Heritage, Olympia Brewery District',
+  'city-investing-first':'Why Now, The City Is Investing First, Olympia Brewery District',
+  'dev-vision':'Vision & Master Plan, Olympia Brewery District',
+  'location-overview':'Location & Regional Demand, Olympia Brewery District',
+  'property-overview':'Property & Diligence, Olympia Brewery District',
   'financial-upside':'Financial Upside, Olympia Brewery District',
   'call-to-action':'Call to Action, Olympia Brewery District',
   'summary':'Executive Summary (v3), Olympia Brewery District',
