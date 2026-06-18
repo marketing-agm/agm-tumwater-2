@@ -456,7 +456,8 @@ ul{margin:0; padding:0; list-style:none;}
 .tl-rail::-webkit-scrollbar-thumb{background:var(--border-strong); border-radius:8px;}
 .tl-card{scroll-snap-align:start; flex:0 0 300px; width:300px; text-align:left; background:var(--surface); border:1px solid var(--border); border-radius:0; padding:0; overflow:hidden; cursor:pointer; font-family:inherit; color:inherit; display:flex; flex-direction:column; transition:border-color .15s var(--ease), transform .18s var(--ease), background .15s var(--ease);}
 .tl-card:hover,.tl-card:focus-visible{border-color:var(--accent); transform:translateY(-2px); background:var(--surface-2); outline:none;}
-.tl-photo{height:160px; background:var(--surface-2); border-bottom:1px solid var(--border-soft); display:flex; align-items:center; justify-content:center; text-align:center; padding:12px; color:var(--faint); font-size:11px; letter-spacing:.04em; text-transform:uppercase;}
+.tl-photo{height:160px; background:var(--surface-2); border-bottom:1px solid var(--border-soft); display:flex; align-items:center; justify-content:center; text-align:center; padding:12px; color:var(--faint); font-size:11px; letter-spacing:.04em; text-transform:uppercase; position:relative; overflow:hidden;}
+.tl-photo img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
 .tl-card .tl-yr{font-family:var(--serif); font-weight:700; color:var(--accent); font-size:15px; letter-spacing:-0.01em; margin:20px 22px 0;}
 .tl-card h4{margin:6px 22px 9px;}
 .tl-card .tl-short{margin:0 22px 16px; font-size:13px; color:var(--text-3); line-height:1.55;}
@@ -464,7 +465,8 @@ ul{margin:0; padding:0; list-style:none;}
 .tlmodal{position:fixed; inset:0; background:rgba(12,9,8,.62); display:none; align-items:center; justify-content:center; z-index:200; padding:24px;}
 .tlmodal.open{display:flex;}
 .tlmodal-box{background:var(--surface); border:1px solid var(--border); border-radius:8px; max-width:660px; width:100%; max-height:88vh; overflow:auto; position:relative; box-shadow:0 30px 80px rgba(0,0,0,.35);}
-.tlmodal-photo{height:300px; background:var(--surface-2); border-bottom:1px solid var(--border-soft); display:flex; align-items:center; justify-content:center; text-align:center; padding:16px; color:var(--faint); font-size:12px; letter-spacing:.04em; text-transform:uppercase;}
+.tlmodal-photo{height:300px; background:var(--surface-2); border-bottom:1px solid var(--border-soft); display:flex; align-items:center; justify-content:center; text-align:center; padding:16px; color:var(--faint); font-size:12px; letter-spacing:.04em; text-transform:uppercase; position:relative; overflow:hidden;}
+.tlmodal-photo img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
 .tlmodal-body{padding:30px 36px 36px;}
 .tlmodal-era{font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:.06em; color:var(--accent); margin:0 0 10px;}
 .tlmodal-body h3{font-size:21px; margin:0 0 14px;}
@@ -785,6 +787,57 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
           <p class="lead">The Olympia Brewery site is one of Tumwater&rsquo;s most significant historic and cultural landmarks, a riverfront place shaped by the Deschutes River, Tumwater Falls, artesian water, early regional commerce, and the Olympia Beer brand. Long before its industrial use, the area was stewarded by the Steh-chass people for thousands of years, with the river and nearby inlet supporting settlement, trade, and regional connection.</p>
           <div class="frame wide has-img" style="margin-top:24px;" role="button" tabindex="0" aria-label="Aerial context: the Deschutes River, Tumwater Falls, Tumwater Historical Park, and the brewery site"><img src="images/tb-overhead-shot.png" alt="Aerial context map showing the Deschutes River, Tumwater Falls, Tumwater Historical Park, and the Old Olympia Brewery buildings" /><div><p class="ft">Site context</p><p class="fd">Water, falls, river, park, and the brewery site in one frame.</p></div></div>
           <p class="lead" style="margin-top:24px;">The property became part of Tumwater&rsquo;s industrial identity in 1896, when the brewery site was selected for its proximity to Tumwater Falls and the artesian springs below the property. That relationship between water, power, and production became the foundation of Olympia Beer&rsquo;s identity and inspired its famous slogan: &ldquo;It&rsquo;s the Water.&rdquo;</p>
+        </section>
+
+        <!-- §2b · Heritage timeline (6-card, with images) -->
+        <section class="reveal">
+          <p class="eyebrow">Heritage Timeline</p>
+          <h2>A Site Shaped Over Millennia</h2>
+          <p class="lead">From Steh-chass homeland to brewing landmark to adaptive-reuse opportunity. Select any era to expand the image and the full account.</p>
+          <div class="tl-rail" id="tlRailHeritage" style="margin-top:18px;">
+            <button class="tl-card" data-era="13,000 BP&ndash;1845">
+              <div class="tl-photo"><img src="images/tb-history-1.png" alt="Steh-chass people in a canoe beside a mat lodge on the river" /></div>
+              <div class="tl-yr">13,000 BP&ndash;1845</div><h4>Steh-chass Homeland</h4>
+              <p class="tl-short">For millennia the Deschutes falls were Steh-chass homeland, until Oregon Trail settlement displaced them.</p>
+              <span class="tl-more">Read more &rarr;</span>
+              <div class="tl-full" hidden>The Deschutes falls were home to the Steh-chass people. Excavation documents habitation from about 2,380 years ago, with some implements dating to 13,000 BP, and T.T. Waterman&rsquo;s 1855 maps locate a village and permanent trading post here, with direct access to the inlet. Extension of the Oregon Trail in 1845 brought settlers who displaced the Steh-chass from that village, beginning the site&rsquo;s transition from Indigenous stewardship.</div>
+            </button>
+            <button class="tl-card" data-era="1853&ndash;1902">
+              <div class="tl-photo"><img src="images/tb-history-2.png" alt="The Capital Brewery building on the waterfront, late 1800s" /></div>
+              <div class="tl-yr">1853&ndash;1902</div><h4>Schmidt Founds the Brewery</h4>
+              <p class="tl-short">As Olympia became the territorial capital, Leopold Schmidt founded Capital Brewing here for the falls and artesian water.</p>
+              <span class="tl-more">Read more &rarr;</span>
+              <div class="tl-full" hidden>Olympia became the capital of Washington Territory and a regional trade crossroads, and Tumwater incorporated in 1875. In 1896 Leopold Schmidt, a German brewmaster from Montana, purchased the site and built the Capital Brewing Company, later the Olympia Brewing Company. He chose it for the falls, which supplied power, and the artesian springs beneath it, whose pure water became the basis for the slogan &ldquo;It&rsquo;s the Water.&rdquo;</div>
+            </button>
+            <button class="tl-card" data-era="1905&ndash;1907">
+              <div class="tl-photo"><img src="images/tb-history-3.png" alt="The expanded brewery campus with the brewhouse tower, early 1900s" /></div>
+              <div class="tl-yr">1905&ndash;1907</div><h4>The Brewery Campus Rises</h4>
+              <p class="tl-short">The cellar, the six-story brewhouse tower, and the keg house rose into the landmark campus.</p>
+              <span class="tl-more">Read more &rarr;</span>
+              <div class="tl-full" hidden>The Cellar was built in 1905 as the brewery expanded; the six-story brewhouse tower rose in 1906 and remains the campus&rsquo;s defining landmark, visible from Interstate 5; and a west addition to the Cellar and the Keg House followed in 1907. Together these complete the trio of pre-Prohibition brewery buildings that survive on the site today.</div>
+            </button>
+            <button class="tl-card" data-era="1916">
+              <div class="tl-photo"><img src="images/tb-history-4.png" alt="The brewery and storage yard during its early industrial years" /></div>
+              <div class="tl-yr">1916</div><h4>Prohibition Ends Brewing</h4>
+              <p class="tl-short">Washington&rsquo;s 1916 prohibition halted brewing for good; the buildings never produced beer again.</p>
+              <span class="tl-more">Read more &rarr;</span>
+              <div class="tl-full" hidden>Washington&rsquo;s prohibition halted brewery production in 1916, after only about fourteen years, and the site never operated as a brewery again, briefly converting to a juice factory. Its buildings would serve storage and industry thereafter, beginning the campus&rsquo;s long second life.</div>
+            </button>
+            <button class="tl-card" data-era="1927&ndash;1983">
+              <div class="tl-photo"><img src="images/tb-history-5.png" alt="Interior of the long brewery warehouse with rows of windows" /></div>
+              <div class="tl-yr">1927&ndash;1983</div><h4>A Second Industrial Life</h4>
+              <p class="tl-short">Leased to the Tumwater Paper Company and others, the campus made paper, furniture, and Boeing airplane parts.</p>
+              <span class="tl-more">Read more &rarr;</span>
+              <div class="tl-full" hidden>The site was leased to the Tumwater Paper Company, which built the long Warehouse and the North Storage building in the 1920s, the two structures that join the three brewery buildings to form today&rsquo;s five-building campus. After Prohibition&rsquo;s repeal in 1933 Olympia Beer built larger facilities to the south, and the originals were used mainly for storage and manufacturing, including airplane parts for Boeing and cabinet and furniture work. The property later passed to Pabst in 1983.</div>
+            </button>
+            <button class="tl-card" data-era="2003&ndash;Present">
+              <div class="tl-photo"><img src="images/tb-history-6.png" alt="Aerial view of the brewery site along the river, mid-20th century" /></div>
+              <div class="tl-yr">2003&ndash;Present</div><h4>Dormant, Awaiting Reuse</h4>
+              <p class="tl-short">All operations ceased in 2003, leaving a significant campus awaiting adaptive reuse.</p>
+              <span class="tl-more">Read more &rarr;</span>
+              <div class="tl-full" hidden>All operations ceased in 2003, with little maintenance since. The structures remain significant and await the adaptive reuse at the center of this offering.</div>
+            </button>
+          </div>
         </section>
 
         <!-- §3 · The original brewery campus -->
@@ -4001,7 +4054,9 @@ lightbox.addEventListener('click', function(e){ if(e.target===lightbox) closeLig
     var full = card.querySelector('.tl-full');
     mText.textContent = full ? full.textContent : '';
     var ph = card.querySelector('.tl-photo');
-    mPhoto.textContent = ph ? ph.textContent : '';
+    var phImg = ph ? ph.querySelector('img') : null;
+    if (phImg){ mPhoto.innerHTML = ''; var im = document.createElement('img'); im.src = phImg.getAttribute('src'); im.alt = phImg.getAttribute('alt') || ''; mPhoto.appendChild(im); }
+    else { mPhoto.textContent = ph ? ph.textContent : ''; }
     modal.classList.add('open');
     track('timeline_open', {era: card.getAttribute('data-era')});
   }
