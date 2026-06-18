@@ -577,6 +577,8 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
       <div class="dropdown nav-archive">
         <button class="nav-link" aria-haspopup="true">Archive ▾</button>
         <div class="dropdown-menu" style="max-height:72vh; overflow:auto; min-width:280px;">
+          <div class="dd-group">Superseded</div>
+          <button class="dropdown-item" data-route="heritage-archive">Heritage, full history &amp; timeline<small>prev</small></button>
           <div class="dd-group">Current build (v3)</div>
           <button class="dropdown-item" data-route="summary">Executive Summary<small>v3</small></button>
           <button class="dropdown-item" data-route="relevance">Strategic &amp; Historical<small>v3</small></button>
@@ -752,123 +754,58 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
       <!-- ================= TAB 2 · HERITAGE ================= -->
       <div class="page wide" id="page-investment-opportunity">
 
-        <!-- §1 · It's the Water -->
+        <!-- §1 · Intro + 2x2 advantage grid -->
         <section class="reveal">
-          <p class="eyebrow">Historic Asset</p>
           <h2>A Landmark Brewery Campus With Enduring Regional Identity</h2>
-          <p class="lead">Leopold Schmidt built his brewery here in 1896 for two reasons that still define the site: the falls of the Deschutes, which supplied power, and the artesian springs beneath it, whose pure water became the basis for a slogan the whole country knew, <em class="hl">&ldquo;It&rsquo;s the Water.&rdquo;</em> A century later, that combination of water, falls, heritage, and visibility is exactly what a new development cannot manufacture.</p>
-          <p class="measure sub" style="margin-top:14px;">Five 1906 masonry structures rise above the Deschutes River, with Brewery Park at Tumwater Falls and the river&rsquo;s walking paths a short stroll away, heavy public foot and vehicle traffic along Custer Way, direct Interstate 5 visibility, and the Washington State Capitol minutes to the north. Scale, river frontage, historic identity, and regional brand recognition together support a destination unlike a conventional hotel, residential, or commercial project.</p>
-          <div class="grid grid-3" style="margin-top:26px;">
-            <div class="card"><h4>A Century of Architecture</h4><p>Five 1906 masonry structures give the campus instant identity, brand depth, and adaptive-reuse character that new construction cannot replicate.</p></div>
-            <div class="card"><h4>Tumwater Falls, on Foot</h4><p>A natural landmark and Brewery Park anchor the site a short walk away on existing public paths, a setting no new-build location can manufacture.</p></div>
-            <div class="card"><h4>The Deschutes River &amp; Its Trails</h4><p>River frontage and connecting trails put water, recreation, and open space at the property edge, ready to activate as public realm.</p></div>
-            <div class="card"><h4>Seen by the Whole Corridor</h4><p>Direct I-5 visibility and Custer Way access place the site in front of regional drive-by traffic while keeping it walkable from downtown.</p></div>
-            <div class="card"><h4>Minutes to the State Capitol</h4><p>Proximity to the Capitol campus and downtown Olympia supplies year-round daytime population, government demand, and event draw.</p></div>
-            <div class="card"><h4>Public Paths &amp; Open Space</h4><p>An existing network of sidewalks, parks, and river trail already connects the site to the community, walkability that is built, not promised.</p></div>
+          <p class="lead">The Olympia Brewery site is not defined by history alone, it is defined by the market advantage that history creates. Its brand, architecture, City-owned landmark, riverfront setting, and layered industrial past give the campus an identity that new construction cannot manufacture.</p>
+          <div class="grid grid-2 hl-cards" style="margin-top:26px;">
+            <div class="card">
+              <h4>A Brand the Region Already Knows</h4>
+              <p>The Olympia Beer legacy gives the site immediate recognition across the Pacific Northwest. The &ldquo;It&rsquo;s the Water&rdquo; story connects the property to Tumwater Falls, artesian springs, and a consumer brand with rare regional memory.</p>
+            </div>
+            <div class="card">
+              <h4>Irreplaceable Pre-Prohibition Architecture</h4>
+              <p>The surviving 1905&ndash;1906 brewery buildings give the campus authentic industrial character from Olympia Beer&rsquo;s original era. Their masonry, scale, and historic fabric create a redevelopment setting that cannot be replicated through new construction.</p>
+            </div>
+            <div class="card">
+              <h4>A City-Owned Landmark at the Center</h4>
+              <p>The Brew Tower is the site&rsquo;s most visible civic icon, but it is not part of the private assemblage. Its position as a City-owned outparcel creates a rare public-private framework: private redevelopment surrounding a landmark the City has already been working to preserve.</p>
+            </div>
+            <div class="card">
+              <h4>A Riverfront Setting With Built-In Public Realm</h4>
+              <p>The Deschutes River, Tumwater Falls, Brewery Park, Tumwater Historical Park, trails, and open space extend the site&rsquo;s identity beyond the property line. The result is a heritage campus with a natural public realm already in place.</p>
+            </div>
           </div>
         </section>
 
-        <!-- §2 · Heritage Timeline -->
+        <!-- §2 · Water as the origin story -->
         <section class="reveal">
-          <p class="eyebrow">Heritage Timeline</p>
-          <h2>A Site Shaped Over Millennia</h2>
-          <p class="sub" style="margin:0 0 14px;">From Steh-chass homeland to brewing landmark to adaptive-reuse opportunity. Select any era to expand the image and the full account.</p>
-          <div class="tl-rail" id="tlRail">
-            <button class="tl-card" data-era="13,000&ndash;366 BP">
-              <div class="tl-photo">Steh-chass village &middot; 1855 map</div>
-              <div class="tl-yr">13,000&ndash;366 BP</div><h4>Steh-chass Homeland</h4>
-              <p class="tl-short">The Deschutes falls were home to the Steh-chass people, documented here for millennia.</p>
-              <span class="tl-more">Read more &rarr;</span>
-              <div class="tl-full" hidden>The Deschutes falls were home to the Steh-chass people. Excavation at the Tumwater site documents habitation from about 2,380 years ago, with some implements dating to 13,000 BP. T.T. Waterman&rsquo;s 1855 maps locate the village and a permanent trading post here, with direct access to the inlet, the site&rsquo;s first and deepest layer of significance.</div>
-            </button>
-            <button class="tl-card" data-era="1845">
-              <div class="tl-photo">Oregon Trail settlement</div>
-              <div class="tl-yr">1845</div><h4>Settlement Displaces the Steh-chass</h4>
-              <p class="tl-short">Oregon Trail settlers displaced the Steh-chass from their village and trading post.</p>
-              <span class="tl-more">Read more &rarr;</span>
-              <div class="tl-full" hidden>Extension of the Oregon Trail brought white settlers who displaced the Steh-chass from their village and permanent trading post. The same central waterway and land access that made the site a trading hub now drew newcomers, beginning its transition from Indigenous stewardship.</div>
-            </button>
-            <button class="tl-card" data-era="1853 + 1875">
-              <div class="tl-photo">Olympia / Tumwater</div>
-              <div class="tl-yr">1853 + 1875</div><h4>Olympia Becomes the Capital</h4>
-              <p class="tl-short">Olympia became the territorial capital and trade crossroads; Tumwater incorporated.</p>
-              <span class="tl-more">Read more &rarr;</span>
-              <div class="tl-full" hidden>Olympia became the capital of Washington Territory and the crossroads for regional trade, and Tumwater incorporated in 1875. Accessible by water and later by rail, the area was central to commerce at a time before Seattle emerged as the dominant port.</div>
-            </button>
-            <button class="tl-card" data-era="1896&ndash;1902">
-              <div class="tl-photo">Capital Brewing Co.</div>
-              <div class="tl-yr">1896&ndash;1902</div><h4>Schmidt Buys the Site</h4>
-              <p class="tl-short">Leopold Schmidt bought the site in 1896 and built Capital Brewing, later Olympia Brewing Company.</p>
-              <span class="tl-more">Read more &rarr;</span>
-              <div class="tl-full" hidden>Leopold Schmidt, a German brewmaster from Montana, purchased the site in 1896 and built the Capital Brewing Company, which became the Olympia Brewing Company. He chose it for the falls, which supplied power, and the artesian springs beneath it, whose pure water he believed ideal for brewing, the basis for the slogan &ldquo;It&rsquo;s the Water.&rdquo;</div>
-            </button>
-            <button class="tl-card" data-era="1905">
-              <div class="tl-photo">The Cellar</div>
-              <div class="tl-yr">1905</div><h4>The Cellar Is Built</h4>
-              <p class="tl-short">The Cellar building was constructed as the brewery expanded.</p>
-              <span class="tl-more">Read more &rarr;</span>
-              <div class="tl-full" hidden>The Cellar building was constructed as the brewery expanded. It is one of three original brewery structures still standing, alongside the brewhouse tower and the keg house.</div>
-            </button>
-            <button class="tl-card" data-era="1906">
-              <div class="tl-photo">The Brewhouse</div>
-              <div class="tl-yr">1906</div><h4>The Brewhouse Is Built</h4>
-              <p class="tl-short">The six-story brewhouse tower rose in 1906 and remains the campus&rsquo;s landmark.</p>
-              <span class="tl-more">Read more &rarr;</span>
-              <div class="tl-full" hidden>The six-story brewhouse tower rose in 1906 and remains the campus&rsquo;s defining landmark. Visible from I-5, it anchors the site&rsquo;s identity and is the centerpiece of the adaptive-reuse vision.</div>
-            </button>
-            <button class="tl-card" data-era="1907">
-              <div class="tl-photo">Cellar addition &amp; Keg House</div>
-              <div class="tl-yr">1907</div><h4>Cellar Addition &amp; Keg House</h4>
-              <p class="tl-short">A west addition to the Cellar and the Keg House were completed.</p>
-              <span class="tl-more">Read more &rarr;</span>
-              <div class="tl-full" hidden>A west addition to the Cellar and the Keg House were completed in 1907. These finish the trio of pre-Prohibition brewery buildings that survive on the site today.</div>
-            </button>
-            <button class="tl-card" data-era="1916">
-              <div class="tl-photo">Prohibition</div>
-              <div class="tl-yr">1916</div><h4>Prohibition Halts Brewing</h4>
-              <p class="tl-short">Washington&rsquo;s prohibition halted production; the site briefly became a juice factory.</p>
-              <span class="tl-more">Read more &rarr;</span>
-              <div class="tl-full" hidden>Washington&rsquo;s prohibition halted brewery production, and the site never operated as a brewery again, briefly converting to a juice factory. The brewery had run only about 14 years; its buildings would serve mostly storage thereafter.</div>
-            </button>
-            <button class="tl-card" data-era="1927">
-              <div class="tl-photo">Tumwater Paper Co.</div>
-              <div class="tl-yr">1927</div><h4>Tumwater Paper Company</h4>
-              <p class="tl-short">Leased to the Tumwater Paper Company, which built the Warehouse and North Storage.</p>
-              <span class="tl-more">Read more &rarr;</span>
-              <div class="tl-full" hidden>The site was leased to the Tumwater Paper Company, which built the long Warehouse and the North Storage building in the 1920s. These two join the three brewery structures to form the five-building campus that stands today.</div>
-            </button>
-            <button class="tl-card" data-era="1933">
-              <div class="tl-photo">Repeal of Prohibition</div>
-              <div class="tl-yr">1933</div><h4>Brewing Moves South</h4>
-              <p class="tl-short">After repeal, Olympia Beer built larger facilities south; the originals became storage.</p>
-              <span class="tl-more">Read more &rarr;</span>
-              <div class="tl-full" hidden>After Prohibition&rsquo;s repeal, Olympia Beer built larger facilities to the south and the original buildings were used mainly for storage. The old warehouse was used intermittently to manufacture aircraft parts for Boeing and to build cabinets and furniture.</div>
-            </button>
-            <button class="tl-card" data-era="1983">
-              <div class="tl-photo">Sold to Pabst</div>
-              <div class="tl-yr">1983</div><h4>Sold to Pabst</h4>
-              <p class="tl-short">The site was sold to Pabst and continued in storage use.</p>
-              <span class="tl-more">Read more &rarr;</span>
-              <div class="tl-full" hidden>The site was sold to Pabst and continued to be used for storage. Ownership changes through the late 20th century left the historic core intact but underused.</div>
-            </button>
-            <button class="tl-card" data-era="2003&ndash;Present">
-              <div class="tl-photo">Aerial today</div>
-              <div class="tl-yr">2003&ndash;Present</div><h4>Operations Cease</h4>
-              <p class="tl-short">All operations ceased in 2003, with little maintenance since.</p>
-              <span class="tl-more">Read more &rarr;</span>
-              <div class="tl-full" hidden>All operations ceased in 2003, with little to no maintenance since. The structures remain significant and await adaptive reuse, the opportunity at the center of this offering.</div>
-            </button>
-          </div>
+          <p class="eyebrow">Water as the Origin Story</p>
+          <h2>A Landmark Shaped by Water, Trade, and Industry</h2>
+          <p class="lead">The Olympia Brewery site is one of Tumwater&rsquo;s most significant historic and cultural landmarks, a riverfront place shaped by the Deschutes River, Tumwater Falls, artesian water, early regional commerce, and the Olympia Beer brand. Long before its industrial use, the area was stewarded by the Steh-chass people for thousands of years, with the river and nearby inlet supporting settlement, trade, and regional connection.</p>
+          <p class="measure sub" style="margin-top:14px;">The property became part of Tumwater&rsquo;s industrial identity in 1896, when the brewery site was selected for its proximity to Tumwater Falls and the artesian springs below the property. That relationship between water, power, and production became the foundation of Olympia Beer&rsquo;s identity and inspired its famous slogan: &ldquo;It&rsquo;s the Water.&rdquo;</p>
+          <div class="frame wide has-img" style="margin-top:24px;" role="button" tabindex="0" aria-label="Aerial context: the Deschutes River, Tumwater Falls, Tumwater Historical Park, and the brewery site"><img src="images/tb-overhead-shot.png" alt="Aerial context map showing the Deschutes River, Tumwater Falls, Tumwater Historical Park, and the Old Olympia Brewery buildings" /><div><p class="ft">Site context</p><p class="fd">Water, falls, river, park, and the brewery site in one frame.</p></div></div>
         </section>
 
-        <!-- §3 · The City Wants a Destination -->
+        <!-- §3 · The original brewery campus -->
         <section class="reveal">
-          <p class="eyebrow">A Validated Direction</p>
-          <h2>The City Has Already Chosen Destination Over Commodity</h2>
-          <p class="lead">The thesis is not aspirational, it has been tested. When the current owner pursued warehouse and distribution use, the City resisted, and the owner has since publicly described a boutique-hotel vision overlooking the river and falls <a href="https://www.theolympian.com/news/local/article312267636.html" target="_blank" rel="noopener">(The Olympian)</a>. The highest-value path, a destination, district-scale program, is the one the City is actively working to enable.</p>
-          <div style="margin-top:20px; display:flex; gap:10px; flex-wrap:wrap;">
+          <p class="eyebrow">The Original Brewery Campus</p>
+          <h2>Original Brewery Architecture, Reused for a New Industrial Era</h2>
+          <p class="lead">Between 1905 and 1916, the original brewery complex took shape, including the brewhouse tower, cellar, and keg house. Brewing at the original north-of-Custer complex ended with Washington Prohibition in 1916, and the buildings were never used for brewery production again. That makes the remaining structures a rare physical remnant of Olympia Beer&rsquo;s earliest chapter, distinct from the larger production facilities later built south of the site.</p>
+          <p class="measure sub" style="margin-top:14px;">After brewing stopped, the campus entered a second life as a layered industrial property. It changed ownership, was leased to Tumwater Paper Company, expanded with warehouse and storage buildings in the 1920s, and later served various storage and manufacturing uses. The old warehouse was intermittently used for manufacturing airplane parts for Boeing, as well as cabinets and furniture. Operations ultimately ceased in 2003.</p>
+          <div class="frame wide has-img" style="margin-top:24px;" role="button" tabindex="0" aria-label="The long brewery warehouse and brew tower, showing industrial character"><img src="images/tb-main-img.png" alt="The long-span brewery warehouse with exposed brick, large windows, and the brew tower beyond" /><div><p class="ft">Industrial character</p><p class="fd">Long-span structure, exposed brick, and large windows, ready for adaptive reuse.</p></div></div>
+        </section>
+
+        <!-- §4 · Civic icon inside the assemblage -->
+        <section class="reveal">
+          <p class="eyebrow">A Civic Icon Inside the Assemblage</p>
+          <h2>A City-Owned Brew Tower Anchoring the Next Chapter</h2>
+          <p class="lead">Today, the most visible landmark is the Brew Tower. Importantly, the Brew Tower is not included in the private assemblage; it sits within the property as a City-owned outparcel, excluded from the acreage being marketed. That distinction creates a rare public-private placemaking framework: private redevelopment surrounding a civic landmark the City has already been working to stabilize and preserve.</p>
+          <p class="measure sub" style="margin-top:14px;">Together with Brewery Park at Tumwater Falls, Tumwater Historical Park, the Deschutes River, trails, river access, and established open space, the site offers more than adaptive reuse. It offers an authentic heritage setting, defined by Indigenous stewardship, early settlement, brewing heritage, Pacific Northwest industry, and a landmark riverfront identity that would be nearly impossible to recreate elsewhere.</p>
+          <div class="frame wide has-img" style="margin-top:24px;" role="button" tabindex="0" aria-label="The Brew Tower viewed across the Deschutes River"><img src="images/tb-og-eyelevel-across-river.png" alt="The brick Brew Tower and historic buildings viewed across the Deschutes River" /><div><p class="ft">The Brew Tower</p><p class="fd">The civic landmark and visual anchor of the redevelopment opportunity.</p></div></div>
+          <div style="margin-top:24px; display:flex; gap:10px; flex-wrap:wrap;">
             <button class="btn btn-primary" data-route="dev-vision">See the development vision</button>
-            <button class="btn btn-ghost btn-arrow" data-route="city-investing-first">See why now</button>
+            <button class="btn btn-ghost btn-arrow" data-route="property-overview">View the property</button>
           </div>
         </section>
       </div>
@@ -1320,6 +1257,130 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
         </section>
       </div>
 
+
+      <!-- ============ ARCHIVED · HERITAGE (timeline + original cards) ============ -->
+      <div class="page wide" id="page-heritage-archive">
+
+        <!-- §1 · It's the Water -->
+        <section class="reveal">
+          <p class="eyebrow">Historic Asset</p>
+          <h2>A Landmark Brewery Campus With Enduring Regional Identity</h2>
+          <p class="lead">Leopold Schmidt built his brewery here in 1896 for two reasons that still define the site: the falls of the Deschutes, which supplied power, and the artesian springs beneath it, whose pure water became the basis for a slogan the whole country knew, <em class="hl">&ldquo;It&rsquo;s the Water.&rdquo;</em> A century later, that combination of water, falls, heritage, and visibility is exactly what a new development cannot manufacture.</p>
+          <p class="measure sub" style="margin-top:14px;">Five 1906 masonry structures rise above the Deschutes River, with Brewery Park at Tumwater Falls and the river&rsquo;s walking paths a short stroll away, heavy public foot and vehicle traffic along Custer Way, direct Interstate 5 visibility, and the Washington State Capitol minutes to the north. Scale, river frontage, historic identity, and regional brand recognition together support a destination unlike a conventional hotel, residential, or commercial project.</p>
+          <div class="grid grid-3" style="margin-top:26px;">
+            <div class="card"><h4>A Century of Architecture</h4><p>Five 1906 masonry structures give the campus instant identity, brand depth, and adaptive-reuse character that new construction cannot replicate.</p></div>
+            <div class="card"><h4>Tumwater Falls, on Foot</h4><p>A natural landmark and Brewery Park anchor the site a short walk away on existing public paths, a setting no new-build location can manufacture.</p></div>
+            <div class="card"><h4>The Deschutes River &amp; Its Trails</h4><p>River frontage and connecting trails put water, recreation, and open space at the property edge, ready to activate as public realm.</p></div>
+            <div class="card"><h4>Seen by the Whole Corridor</h4><p>Direct I-5 visibility and Custer Way access place the site in front of regional drive-by traffic while keeping it walkable from downtown.</p></div>
+            <div class="card"><h4>Minutes to the State Capitol</h4><p>Proximity to the Capitol campus and downtown Olympia supplies year-round daytime population, government demand, and event draw.</p></div>
+            <div class="card"><h4>Public Paths &amp; Open Space</h4><p>An existing network of sidewalks, parks, and river trail already connects the site to the community, walkability that is built, not promised.</p></div>
+          </div>
+        </section>
+
+        <!-- §2 · Heritage Timeline -->
+        <section class="reveal">
+          <p class="eyebrow">Heritage Timeline</p>
+          <h2>A Site Shaped Over Millennia</h2>
+          <p class="sub" style="margin:0 0 14px;">From Steh-chass homeland to brewing landmark to adaptive-reuse opportunity. Select any era to expand the image and the full account.</p>
+          <div class="tl-rail" id="tlRail">
+            <button class="tl-card" data-era="13,000&ndash;366 BP">
+              <div class="tl-photo">Steh-chass village &middot; 1855 map</div>
+              <div class="tl-yr">13,000&ndash;366 BP</div><h4>Steh-chass Homeland</h4>
+              <p class="tl-short">The Deschutes falls were home to the Steh-chass people, documented here for millennia.</p>
+              <span class="tl-more">Read more &rarr;</span>
+              <div class="tl-full" hidden>The Deschutes falls were home to the Steh-chass people. Excavation at the Tumwater site documents habitation from about 2,380 years ago, with some implements dating to 13,000 BP. T.T. Waterman&rsquo;s 1855 maps locate the village and a permanent trading post here, with direct access to the inlet, the site&rsquo;s first and deepest layer of significance.</div>
+            </button>
+            <button class="tl-card" data-era="1845">
+              <div class="tl-photo">Oregon Trail settlement</div>
+              <div class="tl-yr">1845</div><h4>Settlement Displaces the Steh-chass</h4>
+              <p class="tl-short">Oregon Trail settlers displaced the Steh-chass from their village and trading post.</p>
+              <span class="tl-more">Read more &rarr;</span>
+              <div class="tl-full" hidden>Extension of the Oregon Trail brought white settlers who displaced the Steh-chass from their village and permanent trading post. The same central waterway and land access that made the site a trading hub now drew newcomers, beginning its transition from Indigenous stewardship.</div>
+            </button>
+            <button class="tl-card" data-era="1853 + 1875">
+              <div class="tl-photo">Olympia / Tumwater</div>
+              <div class="tl-yr">1853 + 1875</div><h4>Olympia Becomes the Capital</h4>
+              <p class="tl-short">Olympia became the territorial capital and trade crossroads; Tumwater incorporated.</p>
+              <span class="tl-more">Read more &rarr;</span>
+              <div class="tl-full" hidden>Olympia became the capital of Washington Territory and the crossroads for regional trade, and Tumwater incorporated in 1875. Accessible by water and later by rail, the area was central to commerce at a time before Seattle emerged as the dominant port.</div>
+            </button>
+            <button class="tl-card" data-era="1896&ndash;1902">
+              <div class="tl-photo">Capital Brewing Co.</div>
+              <div class="tl-yr">1896&ndash;1902</div><h4>Schmidt Buys the Site</h4>
+              <p class="tl-short">Leopold Schmidt bought the site in 1896 and built Capital Brewing, later Olympia Brewing Company.</p>
+              <span class="tl-more">Read more &rarr;</span>
+              <div class="tl-full" hidden>Leopold Schmidt, a German brewmaster from Montana, purchased the site in 1896 and built the Capital Brewing Company, which became the Olympia Brewing Company. He chose it for the falls, which supplied power, and the artesian springs beneath it, whose pure water he believed ideal for brewing, the basis for the slogan &ldquo;It&rsquo;s the Water.&rdquo;</div>
+            </button>
+            <button class="tl-card" data-era="1905">
+              <div class="tl-photo">The Cellar</div>
+              <div class="tl-yr">1905</div><h4>The Cellar Is Built</h4>
+              <p class="tl-short">The Cellar building was constructed as the brewery expanded.</p>
+              <span class="tl-more">Read more &rarr;</span>
+              <div class="tl-full" hidden>The Cellar building was constructed as the brewery expanded. It is one of three original brewery structures still standing, alongside the brewhouse tower and the keg house.</div>
+            </button>
+            <button class="tl-card" data-era="1906">
+              <div class="tl-photo">The Brewhouse</div>
+              <div class="tl-yr">1906</div><h4>The Brewhouse Is Built</h4>
+              <p class="tl-short">The six-story brewhouse tower rose in 1906 and remains the campus&rsquo;s landmark.</p>
+              <span class="tl-more">Read more &rarr;</span>
+              <div class="tl-full" hidden>The six-story brewhouse tower rose in 1906 and remains the campus&rsquo;s defining landmark. Visible from I-5, it anchors the site&rsquo;s identity and is the centerpiece of the adaptive-reuse vision.</div>
+            </button>
+            <button class="tl-card" data-era="1907">
+              <div class="tl-photo">Cellar addition &amp; Keg House</div>
+              <div class="tl-yr">1907</div><h4>Cellar Addition &amp; Keg House</h4>
+              <p class="tl-short">A west addition to the Cellar and the Keg House were completed.</p>
+              <span class="tl-more">Read more &rarr;</span>
+              <div class="tl-full" hidden>A west addition to the Cellar and the Keg House were completed in 1907. These finish the trio of pre-Prohibition brewery buildings that survive on the site today.</div>
+            </button>
+            <button class="tl-card" data-era="1916">
+              <div class="tl-photo">Prohibition</div>
+              <div class="tl-yr">1916</div><h4>Prohibition Halts Brewing</h4>
+              <p class="tl-short">Washington&rsquo;s prohibition halted production; the site briefly became a juice factory.</p>
+              <span class="tl-more">Read more &rarr;</span>
+              <div class="tl-full" hidden>Washington&rsquo;s prohibition halted brewery production, and the site never operated as a brewery again, briefly converting to a juice factory. The brewery had run only about 14 years; its buildings would serve mostly storage thereafter.</div>
+            </button>
+            <button class="tl-card" data-era="1927">
+              <div class="tl-photo">Tumwater Paper Co.</div>
+              <div class="tl-yr">1927</div><h4>Tumwater Paper Company</h4>
+              <p class="tl-short">Leased to the Tumwater Paper Company, which built the Warehouse and North Storage.</p>
+              <span class="tl-more">Read more &rarr;</span>
+              <div class="tl-full" hidden>The site was leased to the Tumwater Paper Company, which built the long Warehouse and the North Storage building in the 1920s. These two join the three brewery structures to form the five-building campus that stands today.</div>
+            </button>
+            <button class="tl-card" data-era="1933">
+              <div class="tl-photo">Repeal of Prohibition</div>
+              <div class="tl-yr">1933</div><h4>Brewing Moves South</h4>
+              <p class="tl-short">After repeal, Olympia Beer built larger facilities south; the originals became storage.</p>
+              <span class="tl-more">Read more &rarr;</span>
+              <div class="tl-full" hidden>After Prohibition&rsquo;s repeal, Olympia Beer built larger facilities to the south and the original buildings were used mainly for storage. The old warehouse was used intermittently to manufacture aircraft parts for Boeing and to build cabinets and furniture.</div>
+            </button>
+            <button class="tl-card" data-era="1983">
+              <div class="tl-photo">Sold to Pabst</div>
+              <div class="tl-yr">1983</div><h4>Sold to Pabst</h4>
+              <p class="tl-short">The site was sold to Pabst and continued in storage use.</p>
+              <span class="tl-more">Read more &rarr;</span>
+              <div class="tl-full" hidden>The site was sold to Pabst and continued to be used for storage. Ownership changes through the late 20th century left the historic core intact but underused.</div>
+            </button>
+            <button class="tl-card" data-era="2003&ndash;Present">
+              <div class="tl-photo">Aerial today</div>
+              <div class="tl-yr">2003&ndash;Present</div><h4>Operations Cease</h4>
+              <p class="tl-short">All operations ceased in 2003, with little maintenance since.</p>
+              <span class="tl-more">Read more &rarr;</span>
+              <div class="tl-full" hidden>All operations ceased in 2003, with little to no maintenance since. The structures remain significant and await adaptive reuse, the opportunity at the center of this offering.</div>
+            </button>
+          </div>
+        </section>
+
+        <!-- §3 · The City Wants a Destination -->
+        <section class="reveal">
+          <p class="eyebrow">A Validated Direction</p>
+          <h2>The City Has Already Chosen Destination Over Commodity</h2>
+          <p class="lead">The thesis is not aspirational, it has been tested. When the current owner pursued warehouse and distribution use, the City resisted, and the owner has since publicly described a boutique-hotel vision overlooking the river and falls <a href="https://www.theolympian.com/news/local/article312267636.html" target="_blank" rel="noopener">(The Olympian)</a>. The highest-value path, a destination, district-scale program, is the one the City is actively working to enable.</p>
+          <div style="margin-top:20px; display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn btn-primary" data-route="dev-vision">See the development vision</button>
+            <button class="btn btn-ghost btn-arrow" data-route="city-investing-first">See why now</button>
+          </div>
+        </section>
+      </div>
 
       <!-- ============ TAB 1 · EXECUTIVE SUMMARY ============ -->
       <div class="page wide" id="page-summary">
@@ -3535,10 +3596,17 @@ var RAILS = {
     foot:'Presented by AGM Real Estate Group to qualified parties under confidentiality.'
   },
   'investment-opportunity': {
-    eyebrow:'120 Years on the Deschutes', title:'It&rsquo;s the Water',
-    pos:'Built where the Deschutes falls meet the artesian springs that gave Olympia Beer its name, &ldquo;It&rsquo;s the Water&rdquo;, the site carries 13,000 years of significance and a century of architecture no new build can manufacture.',
-    glance:[['Founded','1896 (Schmidt)'],['Brewhouse','1906'],['Buildings','Five historic'],['Heritage','13,000 yrs of place'],['Brand','&ldquo;It&rsquo;s the Water&rdquo;']],
+    eyebrow:'', title:'Heritage as a Strategic Advantage',
+    pos:'Brand, architecture, a City-owned landmark, riverfront setting, and a layered industrial past give the campus an identity that new construction cannot manufacture, heritage as market advantage, not nostalgia.',
+    glance:[['Founded','1896 (Schmidt)'],['Brewhouse','1906'],['Buildings','Five historic'],['Landmark','City-owned Brew Tower'],['Brand','&ldquo;It&rsquo;s the Water&rdquo;']],
     primary:['dev-vision','See the vision'], secondary:['city-investing-first','See why now'],
+    foot:'History and building inventory per the GCH conceptual design report.'
+  },
+  'heritage-archive': {
+    eyebrow:'Archived', title:'Heritage, Full History &amp; Timeline',
+    pos:'The previous Heritage tab, retained for reference: the &ldquo;It&rsquo;s the Water&rdquo; narrative, the irreplaceable-attributes cards, and the interactive millennia timeline from Steh-chass homeland to today.',
+    glance:[['Founded','1896 (Schmidt)'],['Brewhouse','1906'],['Buildings','Five historic'],['Heritage','13,000 yrs of place'],['Brand','&ldquo;It&rsquo;s the Water&rdquo;']],
+    primary:['investment-opportunity','Back to Heritage'], secondary:['call-to-action','Request information'],
     foot:'History and building inventory per the GCH conceptual design report.'
   },
   'dev-vision': {
@@ -3753,7 +3821,7 @@ var RAILS = {
 function renderRail(route){
   var d = RAILS[route] || RAILS.home;
   var html = '';
-  html += '<p class="eyebrow-accent">'+d.eyebrow+'</p>';
+  if (d.eyebrow) html += '<p class="eyebrow-accent">'+d.eyebrow+'</p>';
   html += '<h1>'+d.title+'</h1>';
   html += '<p class="pos">'+d.pos+'</p>';
   if (d.glance && d.glance.length){
@@ -3775,7 +3843,7 @@ function renderRail(route){
 /* ============================================================
    Router
    ============================================================ */
-var ROUTES = ['executive-summary','investment-opportunity','dev-vision','city-investing-first','location-overview','property-overview','financial-upside','call-to-action','summary','relevance','thesis','public-redevelopment','development-vision','location','growth','opportunity','vision','public-investment','due-diligence','sources','request','home','presentation','use-resort','use-club','use-tribal','use-investors','history','site','news','contact'];
+var ROUTES = ['executive-summary','investment-opportunity','dev-vision','city-investing-first','location-overview','property-overview','financial-upside','call-to-action','heritage-archive','summary','relevance','thesis','public-redevelopment','development-vision','location','growth','opportunity','vision','public-investment','due-diligence','sources','request','home','presentation','use-resort','use-club','use-tribal','use-investors','history','site','news','contact'];
 var TITLES = {
   'executive-summary':'The Opportunity, Olympia Brewery District',
   'investment-opportunity':'Heritage, Olympia Brewery District',
@@ -3785,6 +3853,7 @@ var TITLES = {
   'property-overview':'Property & Diligence, Olympia Brewery District',
   'financial-upside':'Financial Upside, Olympia Brewery District',
   'call-to-action':'Call to Action, Olympia Brewery District',
+  'heritage-archive':'Heritage (Archived), Olympia Brewery District',
   'summary':'Executive Summary (v3), Olympia Brewery District',
   'relevance':'Strategic & Historical Relevance, Olympia Brewery District',
   'thesis':'Investment Thesis, Olympia Brewery District',
