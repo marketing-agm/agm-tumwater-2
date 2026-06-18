@@ -167,6 +167,13 @@ ul{margin:0; padding:0; list-style:none;}
 .card .eyebrow{margin-bottom:14px;}
 .card p{color:var(--text-3); margin-bottom:0; font-size:14px; line-height:1.7;}
 .card-link{cursor:pointer;}
+/* Investment-highlight cards: larger blue titles + a detail link */
+.hl-cards .card{display:flex; flex-direction:column;}
+.hl-cards .card h4{font-size:19px; line-height:1.28; color:var(--accent); margin-bottom:12px;}
+.hl-cards .card .hl-list{flex:1;}
+.hl-cards .card .more{margin-top:18px; padding:0; border:none; background:none; font-family:var(--sans); font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:var(--accent); cursor:pointer; display:inline-flex; align-items:center; gap:6px; transition:gap .15s var(--ease);}
+.hl-cards .card .more::after{content:"→";}
+.hl-cards .card .more:hover{gap:10px; color:var(--accent-hover);}
 .card-link:hover{border-color:var(--accent);}
 .card-link:hover h3{color:var(--accent);}
 .card-link .more{margin-top:24px; font-size:13px; font-weight:500; color:var(--accent); display:inline-flex; gap:6px; align-items:center;}
@@ -670,27 +677,74 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
           </div>
         </section>
 
-        <!-- §3 · Why It Matters -->
+        <!-- §3 · Investment Highlights -->
         <section class="reveal">
-          <p class="eyebrow">Why It Matters</p>
-          <h2>Why This Deal Matters</h2>
-          <p class="lead">The opportunity is not to acquire land, but to reposition a legacy asset into a resort-style hospitality and mixed-use destination, on a site whose beauty, history, and public-sector momentum are already in place. The first question every investor asks: <strong>&ldquo;Why should I care?&rdquo;</strong> Three answers.</p>
-          <div class="grid grid-3" style="margin-top:24px;">
-            <div class="card"><p class="eyebrow">Historic Asset</p><h4>120+ years of irreplaceable identity</h4><p>Since 1906, the Olympia Brewery has defined Tumwater. Its brand recognition, cultural weight, and authentic structures cannot be built new, only acquired.</p></div>
-            <div class="card"><p class="eyebrow">Public-Sector Alignment</p><h4>Millions already committed</h4><p>The public sector is investing ahead of private capital. Grants, environmental work, and Brewery District planning are already advancing the site and defining the execution path.</p></div>
-            <div class="card"><p class="eyebrow">Regional Growth</p><h4>State government, airport growth, tourism</h4><p>Three demand engines converge on one location, state employment, airport-area expansion, and 2M+ annual visitors, deep enough to carry lodging, events, dining, and housing together.</p></div>
-          </div>
-          <p class="eyebrow" style="margin-top:30px;">The Thesis in Five Pillars</p>
-          <div class="grid grid-3" style="margin-top:12px;">
-            <div class="card"><span class="bldg-n">01</span><h4>Public Capital, Private Value</h4><p>Public planning, environmental review, infrastructure analysis, and municipal alignment create a defined framework for private capital.</p></div>
-            <div class="card"><span class="bldg-n">02</span><h4>A Defined Entitlement Framework for Adaptive Reuse</h4><p>HC, Historic Commercial zoning supports hotel, restaurant, retail, office, multifamily, recreation, breweries, parking, and open space, subject to applicable review.</p></div>
-            <div class="card"><span class="bldg-n">03</span><h4>Preservation-Based Financing Potential</h4><p>The historic structures may support historic rehabilitation incentive analysis, subject to final eligibility, scope, and preservation requirements.</p></div>
-            <div class="card"><span class="bldg-n">04</span><h4>Regional Destination Demand Capture</h4><p>Brand recognition, riverfront setting, and I-5 visibility support demand for lodging, food and beverage, events, wellness, and retail.</p></div>
-            <div class="card"><span class="bldg-n">05</span><h4>Institutional Scale Within a Scarce Riverfront Setting</h4><p>The ~34-acre assemblage provides scale to support phasing, infrastructure delivery, multiple revenue drivers, and a long-term master plan.</p></div>
-          </div>
-          <div style="margin-top:24px; display:flex; gap:10px; flex-wrap:wrap;">
-            <button class="btn btn-primary" data-route="investment-opportunity">Explore the heritage</button>
-            <button class="btn btn-ghost btn-arrow" data-route="dev-vision">See the development vision</button>
+          <p class="eyebrow">Investment Highlights</p>
+          <h2>Why This Opportunity Merits Attention</h2>
+          <p class="lead">Eight characteristics distinguish this offering from a conventional redevelopment site, spanning scale, heritage, program flexibility, setting, regional access, and a pre-development record already in hand.</p>
+          <div class="grid grid-2 hl-cards" style="margin-top:24px;">
+            <div class="card">
+              <h4>Generational 34-Acre Riverfront Assemblage</h4>
+              <ul class="hl-list">
+                <li>Four contiguous parcels, 34.18 acres along the Deschutes, combining riverfront, upland, historic, and infrastructure-adjacent land in one offering.</li>
+                <li>Scale, frontage, and long-term placemaking potential that are uncommon in the South Sound.</li>
+              </ul>
+              <button class="more" data-route="property-overview">View the property</button>
+            </div>
+            <div class="card">
+              <h4>Olympia Brewery Heritage Identity</h4>
+              <ul class="hl-list">
+                <li>Anchored by the former Olympia Brewery, one of the region&rsquo;s most recognizable historic industrial assets, carrying cultural and brand equity across the Pacific Northwest.</li>
+                <li>The historic structures offer an authentic foundation for adaptive reuse: food and beverage, events, hospitality, and interpretive programming.</li>
+              </ul>
+              <button class="more" data-route="investment-opportunity">Explore the heritage</button>
+            </div>
+            <div class="card">
+              <h4>Adaptive Reuse and Destination Hospitality</h4>
+              <ul class="hl-list">
+                <li>Existing concept work supports a hospitality-led strategy centered on preservation, adaptive reuse, and destination placemaking.</li>
+                <li>The buildings could support a boutique hotel, resort-style campus, restaurant, or event venue, new revenue uses layered around the historic core.</li>
+              </ul>
+              <button class="more" data-route="dev-vision">See the vision</button>
+            </div>
+            <div class="card">
+              <h4>Event, Wedding, Spa, and Resort Programming</h4>
+              <ul class="hl-list">
+                <li>Concept planning identifies complementary uses, lodging, destination restaurant, event and outdoor wedding space, spa and wellness, trails, and river-oriented open space.</li>
+                <li>The waterfall, river, and historic setting support a destination model rather than a single-purpose hotel, diversifying revenue across uses.</li>
+              </ul>
+              <button class="more" data-route="dev-vision">See the program</button>
+            </div>
+            <div class="card">
+              <h4>Residential Overlay Opportunity</h4>
+              <ul class="hl-list">
+                <li>Prior concept work identifies a residential overlay that could add a recurring income layer and year-round activity within the broader program.</li>
+                <li>Housing areas may enable phased development and reduce reliance on a single revenue source.</li>
+              </ul>
+              <button class="more" data-route="dev-vision">Explore the master plan</button>
+            </div>
+            <div class="card">
+              <h4>Adjacency to Tumwater Falls, Historical Park, and Estuary Restoration</h4>
+              <ul class="hl-list">
+                <li>The site adjoins Tumwater Falls, Tumwater Historical Park, the Deschutes River, and the planned Deschutes Estuary restoration.</li>
+                <li>These civic and natural assets, and the future estuary restoration, strengthen the site&rsquo;s long-term ecological, recreational, and placemaking value.</li>
+              </ul>
+              <button class="more" data-route="location-overview">See the location</button>
+            </div>
+            <div class="card">
+              <h4>I-5 Visibility and Proximity to Olympia and the State Capitol</h4>
+              <ul class="hl-list">
+                <li>Visible from I-5 and minutes from the Washington State Capitol campus and downtown Olympia, a natural stop on the Seattle to Portland corridor with strong corporate, government, and tourism demand.</li>
+              </ul>
+              <button class="more" data-route="location-overview">Regional access</button>
+            </div>
+            <div class="card">
+              <h4>Concept and Civil Diligence Already Completed</h4>
+              <ul class="hl-list">
+                <li>Conceptual design (GCH Architecture), civil due diligence (KPFF), and market analysis (Concord Group) are complete, reducing early-stage uncertainty and enabling faster underwriting.</li>
+              </ul>
+              <button class="more" data-route="property-overview">Review the diligence</button>
+            </div>
           </div>
         </section>
       </div>
