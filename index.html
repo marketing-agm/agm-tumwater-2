@@ -207,6 +207,18 @@ ul{margin:0; padding:0; list-style:none;}
 .table tfoot td{font-weight:600; color:var(--text); background:var(--surface-2);}
 .table-wrap{border:1px solid var(--border); border-radius:var(--radius); overflow-x:auto;}
 
+/* program summary table */
+.program-table td{vertical-align:top; padding-top:18px; padding-bottom:18px;}
+.program-table tbody tr{transition:background .15s var(--ease);}
+.program-table tbody tr:hover{background:var(--surface-2);}
+.program-table .pt-name{font-family:var(--serif); font-size:16px; font-weight:600; color:var(--text); letter-spacing:-0.01em;}
+.program-table .pt-area{font-weight:600; color:var(--accent); white-space:nowrap; font-variant-numeric:tabular-nums; font-size:14px;}
+.program-table ul{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:7px;}
+.program-table li{position:relative; padding-left:18px; line-height:1.5;}
+.program-table li::before{content:""; position:absolute; left:1px; top:8px; width:5px; height:5px; border-radius:50%; background:var(--accent);}
+.program-table tfoot td{font-family:var(--serif); font-size:15.5px; letter-spacing:-0.01em;}
+.program-table tfoot .pt-area{font-size:15.5px;}
+
 /* image frames */
 .topo{background-image:repeating-linear-gradient(115deg, transparent 0 13px, var(--border-soft) 13px 14px);}
 .frame{aspect-ratio:4/3; border:1px solid var(--border); border-radius:var(--radius); background:var(--surface-2); position:relative; overflow:hidden; display:grid; place-items:center; text-align:center; padding:28px;}
@@ -881,16 +893,16 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
             <img src="images/tb-hospitality-architectural-program-diagram-.png" alt="Architectural program diagram showing 192,260 square feet total, 72 hotel keys, five primary program areas, and the building-by-building use allocation" style="width:100%; height:auto; display:block; border:1px solid var(--border); border-radius:var(--radius);" />
             <p class="src" style="margin:8px 0 0; font-size:11px; color:var(--faint);">Conceptual architectural program: total building area, hotel keys, major program areas, and building-by-building use allocation. Illustrative.</p>
           </div>
-          <h3 style="margin-top:30px;">Total Building Area: 192,260 SF</h3>
+          <h3 style="margin-top:30px;">Conceptual Building Program</h3>
           <div class="table-wrap" style="margin-top:12px;">
-            <table class="table">
+            <table class="table program-table">
               <thead><tr><th>Program</th><th>Area</th><th>Component Breakdown</th></tr></thead>
               <tbody>
                 <tr>
-                  <td>Hotel</td>
-                  <td>43,498 SF</td>
+                  <td class="pt-name">Hotel</td>
+                  <td class="pt-area">43,498 SF</td>
                   <td>
-                    <ul style="margin:0; padding-left:16px; list-style:disc;">
+                    <ul>
                       <li>72 keys | boutique hotel in the Cellar Building</li>
                       <li>Guest arrival, lobby and concierge</li>
                       <li>Back-of-house and service areas</li>
@@ -899,10 +911,10 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
                   </td>
                 </tr>
                 <tr>
-                  <td>Retail / Food Service</td>
-                  <td>12,380 SF</td>
+                  <td class="pt-name">Retail / Food Service</td>
+                  <td class="pt-area">12,380 SF</td>
                   <td>
-                    <ul style="margin:0; padding-left:16px; list-style:disc;">
+                    <ul>
                       <li>Brewhouse and North Storage retail / food-service uses</li>
                       <li>Brewpub / restaurant potential</li>
                       <li>Multiple retail and dining spaces</li>
@@ -910,10 +922,10 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
                   </td>
                 </tr>
                 <tr>
-                  <td>Wellness Center</td>
-                  <td>15,540 SF</td>
+                  <td class="pt-name">Wellness Center</td>
+                  <td class="pt-area">15,540 SF</td>
                   <td>
-                    <ul style="margin:0; padding-left:16px; list-style:disc;">
+                    <ul>
                       <li>Keg House wellness / retreat program</li>
                       <li>Health caf&eacute;, salon and spa</li>
                       <li>Fitness rooms and therapeutics</li>
@@ -922,10 +934,10 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
                   </td>
                 </tr>
                 <tr>
-                  <td>Event Space</td>
-                  <td>26,185 SF</td>
+                  <td class="pt-name">Event Space</td>
+                  <td class="pt-area">26,185 SF</td>
                   <td>
-                    <ul style="margin:0; padding-left:16px; list-style:disc;">
+                    <ul>
                       <li>Warehouse multi-use event space</li>
                       <li>Large-format event hall</li>
                       <li>Smaller support event areas</li>
@@ -934,10 +946,10 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
                   </td>
                 </tr>
                 <tr>
-                  <td>Parking Area</td>
-                  <td>79,770 SF</td>
+                  <td class="pt-name">Parking Area</td>
+                  <td class="pt-area">79,770 SF</td>
                   <td>
-                    <ul style="margin:0; padding-left:16px; list-style:disc;">
+                    <ul>
                       <li>Structured parking garage</li>
                       <li>Visitor parking and access</li>
                       <li>Approximately 298 stalls</li>
@@ -945,15 +957,18 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
                   </td>
                 </tr>
                 <tr>
-                  <td>Building Support</td>
-                  <td>11,990 SF</td>
+                  <td class="pt-name">Building Support</td>
+                  <td class="pt-area">11,990 SF</td>
                   <td>
-                    <ul style="margin:0; padding-left:16px; list-style:disc;">
+                    <ul>
                       <li>Circulation, utilities, loading, restrooms, and back-of-house support</li>
                     </ul>
                   </td>
                 </tr>
               </tbody>
+              <tfoot>
+                <tr><td>Total Building Area</td><td class="pt-area">192,260 SF</td><td></td></tr>
+              </tfoot>
             </table>
           </div>
         </section>
