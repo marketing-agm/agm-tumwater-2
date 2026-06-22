@@ -216,6 +216,10 @@ ul{margin:0; padding:0; list-style:none;}
 .gallery{display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:18px;}
 .gallery .frame{cursor:zoom-in; transition:border-color .15s var(--ease);}
 .gallery .frame:hover{border-color:var(--border-strong);}
+/* horizontal scroll gallery (multi-scale image stories) */
+.hscroll{display:flex; grid-template-columns:none; overflow-x:auto; gap:18px; padding-bottom:10px; scroll-snap-type:x proximity;}
+.hscroll > .frame{flex:0 0 82%; max-width:460px; scroll-snap-align:start;}
+@media(min-width:760px){.hscroll > .frame{flex-basis:46%;}}
 /* presentation page section index */
 .subnav{position:sticky; top:var(--hdr); z-index:40; display:flex; gap:8px; overflow-x:auto; padding:14px 0; margin-bottom:8px; background:var(--bg); border-bottom:1px solid var(--border-soft);}
 .subnav::-webkit-scrollbar{height:0;}
@@ -456,7 +460,8 @@ ul{margin:0; padding:0; list-style:none;}
 .tl-rail::-webkit-scrollbar-thumb{background:var(--border-strong); border-radius:8px;}
 .tl-card{scroll-snap-align:start; flex:0 0 300px; width:300px; text-align:left; background:var(--surface); border:1px solid var(--border); border-radius:0; padding:0; overflow:hidden; cursor:pointer; font-family:inherit; color:inherit; display:flex; flex-direction:column; transition:border-color .15s var(--ease), transform .18s var(--ease), background .15s var(--ease);}
 .tl-card:hover,.tl-card:focus-visible{border-color:var(--accent); transform:translateY(-2px); background:var(--surface-2); outline:none;}
-.tl-photo{height:160px; background:var(--surface-2); border-bottom:1px solid var(--border-soft); display:flex; align-items:center; justify-content:center; text-align:center; padding:12px; color:var(--faint); font-size:11px; letter-spacing:.04em; text-transform:uppercase;}
+.tl-photo{height:160px; background:var(--surface-2); border-bottom:1px solid var(--border-soft); display:flex; align-items:center; justify-content:center; text-align:center; padding:12px; color:var(--faint); font-size:11px; letter-spacing:.04em; text-transform:uppercase; position:relative; overflow:hidden;}
+.tl-photo img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
 .tl-card .tl-yr{font-family:var(--serif); font-weight:700; color:var(--accent); font-size:15px; letter-spacing:-0.01em; margin:20px 22px 0;}
 .tl-card h4{margin:6px 22px 9px;}
 .tl-card .tl-short{margin:0 22px 16px; font-size:13px; color:var(--text-3); line-height:1.55;}
@@ -464,7 +469,8 @@ ul{margin:0; padding:0; list-style:none;}
 .tlmodal{position:fixed; inset:0; background:rgba(12,9,8,.62); display:none; align-items:center; justify-content:center; z-index:200; padding:24px;}
 .tlmodal.open{display:flex;}
 .tlmodal-box{background:var(--surface); border:1px solid var(--border); border-radius:8px; max-width:660px; width:100%; max-height:88vh; overflow:auto; position:relative; box-shadow:0 30px 80px rgba(0,0,0,.35);}
-.tlmodal-photo{height:300px; background:var(--surface-2); border-bottom:1px solid var(--border-soft); display:flex; align-items:center; justify-content:center; text-align:center; padding:16px; color:var(--faint); font-size:12px; letter-spacing:.04em; text-transform:uppercase;}
+.tlmodal-photo{height:300px; background:var(--surface-2); border-bottom:1px solid var(--border-soft); display:flex; align-items:center; justify-content:center; text-align:center; padding:16px; color:var(--faint); font-size:12px; letter-spacing:.04em; text-transform:uppercase; position:relative; overflow:hidden;}
+.tlmodal-photo img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
 .tlmodal-body{padding:30px 36px 36px;}
 .tlmodal-era{font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:.06em; color:var(--accent); margin:0 0 10px;}
 .tlmodal-body h3{font-size:21px; margin:0 0 14px;}
@@ -579,6 +585,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
         <div class="dropdown-menu" style="max-height:72vh; overflow:auto; min-width:280px;">
           <div class="dd-group">Superseded</div>
           <button class="dropdown-item" data-route="heritage-archive">Heritage, full history &amp; timeline<small>prev</small></button>
+          <button class="dropdown-item" data-route="dev-vision-archive">Development Vision, master plan<small>prev</small></button>
           <div class="dd-group">Current build (v3)</div>
           <button class="dropdown-item" data-route="summary">Executive Summary<small>v3</small></button>
           <button class="dropdown-item" data-route="relevance">Strategic &amp; Historical<small>v3</small></button>
@@ -783,8 +790,59 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
           <p class="eyebrow">Water as the Origin Story</p>
           <h2>A Landmark Shaped by Water, Trade, and Industry</h2>
           <p class="lead">The Olympia Brewery site is one of Tumwater&rsquo;s most significant historic and cultural landmarks, a riverfront place shaped by the Deschutes River, Tumwater Falls, artesian water, early regional commerce, and the Olympia Beer brand. Long before its industrial use, the area was stewarded by the Steh-chass people for thousands of years, with the river and nearby inlet supporting settlement, trade, and regional connection.</p>
-          <p class="measure sub" style="margin-top:14px;">The property became part of Tumwater&rsquo;s industrial identity in 1896, when the brewery site was selected for its proximity to Tumwater Falls and the artesian springs below the property. That relationship between water, power, and production became the foundation of Olympia Beer&rsquo;s identity and inspired its famous slogan: &ldquo;It&rsquo;s the Water.&rdquo;</p>
           <div class="frame wide has-img" style="margin-top:24px;" role="button" tabindex="0" aria-label="Aerial context: the Deschutes River, Tumwater Falls, Tumwater Historical Park, and the brewery site"><img src="images/tb-overhead-shot.png" alt="Aerial context map showing the Deschutes River, Tumwater Falls, Tumwater Historical Park, and the Old Olympia Brewery buildings" /><div><p class="ft">Site context</p><p class="fd">Water, falls, river, park, and the brewery site in one frame.</p></div></div>
+          <p class="lead" style="margin-top:24px;">The property became part of Tumwater&rsquo;s industrial identity in 1896, when the brewery site was selected for its proximity to Tumwater Falls and the artesian springs below the property. That relationship between water, power, and production became the foundation of Olympia Beer&rsquo;s identity and inspired its famous slogan: &ldquo;It&rsquo;s the Water.&rdquo;</p>
+        </section>
+
+        <!-- §2b · Heritage timeline (6-card, with images) -->
+        <section class="reveal">
+          <p class="eyebrow">Heritage Timeline</p>
+          <h2>A Site Shaped Over Millennia</h2>
+          <p class="lead">From Steh-chass homeland to brewing landmark to adaptive-reuse opportunity. Select any era to expand the image and the full account.</p>
+          <div class="tl-rail" id="tlRailHeritage" style="margin-top:18px;">
+            <button class="tl-card" data-era="13,000 BP&ndash;1845">
+              <div class="tl-photo"><img src="images/tb-history-1.png" alt="Steh-chass people in a canoe beside a mat lodge on the river" /></div>
+              <div class="tl-yr">13,000 BP&ndash;1845</div><h4>Steh-chass Homeland</h4>
+              <p class="tl-short">For millennia the Deschutes falls were Steh-chass homeland, until Oregon Trail settlement displaced them.</p>
+              <span class="tl-more">Read more &rarr;</span>
+              <div class="tl-full" hidden>The Deschutes falls were home to the Steh-chass people. Excavation documents habitation from about 2,380 years ago, with some implements dating to 13,000 BP, and T.T. Waterman&rsquo;s 1855 maps locate a village and permanent trading post here, with direct access to the inlet. Extension of the Oregon Trail in 1845 brought settlers who displaced the Steh-chass from that village, beginning the site&rsquo;s transition from Indigenous stewardship.</div>
+            </button>
+            <button class="tl-card" data-era="1853&ndash;1902">
+              <div class="tl-photo"><img src="images/tb-history-2.png" alt="The Capital Brewery building on the waterfront, late 1800s" /></div>
+              <div class="tl-yr">1853&ndash;1902</div><h4>Schmidt Founds the Brewery</h4>
+              <p class="tl-short">As Olympia became the territorial capital, Leopold Schmidt founded Capital Brewing here for the falls and artesian water.</p>
+              <span class="tl-more">Read more &rarr;</span>
+              <div class="tl-full" hidden>Olympia became the capital of Washington Territory and a regional trade crossroads, and Tumwater incorporated in 1875. In 1896 Leopold Schmidt, a German brewmaster from Montana, purchased the site and built the Capital Brewing Company, later the Olympia Brewing Company. He chose it for the falls, which supplied power, and the artesian springs beneath it, whose pure water became the basis for the slogan &ldquo;It&rsquo;s the Water.&rdquo;</div>
+            </button>
+            <button class="tl-card" data-era="1905&ndash;1907">
+              <div class="tl-photo"><img src="images/tb-history-3.png" alt="The expanded brewery campus with the brewhouse tower, early 1900s" /></div>
+              <div class="tl-yr">1905&ndash;1907</div><h4>The Brewery Campus Rises</h4>
+              <p class="tl-short">The cellar, the six-story brewhouse tower, and the keg house rose into the landmark campus.</p>
+              <span class="tl-more">Read more &rarr;</span>
+              <div class="tl-full" hidden>The Cellar was built in 1905 as the brewery expanded; the six-story brewhouse tower rose in 1906 and remains the campus&rsquo;s defining landmark, visible from Interstate 5; and a west addition to the Cellar and the Keg House followed in 1907. Together these complete the trio of pre-Prohibition brewery buildings that survive on the site today.</div>
+            </button>
+            <button class="tl-card" data-era="1916">
+              <div class="tl-photo"><img src="images/tb-history-4.png" alt="The brewery and storage yard during its early industrial years" /></div>
+              <div class="tl-yr">1916</div><h4>Prohibition Ends Brewing</h4>
+              <p class="tl-short">Washington&rsquo;s 1916 prohibition halted brewing for good; the buildings never produced beer again.</p>
+              <span class="tl-more">Read more &rarr;</span>
+              <div class="tl-full" hidden>Washington&rsquo;s prohibition halted brewery production in 1916, after only about fourteen years, and the site never operated as a brewery again, briefly converting to a juice factory. Its buildings would serve storage and industry thereafter, beginning the campus&rsquo;s long second life.</div>
+            </button>
+            <button class="tl-card" data-era="1927&ndash;1983">
+              <div class="tl-photo"><img src="images/tb-history-5.png" alt="Interior of the long brewery warehouse with rows of windows" /></div>
+              <div class="tl-yr">1927&ndash;1983</div><h4>A Second Industrial Life</h4>
+              <p class="tl-short">Leased to the Tumwater Paper Company and others, the campus made paper, furniture, and Boeing airplane parts.</p>
+              <span class="tl-more">Read more &rarr;</span>
+              <div class="tl-full" hidden>The site was leased to the Tumwater Paper Company, which built the long Warehouse and the North Storage building in the 1920s, the two structures that join the three brewery buildings to form today&rsquo;s five-building campus. After Prohibition&rsquo;s repeal in 1933 Olympia Beer built larger facilities to the south, and the originals were used mainly for storage and manufacturing, including airplane parts for Boeing and cabinet and furniture work. The property later passed to Pabst in 1983.</div>
+            </button>
+            <button class="tl-card" data-era="2003&ndash;Present">
+              <div class="tl-photo"><img src="images/tb-history-6.png" alt="Aerial view of the brewery site along the river, mid-20th century" /></div>
+              <div class="tl-yr">2003&ndash;Present</div><h4>Dormant, Awaiting Reuse</h4>
+              <p class="tl-short">All operations ceased in 2003, leaving a significant campus awaiting adaptive reuse.</p>
+              <span class="tl-more">Read more &rarr;</span>
+              <div class="tl-full" hidden>All operations ceased in 2003, with little maintenance since. The structures remain significant and await the adaptive reuse at the center of this offering.</div>
+            </button>
+          </div>
         </section>
 
         <!-- §3 · The original brewery campus -->
@@ -792,17 +850,18 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
           <p class="eyebrow">The Original Brewery Campus</p>
           <h2>Original Brewery Architecture, Reused for a New Industrial Era</h2>
           <p class="lead">Between 1905 and 1916, the original brewery complex took shape, including the brewhouse tower, cellar, and keg house. Although brewery production ceased with Washington State prohibition in 1916, the buildings remained a defining presence in the region.</p>
-          <p class="measure sub" style="margin-top:14px;">After brewing ceased, the campus entered a second life as a layered industrial property. The site was adapted for manufacturing and storage, including use by the Tumwater Paper Company, which added the warehouse and north storage buildings in the 1920s. The old warehouse later supported industrial manufacturing uses, including airplane parts for Boeing, cabinets, and furniture production.</p>
           <div class="frame wide has-img" style="margin-top:24px;" role="button" tabindex="0" aria-label="The long brewery warehouse and brew tower, showing industrial character"><img src="images/tb-main-img.png" alt="The long-span brewery warehouse with exposed brick, large windows, and the brew tower beyond" /><div><p class="ft">Industrial character</p><p class="fd">Long-span structure, exposed brick, and large windows, ready for adaptive reuse.</p></div></div>
+          <p class="lead" style="margin-top:24px;">After brewing ceased, the campus entered a second life as a layered industrial property. The site was adapted for manufacturing and storage, including use by the Tumwater Paper Company, which added the warehouse and north storage buildings in the 1920s. The old warehouse later supported industrial manufacturing uses, including airplane parts for Boeing, cabinets, and furniture production.</p>
         </section>
 
         <!-- §4 · Civic icon inside the assemblage -->
         <section class="reveal">
           <p class="eyebrow">A Civic Icon Inside the Assemblage</p>
           <h2>A City-Owned Brew Tower Anchoring the Next Chapter</h2>
-          <p class="lead">Today, the most visible landmark is the Brew Tower. Importantly, the Brew Tower is not included in the private assemblage; it sits within the property as a City-owned outparcel, excluded from the acreage being marketed. That distinction creates a rare public-private placemaking framework: private redevelopment surrounding a civic landmark the City has already been working to stabilize and preserve.</p>
-          <p class="measure sub" style="margin-top:14px;">Together with Brewery Park at Tumwater Falls, Tumwater Historical Park, the Deschutes River, trails, river access, and established open space, the site offers more than adaptive reuse. It offers an authentic heritage setting, defined by Indigenous stewardship, early settlement, brewing heritage, Pacific Northwest industry, and a landmark riverfront identity that would be nearly impossible to recreate elsewhere.</p>
+          <p class="lead">Today, the site&rsquo;s most visible landmark is the Brew Tower. It is not part of the private assemblage; it sits within the property as a City-owned outparcel, excluded from the marketed acreage, creating a rare public-private placemaking framework: private redevelopment organized around a civic landmark the City is actively preserving.</p>
           <div class="frame wide has-img" style="margin-top:24px;" role="button" tabindex="0" aria-label="The Brew Tower viewed across the Deschutes River"><img src="images/tb-og-eyelevel-across-river.png" alt="The brick Brew Tower and historic buildings viewed across the Deschutes River" /><div><p class="ft">The Brew Tower</p><p class="fd">The civic landmark and visual anchor of the redevelopment opportunity.</p></div></div>
+          <p class="lead" style="margin-top:24px;">The City has already advanced preservation on the tower as a phased restoration project, not a dormant relic. Phase 1 covered reroofing and masonry restoration, including replacing weather-eroded brick with specialty brick matched to the original early-1900s fa&ccedil;ade. Later phases are identified for seismic retrofit, then windows, doors, and finishes, reinforcing the tower&rsquo;s role as a preserved civic landmark around which private redevelopment can be organized.</p>
+          <p class="lead" style="margin-top:16px;">Together with Brewery Park at Tumwater Falls, Tumwater Historical Park, the Deschutes River, trails, and open space, the site offers an authentic heritage setting, defined by Indigenous stewardship, early settlement, brewing heritage, and a landmark riverfront identity that would be nearly impossible to recreate elsewhere.</p>
           <div style="margin-top:24px; display:flex; gap:10px; flex-wrap:wrap;">
             <button class="btn btn-primary" data-route="dev-vision">See the development vision</button>
             <button class="btn btn-ghost btn-arrow" data-route="property-overview">View the property</button>
@@ -810,86 +869,106 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
         </section>
       </div>
 
-      <!-- ================= TAB 3 · VISION & MASTER PLAN ================= -->
+      <!-- ================= TAB 3 · DEVELOPMENT VISION & PROGRAMMING ================= -->
       <div class="page wide" id="page-dev-vision">
 
-        <!-- §1 · The Vision -->
+        <!-- §1 · Vision intro + hero + program diagram -->
         <section class="reveal">
-          <p class="eyebrow">Destination Vision</p>
-          <h2>A Pacific Northwest Hospitality District Anchored by Adaptive Reuse</h2>
-          <p class="lead">The site should be positioned as a complete destination rather than a single-use project. The strongest concept combines historic adaptive reuse, hospitality, riverfront public space, food and beverage, wellness, event programming, and residential activity into one coordinated campus.</p>
-          <p class="eyebrow" style="margin-top:26px;">Potential Uses</p>
-          <div style="margin-top:12px; display:flex; flex-wrap:wrap; gap:8px;">
-            <span class="chip">Hotel</span><span class="chip">Conference Center</span><span class="chip">Residential</span><span class="chip">Riverfront Retail</span><span class="chip">Craft Beverage</span><span class="chip">Wellness</span><span class="chip">Event Space</span>
+          <h2>A Hospitality-Led Destination Built From the Historic Campus</h2>
+          <div class="frame wide has-img" style="margin-top:22px;" aria-label="Rendering of the hospitality campus from across the Deschutes River"><img src="images/tb-rendering-hotel-main-2-from-river.png" alt="Rendering of the hospitality campus seen from across the Deschutes River" /><div><p class="ft">Riverfront hospitality destination</p></div></div>
+          <p class="lead" style="margin-top:24px;">The studies identify the Olympia Brewery site as a hospitality-led mixed-use destination centered on adaptive reuse, events, food and beverage, wellness, selective retail, outdoor programming, and limited residential use. The strongest program is organized around complementary uses that operate as a coordinated campus: lodging creates overnight demand, events generate destination visitation, restaurants and retail activate the property throughout the day, wellness extends the guest experience, and residential adds a limited daily-use population. The concept plans illustrate a destination environment with hospitality, restaurant, event space, spa, outdoor dining, outdoor event and wedding venues, open space, pedestrian bridge, trails, kayak and water access, lower courtyard, hotel amenities, and residential components.</p>
+          <div style="margin-top:24px;">
+            <img src="images/tb-hospitality-architectural-program-diagram-.png" alt="Architectural program diagram showing 192,260 square feet total, 72 hotel keys, five primary program areas, and the building-by-building use allocation" style="width:100%; height:auto; display:block; border:1px solid var(--border); border-radius:var(--radius);" />
+            <p class="src" style="margin:8px 0 0; font-size:11px; color:var(--faint);">Conceptual architectural program: total building area, hotel keys, major program areas, and building-by-building use allocation. Illustrative.</p>
           </div>
-          <p class="eyebrow" style="margin-top:30px;">Vision Board</p>
-          <div class="gallery" style="margin-top:12px;">
-            <div class="frame has-img" role="button" tabindex="0" aria-label="Historic brick architecture"><img src="images/tb-main-img%20(1).png" alt="" /><div><p class="ft">Historic brick architecture</p></div></div>
-            <div class="frame has-img" role="button" tabindex="0" aria-label="Riverfront setting"><img src="images/tb-og-eyelevel-across-river.png" alt="" /><div><p class="ft">Riverfront setting</p></div></div>
-            <div class="frame has-img" role="button" tabindex="0" aria-label="The campus from above"><img src="images/tb-overhead-shot.png" alt="" /><div><p class="ft">Campus &amp; river</p></div></div>
-            <div class="frame has-img" role="button" tabindex="0" aria-label="The brewhouse landmark"><img src="images/tb-main-img.png" alt="" /><div><p class="ft">The brewhouse landmark</p></div></div>
-            <div class="frame has-img" role="button" tabindex="0" aria-label="River and falls setting"><img src="images/tb-main-img-2.png" alt="" /><div><p class="ft">River &amp; falls setting</p></div></div>
-            <div class="frame has-img" role="button" tabindex="0" aria-label="Concept aerial"><img src="images/tb-main-img-2%20(1).png" alt="" /><div><p class="ft">Concept aerial</p></div></div>
-          </div>
-          <p class="measure sub" style="margin-top:22px;">The existing buildings provide the authenticity and regional recognition required to differentiate the project from conventional new construction. New site improvements can support arrival experience, pedestrian circulation, courtyard activation, open space, and riverfront access.</p>
-          <p class="src" style="margin:12px 0 0; font-size:11px; color:var(--faint);">Conceptual Design developed by Weinstein A+U, dated August 30, 2022. Illustrative; final program is buyer-controlled.</p>
         </section>
 
-        <!-- §2 · Studied Uses -->
+        <!-- §2 · Hospitality, Events, F&B -->
         <section class="reveal">
-          <p class="eyebrow">Studied Uses</p>
-          <h2>A Program That Reinforces Itself</h2>
-          <p class="lead">Prior concept work has studied a program that may include boutique lodging, destination food and beverage, event and wedding venues, spa and wellness uses, residential overlay opportunities, public open space, trails, river access, and adaptive reuse of the historic brewery structures.</p>
-          <div class="table-wrap" style="margin-top:24px;">
+          <h2>Hospitality, Events, and Food &amp; Beverage</h2>
+          <p class="lead">The core development program is anchored by hospitality, events, and food and beverage. The concept plans identify a hospitality campus with restaurant, event space, spa, arrival areas, outdoor dining, wedding venues, hotel amenities, pedestrian circulation, and supporting parking. This use mix establishes the property as a destination rather than a conventional adaptive-reuse project.</p>
+
+          <h3 style="margin-top:30px;">Boutique Hospitality</h3>
+          <p class="lead" style="margin-top:10px;">The hospitality program is positioned around a boutique hotel integrated into the historic campus. The market analysis identifies hotel as a supported use within the broader mixed-use program and includes approximately 100 hotel rooms in the full build-out scenario. The hotel use is reinforced by event space, restaurant programming, wellness amenities, and outdoor public areas.</p>
+          <div class="gallery" style="margin-top:16px; grid-template-columns:repeat(2,1fr);">
+            <div class="frame has-img" role="button" tabindex="0" aria-label="Rendering of the hotel arrival and adaptive-reuse campus"><img src="images/tb-rendering-hotel-main.png" alt="Rendering of the hotel arrival and adaptive-reuse campus" /><div><p class="ft">Arrival &amp; adaptive reuse</p></div></div>
+            <div class="frame has-img" role="button" tabindex="0" aria-label="Rendering of the pedestrian courtyard experience"><img src="images/tb-rendering-hotel-eye-level-courtyard.png" alt="Eye-level rendering of the pedestrian courtyard experience" /><div><p class="ft">Courtyard experience</p></div></div>
+          </div>
+
+          <h3 style="margin-top:30px;">Event and Wedding Programming</h3>
+          <p class="lead" style="margin-top:10px;">Events represent a primary destination use. The concept plans identify multiple wedding and event venues, event and hotel parking, pedestrian circulation, a lower courtyard, a waterfront plaza, and outdoor event areas. The Warehouse provides one of the clearest adaptive-reuse opportunities: its upper level contains a clear-span volume with exposed structure, large windows, and the scale required for major event programming.</p>
+          <div class="frame wide has-img" style="margin-top:16px;" aria-label="Rendering of the Warehouse as a large-volume event venue"><img src="images/tb-rendering-boutique-hotel-main-large-building-warehouse.png" alt="Rendering of the Warehouse adaptive-reuse event venue" /><div><p class="ft">The Warehouse as an event venue</p></div></div>
+
+          <h3 style="margin-top:30px;">Food, Beverage, and Restaurant Programming</h3>
+          <p class="lead" style="margin-top:10px;">Food and beverage operates as the daily activation layer. The most relevant uses include a destination restaurant, brewpub or tasting room, caf&eacute;, outdoor dining, food hall or market hall, and a branded brewery-heritage concept. The market analysis identifies restaurants, pubs, food and beverage businesses, and brewery-related uses as compatible opportunities, particularly where operators can leverage the existing brewery facilities, layouts, and historic identity.</p>
+          <div class="frame wide has-img" style="margin-top:16px;" aria-label="Rendering of outdoor dining and common space at golden hour"><img src="images/tb-rendering-hotel-eye-level-courtyard-golden-hour-common-space.png" alt="Rendering of outdoor dining and public realm common space at golden hour" /><div><p class="ft">Outdoor dining &amp; public realm</p></div></div>
+
+          <h3 style="margin-top:30px;">Hospitality and Event Program Summary</h3>
+          <div class="table-wrap" style="margin-top:12px;">
             <table class="table">
-              <thead><tr><th>Studied use</th><th>Strategic fit</th></tr></thead>
+              <thead><tr><th>Program element</th><th>Development role</th><th>Best-fit use cases</th></tr></thead>
               <tbody>
-                <tr><td>Boutique hotel / hospitality</td><td>Aligns with the river, the falls, historic architecture, I-5 visibility, Capitol proximity, and the owner&rsquo;s stated vision.</td></tr>
-                <tr><td>Food &amp; beverage</td><td>Reinforces the Olympia Beer legacy and the Brewery District&rsquo;s craft identity.</td></tr>
-                <tr><td>Event / wedding venue</td><td>Historic buildings, riverfront setting, and park adjacency create destination character.</td></tr>
-                <tr><td>Spa / wellness</td><td>Complements hospitality in a secluded river-and-falls environment.</td></tr>
-                <tr><td>Adaptive-reuse retail</td><td>Public-facing activation that advances the district&rsquo;s placemaking goals.</td></tr>
-                <tr><td>Selective housing</td><td>Adds activity and tax base where infrastructure and environmental conditions allow.</td></tr>
-                <tr><td>Trails &amp; open space</td><td>Central to City planning, public benefit, and long-term value creation.</td></tr>
-                <tr><td>Water access / recreation</td><td>Reinforces the riverfront destination thesis, subject to permitting feasibility.</td></tr>
+                <tr><td>Boutique hotel</td><td>Overnight demand driver</td><td>Guest rooms, suites, arrival court, hotel amenities</td></tr>
+                <tr><td>Event venue</td><td>Destination visitation and private-event revenue</td><td>Weddings, retreats, corporate gatherings, private events</td></tr>
+                <tr><td>Restaurant / brewpub</td><td>Daily and evening activation</td><td>Destination restaurant, tasting room, caf&eacute;, outdoor dining</td></tr>
+                <tr><td>Food hall / market hall</td><td>Visitor-facing amenity</td><td>Local food, makers, small-format retail, heritage retail</td></tr>
+                <tr><td>Outdoor event areas</td><td>Flexible campus activation</td><td>Weddings, seasonal events, public programming</td></tr>
               </tbody>
             </table>
           </div>
-          <p class="src" style="margin:12px 0 0; font-size:11px; color:var(--faint);">Concepts are illustrative; a future developer shapes the final program based on market demand, capital strategy, operating model, and entitlement path.</p>
         </section>
 
-        <!-- §3 · Master Plan -->
+        <!-- §3 · Wellness, Retail, Residential -->
         <section class="reveal">
-          <p class="eyebrow">Master Plan Opportunities</p>
-          <h2>A Flexible Redevelopment Framework, Not a Fixed Outcome</h2>
-          <p class="lead">The site can support multiple scenarios while preserving the historic identity of the brewery campus, allowing the final program to respond to capital, infrastructure, entitlement, and market timing.</p>
-          <p class="eyebrow" style="margin-top:24px;">Development Scenarios</p>
-          <div style="margin-top:12px; display:flex; flex-wrap:wrap; gap:8px;">
-            <span class="chip">Hotel</span><span class="chip">Mixed-Use</span><span class="chip">Residential</span><span class="chip">Entertainment</span><span class="chip">Conference</span><span class="chip">Adaptive Reuse</span>
+          <h2>Wellness, Selective Retail, and Residential Component</h2>
+          <p class="lead">The supporting program consists of wellness, selective retail, local services, outdoor programming, and limited residential use. These uses broaden the operating profile of the property and create activity outside of hotel stays and formal events.</p>
+
+          <h3 style="margin-top:30px;">Wellness and Spa</h3>
+          <p class="lead" style="margin-top:10px;">Wellness programming complements the hotel, event, and day-use components. The concept documents identify spa and hotel amenity programming within the overall campus plan. The use fits the historic building framework and adds a premium lifestyle component to the destination experience.</p>
+
+          <h3 style="margin-top:30px;">Retail and Local Services</h3>
+          <p class="lead" style="margin-top:10px;">Retail is framed as curated, experiential, and directly tied to the destination environment. The relevant uses include caf&eacute;, small-format retail, maker space, gallery, heritage retail, outdoor recreation retail, and boutique services serving hotel guests, event guests, residents, trail users, and day visitors. The market analysis identifies local-serving and regional retail, restaurants, pubs, clothing and boutiques, small-scale convenience, and food and beverage businesses as compatible use categories.</p>
+          <div class="gallery hscroll" style="margin-top:16px;">
+            <div class="frame has-img" role="button" tabindex="0" aria-label="Birdseye rendering of retail activation across the campus"><img src="images/tb-rendering-retail-birdseye.png" alt="Birdseye rendering of retail activation across the campus" /><div><p class="ft">Campus-level activation</p></div></div>
+            <div class="frame has-img" role="button" tabindex="0" aria-label="Eye-level rendering of the retail courtyard"><img src="images/tb-rendering-retail-eye-level-court-yard.png" alt="Eye-level rendering of the retail courtyard experience" /><div><p class="ft">Courtyard experience</p></div></div>
+            <div class="frame has-img" role="button" tabindex="0" aria-label="Rendering of the interior market and retail hall"><img src="images/tb-rendering-retail-main-large-building-interior.png" alt="Rendering of the interior market and retail hall programming" /><div><p class="ft">Market &amp; retail hall</p></div></div>
           </div>
-          <p class="eyebrow" style="margin-top:28px;">Program Framework</p>
-          <div class="grid grid-3" style="margin-top:12px;">
-            <div class="card"><h4>Heritage Anchor</h4><p>Brewhouse as the public-facing focal point.</p></div>
-            <div class="card"><h4>Hospitality Core</h4><p>Boutique lodging within the historic structures.</p></div>
-            <div class="card"><h4>Residential Overlay</h4><p>Recurring activity and a phased income layer.</p></div>
-            <div class="card"><h4>Food &amp; Beverage Activation</h4><p>Destination dining and craft beverage.</p></div>
-            <div class="card"><h4>Event &amp; Conference</h4><p>Weddings, retreats, and meetings programming.</p></div>
-            <div class="card"><h4>Wellness &amp; Riverfront Open Space</h4><p>Spa, trails, and public-facing placemaking.</p></div>
+
+          <h3 style="margin-top:30px;">Residential Component</h3>
+          <p class="lead" style="margin-top:10px;">The concept materials identify a limited residential component of approximately 40&ndash;130 residential units. Residential functions as a supporting use within the broader destination program.</p>
+
+          <h3 style="margin-top:30px;">Supporting Program Summary</h3>
+          <div class="table-wrap" style="margin-top:12px;">
+            <table class="table">
+              <thead><tr><th>Supporting use</th><th>Campus function</th><th>Program expression</th></tr></thead>
+              <tbody>
+                <tr><td>Spa / wellness</td><td>Extends the hospitality and event experience</td><td>Spa, bathhouse, fitness, wellness retreat programming</td></tr>
+                <tr><td>Curated retail</td><td>Adds visitor-facing activity</td><td>Makers, gallery, caf&eacute;, recreation, heritage retail</td></tr>
+                <tr><td>Caf&eacute; / local services</td><td>Supports daily campus use</td><td>Ground-floor activation near pedestrian circulation</td></tr>
+                <tr><td>Limited residential</td><td>Adds a modest daily-use population</td><td>Approximately 40&ndash;130 units</td></tr>
+                <tr><td>Outdoor programming</td><td>Activates the campus between formal events</td><td>Seasonal markets, wellness events, smaller gatherings</td></tr>
+              </tbody>
+            </table>
           </div>
-          <div class="frame wide topo" style="margin-top:24px;" role="img" aria-label="Concept D1 / D2 scenario diagrams"><div><p class="ft">Concept D1 / D2 scenario diagrams</p><p class="fd">Scenario and phasing diagrams (Weinstein A+U, 2022), available in the data room.</p></div></div>
-          <p class="measure sub" style="margin-top:20px;">The strongest scenarios combine destination hospitality and event programming with supporting residential, retail, food and beverage, wellness, and open-space uses. Early activation establishes campus identity while later phases deliver broader district value.</p>
         </section>
 
-        <!-- §4 · Complexity is the Moat -->
+        <!-- §4 · Architectural program & test-fit -->
         <section class="reveal">
-          <div class="card" style="border-color:var(--accent);">
-            <p class="eyebrow">Execution</p>
-            <h3 style="margin-top:4px;">The Complexity Is the Moat</h3>
-            <p class="measure sub" style="margin-top:8px;">Access, topography, floodplain, shoreline, historic preservation, and infrastructure all shape the strategy, and they are also what make this site impossible to replicate once it is entitled, cleaned up, and repositioned. The full constraint set and supporting diligence are detailed under Property.</p>
-            <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
-              <button class="btn btn-ghost btn-arrow" data-route="property-overview">Review the property &amp; diligence</button>
-              <button class="btn btn-ghost btn-arrow" data-route="financial-upside">See the financial upside</button>
+          <h2>Architectural Program and Test-Fit Reference</h2>
+          <p class="lead">The development program is defined by a hospitality-led mixed-use campus supported by events, food and beverage, wellness, selective retail, outdoor programming, and limited residential use. The studies establish a program that reuses the historic buildings for high-value destination uses, activates the outdoor spaces with dining and events, and layers supporting uses around the guest, visitor, and resident experience. The result is a coordinated development vision grounded in the site&rsquo;s existing physical assets, historic building stock, and documented market-supported use cases.</p>
+          <details class="faq" style="margin-top:20px;">
+            <summary>Conceptual Program Plans</summary>
+            <p class="src" style="margin:10px 0 0; font-size:11px; color:var(--faint);">Select any plan to enlarge. Test-fit plans are illustrative and subject to design development.</p>
+            <div class="gallery" style="margin-top:14px; grid-template-columns:repeat(2,1fr);">
+              <div class="frame has-img" role="button" tabindex="0" aria-label="Conceptual program plan, ground level"><img src="images/tb-hospitality-concept-ground-level.png" alt="Conceptual program plan, ground level" /><div><p class="ft">Ground level</p></div></div>
+              <div class="frame has-img" role="button" tabindex="0" aria-label="Conceptual program plan, level 1"><img src="images/tb-hospitality-concept-level-1.png" alt="Conceptual program plan, level 1" /><div><p class="ft">Level 1</p></div></div>
+              <div class="frame has-img" role="button" tabindex="0" aria-label="Conceptual program plan, level 2"><img src="images/tb-hospitality-concept-level-2.png" alt="Conceptual program plan, level 2" /><div><p class="ft">Level 2</p></div></div>
+              <div class="frame has-img" role="button" tabindex="0" aria-label="Conceptual program plan, level 3"><img src="images/tb-hospitality-concept-level-3.png" alt="Conceptual program plan, level 3" /><div><p class="ft">Level 3</p></div></div>
             </div>
+          </details>
+          <div style="margin-top:24px; display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn btn-primary" data-route="property-overview">Review the property</button>
+            <button class="btn btn-ghost btn-arrow" data-route="financial-upside">See the financial upside</button>
           </div>
         </section>
       </div>
@@ -931,7 +1010,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
           <p class="eyebrow">Entitlement Acceleration</p>
           <h2>Planned Action EIS: A Development &ldquo;Fast Lane&rdquo;</h2>
           <p class="lead">The City is preparing a <em class="hl">Planned Action Environmental Impact Statement (EIS)</em> for the Brewery District, designed to substantially reduce development uncertainty and expedite future approvals.</p>
-          <p class="measure sub" style="margin-top:14px;">Upon completion, qualifying projects may rely upon district-wide environmental analysis rather than undertaking extensive project-specific environmental review. Benefits include:</p>
+          <p class="lead" style="margin-top:14px;">Upon completion, qualifying projects may rely upon district-wide environmental analysis rather than undertaking extensive project-specific environmental review. Benefits include:</p>
           <ul class="hl-list">
             <li>Reduced SEPA entitlement risk</li>
             <li>Shortened approval timelines</li>
@@ -940,7 +1019,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
             <li>Improved coordination with state and regional agencies</li>
             <li>Enhanced lender and institutional investor confidence</li>
           </ul>
-          <p class="measure sub" style="margin-top:16px;">For large-scale mixed-use projects, the value of entitlement certainty often exceeds the value of direct grant funding by reducing carrying costs, accelerating construction starts, and improving capital market execution. Tumwater has publicly described the Planned Action EIS as a mechanism to create a development &ldquo;fast lane&rdquo; for projects aligned with the Brewery District vision.</p>
+          <p class="lead" style="margin-top:16px;">For large-scale mixed-use projects, the value of entitlement certainty often exceeds the value of direct grant funding by reducing carrying costs, accelerating construction starts, and improving capital market execution. Tumwater has publicly described the Planned Action EIS as a mechanism to create a development &ldquo;fast lane&rdquo; for projects aligned with the Brewery District vision.</p>
         </section>
 
         <!-- §4 · Commitments & Alignment -->
@@ -959,7 +1038,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
             </table>
           </div>
           <p class="eyebrow" style="margin-top:28px;">Where the City and a Developer Align</p>
-          <p class="measure sub" style="margin-top:8px;">A hospitality-led, mixed-use adaptive reuse project advances multiple public objectives at once, which is why the Brewery District is the City&rsquo;s highest redevelopment priority, backed by staff, funding, and policy.</p>
+          <p class="lead" style="margin-top:8px;">A hospitality-led, mixed-use adaptive reuse project advances multiple public objectives at once, which is why the Brewery District is the City&rsquo;s highest redevelopment priority, backed by staff, funding, and policy.</p>
           <div class="grid grid-3" style="margin-top:14px;">
             <div class="card"><h4>Hospitality &amp; Tourism</h4><p>Destination lodging, dining, and craft-beverage visitor activity.</p></div>
             <div class="card"><h4>Mixed-Use &amp; Housing</h4><p>A vibrant, walkable district with residential activation.</p></div>
@@ -1105,7 +1184,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
             <div class="card"><h4>What is publicly funded</h4><p>An EPA Brownfields assessment grant ($500,000, 2023) and a Washington Ecology partnership fund Phase I/II assessments, soil and groundwater testing, contamination mapping, and cleanup planning, ahead of private acquisition.</p></div>
             <div class="card"><h4>What remains</h4><p>Phase II scoping is a standard diligence item, supported by the City&rsquo;s EPA assessment, and creates pathways to additional remediation funding that may offset future cleanup costs. Buyer to verify independently.</p></div>
           </div>
-          <p class="measure sub" style="margin-top:16px;">For developers, lenders, and institutional capital partners, the value lies not in the grant amount itself, but in the reduction of unknown environmental liability and underwriting uncertainty before capital is committed.</p>
+          <p class="lead" style="margin-top:16px;">For developers, lenders, and institutional capital partners, the value lies not in the grant amount itself, but in the reduction of unknown environmental liability and underwriting uncertainty before capital is committed.</p>
           <p class="src" style="margin:12px 0 0; font-size:11px; color:var(--faint);">Sources: WA Ecology (2021 spill notice; 2023 settlement); EPA / City of Tumwater Brownfields (2023). See Contact for the full source record.</p>
         </section>
 
@@ -1172,7 +1251,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
               </tbody>
             </table>
           </div>
-          <p class="measure sub" style="margin-top:14px;">When syndicated, these credits can generate significant project equity, reduce sponsor capital requirements, and improve overall returns. For adaptive reuse projects of this scale, HTC proceeds often represent one of the largest sources of non-dilutive capital available. The ability to layer HTC equity with brownfield remediation funding, Opportunity Zone equity (subject to designation), EB-5 capital, and state and federal infrastructure funding may materially reduce overall project basis and improve risk-adjusted returns.</p>
+          <p class="lead" style="margin-top:14px;">When syndicated, these credits can generate significant project equity, reduce sponsor capital requirements, and improve overall returns. For adaptive reuse projects of this scale, HTC proceeds often represent one of the largest sources of non-dilutive capital available. The ability to layer HTC equity with brownfield remediation funding, Opportunity Zone equity (subject to designation), EB-5 capital, and state and federal infrastructure funding may materially reduce overall project basis and improve risk-adjusted returns.</p>
           <p class="src" style="margin:8px 0 0; font-size:11px; color:var(--faint);">Illustrative figures only; eligibility, scope, and structuring are subject to diligence.</p>
         </section>
 
@@ -1225,7 +1304,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
         <section class="reveal">
           <p class="eyebrow">Request Access</p>
           <h2>Request the Data Room</h2>
-          <p class="measure sub">Request access to source studies, concept materials, site maps, diligence reports, entitlement information, and financial exhibits.</p>
+          <p class="lead">Request access to source studies, concept materials, site maps, diligence reports, entitlement information, and financial exhibits.</p>
           <div class="form-ok" id="caOk">Your request has been received. AGM Real Estate Group will respond with materials appropriate to your stated interest.</div>
           <div class="form" id="caForm" style="margin-top:18px;">
             <div class="row-2">
@@ -1246,7 +1325,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
         <section class="reveal">
           <p class="eyebrow">Public Record</p>
           <h2>The Opportunity Is Supported by a Documented Public Record</h2>
-          <p class="measure sub" style="margin-top:12px;">City planning, environmental, transportation, legislative, and news sources, grouped for diligence. Links open in a new tab.</p>
+          <p class="lead" style="margin-top:12px;">City planning, environmental, transportation, legislative, and news sources, grouped for diligence. Links open in a new tab.</p>
           <div style="margin-top:14px;">
             <details class="faq"><summary>City of Tumwater</summary><p><a href="https://www.ci.tumwater.wa.us/business/the-brewery" target="_blank" rel="noopener">The Brewery</a> &middot; <a href="https://www.ci.tumwater.wa.us/business/the-brewery/brownfields" target="_blank" rel="noopener">Brownfields</a> &middot; <a href="https://www.ci.tumwater.wa.us/departments/community-development-department/long-range-planning/brewery-district-plan" target="_blank" rel="noopener">Brewery District Plan</a> &middot; <a href="https://www.ci.tumwater.wa.us/departments/community-development-department/long-range-planning/brewery-district-plan/brewery-district-fall-2024-update" target="_blank" rel="noopener">Brewery District Fall 2024 Update</a> &middot; <a href="https://www.ci.tumwater.wa.us/government/legislative-priorities" target="_blank" rel="noopener">Legislative Priorities</a> &middot; <a href="https://www.ci.tumwater.wa.us/business/the-brewery/brewery-district-transportation-improvements" target="_blank" rel="noopener">Brewery District Transportation Improvements</a> &middot; <a href="https://www.ci.tumwater.wa.us/Home/Components/FacilityDirectory/FacilityDirectory/26/479" target="_blank" rel="noopener">Tumwater Historical Park</a> &middot; <a href="https://www.ci.tumwater.wa.us/departments/parks-recreation-department/parks-trails/deschutes-valley-trail" target="_blank" rel="noopener">Deschutes Valley Trail</a> &middot; <a href="https://www.ci.tumwater.wa.us/departments/parks-recreation-department/events/falls-fest" target="_blank" rel="noopener">Falls Fest</a></p></details>
             <details class="faq"><summary>State Legislature</summary><p><a href="https://app.leg.wa.gov/BillSummary/?BillNumber=1742&amp;Year=2026" target="_blank" rel="noopener">HB 1742, Bill Summary (2026)</a> &middot; <a href="https://lawfilesext.leg.wa.gov/biennium/2025-26/Pdf/Bill%20Reports/House/1742%20HBR%20APP%2026.pdf?q=20260212053607" target="_blank" rel="noopener">HB 1742, House Bill Report</a></p></details>
@@ -1378,6 +1457,90 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
           <div style="margin-top:20px; display:flex; gap:10px; flex-wrap:wrap;">
             <button class="btn btn-primary" data-route="dev-vision">See the development vision</button>
             <button class="btn btn-ghost btn-arrow" data-route="city-investing-first">See why now</button>
+          </div>
+        </section>
+      </div>
+
+      <!-- ============ ARCHIVED · DEVELOPMENT VISION (master plan + studied uses) ============ -->
+      <div class="page wide" id="page-dev-vision-archive">
+
+        <!-- §1 · The Vision -->
+        <section class="reveal">
+          <p class="eyebrow">Destination Vision</p>
+          <h2>A Pacific Northwest Hospitality District Anchored by Adaptive Reuse</h2>
+          <p class="lead">The site should be positioned as a complete destination rather than a single-use project. The strongest concept combines historic adaptive reuse, hospitality, riverfront public space, food and beverage, wellness, event programming, and residential activity into one coordinated campus.</p>
+          <p class="eyebrow" style="margin-top:26px;">Potential Uses</p>
+          <div style="margin-top:12px; display:flex; flex-wrap:wrap; gap:8px;">
+            <span class="chip">Hotel</span><span class="chip">Conference Center</span><span class="chip">Residential</span><span class="chip">Riverfront Retail</span><span class="chip">Craft Beverage</span><span class="chip">Wellness</span><span class="chip">Event Space</span>
+          </div>
+          <p class="eyebrow" style="margin-top:30px;">Vision Board</p>
+          <div class="gallery" style="margin-top:12px;">
+            <div class="frame has-img" role="button" tabindex="0" aria-label="Historic brick architecture"><img src="images/tb-main-img%20(1).png" alt="" /><div><p class="ft">Historic brick architecture</p></div></div>
+            <div class="frame has-img" role="button" tabindex="0" aria-label="Riverfront setting"><img src="images/tb-og-eyelevel-across-river.png" alt="" /><div><p class="ft">Riverfront setting</p></div></div>
+            <div class="frame has-img" role="button" tabindex="0" aria-label="The campus from above"><img src="images/tb-overhead-shot.png" alt="" /><div><p class="ft">Campus &amp; river</p></div></div>
+            <div class="frame has-img" role="button" tabindex="0" aria-label="The brewhouse landmark"><img src="images/tb-main-img.png" alt="" /><div><p class="ft">The brewhouse landmark</p></div></div>
+            <div class="frame has-img" role="button" tabindex="0" aria-label="River and falls setting"><img src="images/tb-main-img-2.png" alt="" /><div><p class="ft">River &amp; falls setting</p></div></div>
+            <div class="frame has-img" role="button" tabindex="0" aria-label="Concept aerial"><img src="images/tb-main-img-2%20(1).png" alt="" /><div><p class="ft">Concept aerial</p></div></div>
+          </div>
+          <p class="lead" style="margin-top:22px;">The existing buildings provide the authenticity and regional recognition required to differentiate the project from conventional new construction. New site improvements can support arrival experience, pedestrian circulation, courtyard activation, open space, and riverfront access.</p>
+          <p class="src" style="margin:12px 0 0; font-size:11px; color:var(--faint);">Conceptual Design developed by Weinstein A+U, dated August 30, 2022. Illustrative; final program is buyer-controlled.</p>
+        </section>
+
+        <!-- §2 · Studied Uses -->
+        <section class="reveal">
+          <p class="eyebrow">Studied Uses</p>
+          <h2>A Program That Reinforces Itself</h2>
+          <p class="lead">Prior concept work has studied a program that may include boutique lodging, destination food and beverage, event and wedding venues, spa and wellness uses, residential overlay opportunities, public open space, trails, river access, and adaptive reuse of the historic brewery structures.</p>
+          <div class="table-wrap" style="margin-top:24px;">
+            <table class="table">
+              <thead><tr><th>Studied use</th><th>Strategic fit</th></tr></thead>
+              <tbody>
+                <tr><td>Boutique hotel / hospitality</td><td>Aligns with the river, the falls, historic architecture, I-5 visibility, Capitol proximity, and the owner&rsquo;s stated vision.</td></tr>
+                <tr><td>Food &amp; beverage</td><td>Reinforces the Olympia Beer legacy and the Brewery District&rsquo;s craft identity.</td></tr>
+                <tr><td>Event / wedding venue</td><td>Historic buildings, riverfront setting, and park adjacency create destination character.</td></tr>
+                <tr><td>Spa / wellness</td><td>Complements hospitality in a secluded river-and-falls environment.</td></tr>
+                <tr><td>Adaptive-reuse retail</td><td>Public-facing activation that advances the district&rsquo;s placemaking goals.</td></tr>
+                <tr><td>Selective housing</td><td>Adds activity and tax base where infrastructure and environmental conditions allow.</td></tr>
+                <tr><td>Trails &amp; open space</td><td>Central to City planning, public benefit, and long-term value creation.</td></tr>
+                <tr><td>Water access / recreation</td><td>Reinforces the riverfront destination thesis, subject to permitting feasibility.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="src" style="margin:12px 0 0; font-size:11px; color:var(--faint);">Concepts are illustrative; a future developer shapes the final program based on market demand, capital strategy, operating model, and entitlement path.</p>
+        </section>
+
+        <!-- §3 · Master Plan -->
+        <section class="reveal">
+          <p class="eyebrow">Master Plan Opportunities</p>
+          <h2>A Flexible Redevelopment Framework, Not a Fixed Outcome</h2>
+          <p class="lead">The site can support multiple scenarios while preserving the historic identity of the brewery campus, allowing the final program to respond to capital, infrastructure, entitlement, and market timing.</p>
+          <p class="eyebrow" style="margin-top:24px;">Development Scenarios</p>
+          <div style="margin-top:12px; display:flex; flex-wrap:wrap; gap:8px;">
+            <span class="chip">Hotel</span><span class="chip">Mixed-Use</span><span class="chip">Residential</span><span class="chip">Entertainment</span><span class="chip">Conference</span><span class="chip">Adaptive Reuse</span>
+          </div>
+          <p class="eyebrow" style="margin-top:28px;">Program Framework</p>
+          <div class="grid grid-3" style="margin-top:12px;">
+            <div class="card"><h4>Heritage Anchor</h4><p>Brewhouse as the public-facing focal point.</p></div>
+            <div class="card"><h4>Hospitality Core</h4><p>Boutique lodging within the historic structures.</p></div>
+            <div class="card"><h4>Residential Overlay</h4><p>Recurring activity and a phased income layer.</p></div>
+            <div class="card"><h4>Food &amp; Beverage Activation</h4><p>Destination dining and craft beverage.</p></div>
+            <div class="card"><h4>Event &amp; Conference</h4><p>Weddings, retreats, and meetings programming.</p></div>
+            <div class="card"><h4>Wellness &amp; Riverfront Open Space</h4><p>Spa, trails, and public-facing placemaking.</p></div>
+          </div>
+          <div class="frame wide topo" style="margin-top:24px;" role="img" aria-label="Concept D1 / D2 scenario diagrams"><div><p class="ft">Concept D1 / D2 scenario diagrams</p><p class="fd">Scenario and phasing diagrams (Weinstein A+U, 2022), available in the data room.</p></div></div>
+          <p class="lead" style="margin-top:20px;">The strongest scenarios combine destination hospitality and event programming with supporting residential, retail, food and beverage, wellness, and open-space uses. Early activation establishes campus identity while later phases deliver broader district value.</p>
+        </section>
+
+        <!-- §4 · Complexity is the Moat -->
+        <section class="reveal">
+          <div class="card" style="border-color:var(--accent);">
+            <p class="eyebrow">Execution</p>
+            <h3 style="margin-top:4px;">The Complexity Is the Moat</h3>
+            <p class="measure sub" style="margin-top:8px;">Access, topography, floodplain, shoreline, historic preservation, and infrastructure all shape the strategy, and they are also what make this site impossible to replicate once it is entitled, cleaned up, and repositioned. The full constraint set and supporting diligence are detailed under Property.</p>
+            <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+              <button class="btn btn-ghost btn-arrow" data-route="property-overview">Review the property &amp; diligence</button>
+              <button class="btn btn-ghost btn-arrow" data-route="financial-upside">See the financial upside</button>
+            </div>
           </div>
         </section>
       </div>
@@ -3609,10 +3772,17 @@ var RAILS = {
     foot:'History and building inventory per the GCH conceptual design report.'
   },
   'dev-vision': {
-    eyebrow:'One Coordinated Campus', title:'A Whole Destination, Not a Single Use',
-    pos:'A complete destination combining adaptive reuse, hospitality, riverfront public space, food and beverage, wellness, events, and residential activity, across a flexible master-plan framework.',
-    glance:[['Hotel','Boutique lodging'],['Events','Conference & weddings'],['Wellness','Spa'],['F&B','Craft beverage'],['Open space','Riverfront']],
+    eyebrow:'', title:'Development Vision and Programming',
+    pos:'A hospitality-led mixed-use destination organized as a coordinated campus: adaptive-reuse lodging, events, food and beverage, wellness, selective retail, outdoor programming, and limited residential, where each use reinforces the others.',
+    glance:[['Hotel keys','72 concept'],['Total program','192,260 SF'],['Program areas','Five primary'],['Residential','~40&ndash;130 units']],
     primary:['property-overview','Review the property'], secondary:['call-to-action','Request information'],
+    foot:'Conceptual program and renderings; illustrative and subject to design development.'
+  },
+  'dev-vision-archive': {
+    eyebrow:'Archived', title:'Development Vision, Master Plan',
+    pos:'The previous Vision tab, retained for reference: the vision board, studied-uses table, master-plan scenarios, program framework, and the complexity-as-moat framing.',
+    glance:[['Hotel','Boutique lodging'],['Events','Conference & weddings'],['Wellness','Spa'],['F&B','Craft beverage'],['Open space','Riverfront']],
+    primary:['dev-vision','Back to the Vision'], secondary:['call-to-action','Request information'],
     foot:'Conceptual Design by Weinstein A+U, August 30, 2022. Illustrative.'
   },
   'city-investing-first': {
@@ -3842,7 +4012,7 @@ function renderRail(route){
 /* ============================================================
    Router
    ============================================================ */
-var ROUTES = ['executive-summary','investment-opportunity','dev-vision','city-investing-first','location-overview','property-overview','financial-upside','call-to-action','heritage-archive','summary','relevance','thesis','public-redevelopment','development-vision','location','growth','opportunity','vision','public-investment','due-diligence','sources','request','home','presentation','use-resort','use-club','use-tribal','use-investors','history','site','news','contact'];
+var ROUTES = ['executive-summary','investment-opportunity','dev-vision','city-investing-first','location-overview','property-overview','financial-upside','call-to-action','heritage-archive','dev-vision-archive','summary','relevance','thesis','public-redevelopment','development-vision','location','growth','opportunity','vision','public-investment','due-diligence','sources','request','home','presentation','use-resort','use-club','use-tribal','use-investors','history','site','news','contact'];
 var TITLES = {
   'executive-summary':'The Opportunity, Olympia Brewery District',
   'investment-opportunity':'Heritage, Olympia Brewery District',
@@ -3853,6 +4023,7 @@ var TITLES = {
   'financial-upside':'Financial Upside, Olympia Brewery District',
   'call-to-action':'Call to Action, Olympia Brewery District',
   'heritage-archive':'Heritage (Archived), Olympia Brewery District',
+  'dev-vision-archive':'Development Vision (Archived), Olympia Brewery District',
   'summary':'Executive Summary (v3), Olympia Brewery District',
   'relevance':'Strategic & Historical Relevance, Olympia Brewery District',
   'thesis':'Investment Thesis, Olympia Brewery District',
@@ -3999,7 +4170,9 @@ lightbox.addEventListener('click', function(e){ if(e.target===lightbox) closeLig
     var full = card.querySelector('.tl-full');
     mText.textContent = full ? full.textContent : '';
     var ph = card.querySelector('.tl-photo');
-    mPhoto.textContent = ph ? ph.textContent : '';
+    var phImg = ph ? ph.querySelector('img') : null;
+    if (phImg){ mPhoto.innerHTML = ''; var im = document.createElement('img'); im.src = phImg.getAttribute('src'); im.alt = phImg.getAttribute('alt') || ''; mPhoto.appendChild(im); }
+    else { mPhoto.textContent = ph ? ph.textContent : ''; }
     modal.classList.add('open');
     track('timeline_open', {era: card.getAttribute('data-era')});
   }
