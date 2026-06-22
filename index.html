@@ -207,10 +207,22 @@ ul{margin:0; padding:0; list-style:none;}
 .table tfoot td{font-weight:600; color:var(--text); background:var(--surface-2);}
 .table-wrap{border:1px solid var(--border); border-radius:var(--radius); overflow-x:auto;}
 
+/* program summary table */
+.program-table td{vertical-align:top; padding-top:18px; padding-bottom:18px;}
+.program-table tbody tr{transition:background .15s var(--ease);}
+.program-table tbody tr:hover{background:var(--surface-2);}
+.program-table .pt-name{font-family:var(--serif); font-size:16px; font-weight:600; color:var(--text); letter-spacing:-0.01em;}
+.program-table .pt-area{font-weight:600; color:var(--accent); white-space:nowrap; font-variant-numeric:tabular-nums; font-size:14px;}
+.program-table ul{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:7px;}
+.program-table li{position:relative; padding-left:18px; line-height:1.5;}
+.program-table li::before{content:""; position:absolute; left:1px; top:8px; width:5px; height:5px; border-radius:50%; background:var(--accent);}
+.program-table tfoot td{font-family:var(--serif); font-size:15.5px; letter-spacing:-0.01em;}
+.program-table tfoot .pt-area{font-size:15.5px;}
+
 /* image frames */
 .topo{background-image:repeating-linear-gradient(115deg, transparent 0 13px, var(--border-soft) 13px 14px);}
-.frame{aspect-ratio:4/3; border:1px solid var(--border); border-radius:var(--radius); background:var(--surface-2); position:relative; overflow:hidden; display:grid; place-items:center; text-align:center; padding:28px;}
-.frame.wide{aspect-ratio:21/9;}
+.frame{aspect-ratio:5/4; border:1px solid var(--border); border-radius:var(--radius); background:var(--surface-2); position:relative; overflow:hidden; display:grid; place-items:center; text-align:center; padding:28px;}
+.frame.wide{aspect-ratio:16/9;}
 .frame .ft{font-size:10.5px; text-transform:uppercase; letter-spacing:.08em; color:var(--accent); font-weight:600; margin-bottom:9px;}
 .frame .fd{font-family:var(--serif); font-size:15px; color:var(--text-3); letter-spacing:-0.01em; max-width:30ch;}
 .gallery{display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:18px;}
@@ -291,6 +303,11 @@ ul{margin:0; padding:0; list-style:none;}
 .lightbox.open{display:grid;}
 .lightbox .lb-frame{width:min(900px,92vw); aspect-ratio:16/10; background:var(--surface-2); border:1px solid var(--border-strong); border-radius:var(--radius); display:grid; place-items:center; text-align:center; padding:32px;}
 .lightbox .lb-close{position:absolute; top:22px; right:26px; background:none; border:none; color:#fff; font-size:30px; cursor:pointer; line-height:1;}
+.lb-nav{position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,.45); border:1px solid rgba(255,255,255,.18); color:#fff; font-size:22px; line-height:1; width:48px; height:48px; border-radius:50%; cursor:pointer; display:none; align-items:center; justify-content:center; transition:background .15s; user-select:none;}
+.lb-nav:hover{background:rgba(0,0,0,.72);}
+.lb-prev{left:18px;}
+.lb-next{right:18px;}
+.lightbox.has-nav .lb-nav{display:flex;}
 
 /* embedded imagery */
 .frame.has-img{padding:0; background:var(--surface-2);}
@@ -878,8 +895,92 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
           <div class="frame wide has-img" style="margin-top:22px;" aria-label="Rendering of the hospitality campus from across the Deschutes River"><img src="images/tb-rendering-hotel-main-2-from-river.png" alt="Rendering of the hospitality campus seen from across the Deschutes River" /><div><p class="ft">Riverfront hospitality destination</p></div></div>
           <p class="lead" style="margin-top:24px;">The studies identify the Olympia Brewery site as a hospitality-led mixed-use destination centered on adaptive reuse, events, food and beverage, wellness, selective retail, outdoor programming, and limited residential use. The strongest program is organized around complementary uses that operate as a coordinated campus: lodging creates overnight demand, events generate destination visitation, restaurants and retail activate the property throughout the day, wellness extends the guest experience, and residential adds a limited daily-use population. The concept plans illustrate a destination environment with hospitality, restaurant, event space, spa, outdoor dining, outdoor event and wedding venues, open space, pedestrian bridge, trails, kayak and water access, lower courtyard, hotel amenities, and residential components.</p>
           <div style="margin-top:24px;">
-            <img src="images/tb-hospitality-architectural-program-diagram-.png" alt="Architectural program diagram showing 192,260 square feet total, 72 hotel keys, five primary program areas, and the building-by-building use allocation" style="width:100%; height:auto; display:block; border:1px solid var(--border); border-radius:var(--radius);" />
+            <img src="images/tb-hospitality-architectural-program-diagram-new.png" alt="Architectural program diagram showing 192,260 square feet total, 72 hotel keys, five primary program areas, and the building-by-building use allocation" style="width:100%; height:auto; display:block; border:1px solid var(--border); border-radius:var(--radius);" />
             <p class="src" style="margin:8px 0 0; font-size:11px; color:var(--faint);">Conceptual architectural program: total building area, hotel keys, major program areas, and building-by-building use allocation. Illustrative.</p>
+          </div>
+          <h3 style="margin-top:30px;">Conceptual Building Program</h3>
+          <div class="table-wrap" style="margin-top:12px;">
+            <table class="table program-table">
+              <thead><tr><th>Program</th><th>Building</th><th>Area</th><th>Component Breakdown</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td class="pt-name">Hotel</td>
+                  <td>Cellar</td>
+                  <td class="pt-area">43,498 SF</td>
+                  <td>
+                    <ul>
+                      <li>72 keys | boutique hotel in the Cellar Building</li>
+                      <li>Guest arrival, lobby and concierge</li>
+                      <li>Back-of-house and service areas</li>
+                      <li>Standard rooms, premium rooms and suites</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pt-name">Retail / Food Service</td>
+                  <td>Brewhouse, North Storage</td>
+                  <td class="pt-area">12,380 SF</td>
+                  <td>
+                    <ul>
+                      <li>Brewhouse and North Storage retail / food-service uses</li>
+                      <li>Brewpub / restaurant potential</li>
+                      <li>Multiple retail and dining spaces</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pt-name">Wellness Center</td>
+                  <td>Keg House</td>
+                  <td class="pt-area">15,540 SF</td>
+                  <td>
+                    <ul>
+                      <li>Keg House wellness / retreat program</li>
+                      <li>Health caf&eacute;, salon and spa</li>
+                      <li>Fitness rooms and therapeutics</li>
+                      <li>Support and circulation areas</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pt-name">Event Space</td>
+                  <td>Warehouse</td>
+                  <td class="pt-area">26,185 SF</td>
+                  <td>
+                    <ul>
+                      <li>Warehouse multi-use event space</li>
+                      <li>Large-format event hall</li>
+                      <li>Smaller support event areas</li>
+                      <li>Courtyard adjacency</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pt-name">Parking Area</td>
+                  <td>Parking Garage</td>
+                  <td class="pt-area">79,770 SF</td>
+                  <td>
+                    <ul>
+                      <li>Structured parking garage</li>
+                      <li>Visitor parking and access</li>
+                      <li>Approximately 298 stalls</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="pt-name">Building Support</td>
+                  <td>Multiple / Shared</td>
+                  <td class="pt-area">11,990 SF</td>
+                  <td>
+                    <ul>
+                      <li>Circulation, utilities, loading, restrooms, and back-of-house support</li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr><td>Total Building Area</td><td></td><td class="pt-area">192,260 SF</td><td></td></tr>
+              </tfoot>
+            </table>
           </div>
         </section>
 
@@ -901,7 +1002,6 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
 
           <h3 style="margin-top:30px;">Food, Beverage, and Restaurant Programming</h3>
           <p class="lead" style="margin-top:10px;">Food and beverage operates as the daily activation layer. The most relevant uses include a destination restaurant, brewpub or tasting room, caf&eacute;, outdoor dining, food hall or market hall, and a branded brewery-heritage concept. The market analysis identifies restaurants, pubs, food and beverage businesses, and brewery-related uses as compatible opportunities, particularly where operators can leverage the existing brewery facilities, layouts, and historic identity.</p>
-          <div class="frame wide has-img" style="margin-top:16px;" aria-label="Rendering of outdoor dining and common space at golden hour"><img src="images/tb-rendering-hotel-eye-level-courtyard-golden-hour-common-space.png" alt="Rendering of outdoor dining and public realm common space at golden hour" /><div><p class="ft">Outdoor dining &amp; public realm</p></div></div>
 
           <h3 style="margin-top:30px;">Hospitality and Event Program Summary</h3>
           <div class="table-wrap" style="margin-top:12px;">
@@ -3684,17 +3784,16 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
     <footer class="footer">
       <div class="footer-grid">
         <div>
-          <p style="margin:0 0 6px;"><strong style="color:var(--text)">AGM Real Estate Group</strong></p>
+          <p style="margin:0 0 6px;"><strong style="color:var(--text)">Lee &amp; Associates</strong></p>
           <p style="margin:0; max-width:46ch;">The former Olympia Brewery, a 34-acre riverfront assemblage in Tumwater, Washington, presented as a confidential pre-market offering.</p>
         </div>
         <div>
           <p style="margin:0 0 6px;"><strong style="color:var(--text)">Troy Gessel</strong> · Selling Principal</p>
-          <p style="margin:0 0 4px;"><a href="mailto:troy@agmrealestate.com">troy@agmrealestate.com</a> · <a href="tel:+12066228600">206.622.8600</a></p>
-          <p style="margin:0;">12330 Northup Way, Bellevue, WA 98005</p>
+          <p style="margin:0 0 4px;"><a href="mailto:tgessel@lee-associates.com">tgessel@lee-associates.com</a> · <a href="tel:+12066228600">206.622.8600</a></p>
         </div>
       </div>
       <p class="confidential">Confidential, pre-market material. Not for distribution.</p>
-      <p class="footer-disclaimer" style="margin-top:14px; font-size:11px; line-height:1.6; color:var(--faint); max-width:none;">This material has been prepared by AGM Real Estate Group from sources believed to be reliable and is provided for preliminary evaluation only. No representation or warranty, express or implied, is made as to its accuracy or completeness, and no legal liability is assumed with respect thereto. Studies, figures, and conditions referenced are dated and should be independently verified by the recipient and its own advisors. This material is furnished solely under a confidentiality agreement, does not constitute an offer or the solicitation of an offer, and the seller reserves the right to withdraw or modify the offering at any time. Recipients are responsible for their own independent investigation, including environmental, flood, entitlement, and feasibility conditions.</p>
+      <p class="footer-disclaimer" style="margin-top:14px; font-size:11px; line-height:1.6; color:var(--faint); max-width:none;">This material has been prepared by Lee &amp; Associates from sources believed to be reliable and is provided for preliminary evaluation only. No representation or warranty, express or implied, is made as to its accuracy or completeness, and no legal liability is assumed with respect thereto. Studies, figures, and conditions referenced are dated and should be independently verified by the recipient and its own advisors. This material is furnished solely under a confidentiality agreement, does not constitute an offer or the solicitation of an offer, and the seller reserves the right to withdraw or modify the offering at any time. Recipients are responsible for their own independent investigation, including environmental, flood, entitlement, and feasibility conditions.</p>
     </footer>
   </div>
 </div>
@@ -3702,6 +3801,8 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
 <!-- ===================== LIGHTBOX ===================== -->
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
   <button class="lb-close" id="lbClose" aria-label="Close">×</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous image">&#8249;</button>
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next image">&#8250;</button>
   <figure class="lb-fig"><img id="lbImg" alt="" /><figcaption id="lbTitle"></figcaption></figure>
 </div>
 
@@ -4133,25 +4234,78 @@ function runReveal(){
 var lightbox = document.getElementById('lightbox');
 var lbTitle = document.getElementById('lbTitle');
 var lbImg = document.getElementById('lbImg');
-function openLightbox(label, imgSrc){
-  lbTitle.textContent = label || '';
-  if (imgSrc){ lbImg.src = imgSrc; lbImg.alt = label || ''; lbImg.style.display='block'; }
+var lbPrev = document.getElementById('lbPrev');
+var lbNext = document.getElementById('lbNext');
+var lbGalleryFrames = [];
+var lbCurrentIndex = -1;
+
+function openLightboxAt(frames, index){
+  lbGalleryFrames = frames;
+  lbCurrentIndex = index;
+  var f = frames[index];
+  var im = f.querySelector('img');
+  var label = f.getAttribute('aria-label') || '';
+  lbTitle.textContent = label;
+  if (im){ lbImg.src = im.src; lbImg.alt = label; lbImg.style.display='block'; }
   else { lbImg.style.display='none'; }
+  if (frames.length > 1){ lightbox.classList.add('has-nav'); }
+  else { lightbox.classList.remove('has-nav'); }
   lightbox.classList.add('open');
   track('photo_clicked', {label:label});
 }
-function closeLightbox(){ lightbox.classList.remove('open'); }
+
+function lbNavigate(dir){
+  if (!lbGalleryFrames.length) return;
+  lbCurrentIndex = (lbCurrentIndex + dir + lbGalleryFrames.length) % lbGalleryFrames.length;
+  var f = lbGalleryFrames[lbCurrentIndex];
+  var im = f.querySelector('img');
+  var label = f.getAttribute('aria-label') || '';
+  lbTitle.textContent = label;
+  if (im){ lbImg.src = im.src; lbImg.alt = label; lbImg.style.display='block'; }
+  else { lbImg.style.display='none'; }
+}
+
+function closeLightbox(){ lightbox.classList.remove('open'); lbGalleryFrames = []; lbCurrentIndex = -1; }
+
 document.addEventListener('click', function(e){
-  var f = e.target.closest('.gallery .frame');
-  if (f){ var im = f.querySelector('img'); openLightbox(f.getAttribute('aria-label'), im ? im.src : null); }
+  var f = e.target.closest('.gallery .frame, .frame.has-img');
+  if (f){
+    var gallery = f.closest('.gallery');
+    if (gallery){
+      var frames = Array.from(gallery.querySelectorAll('.frame'));
+      var idx = frames.indexOf(f);
+      openLightboxAt(frames, idx >= 0 ? idx : 0);
+    } else {
+      var im = f.querySelector('img');
+      openLightboxAt([f], 0);
+    }
+  }
 });
+
 document.addEventListener('keydown', function(e){
+  if (e.key==='Escape'){ closeLightbox(); return; }
+  if (lightbox.classList.contains('open')){
+    if (e.key==='ArrowRight'){ e.preventDefault(); lbNavigate(1); return; }
+    if (e.key==='ArrowLeft'){ e.preventDefault(); lbNavigate(-1); return; }
+  }
   if ((e.key==='Enter'||e.key===' ')){
     var el = document.activeElement;
-    if (el && el.classList.contains('frame') && el.closest('.gallery')){ e.preventDefault(); var im2 = el.querySelector('img'); openLightbox(el.getAttribute('aria-label'), im2 ? im2.src : null); }
+    if (el && el.classList.contains('frame')){
+      e.preventDefault();
+      var gallery = el.closest('.gallery');
+      if (gallery){
+        var frames = Array.from(gallery.querySelectorAll('.frame'));
+        var idx = frames.indexOf(el);
+        openLightboxAt(frames, idx >= 0 ? idx : 0);
+      } else {
+        openLightboxAt([el], 0);
+      }
+    }
   }
-  if (e.key==='Escape') closeLightbox();
 });
+
+lbPrev.addEventListener('click', function(e){ e.stopPropagation(); lbNavigate(-1); });
+lbNext.addEventListener('click', function(e){ e.stopPropagation(); lbNavigate(1); });
 document.getElementById('lbClose').addEventListener('click', closeLightbox);
 lightbox.addEventListener('click', function(e){ if(e.target===lightbox) closeLightbox(); });
 
