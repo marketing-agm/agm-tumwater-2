@@ -303,6 +303,11 @@ ul{margin:0; padding:0; list-style:none;}
 .lightbox.open{display:grid;}
 .lightbox .lb-frame{width:min(900px,92vw); aspect-ratio:16/10; background:var(--surface-2); border:1px solid var(--border-strong); border-radius:var(--radius); display:grid; place-items:center; text-align:center; padding:32px;}
 .lightbox .lb-close{position:absolute; top:22px; right:26px; background:none; border:none; color:#fff; font-size:30px; cursor:pointer; line-height:1;}
+.lb-nav{position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,.45); border:1px solid rgba(255,255,255,.18); color:#fff; font-size:22px; line-height:1; width:48px; height:48px; border-radius:50%; cursor:pointer; display:none; align-items:center; justify-content:center; transition:background .15s; user-select:none;}
+.lb-nav:hover{background:rgba(0,0,0,.72);}
+.lb-prev{left:18px;}
+.lb-next{right:18px;}
+.lightbox.has-nav .lb-nav{display:flex;}
 
 /* embedded imagery */
 .frame.has-img{padding:0; background:var(--surface-2);}
@@ -3796,6 +3801,8 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
 <!-- ===================== LIGHTBOX ===================== -->
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
   <button class="lb-close" id="lbClose" aria-label="Close">×</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous image">&#8249;</button>
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next image">&#8250;</button>
   <figure class="lb-fig"><img id="lbImg" alt="" /><figcaption id="lbTitle"></figcaption></figure>
 </div>
 
@@ -4227,25 +4234,78 @@ function runReveal(){
 var lightbox = document.getElementById('lightbox');
 var lbTitle = document.getElementById('lbTitle');
 var lbImg = document.getElementById('lbImg');
-function openLightbox(label, imgSrc){
-  lbTitle.textContent = label || '';
-  if (imgSrc){ lbImg.src = imgSrc; lbImg.alt = label || ''; lbImg.style.display='block'; }
+var lbPrev = document.getElementById('lbPrev');
+var lbNext = document.getElementById('lbNext');
+var lbGalleryFrames = [];
+var lbCurrentIndex = -1;
+
+function openLightboxAt(frames, index){
+  lbGalleryFrames = frames;
+  lbCurrentIndex = index;
+  var f = frames[index];
+  var im = f.querySelector('img');
+  var label = f.getAttribute('aria-label') || '';
+  lbTitle.textContent = label;
+  if (im){ lbImg.src = im.src; lbImg.alt = label; lbImg.style.display='block'; }
   else { lbImg.style.display='none'; }
+  if (frames.length > 1){ lightbox.classList.add('has-nav'); }
+  else { lightbox.classList.remove('has-nav'); }
   lightbox.classList.add('open');
   track('photo_clicked', {label:label});
 }
-function closeLightbox(){ lightbox.classList.remove('open'); }
+
+function lbNavigate(dir){
+  if (!lbGalleryFrames.length) return;
+  lbCurrentIndex = (lbCurrentIndex + dir + lbGalleryFrames.length) % lbGalleryFrames.length;
+  var f = lbGalleryFrames[lbCurrentIndex];
+  var im = f.querySelector('img');
+  var label = f.getAttribute('aria-label') || '';
+  lbTitle.textContent = label;
+  if (im){ lbImg.src = im.src; lbImg.alt = label; lbImg.style.display='block'; }
+  else { lbImg.style.display='none'; }
+}
+
+function closeLightbox(){ lightbox.classList.remove('open'); lbGalleryFrames = []; lbCurrentIndex = -1; }
+
 document.addEventListener('click', function(e){
-  var f = e.target.closest('.gallery .frame');
-  if (f){ var im = f.querySelector('img'); openLightbox(f.getAttribute('aria-label'), im ? im.src : null); }
+  var f = e.target.closest('.gallery .frame, .frame.has-img');
+  if (f){
+    var gallery = f.closest('.gallery');
+    if (gallery){
+      var frames = Array.from(gallery.querySelectorAll('.frame'));
+      var idx = frames.indexOf(f);
+      openLightboxAt(frames, idx >= 0 ? idx : 0);
+    } else {
+      var im = f.querySelector('img');
+      openLightboxAt([f], 0);
+    }
+  }
 });
+
 document.addEventListener('keydown', function(e){
+  if (e.key==='Escape'){ closeLightbox(); return; }
+  if (lightbox.classList.contains('open')){
+    if (e.key==='ArrowRight'){ e.preventDefault(); lbNavigate(1); return; }
+    if (e.key==='ArrowLeft'){ e.preventDefault(); lbNavigate(-1); return; }
+  }
   if ((e.key==='Enter'||e.key===' ')){
     var el = document.activeElement;
-    if (el && el.classList.contains('frame') && el.closest('.gallery')){ e.preventDefault(); var im2 = el.querySelector('img'); openLightbox(el.getAttribute('aria-label'), im2 ? im2.src : null); }
+    if (el && el.classList.contains('frame')){
+      e.preventDefault();
+      var gallery = el.closest('.gallery');
+      if (gallery){
+        var frames = Array.from(gallery.querySelectorAll('.frame'));
+        var idx = frames.indexOf(el);
+        openLightboxAt(frames, idx >= 0 ? idx : 0);
+      } else {
+        openLightboxAt([el], 0);
+      }
+    }
   }
-  if (e.key==='Escape') closeLightbox();
 });
+
+lbPrev.addEventListener('click', function(e){ e.stopPropagation(); lbNavigate(-1); });
+lbNext.addEventListener('click', function(e){ e.stopPropagation(); lbNavigate(1); });
 document.getElementById('lbClose').addEventListener('click', closeLightbox);
 lightbox.addEventListener('click', function(e){ if(e.target===lightbox) closeLightbox(); });
 
