@@ -1,8 +1,14 @@
-# Scope — Interactive Access & Mobility Map (v1)
+# Scope — Interactive Location Maps
 
 **Project:** Tumwater Brewery microsite — Location tab
-**Module:** "Access & Mobility" interactive map
-**Decisions locked:** Embed in existing `index.html` (vanilla JS, no build) · MapLibre GL JS + free vector tiles (no Mapbox account/token) · v1 = Access & Mobility only
+**Decisions locked:** Embed in existing `index.html` (vanilla JS, no build) · MapLibre GL JS + keyless CARTO raster tiles (no Mapbox account/token)
+
+> **Update — v1 shipped as the Regional Corridor map.** After review, the interactive
+> map was applied to the **§2 Regional Corridor** section instead of Access & Mobility:
+> the I-5 hospitality spine (Portland↔Seattle) with market-node markers, popups
+> (positioning / hotels / implication), Tumwater emphasized as the "white space," and
+> North / South / Site filter toggles. The Access & Mobility section reverted to its
+> collapsible category rows. The category-layer access map described below is **deferred to a later phase.**
 
 ---
 
