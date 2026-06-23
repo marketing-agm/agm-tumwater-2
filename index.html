@@ -497,6 +497,13 @@ ul{margin:0; padding:0; list-style:none;}
 .flow .node::before{content:counter(flow,decimal-leading-zero); font-family:var(--serif); font-weight:700; font-size:12px; color:var(--accent); letter-spacing:.06em;}
 .flow .node h4{font-size:14px; margin:8px 0 6px;}
 .flow .node p{font-size:12.5px; color:var(--text-3); margin:0; line-height:1.55;}
+/* icon card grid: 3 across, full-width final cell */
+.icon-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:28px;}
+.icon-grid > :nth-child(4){grid-column:1 / -1;}
+.icon-card{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:30px 30px;}
+.icon-card h4{font-size:15px; margin:0 0 9px;}
+.icon-card p{font-size:13.5px; color:var(--text-3); line-height:1.7; margin:0; max-width:64ch;}
+@media(max-width:880px){.icon-grid{grid-template-columns:1fr;} .icon-grid > :nth-child(4){grid-column:auto;}}
 /* balance: consistent metric rhythm + tidy placeholder frames on wide pages */
 .page.wide .metrics{gap:30px 44px;}
 .page.wide .gallery .frame{min-height:150px;}
@@ -1250,11 +1257,27 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
               <p>The work translates a complex brownfield and riverfront setting &mdash; steep slopes, wetlands, FEMA flood zone, aquifer recharge area, and known contamination &mdash; into a clearer framework for approvals.</p>
             </div>
           </details>
-          <div class="flow" style="margin-top:28px;">
-            <div class="node"><h4>Assessment</h4><p>Phase I / Phase II investigations and site inventory. These define the nature and extent of soil and groundwater contamination before design decisions are made.</p></div>
-            <div class="node"><h4>Cleanup Planning</h4><p>Cleanup plans and reuse planning tied to future development. Remediation approaches are matched to intended end uses, so cleanup and construction can advance together rather than in sequence.</p></div>
-            <div class="node"><h4>Planned Action EIS</h4><p>District-level review of impacts, alternatives, and mitigation. Future proposals tier off a single environmental record instead of starting SEPA review from scratch.</p></div>
-            <div class="node"><h4>Execution Framework</h4><p>A more predictable path for proposals consistent with the adopted framework. Entitlement, mitigation, and infrastructure expectations are defined up front, lowering approval risk for a future developer.</p></div>
+          <div class="icon-grid">
+            <div class="icon-card">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent); margin-bottom:16px; display:block;" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+              <h4>Assessment</h4>
+              <p>Phase I / Phase II investigations and site inventory. These define the nature and extent of soil and groundwater contamination before design decisions are made.</p>
+            </div>
+            <div class="icon-card">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent); margin-bottom:16px; display:block;" aria-hidden="true"><path d="M12 2.7S6 8.7 6 13.2a6 6 0 0 0 12 0C18 8.7 12 2.7 12 2.7z"/></svg>
+              <h4>Cleanup Planning</h4>
+              <p>Cleanup plans and reuse planning tied to future development. Remediation approaches are matched to intended end uses, so cleanup and construction can advance together rather than in sequence.</p>
+            </div>
+            <div class="icon-card">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent); margin-bottom:16px; display:block;" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M9 14l2 2 4-4"/></svg>
+              <h4>Planned Action EIS</h4>
+              <p>District-level review of impacts, alternatives, and mitigation. Future proposals tier off a single environmental record instead of starting SEPA review from scratch.</p>
+            </div>
+            <div class="icon-card">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent); margin-bottom:16px; display:block;" aria-hidden="true"><path d="M5 21V4"/><path d="M5 4h12l-2.5 4L17 12H5"/></svg>
+              <h4>Execution Framework</h4>
+              <p>A more predictable path for proposals consistent with the adopted framework. Entitlement, mitigation, and infrastructure expectations are defined up front, lowering approval risk for a future developer.</p>
+            </div>
           </div>
         </section>
 
@@ -1267,19 +1290,19 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
           <div class="grid grid-2" style="margin-top:24px;">
             <div class="card">
               <h4>Access</h4>
-              <p>Boston Street SE access improvements, Custer Way frontage, fire access, pedestrian safety, and ADA strategy.</p>
+              <p>Boston Street SE improvements, Custer Way frontage, fire access, pedestrian safety, and ADA strategy. Access is the single biggest unlock for the lower site, and the City&rsquo;s E Street investment is already advancing it. What reads as a hard-to-reach parcel today becomes a connected, walkable address.</p>
             </div>
             <div class="card">
               <h4>Trails</h4>
-              <p>Deschutes Valley Trail, park connections, regional trail alignment, and pedestrian circulation.</p>
+              <p>Deschutes Valley Trail, park connections, regional trail alignment, and pedestrian circulation. A funded regional trail will route foot and bike traffic directly past the property, turning passing recreation into built-in daily demand. Few infill sites inherit a public amenity of this scale at their doorstep.</p>
             </div>
             <div class="card">
               <h4>Riverfront</h4>
-              <p>Deschutes River, Tumwater Falls, Brewery Park, riparian restoration, and public access opportunities.</p>
+              <p>Deschutes River, Tumwater Falls, Brewery Park, riparian restoration, and public access. The waterfall and river frontage are irreplaceable &mdash; the kind of natural setting that anchors a destination and cannot be engineered anywhere else. Restoration and public-access work only sharpen that edge.</p>
             </div>
             <div class="card">
               <h4>Destination Uses</h4>
-              <p>Hospitality, restaurant, event, spa, outdoor gathering, wedding venue, kayak/water access, and courtyard programming.</p>
+              <p>Hospitality, restaurant, event, spa, outdoor gathering, wedding venue, kayak and water access, and courtyard programming. The setting supports premium, experience-driven uses that command rate and draw regional visitors. This is a place people travel to, not simply pass through.</p>
             </div>
           </div>
           <div class="pi-callout" style="margin-top:24px;">
