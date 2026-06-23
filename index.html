@@ -234,6 +234,22 @@ ul{margin:0; padding:0; list-style:none;}
 #page-city-investing-first section + section{border-top:none; padding-top:0;}
 #page-city-investing-first h2{margin-bottom:14px;}
 
+/* location: access & mobility collapsible rows */
+.amx{border-top:1px solid var(--border-soft);}
+.amx:last-of-type{border-bottom:1px solid var(--border-soft);}
+.amx summary{cursor:pointer; list-style:none; display:flex; align-items:center; gap:14px; padding:20px 2px; font:600 16px var(--serif); color:var(--text); letter-spacing:-0.01em;}
+.amx summary::-webkit-details-marker{display:none;}
+.amx .am-ico{flex:0 0 auto; color:var(--accent); display:block;}
+.amx .am-attr{margin-left:auto; font:500 11.5px var(--sans); color:var(--text-3); text-transform:uppercase; letter-spacing:.05em; text-align:right;}
+.amx summary::after{content:"+"; font:400 20px var(--sans); color:var(--faint); margin-left:14px; transition:transform .15s var(--ease);}
+.amx[open] summary::after{transform:rotate(45deg);}
+.amx .am-body{padding:2px 0 24px 38px;}
+.amx .am-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px 30px;}
+.amx .am-lbl{font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--accent); margin:0 0 5px;}
+.amx .am-grid p{font-size:14px; line-height:1.65; color:var(--text-3); margin:0;}
+.amx .am-vis{margin-top:18px;}
+@media(max-width:620px){.amx .am-grid{grid-template-columns:1fr;} .amx .am-attr{display:none;} .amx .am-body{padding-left:0;}}
+
 /* image frames */
 .topo{background-image:repeating-linear-gradient(115deg, transparent 0 13px, var(--border-soft) 13px 14px);}
 .frame{aspect-ratio:5/4; border:1px solid var(--border); border-radius:var(--radius); background:var(--surface-2); position:relative; overflow:hidden; display:grid; place-items:center; text-align:center; padding:28px;}
@@ -1319,45 +1335,225 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
       <!-- ================= TAB 5 · LOCATION & REGIONAL DEMAND ================= -->
       <div class="page wide" id="page-location-overview">
 
-        <!-- §1 · Location -->
+        <!-- §1 · Executive Location Thesis -->
         <section class="reveal">
-          <p class="eyebrow">Location</p>
-          <h2>At the Junction of I-5 and the Deschutes River Valley</h2>
-          <p class="lead">The site is located in Tumwater, Washington, the southernmost city in the Puget Sound region, minutes from the Washington State Capitol campus and downtown Olympia, with direct I-5 visibility and access from the Custer Way interchange.</p>
-          <div class="frame wide has-img" style="margin-top:22px;" role="button" tabindex="0" aria-label="The site in its regional setting"><img src="images/tb-overhead-shot.png" alt="The brewery campus and Deschutes River in context" /><div><p class="ft">The site in context</p><p class="fd">Detailed regional access map available in the data room.</p></div></div>
-          <div style="margin-top:16px; display:flex; flex-wrap:wrap; gap:8px;">
-            <span class="chip">Seattle</span><span class="chip">Tacoma</span><span class="chip">JBLM</span><span class="chip">Olympia</span><span class="chip">Port of Olympia</span><span class="chip">Airport</span><span class="chip">I-5</span><span class="chip">Government Center</span>
+          <p class="eyebrow">Location &amp; Market Context</p>
+          <h2>A Rare Convergence of Access, River, and History</h2>
+          <p class="lead">Tumwater Brewery is a rare South Sound asset where regional corridor access, riverfront setting, historic architecture, and civic proximity converge in a single redevelopment platform. The 34-acre assemblage sits at the junction of Interstate 5 and Highway 101, adjacent to the Deschutes River, Tumwater Falls, Brewery Park, Tumwater Historical Park, and the Olympia / Tumwater civic core, translating regional accessibility into a highly differentiated guest experience: visible and connected from the corridor, yet protected by wooded topography, riverfront edges, and historic brewery architecture.</p>
+          <p class="sub">What distinguishes the site at a regional scale is not just access, but position within a continuous hospitality corridor stretching from Portland to Seattle. Tumwater sits at a midpoint between major urban hotel clusters, yet offers a fundamentally different experience, immersive, historic, and nature-integrated rather than urban or highway-oriented, creating an opportunity to capture both pass-through demand and intentional destination travel.</p>
+          <div class="frame wide has-img" style="margin-top:24px;" role="button" tabindex="0" aria-label="Aerial of the brewery campus, Deschutes River, Tumwater Falls, Capitol Lake, and the Olympia / Capitol direction"><img src="images/tb-overhead-shot.png" alt="Aerial showing I-5, the Deschutes River, Tumwater Falls, the historic brewery campus, and the Olympia / Capitol direction" /><div><p class="ft">Regional setting</p><p class="fd">I-5, the Deschutes River, Tumwater Falls, Capitol Lake, and the historic brewery campus.</p></div></div>
+          <div class="grid grid-2" style="margin-top:24px;">
+            <div class="card"><h4>Regional Access</h4><p>I-5 and Highway 101 corridor access linking Olympia, Tacoma, Seattle, Portland, and the Olympic Peninsula.</p></div>
+            <div class="card"><h4>Riverfront Identity</h4><p>Direct relationship to the Deschutes River, Tumwater Falls, Brewery Park, and the Capitol Lake landscape.</p></div>
+            <div class="card"><h4>Historic Character</h4><p>Olympia Brewery legacy, pre-Prohibition architecture, Brew Tower presence, and deep regional recognition.</p></div>
+            <div class="card"><h4>Campus Potential</h4><p>Secluded arrival, internal walkability, lodging, events, dining, wellness, public realm, and trail activation.</p></div>
           </div>
         </section>
 
-        <!-- §2 · Adjacencies -->
+        <!-- §2 · Regional Corridor Deep Dive -->
         <section class="reveal">
-          <p class="eyebrow">Adjacencies</p>
-          <h2>A Setting That Serves Local Demand and Regional Visitors</h2>
-          <div class="grid grid-3" style="margin-top:8px;">
-            <div class="card"><h4>Deschutes River &amp; Tumwater Falls</h4><p>Signature natural features at the property edge.</p></div>
-            <div class="card"><h4>Tumwater Historical Park &amp; Schmidt House</h4><p>Adjacent civic and heritage assets.</p></div>
-            <div class="card"><h4>Custer Way / Capitol Boulevard</h4><p>Arterial frontage at I-5 Exit 103.</p></div>
-            <div class="card"><h4>Planned Deschutes Estuary Restoration</h4><p>State-led project along the frontage.</p></div>
-            <div class="card"><h4>Union Pacific Rail Corridor</h4><p>Defines the upland edge of the site.</p></div>
-            <div class="card"><h4>Brewery / Craft District</h4><p>Surrounding redevelopment context.</p></div>
+          <p class="eyebrow">Regional Corridor</p>
+          <h2>The I-5 Hospitality Spine</h2>
+          <p class="lead">Tumwater Brewery sits within one of the most heavily traveled hospitality corridors in the Pacific Northwest. Interstate 5 functions as a continuous chain of lodging nodes, from large urban convention hotels to highway-oriented select-service clusters. The corridor reveals both competition and opportunity: supply is abundant, but very little of it offers a destination-quality, experiential environment.</p>
+
+          <h3 style="margin-top:30px;">Northern Corridor &mdash; Olympia to Seattle</h3>
+          <p class="sub" style="margin-top:8px;">North of Tumwater, the I-5 corridor intensifies rapidly into dense urban hotel markets.</p>
+          <div class="table-wrap" style="margin-top:14px;">
+            <table class="table">
+              <thead><tr><th>Market</th><th>Major Hotels</th><th>Positioning</th><th>Implication</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Tacoma</strong></td><td>Hotel Murano, Marriott Tacoma Downtown, Courtyard Tacoma Downtown</td><td>Urban, convention, business</td><td>Strong event and corporate demand, limited resort character</td></tr>
+                <tr><td><strong>SeaTac / Airport</strong></td><td>Hilton Seattle Airport, DoubleTree, Radisson, Marriott SeaTac</td><td>High-volume transient, airline, business</td><td>Functional, high occupancy, low experiential differentiation</td></tr>
+                <tr><td><strong>Seattle Core</strong></td><td>Four Seasons Seattle, Fairmont Olympic, Hyatt Regency (1,200+ rooms), Sheraton Grand</td><td>Luxury, convention, global tourism</td><td>Premium pricing, dense competition, urban experience</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="pi-callout" style="margin-top:18px;"><h4>Key Insight</h4><p>Northbound travelers encounter increasingly dense, expensive, and urban lodging environments. Tumwater offers a decompression point, nature, history, and space, within a 60&ndash;90 minute drive of these markets.</p></div>
+
+          <h3 style="margin-top:34px;">Southern Corridor &mdash; Olympia to Portland</h3>
+          <p class="sub" style="margin-top:8px;">South of Tumwater, the corridor shifts toward smaller-scale and highway-oriented lodging.</p>
+          <div class="table-wrap" style="margin-top:14px;">
+            <table class="table">
+              <thead><tr><th>Market</th><th>Major Hotels</th><th>Positioning</th><th>Implication</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Centralia / Chehalis</strong></td><td>Great Wolf Lodge (destination family resort), Holiday Inn Express, Best Western</td><td>Family resort + highway lodging</td><td>Demonstrates success of destination programming in smaller markets</td></tr>
+                <tr><td><strong>Kelso / Longview</strong></td><td>Comfort Inn, Red Lion</td><td>Highway / industrial</td><td>Limited experiential competition</td></tr>
+                <tr><td><strong>Vancouver, WA</strong></td><td>Hilton Vancouver, AC Hotel, Heathman Lodge</td><td>Regional business + boutique</td><td>Moderate competition, growing market</td></tr>
+                <tr><td><strong>Portland</strong></td><td>The Nines, Sentinel, Hyatt Regency Portland, Dossier</td><td>Urban luxury, lifestyle, convention</td><td>Strong destination draw, but urban-focused</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="pi-callout" style="margin-top:18px;"><h4>Key Insight</h4><p>Southbound supply is fragmented and largely utilitarian, with the exception of Great Wolf Lodge. There is a clear gap for a high-quality, experiential, adult-oriented destination between Olympia and Portland.</p></div>
+
+          <h3 style="margin-top:34px;">Corridor Positioning &mdash; A Strategic White Space</h3>
+          <div class="grid grid-3" style="margin-top:14px;">
+            <div class="card"><h4>North</h4><p>Dense, urban, expensive, and competitive.</p></div>
+            <div class="card"><h4>South</h4><p>Sparse, highway-oriented, and undifferentiated.</p></div>
+            <div class="card" style="background:var(--accent-wash); border-color:transparent;"><h4 style="color:var(--accent);">Tumwater</h4><p style="color:var(--text-2);">Accessible, but uniquely capable of delivering a destination experience, the white space between two very different markets.</p></div>
+          </div>
+          <p class="sub" style="margin-top:20px;">This positioning supports:</p>
+          <div class="grid grid-2" style="margin-top:12px;">
+            <div class="card card-quiet"><p>Wedding and event capture from both Seattle and Portland</p></div>
+            <div class="card card-quiet"><p>Weekend leisure draw from urban populations</p></div>
+            <div class="card card-quiet"><p>Corridor stopover conversion into overnight stays</p></div>
+            <div class="card card-quiet"><p>Retreat, wellness, and experiential programming not available in nearby markets</p></div>
           </div>
         </section>
 
-        <!-- §3 · Regional Growth Drivers -->
+        <!-- §3 · Access, Mobility, Connectivity -->
         <section class="reveal">
-          <p class="eyebrow">Regional Growth Drivers</p>
-          <h2>Multiple Demand Channels Within a Single Controlled Land Position</h2>
-          <p class="lead">Regional demand is supported by public employment, military activity, tourism, transportation access, manufacturing, logistics, and the broader Olympia-Tumwater-Lacey market, supporting a mixed-use program across lodging, residential, retail, food and beverage, events, and destination uses.</p>
-          <div class="grid grid-3" style="margin-top:24px;">
-            <div class="card"><h4>State Government</h4><p>Minutes from the Capitol campus and downtown Olympia.</p><p class="src" style="margin-top:8px; font-size:11px; color:var(--faint);">24,000+ state jobs in Thurston County</p></div>
-            <div class="card"><h4>Airport Expansion</h4><p>Airport-area activity supports South Sound employment and business travel.</p></div>
-            <div class="card"><h4>Manufacturing</h4><p>Industrial heritage aligns with food production, craft beverage, and maker uses.</p></div>
-            <div class="card"><h4>Logistics</h4><p>I-5 connects to Seattle, Tacoma, Portland, and regional recreation.</p><p class="src" style="margin-top:8px; font-size:11px; color:var(--faint);">100K&ndash;150K vehicles/day on I-5 near the site</p></div>
-            <div class="card"><h4>Defense</h4><p>JBLM is a major regional employment and population driver.</p><p class="src" style="margin-top:8px; font-size:11px; color:var(--faint);">50,000+ JBLM military / civilian jobs</p></div>
-            <div class="card"><h4>Tourism</h4><p>Captures visitors between the Capitol, Puget Sound, the Olympic Peninsula, Mount Rainier, and the coast.</p><p class="src" style="margin-top:8px; font-size:11px; color:var(--faint);">2M+ annual visitors; 1M+ overnight</p></div>
+          <p class="eyebrow">Access &amp; Mobility</p>
+          <h2>Connected to the Corridor, Protected by the Setting</h2>
+          <p class="lead">The site balances regional connectivity with a secluded, resort-like arrival. Each layer of access, from the interstate to the internal pedestrian realm, reinforces the experience of moving from infrastructure into a destination.</p>
+          <p class="sub" style="margin-top:10px;">Site reference: 110 Deschutes Way SW, Tumwater, WA 98501. Expand each category for detail and opportunities.</p>
+          <div style="margin-top:18px;">
+            <details class="amx">
+              <summary><svg class="am-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l1.5-4.5A2 2 0 0 1 8.4 7h7.2a2 2 0 0 1 1.9 1.5L19 13"/><path d="M3 13h18v4a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><circle cx="7" cy="16" r="0.5"/><circle cx="17" cy="16" r="0.5"/></svg>Vehicular Access<span class="am-attr">Regional highway connectivity</span></summary>
+              <div class="am-body">
+                <div class="am-grid">
+                  <div><p class="am-lbl">Details</p><p>Immediate access to I-5 via Tumwater Blvd and Capitol Blvd; direct connection to Highway 101; 5 minutes to Olympia, 60 minutes to Tacoma, 90 minutes to Seattle and Portland.</p></div>
+                  <div><p class="am-lbl">Opportunities</p><p>Leverage corridor visibility and accessibility while preserving internal campus separation.</p></div>
+                </div>
+                <div class="am-vis frame wide topo" role="img" aria-label="Aerial showing I-5, Capitol Blvd, and site entry points"><div><p class="ft">Visual</p><p class="fd">Aerial showing I-5, Capitol Blvd, and site entry points.</p></div></div>
+              </div>
+            </details>
+            <details class="amx">
+              <summary><svg class="am-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="4" r="1.6"/><path d="M12 7v6l-3 4M12 13l3 4M9 9l3 1 3-1"/></svg>Walkability &mdash; On-Site<span class="am-attr">Internal pedestrian environment</span></summary>
+              <div class="am-body">
+                <div class="am-grid">
+                  <div><p class="am-lbl">Details</p><p>Strong potential for a walkable campus, with riverfront trails, bridges, and internal circulation; the topography enhances the experience.</p></div>
+                  <div><p class="am-lbl">Opportunities</p><p>Design as a fully walkable destination campus.</p></div>
+                </div>
+                <div class="am-vis frame wide topo" role="img" aria-label="Rendering or diagram of internal pedestrian paths and riverfront trails"><div><p class="ft">Visual</p><p class="fd">Internal pedestrian paths and riverfront trails.</p></div></div>
+              </div>
+            </details>
+            <details class="amx">
+              <summary><svg class="am-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="4" r="1.6"/><path d="M12 7v6l-3 4M12 13l3 4M9 9l3 1 3-1"/></svg>Walkability &mdash; Off-Site<span class="am-attr">External pedestrian connections</span></summary>
+              <div class="am-body">
+                <div class="am-grid">
+                  <div><p class="am-lbl">Details</p><p>Connections to Brewery Park and Tumwater Falls; partial links to Capitol Lake and Olympia; limited infrastructure along arterials.</p></div>
+                  <div><p class="am-lbl">Opportunities</p><p>Strengthen trail connections to Olympia and Capitol Lake.</p></div>
+                </div>
+                <div class="am-vis frame wide topo" role="img" aria-label="Map showing trail connections and gaps"><div><p class="ft">Visual</p><p class="fd">Map showing trail connections and gaps.</p></div></div>
+              </div>
+            </details>
+            <details class="amx">
+              <summary><svg class="am-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M6 17l4-7h5l3 7M10 10l-2-4H6m6 4l3 0"/></svg>Bikeability<span class="am-attr">Regional cycling integration</span></summary>
+              <div class="am-body">
+                <div class="am-grid">
+                  <div><p class="am-lbl">Details</p><p>Adjacent to Deschutes River trails; connects to the Olympia Woodland Trail; access to the Capitol Lake loop; regional routes linking Olympia, Lacey, and Tumwater.</p></div>
+                  <div><p class="am-lbl">Opportunities</p><p>Develop a cycling hub with rentals, storage, and repair stations; integrate into recreation tourism.</p></div>
+                </div>
+                <div class="am-vis frame wide topo" role="img" aria-label="Regional bike network map or cyclist imagery along river trails"><div><p class="ft">Visual</p><p class="fd">Regional bike network and river-trail routes.</p></div></div>
+              </div>
+            </details>
+            <details class="amx">
+              <summary><svg class="am-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="3" width="12" height="14" rx="2"/><path d="M6 9h12M9 17l-2 3M15 17l2 3"/><circle cx="9" cy="13" r="0.6"/><circle cx="15" cy="13" r="0.6"/></svg>Transit Access<span class="am-attr">Public transportation availability</span></summary>
+              <div class="am-body">
+                <div class="am-grid">
+                  <div><p class="am-lbl">Details</p><p>Intercity Transit service; connection to the Olympia transit hub; limited high-frequency service; Amtrak ~15 minutes away; regional bus links.</p></div>
+                  <div><p class="am-lbl">Opportunities</p><p>Shuttle connections to the Capitol, downtown Olympia, and Amtrak; support workforce access.</p></div>
+                </div>
+                <div class="am-vis frame wide topo" role="img" aria-label="Transit map showing routes and Amtrak location"><div><p class="ft">Visual</p><p class="fd">Transit routes and Amtrak location.</p></div></div>
+              </div>
+            </details>
+            <details class="amx">
+              <summary><svg class="am-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Arrival Experience<span class="am-attr">Sequential site entry</span></summary>
+              <div class="am-body">
+                <div class="am-grid">
+                  <div><p class="am-lbl">Details</p><p>Exit I-5 &rarr; Capitol Blvd &rarr; commercial edge &rarr; Boston St SE &rarr; wooded descent &rarr; brewery reveal.</p></div>
+                  <div><p class="am-lbl">Opportunities</p><p>Emphasize arrival as an experiential transition from infrastructure to destination.</p></div>
+                </div>
+                <div class="gallery am-vis" style="grid-template-columns:repeat(3,1fr);">
+                  <div class="frame topo" role="img" aria-label="I-5 and Capitol Blvd approach"><div><p class="ft">1</p><p class="fd">I-5 / Capitol Blvd</p></div></div>
+                  <div class="frame topo" role="img" aria-label="Wooded descent on Boston St SE"><div><p class="ft">2</p><p class="fd">Wooded descent</p></div></div>
+                  <div class="frame topo" role="img" aria-label="The brewery reveal"><div><p class="ft">3</p><p class="fd">Brewery reveal</p></div></div>
+                </div>
+              </div>
+            </details>
           </div>
-          <p class="src" style="margin:14px 0 0; font-size:11px; color:var(--faint);">Figures per prior strategic market analysis (2014 base year); directional and to be refreshed in underwriting.</p>
+        </section>
+
+        <!-- §4 · Riverfront Campus and Local Demand Anchors -->
+        <section class="reveal">
+          <p class="eyebrow">The Setting</p>
+          <h2>A Resort-Like Campus Within an Urban Region</h2>
+          <p class="lead">The immediate setting is defined by the Deschutes River, Tumwater Falls, Brewery Park, Tumwater Historical Park, the Schmidt House, wooded slopes, and the historic Olympia Brewery buildings. The site feels removed from the surrounding city despite its proximity, creating a resort-like condition within an urban region.</p>
+          <p class="eyebrow" style="margin-top:26px;">Surrounding Demand Anchors</p>
+          <div style="margin-top:6px; display:flex; flex-wrap:wrap; gap:8px;">
+            <span class="chip">Washington State Capitol Campus</span><span class="chip">Downtown Olympia</span><span class="chip">Percival Landing</span><span class="chip">Olympia Farmers Market</span><span class="chip">South Puget Sound CC</span><span class="chip">Evergreen State College</span><span class="chip">Regional Healthcare</span><span class="chip">JBLM</span>
+          </div>
+          <div class="frame wide topo" style="margin-top:22px;" role="img" aria-label="Local anchor map showing Tumwater Falls, Brewery Park, Capitol Lake, downtown Olympia, and regional connections"><div><p class="ft">Local anchor map</p><p class="fd">Tumwater Falls, Brewery Park, Capitol Lake, downtown Olympia, and regional connections.</p></div></div>
+          <div class="table-wrap" style="margin-top:24px;">
+            <table class="table">
+              <thead><tr><th>Location Attribute</th><th>Site Value</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Deschutes River frontage</strong></td><td>Views, outdoor dining, trail activation, wellness setting</td></tr>
+                <tr><td><strong>Tumwater Falls adjacency</strong></td><td>Regional identity, recreation, event backdrop</td></tr>
+                <tr><td><strong>Historic brewery architecture</strong></td><td>Authenticity, adaptive-reuse value, brand recognition</td></tr>
+                <tr><td><strong>Secluded campus arrival</strong></td><td>Resort-style guest experience and controlled arrival environment</td></tr>
+                <tr><td><strong>I-5 / Highway 101 access</strong></td><td>Broad drive-market reach and visibility</td></tr>
+                <tr><td><strong>City-owned Brew Tower presence</strong></td><td>Civic landmark and public-facing focal point</td></tr>
+                <tr><td><strong>Capitol / Olympia proximity</strong></td><td>Midweek lodging, civic events, meetings, receptions, and institutional demand</td></tr>
+                <tr><td><strong>Parks and trail network</strong></td><td>Day-use activity, recreation, wellness, and visitor duration</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- §5 · Hospitality Market and Regional Positioning -->
+        <section class="reveal">
+          <p class="eyebrow">Market Positioning</p>
+          <h2>Creating a New Category in the South Sound</h2>
+          <p class="lead">The Olympia / Tumwater lodging market is dominated by select-service and civic-oriented hotels, including Hilton Garden Inn Olympia, Courtyard by Marriott Olympia, Best Western Tumwater-Olympia Inn, and Olympia Hotel at Capitol Lake. These properties validate consistent demand but do not compete on experience, setting, or destination appeal.</p>
+          <p class="sub" style="margin-top:10px;">At a regional level, the most relevant comparables are not nearby hotels, but experiential destinations.</p>
+          <div class="table-wrap" style="margin-top:20px;">
+            <table class="table">
+              <thead><tr><th>Category</th><th>Examples</th><th>Relevance to Tumwater Brewery</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Adaptive-reuse hospitality</strong></td><td>McMenamins Anderson School, The Lodge at St. Edward</td><td>Campus-based lodging, dining, events, and public activation</td></tr>
+                <tr><td><strong>Nature / wellness destination</strong></td><td>Salish Lodge &amp; Spa, Alderbrook Resort &amp; Spa, Suncadia Resort</td><td>River, falls, spa, retreat, and wedding programming</td></tr>
+                <tr><td><strong>Destination resort hybrid</strong></td><td>Great Wolf Lodge Centralia, Suncadia Resort, Skamania Lodge</td><td>Demonstrates destination draw in non-urban markets</td></tr>
+                <tr><td><strong>Historic event lodging</strong></td><td>Thornewood Castle, Rosario Resort</td><td>Wedding, retreat, and heritage-event demand</td></tr>
+                <tr><td><strong>Regional design hotel</strong></td><td>Hotel Murano, Davenport Grand Hotel Spokane</td><td>Differentiated identity within a secondary city</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="eyebrow" style="margin-top:28px;">Experiential Precedents</p>
+          <div class="gallery" style="margin-top:6px; grid-template-columns:repeat(3,1fr);">
+            <div class="frame topo" role="img" aria-label="McMenamins Anderson School"><div><p class="ft">Adaptive reuse</p><p class="fd">McMenamins Anderson School</p></div></div>
+            <div class="frame topo" role="img" aria-label="The Lodge at St. Edward"><div><p class="ft">Adaptive reuse</p><p class="fd">The Lodge at St. Edward</p></div></div>
+            <div class="frame topo" role="img" aria-label="Salish Lodge and Spa"><div><p class="ft">Nature / wellness</p><p class="fd">Salish Lodge &amp; Spa</p></div></div>
+            <div class="frame topo" role="img" aria-label="Alderbrook Resort and Spa"><div><p class="ft">Nature / wellness</p><p class="fd">Alderbrook Resort &amp; Spa</p></div></div>
+            <div class="frame topo" role="img" aria-label="Thornewood Castle"><div><p class="ft">Historic events</p><p class="fd">Thornewood Castle</p></div></div>
+            <div class="frame topo" role="img" aria-label="Hotel Murano"><div><p class="ft">Regional design</p><p class="fd">Hotel Murano</p></div></div>
+          </div>
+
+          <h3 style="margin-top:34px;">Strategic Position</h3>
+          <p class="lead" style="margin-top:8px;">Tumwater Brewery is not competing with nearby hotels, it is creating a new category in the South Sound.</p>
+          <div class="grid grid-2" style="margin-top:16px;">
+            <div class="card card-quiet"><p>A riverfront, historic, walkable campus</p></div>
+            <div class="card card-quiet"><p>A destination for weddings, retreats, and regional leisure</p></div>
+            <div class="card card-quiet"><p>A midpoint between Seattle and Portland</p></div>
+            <div class="card card-quiet"><p>A place that converts pass-through traffic into intentional stays</p></div>
+          </div>
+          <div class="pi-callout" style="margin-top:22px;"><h4>Why This Position Holds</h4><p>Strong corridor visibility, a unique environmental setting, a lack of comparable experiential supply, and growing demand for place-based hospitality reinforce the opportunity.</p></div>
+        </section>
+
+        <!-- §6 · Sources -->
+        <section class="reveal">
+          <p class="eyebrow">Sources</p>
+          <h2>Reference Materials</h2>
+          <ul style="margin:14px 0 0; padding-left:18px; line-height:1.85; color:var(--text-3); font-size:13px; max-width:80ch;">
+            <li>Historic Olympia Brewery Conceptual Design Report, Weinstein A+U, August 2022.</li>
+            <li>Tumwater Brewery Concept D Package, GCH, August 2023.</li>
+            <li>Falls Development Feasibility Study / Civil Due-Diligence Report, KPFF, June 2024.</li>
+            <li>Strategic Market Opportunity Analysis for the Northern Brewery Properties at the Former Olympia Brewing Site, The Concord Group / THG, July 2014.</li>
+            <li>City of Tumwater visitor materials, Brewery District Plan, Brownfields materials, and legislative / planning updates.</li>
+            <li>Experience Olympia &amp; Beyond destination planning and tourism materials.</li>
+            <li>Olympia Tumwater Foundation / Brewery Park at Tumwater Falls materials.</li>
+            <li>Regional hospitality precedent sources, including Hilton, Marriott, McMenamins, The Lodge at St. Edward State Park, Salish Lodge &amp; Spa, and Alderbrook Resort &amp; Spa.</li>
+          </ul>
         </section>
       </div>
 
