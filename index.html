@@ -4780,7 +4780,10 @@ function showRoute(route){
   /* Report each tab as a native PostHog pageview so tab views, counts and
      time-per-tab show up in Web Analytics (hash routing isn't auto-detected). */
   if (window.posthog && window.posthog.capture){
-    try { window.posthog.capture('$pageview', {route:route, $current_url:location.href}); } catch(e){}
+    try {
+      if (window.posthog.register) window.posthog.register({ tab: route, tab_title: (TITLES[route]||route) });
+      window.posthog.capture('$pageview', {route:route, $current_url:location.href});
+    } catch(e){}
   }
 }
 function go(route){
@@ -4793,6 +4796,13 @@ window.addEventListener('hashchange', function(){ showRoute(currentRoute()); });
 document.addEventListener('click', function(e){
   var t = e.target.closest('[data-route]');
   if (t){ e.preventDefault(); go(t.getAttribute('data-route')); }
+});
+/* outbound link clicks (comparable hotel sites, source links, City links) */
+document.addEventListener('click', function(e){
+  var a = e.target.closest('a[href]');
+  if (a && /^https?:\/\//i.test(a.getAttribute('href')) && a.host !== location.host){
+    track('outbound_link_click', {href:a.href, text:(a.textContent||'').trim().slice(0,80)});
+  }
 });
 document.addEventListener('keydown', function(e){
   if ((e.key==='Enter'||e.key===' ') && document.activeElement && document.activeElement.hasAttribute('data-route') && document.activeElement.classList.contains('brand')){
@@ -4859,7 +4869,7 @@ function openLightboxAt(frames, index){
   if (frames.length > 1){ lightbox.classList.add('has-nav'); }
   else { lightbox.classList.remove('has-nav'); }
   lightbox.classList.add('open');
-  track('photo_clicked', {label:label});
+  track('photo_clicked', {label:label, photo:(im?(im.getAttribute('src')||'').split('/').pop():'')});
 }
 
 function lbNavigate(dir){
@@ -5347,6 +5357,7 @@ function initCorridorMap(){
       var el = _cmMarkerEl(CM_SEGC[m.seg], false);
       var html = cmCard(CM_SEGC[m.seg], CM_SEGLABEL[m.seg], m.t, null, [['Positioning',m.pos],['Representative hotels',m.hotels],['Implication',m.imp]]);
       var mk = new maplibregl.Marker({element:el}).setLngLat(m.c).setPopup(new maplibregl.Popup({offset:15, maxWidth:'340px', closeButton:true}).setHTML(html)).addTo(map);
+      el.addEventListener('click', function(){ track('map_marker_click', {kind:'corridor_market', name:m.t, segment:m.seg}); });
       markers[m.seg].push(mk);
     });
 
@@ -5355,6 +5366,7 @@ function initCorridorMap(){
       var el = _cmMarkerEl(CM_SEGC.comp, false);
       var html = cmCard(CM_SEGC.comp, p.cat, p.t, p.loc, [['Why it is a comparable', p.rel]], p.url);
       var mk = new maplibregl.Marker({element:el}).setLngLat(p.c).setPopup(new maplibregl.Popup({offset:15, maxWidth:'340px', closeButton:true}).setHTML(html)).addTo(map);
+      el.addEventListener('click', function(){ track('map_marker_click', {kind:'comparable', name:p.t, category:p.cat, location:p.loc}); });
       markers.comp.push(mk);
     });
 
@@ -5365,6 +5377,7 @@ function initCorridorMap(){
       ['The setting','Riverfront, historic, walkable campus, the white space between two very different markets'],
       ['Why it wins','Corridor visibility, a one-of-a-kind setting, and no comparable experiential supply nearby']
     ]);
+    sEl.addEventListener('click', function(){ track('map_marker_click', {kind:'site', name:'Tumwater Brewery'}); });
     markers.site.push(new maplibregl.Marker({element:sEl}).setLngLat(CM_SITE).setPopup(new maplibregl.Popup({offset:18, maxWidth:'340px', closeButton:true}).setHTML(sHtml)).addTo(map));
 
     /* frame everything (spine, connectors, comparables) so the full landscape is in view */
