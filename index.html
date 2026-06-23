@@ -282,8 +282,14 @@ ul{margin:0; padding:0; list-style:none;}
 .am-toggle[data-seg="north"]{--am-c:#2383e2;}
 .am-toggle[data-seg="south"]{--am-c:#d9803a;}
 .am-toggle[data-seg="site"]{--am-c:#c0392b;}
+.am-toggle[data-seg="conn"]{--am-c:#9aa0a6;}
 .am-rows .amx:first-of-type,.amx:first-of-type{border-top:none;}
+/* highway connector labels */
+.cm-hwy{font:700 10px var(--sans); letter-spacing:.03em; color:var(--text-2); background:color-mix(in srgb, var(--surface) 92%, transparent); border:1px solid var(--border-strong); border-radius:3px; padding:1px 5px; white-space:nowrap; box-shadow:0 1px 3px rgba(0,0,0,.14);}
 @media(max-width:860px){#corridorMap{height:400px;}}
+/* location: tighter section rhythm */
+#page-location-overview section{margin-bottom:52px;}
+#page-location-overview section + section{padding-top:46px;}
 
 /* image frames */
 .topo{background-image:repeating-linear-gradient(115deg, transparent 0 13px, var(--border-soft) 13px 14px);}
@@ -1383,6 +1389,15 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
             <div class="card"><h4>Historic Character</h4><p>Olympia Brewery legacy, pre-Prohibition architecture, Brew Tower presence, and deep regional recognition.</p></div>
             <div class="card"><h4>Campus Potential</h4><p>Secluded arrival, internal walkability, lodging, events, dining, wellness, public realm, and trail activation.</p></div>
           </div>
+          <h3 style="margin-top:30px;">The Strategic Takeaway</h3>
+          <p class="lead" style="margin-top:8px;">Between a dense, expensive urban north and a sparse, highway-oriented south, Tumwater is the accessible white space, not competing with nearby hotels but creating a new South Sound category.</p>
+          <div class="grid grid-2" style="margin-top:16px;">
+            <div class="card card-quiet"><p>A riverfront, historic, walkable campus</p></div>
+            <div class="card card-quiet"><p>A destination for weddings, retreats, and regional leisure</p></div>
+            <div class="card card-quiet"><p>A midpoint between Seattle and Portland</p></div>
+            <div class="card card-quiet"><p>A place that converts pass-through traffic into intentional stays</p></div>
+          </div>
+          <div class="pi-callout" style="margin-top:18px;"><h4>Why This Position Holds</h4><p>Strong corridor visibility, a unique environmental setting, a lack of comparable experiential supply, and growing demand for place-based hospitality reinforce the opportunity.</p></div>
         </section>
 
         <!-- §2 · Regional Corridor Deep Dive -->
@@ -1396,6 +1411,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
               <button type="button" class="am-toggle is-on" data-seg="north">Northern markets</button>
               <button type="button" class="am-toggle is-on" data-seg="south">Southern markets</button>
               <button type="button" class="am-toggle is-on" data-seg="site">Tumwater</button>
+              <button type="button" class="am-toggle is-on" data-seg="conn">Highway connections</button>
             </div>
           </div>
           <p class="src" style="margin:8px 0 0; font-size:11px; color:var(--faint);">Illustrative corridor and market locations, approximate for orientation. Select a marker for market detail. Base map &copy; OpenStreetMap contributors, &copy; CARTO.</p>
@@ -1404,20 +1420,6 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
           <div class="grid grid-2" style="margin-top:20px;">
             <div class="pi-callout"><h4>North &mdash; Olympia to Seattle</h4><p>Northbound, the corridor intensifies into dense urban hotel markets. Travelers encounter increasingly expensive, urban lodging, Tumwater offers a decompression point of nature, history, and space within a 60&ndash;90 minute drive.</p></div>
             <div class="pi-callout"><h4>South &mdash; Olympia to Portland</h4><p>Southbound, supply is fragmented and largely utilitarian, with the exception of Great Wolf Lodge. There is a clear gap for a high-quality, experiential, adult-oriented destination between Olympia and Portland.</p></div>
-          </div>
-
-          <h3 style="margin-top:34px;">Corridor Positioning &mdash; A Strategic White Space</h3>
-          <div class="grid grid-3" style="margin-top:14px;">
-            <div class="card"><h4>North</h4><p>Dense, urban, expensive, and competitive.</p></div>
-            <div class="card"><h4>South</h4><p>Sparse, highway-oriented, and undifferentiated.</p></div>
-            <div class="card" style="background:var(--accent-wash); border-color:transparent;"><h4 style="color:var(--accent);">Tumwater</h4><p style="color:var(--text-2);">Accessible, but uniquely capable of delivering a destination experience, the white space between two very different markets.</p></div>
-          </div>
-          <p class="sub" style="margin-top:20px;">This positioning supports:</p>
-          <div class="grid grid-2" style="margin-top:12px;">
-            <div class="card card-quiet"><p>Wedding and event capture from both Seattle and Portland</p></div>
-            <div class="card card-quiet"><p>Weekend leisure draw from urban populations</p></div>
-            <div class="card card-quiet"><p>Corridor stopover conversion into overnight stays</p></div>
-            <div class="card card-quiet"><p>Retreat, wellness, and experiential programming not available in nearby markets</p></div>
           </div>
         </section>
 
@@ -1522,10 +1524,10 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
           </div>
         </section>
 
-        <!-- §5 · Hospitality Market and Regional Positioning -->
+        <!-- §5 · Comparable & Precedent Destinations -->
         <section class="reveal">
-          <p class="eyebrow">Market Positioning</p>
-          <h2>Creating a New Category in the South Sound</h2>
+          <p class="eyebrow">Comparable Destinations</p>
+          <h2>The Relevant Comparables Are Experiential Destinations</h2>
           <p class="lead">The Olympia / Tumwater lodging market is dominated by select-service and civic-oriented hotels, including Hilton Garden Inn Olympia, Courtyard by Marriott Olympia, Best Western Tumwater-Olympia Inn, and Olympia Hotel at Capitol Lake. These properties validate consistent demand but do not compete on experience, setting, or destination appeal.</p>
           <p class="sub" style="margin-top:10px;">At a regional level, the most relevant comparables are not nearby hotels, but experiential destinations.</p>
           <div class="table-wrap" style="margin-top:20px;">
@@ -1549,16 +1551,6 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
             <div class="frame topo" role="img" aria-label="Thornewood Castle"><div><p class="ft">Historic events</p><p class="fd">Thornewood Castle</p></div></div>
             <div class="frame topo" role="img" aria-label="Hotel Murano"><div><p class="ft">Regional design</p><p class="fd">Hotel Murano</p></div></div>
           </div>
-
-          <h3 style="margin-top:34px;">Strategic Position</h3>
-          <p class="lead" style="margin-top:8px;">Tumwater Brewery is not competing with nearby hotels, it is creating a new category in the South Sound.</p>
-          <div class="grid grid-2" style="margin-top:16px;">
-            <div class="card card-quiet"><p>A riverfront, historic, walkable campus</p></div>
-            <div class="card card-quiet"><p>A destination for weddings, retreats, and regional leisure</p></div>
-            <div class="card card-quiet"><p>A midpoint between Seattle and Portland</p></div>
-            <div class="card card-quiet"><p>A place that converts pass-through traffic into intentional stays</p></div>
-          </div>
-          <div class="pi-callout" style="margin-top:22px;"><h4>Why This Position Holds</h4><p>Strong corridor visibility, a unique environmental setting, a lack of comparable experiential supply, and growing demand for place-based hospitality reinforce the opportunity.</p></div>
         </section>
 
         <!-- §6 · Sources -->
@@ -5005,6 +4997,15 @@ var CM_SPINE = [
   [-122.6765,45.5152]  /* Portland */
 ];
 var CM_SEGLABEL = {north:'Northern corridor', south:'Southern corridor', site:'The white space'};
+/* major highway connections off the I-5 spine, illustrative. label = pill at `at` */
+var CM_CONN = [
+  {name:'I-405', label:'I-405', at:[-122.19,47.62], line:[[-122.26,47.46],[-122.19,47.59],[-122.19,47.62],[-122.21,47.72],[-122.28,47.83]]},
+  {name:'I-90 (east)', label:'I-90 →', at:[-121.99,47.55], line:[[-122.33,47.59],[-122.23,47.59],[-122.12,47.57],[-121.99,47.53],[-121.80,47.45]]},
+  {name:'US-101 (peninsula)', label:'US-101', at:[-123.08,47.10], line:[[-122.905,47.045],[-122.98,47.06],[-123.10,47.10],[-123.22,47.20]]},
+  {name:'SR-16 (Kitsap)', label:'SR-16', at:[-122.56,47.30], line:[[-122.445,47.255],[-122.52,47.27],[-122.585,47.33]]},
+  {name:'US-12 (east)', label:'US-12 →', at:[-122.80,46.72], line:[[-122.954,46.716],[-122.80,46.72],[-122.60,46.70]]},
+  {name:'I-205 (Portland)', label:'I-205', at:[-122.56,45.56], line:[[-122.66,45.66],[-122.57,45.60],[-122.56,45.54],[-122.56,45.45]]}
+];
 var CM_MARKETS = [
   {seg:'north', c:[-122.3328,47.6061], t:'Seattle Core', pos:'Luxury, convention, global tourism', hotels:'Four Seasons, Fairmont Olympic, Hyatt Regency (1,200+ rooms), Sheraton Grand', imp:'Premium pricing, dense competition, urban experience'},
   {seg:'north', c:[-122.3088,47.4502], t:'SeaTac / Airport', pos:'High-volume transient, airline, business', hotels:'Hilton Seattle Airport, DoubleTree, Radisson, Marriott SeaTac', imp:'Functional, high occupancy, low differentiation'},
@@ -5062,12 +5063,23 @@ function initCorridorMap(){
   _cmMap = map;
   map.addControl(new maplibregl.NavigationControl({showCompass:false}), 'bottom-right');
 
-  var markers = {north:[], south:[], site:[]};
+  var markers = {north:[], south:[], site:[], conn:[]};
 
   map.on('load', function(){
+    /* highway connections (drawn beneath the spine) */
+    map.addSource('cm-conn', {type:'geojson', data:{type:'FeatureCollection', features:CM_CONN.map(function(h){
+      return {type:'Feature', properties:{name:h.name}, geometry:{type:'LineString', coordinates:h.line}};
+    })}});
+    map.addLayer({id:'cm-conn', type:'line', source:'cm-conn', layout:{'line-cap':'round','line-join':'round'}, paint:{'line-color':'#b4b9bf','line-width':2,'line-opacity':.9,'line-dasharray':[2.5,1.5]}});
+    /* connection labels */
+    CM_CONN.forEach(function(h){
+      var el = document.createElement('div'); el.className='cm-hwy'; el.textContent=h.label;
+      markers.conn.push(new maplibregl.Marker({element:el}).setLngLat(h.at).addTo(map));
+    });
+
     /* corridor spine */
     map.addSource('cm-spine', {type:'geojson', data:{type:'Feature',geometry:{type:'LineString',coordinates:CM_SPINE}}});
-    map.addLayer({id:'cm-spine', type:'line', source:'cm-spine', layout:{'line-cap':'round','line-join':'round'}, paint:{'line-color':'#9aa0a6','line-width':3,'line-opacity':.7}});
+    map.addLayer({id:'cm-spine', type:'line', source:'cm-spine', layout:{'line-cap':'round','line-join':'round'}, paint:{'line-color':'#5d646c','line-width':4,'line-opacity':.85}});
 
     /* market markers */
     CM_MARKETS.forEach(function(m){
@@ -5086,14 +5098,16 @@ function initCorridorMap(){
     ]);
     markers.site.push(new maplibregl.Marker({element:sEl}).setLngLat(CM_SITE).setPopup(new maplibregl.Popup({offset:17, maxWidth:'320px', closeButton:true}).setHTML(sHtml)).addTo(map));
 
-    /* frame the corridor */
+    /* frame the corridor (include spine + connectors so Vancouver/Portland are in view) */
     var b = new maplibregl.LngLatBounds();
     CM_SPINE.forEach(function(c){ b.extend(c); });
-    map.fitBounds(b, {padding:{top:50,bottom:40,left:120,right:50}, duration:0});
+    CM_CONN.forEach(function(h){ h.line.forEach(function(c){ b.extend(c); }); });
+    map.fitBounds(b, {padding:{top:46,bottom:46,left:120,right:40}, maxZoom:8, duration:0});
   });
 
   function setSeg(seg, on){
     (markers[seg]||[]).forEach(function(mk){ mk.getElement().style.display = on ? '' : 'none'; });
+    if (seg==='conn' && map.getLayer('cm-conn')) map.setLayoutProperty('cm-conn','visibility', on?'visible':'none');
   }
   document.querySelectorAll('#cmLegend .am-toggle').forEach(function(btn){
     btn.addEventListener('click', function(){
