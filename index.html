@@ -268,7 +268,8 @@ ul{margin:0; padding:0; list-style:none;}
 .cmp{font-family:var(--sans); background:var(--surface);}
 .cmp-head{background:var(--seg,#2383e2); padding:13px 16px 12px;}
 .cmp-badge{display:inline-block; font-size:9.5px; font-weight:700; text-transform:uppercase; letter-spacing:.09em; color:#fff; opacity:.82;}
-.cmp-title{display:block; font-family:var(--serif); font-size:17px; font-weight:700; color:#fff; letter-spacing:-0.01em; margin-top:3px; line-height:1.2;}
+.cmp-title{display:block; font-family:var(--serif); font-size:18px; font-weight:700; color:#fff; letter-spacing:-0.01em; margin-top:3px; line-height:1.2;}
+.cmp-sub{display:block; font-size:11px; font-weight:600; color:#fff; opacity:.85; margin-top:3px; letter-spacing:.01em;}
 .cmp-body{padding:13px 16px 15px;}
 .cmp-row + .cmp-row{margin-top:11px; padding-top:11px; border-top:1px solid var(--border-soft);}
 .cmp-lbl{display:block; font-size:9.5px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:var(--seg,var(--accent)); margin-bottom:3px;}
@@ -282,6 +283,7 @@ ul{margin:0; padding:0; list-style:none;}
 .am-toggle[data-seg="north"]{--am-c:#2383e2;}
 .am-toggle[data-seg="south"]{--am-c:#d9803a;}
 .am-toggle[data-seg="site"]{--am-c:#c0392b;}
+.am-toggle[data-seg="comp"]{--am-c:#14857a;}
 .am-toggle[data-seg="conn"]{--am-c:#9aa0a6;}
 .am-rows .amx:first-of-type,.amx:first-of-type{border-top:none;}
 /* highway connector labels */
@@ -1403,23 +1405,40 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
         <!-- §2 · Regional Corridor Deep Dive -->
         <section class="reveal">
           <p class="eyebrow">Regional Corridor</p>
-          <h2>The I-5 Hospitality Spine</h2>
-          <p class="lead">Tumwater Brewery sits within one of the most heavily traveled hospitality corridors in the Pacific Northwest. Interstate 5 functions as a continuous chain of lodging nodes, from large urban convention hotels to highway-oriented select-service clusters. The corridor reveals both competition and opportunity: supply is abundant, but very little of it offers a destination-quality, experiential environment.</p>
+          <h2>The I-5 Hospitality Spine and the Regional Comparable Set</h2>
+          <p class="lead">Tumwater Brewery sits within one of the most heavily traveled hospitality corridors in the Pacific Northwest. Interstate 5 functions as a continuous chain of lodging nodes, from large urban convention hotels to highway-oriented select-service clusters. The map plots both the corridor markets and the experiential destination hotels, the true comparable set, across Washington: supply is abundant, but very little of it pairs corridor access with a destination-quality, experiential environment.</p>
           <div class="cm-wrap" style="margin-top:22px;">
-            <div id="corridorMap" role="application" aria-label="Interactive map of the I-5 hospitality corridor from Portland to Seattle, with Tumwater at the midpoint"></div>
+            <div id="corridorMap" role="application" aria-label="Interactive map of the I-5 hospitality corridor and Washington experiential hotel comparables, with Tumwater at the midpoint"></div>
             <div class="am-legend" id="cmLegend" role="group" aria-label="Corridor filter">
               <button type="button" class="am-toggle is-on" data-seg="north">Northern markets</button>
               <button type="button" class="am-toggle is-on" data-seg="south">Southern markets</button>
               <button type="button" class="am-toggle is-on" data-seg="site">Tumwater</button>
+              <button type="button" class="am-toggle is-on" data-seg="comp">Comparable hotels</button>
               <button type="button" class="am-toggle is-on" data-seg="conn">Highway connections</button>
             </div>
           </div>
           <p class="src" style="margin:8px 0 0; font-size:11px; color:var(--faint);">Illustrative corridor and market locations, approximate for orientation. Select a marker for market detail. Base map &copy; OpenStreetMap contributors, &copy; CARTO.</p>
 
-          <p class="sub" style="margin-top:14px;">Select any marker for that market&rsquo;s positioning, representative hotels, and competitive implication. Use the filters to isolate the northern or southern corridor.</p>
+          <p class="sub" style="margin-top:14px;">Select any marker for detail. Corridor markets show positioning, representative hotels, and competitive implication; comparable hotels show location, category, and relevance. Use the filters to isolate a layer.</p>
           <div class="grid grid-2" style="margin-top:20px;">
             <div class="pi-callout"><h4>North &mdash; Olympia to Seattle</h4><p>Northbound, the corridor intensifies into dense urban hotel markets. Travelers encounter increasingly expensive, urban lodging, Tumwater offers a decompression point of nature, history, and space within a 60&ndash;90 minute drive.</p></div>
-            <div class="pi-callout"><h4>South &mdash; Olympia to Portland</h4><p>Southbound, supply is fragmented and largely utilitarian, with the exception of Great Wolf Lodge. There is a clear gap for a high-quality, experiential, adult-oriented destination between Olympia and Portland.</p></div>
+            <div class="pi-callout"><h4>South &mdash; Olympia to Portland</h4><p>Southbound, supply is fragmented and largely utilitarian. There is a clear gap for a high-quality, experiential, adult-oriented destination between Olympia and Portland.</p></div>
+          </div>
+
+          <h3 style="margin-top:34px;">Comparable Destinations Are Experiential, Not Local</h3>
+          <p class="lead" style="margin-top:8px;">The Olympia / Tumwater lodging market is dominated by select-service and civic-oriented hotels, including Hilton Garden Inn, Courtyard by Marriott, Best Western Tumwater, and Olympia Hotel at Capitol Lake. These validate steady demand but do not compete on experience, setting, or destination appeal.</p>
+          <p class="sub" style="margin-top:10px;">The true comparable set is the experiential destination hotels mapped above, drawing visitors statewide on the strength of setting, history, food and beverage, and wellness rather than location alone.</p>
+          <div class="table-wrap" style="margin-top:20px;">
+            <table class="table">
+              <thead><tr><th>Category</th><th>Comparable properties</th><th>Relevance to Tumwater Brewery</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Adaptive-reuse &amp; heritage</strong></td><td>McMenamins Anderson School (Bothell), McMenamins Elks Temple (Tacoma), The Lodge at St. Edward State Park (Kenmore), Thornewood Castle (Lakewood), Rosario Resort (Orcas Island)</td><td>Campus-based lodging, dining, events, and public activation inside historic buildings</td></tr>
+                <tr><td><strong>Nature &amp; wellness resorts</strong></td><td>Salish Lodge &amp; Spa (Snoqualmie Falls), Alderbrook Resort &amp; Spa (Hood Canal), Suncadia Resort (Cle Elum), Skamania Lodge (Columbia Gorge), Semiahmoo Resort (Blaine), Sun Mountain Lodge (Methow Valley)</td><td>Water, falls, and forest settings with spa, retreat, and wedding programming, the closest analog to the falls-and-river site</td></tr>
+                <tr><td><strong>Wine-country boutique</strong></td><td>Willows Lodge (Woodinville), Eritage Resort (Walla Walla), The FINCH &amp; The Marcus Whitman (Walla Walla), The Lodge at Lake Chelan (Manson), Cave B Inn &amp; Spa (Quincy)</td><td>Destination dining and wine tourism driving premium midweek and weekend rates</td></tr>
+                <tr><td><strong>Alpine village destinations</strong></td><td>Posthotel Leavenworth (adults-only alpine spa), Sleeping Lady Mountain Resort (Leavenworth)</td><td>Immersive, themed, wellness-led destinations commanding strong year-round rates</td></tr>
+                <tr><td><strong>Regional design &amp; landmark hotels</strong></td><td>Hotel Murano (Tacoma), The Davenport (Spokane), Inn at the Market (Seattle)</td><td>Differentiated identity and design within a secondary-city market</td></tr>
+              </tbody>
+            </table>
           </div>
         </section>
 
@@ -1497,63 +1516,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
           </div>
         </section>
 
-        <!-- §4 · Riverfront Campus and Local Demand Anchors -->
-        <section class="reveal">
-          <p class="eyebrow">The Setting</p>
-          <h2>A Resort-Like Campus Within an Urban Region</h2>
-          <p class="lead">The immediate setting is defined by the Deschutes River, Tumwater Falls, Brewery Park, Tumwater Historical Park, the Schmidt House, wooded slopes, and the historic Olympia Brewery buildings. The site feels removed from the surrounding city despite its proximity, creating a resort-like condition within an urban region.</p>
-          <p class="eyebrow" style="margin-top:26px;">Surrounding Demand Anchors</p>
-          <div style="margin-top:6px; display:flex; flex-wrap:wrap; gap:8px;">
-            <span class="chip">Washington State Capitol Campus</span><span class="chip">Downtown Olympia</span><span class="chip">Percival Landing</span><span class="chip">Olympia Farmers Market</span><span class="chip">South Puget Sound CC</span><span class="chip">Evergreen State College</span><span class="chip">Regional Healthcare</span><span class="chip">JBLM</span>
-          </div>
-          <div class="frame wide topo" style="margin-top:22px;" role="img" aria-label="Local anchor map showing Tumwater Falls, Brewery Park, Capitol Lake, downtown Olympia, and regional connections"><div><p class="ft">Local anchor map</p><p class="fd">Tumwater Falls, Brewery Park, Capitol Lake, downtown Olympia, and regional connections.</p></div></div>
-          <div class="table-wrap" style="margin-top:24px;">
-            <table class="table">
-              <thead><tr><th>Location Attribute</th><th>Site Value</th></tr></thead>
-              <tbody>
-                <tr><td><strong>Deschutes River frontage</strong></td><td>Views, outdoor dining, trail activation, wellness setting</td></tr>
-                <tr><td><strong>Tumwater Falls adjacency</strong></td><td>Regional identity, recreation, event backdrop</td></tr>
-                <tr><td><strong>Historic brewery architecture</strong></td><td>Authenticity, adaptive-reuse value, brand recognition</td></tr>
-                <tr><td><strong>Secluded campus arrival</strong></td><td>Resort-style guest experience and controlled arrival environment</td></tr>
-                <tr><td><strong>I-5 / Highway 101 access</strong></td><td>Broad drive-market reach and visibility</td></tr>
-                <tr><td><strong>City-owned Brew Tower presence</strong></td><td>Civic landmark and public-facing focal point</td></tr>
-                <tr><td><strong>Capitol / Olympia proximity</strong></td><td>Midweek lodging, civic events, meetings, receptions, and institutional demand</td></tr>
-                <tr><td><strong>Parks and trail network</strong></td><td>Day-use activity, recreation, wellness, and visitor duration</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        <!-- §5 · Comparable & Precedent Destinations -->
-        <section class="reveal">
-          <p class="eyebrow">Comparable Destinations</p>
-          <h2>The Relevant Comparables Are Experiential Destinations</h2>
-          <p class="lead">The Olympia / Tumwater lodging market is dominated by select-service and civic-oriented hotels, including Hilton Garden Inn Olympia, Courtyard by Marriott Olympia, Best Western Tumwater-Olympia Inn, and Olympia Hotel at Capitol Lake. These properties validate consistent demand but do not compete on experience, setting, or destination appeal.</p>
-          <p class="sub" style="margin-top:10px;">At a regional level, the most relevant comparables are not nearby hotels, but experiential destinations.</p>
-          <div class="table-wrap" style="margin-top:20px;">
-            <table class="table">
-              <thead><tr><th>Category</th><th>Examples</th><th>Relevance to Tumwater Brewery</th></tr></thead>
-              <tbody>
-                <tr><td><strong>Adaptive-reuse hospitality</strong></td><td>McMenamins Anderson School, The Lodge at St. Edward</td><td>Campus-based lodging, dining, events, and public activation</td></tr>
-                <tr><td><strong>Nature / wellness destination</strong></td><td>Salish Lodge &amp; Spa, Alderbrook Resort &amp; Spa, Suncadia Resort</td><td>River, falls, spa, retreat, and wedding programming</td></tr>
-                <tr><td><strong>Destination resort hybrid</strong></td><td>Great Wolf Lodge Centralia, Suncadia Resort, Skamania Lodge</td><td>Demonstrates destination draw in non-urban markets</td></tr>
-                <tr><td><strong>Historic event lodging</strong></td><td>Thornewood Castle, Rosario Resort</td><td>Wedding, retreat, and heritage-event demand</td></tr>
-                <tr><td><strong>Regional design hotel</strong></td><td>Hotel Murano, Davenport Grand Hotel Spokane</td><td>Differentiated identity within a secondary city</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <p class="eyebrow" style="margin-top:28px;">Experiential Precedents</p>
-          <div class="gallery" style="margin-top:6px; grid-template-columns:repeat(3,1fr);">
-            <div class="frame topo" role="img" aria-label="McMenamins Anderson School"><div><p class="ft">Adaptive reuse</p><p class="fd">McMenamins Anderson School</p></div></div>
-            <div class="frame topo" role="img" aria-label="The Lodge at St. Edward"><div><p class="ft">Adaptive reuse</p><p class="fd">The Lodge at St. Edward</p></div></div>
-            <div class="frame topo" role="img" aria-label="Salish Lodge and Spa"><div><p class="ft">Nature / wellness</p><p class="fd">Salish Lodge &amp; Spa</p></div></div>
-            <div class="frame topo" role="img" aria-label="Alderbrook Resort and Spa"><div><p class="ft">Nature / wellness</p><p class="fd">Alderbrook Resort &amp; Spa</p></div></div>
-            <div class="frame topo" role="img" aria-label="Thornewood Castle"><div><p class="ft">Historic events</p><p class="fd">Thornewood Castle</p></div></div>
-            <div class="frame topo" role="img" aria-label="Hotel Murano"><div><p class="ft">Regional design</p><p class="fd">Hotel Murano</p></div></div>
-          </div>
-        </section>
-
-        <!-- §6 · Sources -->
+        <!-- §4 · Sources -->
         <section class="reveal">
           <p class="eyebrow">Sources</p>
           <h2>Reference Materials</h2>
@@ -1565,7 +1528,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
             <li>City of Tumwater visitor materials, Brewery District Plan, Brownfields materials, and legislative / planning updates.</li>
             <li>Experience Olympia &amp; Beyond destination planning and tourism materials.</li>
             <li>Olympia Tumwater Foundation / Brewery Park at Tumwater Falls materials.</li>
-            <li>Regional hospitality precedent sources, including Hilton, Marriott, McMenamins, The Lodge at St. Edward State Park, Salish Lodge &amp; Spa, and Alderbrook Resort &amp; Spa.</li>
+            <li>Washington experiential-hotel comparable research, including McMenamins, The Lodge at St. Edward State Park, Salish Lodge &amp; Spa, Alderbrook Resort &amp; Spa, Suncadia, Skamania Lodge, Willows Lodge, Posthotel &amp; Sleeping Lady (Leavenworth), The Lodge at Lake Chelan, Cave B Inn, Eritage Resort and Walla Walla wine-country hotels, and The Davenport (Spokane); destination-marketing and Tripadvisor/booking listings, 2025&ndash;2026.</li>
           </ul>
         </section>
       </div>
@@ -5015,8 +4978,28 @@ var CM_MARKETS = [
   {seg:'south', c:[-122.6615,45.6387], t:'Vancouver, WA', pos:'Regional business + boutique', hotels:'Hilton Vancouver, AC Hotel, Heathman Lodge', imp:'Moderate competition, growing market'},
   {seg:'south', c:[-122.6765,45.5152], t:'Portland', pos:'Urban luxury, lifestyle, convention', hotels:'The Nines, Sentinel, Hyatt Regency Portland, Dossier', imp:'Strong draw, but urban-focused'}
 ];
-var CM_SEGC = {north:'#2383e2', south:'#d9803a', site:'#c0392b'};
-
+var CM_SEGC = {north:'#2383e2', south:'#d9803a', site:'#c0392b', comp:'#14857a'};
+/* Washington experiential hotel comparables (the true competitive set), approximate locations */
+var CM_COMPS = [
+  {c:[-122.144,47.754], t:'Willows Lodge', loc:'Woodinville', cat:'Wine-country boutique', rel:'Award-winning dining and spa anchoring Woodinville wine country, a campus-style destination near 100+ tasting rooms.'},
+  {c:[-122.205,47.762], t:'McMenamins Anderson School', loc:'Bothell', cat:'Adaptive-reuse & heritage', rel:'A 1930s schoolhouse reborn as lodging, restaurants, bars, pool, and theater, the clearest adaptive-reuse campus analog.'},
+  {c:[-122.265,47.734], t:'The Lodge at St. Edward State Park', loc:'Kenmore', cat:'Adaptive-reuse & heritage', rel:'A restored seminary in a state park, heritage architecture turned boutique hotel, dining, and event venue.'},
+  {c:[-122.561,47.165], t:'Thornewood Castle', loc:'Lakewood', cat:'Historic event lodging', rel:'A Tudor-Gothic estate driving premium wedding, retreat, and heritage-event demand.'},
+  {c:[-122.868,48.646], t:'Rosario Resort', loc:'Orcas Island', cat:'Historic resort', rel:'A historic mansion-anchored island resort, heritage building plus waterfront resort programming.'},
+  {c:[-121.838,47.542], t:'Salish Lodge & Spa', loc:'Snoqualmie Falls', cat:'Nature & wellness resort', rel:'A waterfall-front lodge and spa, the closest analog to a falls-and-river destination thesis.'},
+  {c:[-123.103,47.350], t:'Alderbrook Resort & Spa', loc:'Union, Hood Canal', cat:'Nature & wellness resort', rel:'Waterfront resort, spa, dining, and weddings drawing regional leisure to a remote setting.'},
+  {c:[-121.085,47.215], t:'Suncadia Resort', loc:'Cle Elum', cat:'Nature & wellness resort', rel:'A large destination resort with lodge, spa, golf, and events in a non-urban market.'},
+  {c:[-121.905,45.699], t:'Skamania Lodge', loc:'Columbia Gorge', cat:'Nature & wellness resort', rel:'A gorge-view lodge built on scenery, weddings, and outdoor recreation.'},
+  {c:[-122.787,48.992], t:'Semiahmoo Resort', loc:'Blaine', cat:'Nature & wellness resort', rel:'A waterfront spa-and-golf resort capturing destination and event demand near the border.'},
+  {c:[-120.247,48.452], t:'Sun Mountain Lodge', loc:'Winthrop, Methow Valley', cat:'Nature & wellness resort', rel:'A mountaintop destination lodge, scenery and recreation drive a strong year-round draw.'},
+  {c:[-120.661,47.587], t:'Posthotel Leavenworth', loc:'Leavenworth', cat:'Alpine village destination', rel:'An adults-only alpine spa hotel commanding premium rates on wellness and setting alone.'},
+  {c:[-120.694,47.591], t:'Sleeping Lady Mountain Resort', loc:'Leavenworth', cat:'Alpine village destination', rel:'An arts-and-nature retreat campus for groups, weddings, and conferences.'},
+  {c:[-120.157,47.883], t:'The Lodge at Lake Chelan', loc:'Manson', cat:'Wine-country boutique', rel:'A new boutique hotel amid Lake Chelan wineries, lake-and-vineyard leisure demand.'},
+  {c:[-119.985,47.000], t:'Cave B Inn & Spa', loc:'Quincy', cat:'Wine-country boutique', rel:'A cliffside vineyard resort by the Gorge Amphitheatre, setting-driven destination stays.'},
+  {c:[-118.300,46.034], t:'Eritage Resort', loc:'Walla Walla', cat:'Wine-country boutique', rel:'A 300-acre luxury suite resort with lake and Blue Mountain views in wine country.'},
+  {c:[-118.343,46.066], t:'Walla Walla boutiques', loc:'Walla Walla', cat:'Wine-country boutique', rel:'The FINCH, The Marcus Whitman, and The Wesley, downtown boutique hotels built on wine tourism.'},
+  {c:[-117.424,47.657], t:'The Davenport', loc:'Spokane', cat:'Regional design & landmark', rel:'A historic landmark hotel and its modern Grand sibling, differentiated identity in a secondary city.'}
+];
 function _cmMarkerEl(color, big){
   var el = document.createElement('div');
   el.className = 'cm-pin' + (big ? ' cm-pin-site' : '');
@@ -5024,15 +5007,15 @@ function _cmMarkerEl(color, big){
   return el;
 }
 /* build a styled popup card; rows = [[label,value],...] */
-function cmCard(seg, title, rows){
-  var c = CM_SEGC[seg];
+function cmCard(color, badge, title, subtitle, rows){
   var body = rows.map(function(r){
     return '<div class="cmp-row"><span class="cmp-lbl">'+r[0]+'</span><p>'+r[1]+'</p></div>';
   }).join('');
-  return '<div class="cmp" style="--seg:'+c+'">'
-    + '<div class="cmp-head"><span class="cmp-badge">'+CM_SEGLABEL[seg]+'</span>'
-    + '<strong class="cmp-title">'+title+'</strong></div>'
-    + '<div class="cmp-body">'+body+'</div></div>';
+  return '<div class="cmp" style="--seg:'+color+'">'
+    + '<div class="cmp-head"><span class="cmp-badge">'+badge+'</span>'
+    + '<strong class="cmp-title">'+title+'</strong>'
+    + (subtitle ? '<span class="cmp-sub">'+subtitle+'</span>' : '')
+    + '</div><div class="cmp-body">'+body+'</div></div>';
 }
 
 function initCorridorMap(){
@@ -5063,7 +5046,7 @@ function initCorridorMap(){
   _cmMap = map;
   map.addControl(new maplibregl.NavigationControl({showCompass:false}), 'bottom-right');
 
-  var markers = {north:[], south:[], site:[], conn:[]};
+  var markers = {north:[], south:[], site:[], comp:[], conn:[]};
 
   map.on('load', function(){
     /* highway connections (drawn beneath the spine) */
@@ -5084,25 +5067,34 @@ function initCorridorMap(){
     /* market markers */
     CM_MARKETS.forEach(function(m){
       var el = _cmMarkerEl(CM_SEGC[m.seg], false);
-      var html = cmCard(m.seg, m.t, [['Positioning',m.pos],['Representative hotels',m.hotels],['Implication',m.imp]]);
-      var mk = new maplibregl.Marker({element:el}).setLngLat(m.c).setPopup(new maplibregl.Popup({offset:15, maxWidth:'300px', closeButton:true}).setHTML(html)).addTo(map);
+      var html = cmCard(CM_SEGC[m.seg], CM_SEGLABEL[m.seg], m.t, null, [['Positioning',m.pos],['Representative hotels',m.hotels],['Implication',m.imp]]);
+      var mk = new maplibregl.Marker({element:el}).setLngLat(m.c).setPopup(new maplibregl.Popup({offset:15, maxWidth:'340px', closeButton:true}).setHTML(html)).addTo(map);
       markers[m.seg].push(mk);
+    });
+
+    /* comparable hotels (the true competitive set) */
+    CM_COMPS.forEach(function(p){
+      var el = _cmMarkerEl(CM_SEGC.comp, false);
+      var html = cmCard(CM_SEGC.comp, p.cat, p.t, p.loc, [['Why it is a comparable', p.rel]]);
+      var mk = new maplibregl.Marker({element:el}).setLngLat(p.c).setPopup(new maplibregl.Popup({offset:15, maxWidth:'340px', closeButton:true}).setHTML(html)).addTo(map);
+      markers.comp.push(mk);
     });
 
     /* the site, emphasized */
     var sEl = _cmMarkerEl(CM_SEGC.site, true);
-    var sHtml = cmCard('site', 'Tumwater Brewery', [
+    var sHtml = cmCard(CM_SEGC.site, 'The white space', 'Tumwater Brewery', '110 Deschutes Way SW, Tumwater', [
       ['Positioning','Accessible, yet uniquely capable of a destination experience'],
       ['The setting','Riverfront, historic, walkable campus, the white space between two very different markets'],
-      ['Address','110 Deschutes Way SW, Tumwater, WA']
+      ['Why it wins','Corridor visibility, a one-of-a-kind setting, and no comparable experiential supply nearby']
     ]);
-    markers.site.push(new maplibregl.Marker({element:sEl}).setLngLat(CM_SITE).setPopup(new maplibregl.Popup({offset:17, maxWidth:'320px', closeButton:true}).setHTML(sHtml)).addTo(map));
+    markers.site.push(new maplibregl.Marker({element:sEl}).setLngLat(CM_SITE).setPopup(new maplibregl.Popup({offset:18, maxWidth:'340px', closeButton:true}).setHTML(sHtml)).addTo(map));
 
-    /* frame the corridor (include spine + connectors so Vancouver/Portland are in view) */
+    /* frame everything (spine, connectors, comparables) so the full landscape is in view */
     var b = new maplibregl.LngLatBounds();
     CM_SPINE.forEach(function(c){ b.extend(c); });
     CM_CONN.forEach(function(h){ h.line.forEach(function(c){ b.extend(c); }); });
-    map.fitBounds(b, {padding:{top:46,bottom:46,left:120,right:40}, maxZoom:8, duration:0});
+    CM_COMPS.forEach(function(p){ b.extend(p.c); });
+    map.fitBounds(b, {padding:{top:40,bottom:40,left:110,right:36}, maxZoom:7.4, duration:0});
   });
 
   function setSeg(seg, on){
