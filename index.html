@@ -255,12 +255,24 @@ ul{margin:0; padding:0; list-style:none;}
 
 /* location: interactive regional corridor map */
 .cm-wrap{position:relative; border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; background:var(--surface-2);}
-#corridorMap{width:100%; height:520px;}
-.cm-wrap .maplibregl-popup-content{font:500 13px var(--sans); color:var(--text); border-radius:var(--radius); padding:12px 14px; max-width:240px; box-shadow:0 4px 18px rgba(0,0,0,.12);}
-.cm-wrap .maplibregl-popup-content strong{display:block; font-family:var(--serif); font-size:14.5px; margin-bottom:3px; letter-spacing:-0.01em;}
-.cm-wrap .maplibregl-popup-content .cm-pos{color:var(--accent); font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; margin:4px 0 2px;}
-.cm-wrap .maplibregl-popup-content em{color:var(--text-3); font-style:normal; font-size:12.5px; line-height:1.5; display:block; margin-top:4px;}
+#corridorMap{width:100%; height:560px;}
 .cm-wrap .maplibregl-ctrl-attrib{font-size:10px;}
+/* corridor pins */
+.cm-pin{width:15px; height:15px; border-radius:50%; background:var(--pin,#2383e2); border:2.5px solid #fff; box-shadow:0 1px 4px rgba(0,0,0,.35); cursor:pointer; transition:transform .12s var(--ease);}
+.cm-pin:hover{transform:scale(1.22);}
+.cm-pin-site{width:22px; height:22px; box-shadow:0 0 0 5px color-mix(in srgb, var(--pin) 26%, transparent),0 1px 5px rgba(0,0,0,.4);}
+/* popup card (redesigned) */
+.cm-wrap .maplibregl-popup-content{padding:0; border-radius:10px; overflow:hidden; box-shadow:0 10px 34px rgba(0,0,0,.22); border:1px solid var(--border);}
+.cm-wrap .maplibregl-popup-close-button{width:26px; height:26px; font-size:18px; color:#fff; right:4px; top:4px; border-radius:50%; line-height:1;}
+.cm-wrap .maplibregl-popup-tip{display:none;}
+.cmp{font-family:var(--sans); background:var(--surface);}
+.cmp-head{background:var(--seg,#2383e2); padding:13px 16px 12px;}
+.cmp-badge{display:inline-block; font-size:9.5px; font-weight:700; text-transform:uppercase; letter-spacing:.09em; color:#fff; opacity:.82;}
+.cmp-title{display:block; font-family:var(--serif); font-size:17px; font-weight:700; color:#fff; letter-spacing:-0.01em; margin-top:3px; line-height:1.2;}
+.cmp-body{padding:13px 16px 15px;}
+.cmp-row + .cmp-row{margin-top:11px; padding-top:11px; border-top:1px solid var(--border-soft);}
+.cmp-lbl{display:block; font-size:9.5px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:var(--seg,var(--accent)); margin-bottom:3px;}
+.cmp-row p{margin:0; font-size:13px; line-height:1.5; color:var(--text-2);}
 .am-mapfallback{display:flex; align-items:center; justify-content:center; text-align:center; padding:28px; color:var(--text-3); font-size:13px; line-height:1.6;}
 .am-legend{position:absolute; left:12px; top:12px; z-index:2; display:flex; flex-direction:column; align-items:flex-start; gap:6px; background:color-mix(in srgb, var(--surface) 90%, transparent); border:1px solid var(--border); border-radius:var(--radius); padding:9px 11px; backdrop-filter:blur(6px);}
 .am-toggle{display:inline-flex; align-items:center; gap:8px; font:600 11.5px var(--sans); color:var(--text-3); background:transparent; border:none; padding:3px 4px; cursor:pointer; letter-spacing:.01em; line-height:1.2;}
@@ -1388,34 +1400,11 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
           </div>
           <p class="src" style="margin:8px 0 0; font-size:11px; color:var(--faint);">Illustrative corridor and market locations, approximate for orientation. Select a marker for market detail. Base map &copy; OpenStreetMap contributors, &copy; CARTO.</p>
 
-          <h3 style="margin-top:30px;">Northern Corridor &mdash; Olympia to Seattle</h3>
-          <p class="sub" style="margin-top:8px;">North of Tumwater, the I-5 corridor intensifies rapidly into dense urban hotel markets.</p>
-          <div class="table-wrap" style="margin-top:14px;">
-            <table class="table">
-              <thead><tr><th>Market</th><th>Major Hotels</th><th>Positioning</th><th>Implication</th></tr></thead>
-              <tbody>
-                <tr><td><strong>Tacoma</strong></td><td>Hotel Murano, Marriott Tacoma Downtown, Courtyard Tacoma Downtown</td><td>Urban, convention, business</td><td>Strong event and corporate demand, limited resort character</td></tr>
-                <tr><td><strong>SeaTac / Airport</strong></td><td>Hilton Seattle Airport, DoubleTree, Radisson, Marriott SeaTac</td><td>High-volume transient, airline, business</td><td>Functional, high occupancy, low experiential differentiation</td></tr>
-                <tr><td><strong>Seattle Core</strong></td><td>Four Seasons Seattle, Fairmont Olympic, Hyatt Regency (1,200+ rooms), Sheraton Grand</td><td>Luxury, convention, global tourism</td><td>Premium pricing, dense competition, urban experience</td></tr>
-              </tbody>
-            </table>
+          <p class="sub" style="margin-top:14px;">Select any marker for that market&rsquo;s positioning, representative hotels, and competitive implication. Use the filters to isolate the northern or southern corridor.</p>
+          <div class="grid grid-2" style="margin-top:20px;">
+            <div class="pi-callout"><h4>North &mdash; Olympia to Seattle</h4><p>Northbound, the corridor intensifies into dense urban hotel markets. Travelers encounter increasingly expensive, urban lodging, Tumwater offers a decompression point of nature, history, and space within a 60&ndash;90 minute drive.</p></div>
+            <div class="pi-callout"><h4>South &mdash; Olympia to Portland</h4><p>Southbound, supply is fragmented and largely utilitarian, with the exception of Great Wolf Lodge. There is a clear gap for a high-quality, experiential, adult-oriented destination between Olympia and Portland.</p></div>
           </div>
-          <div class="pi-callout" style="margin-top:18px;"><h4>Key Insight</h4><p>Northbound travelers encounter increasingly dense, expensive, and urban lodging environments. Tumwater offers a decompression point, nature, history, and space, within a 60&ndash;90 minute drive of these markets.</p></div>
-
-          <h3 style="margin-top:34px;">Southern Corridor &mdash; Olympia to Portland</h3>
-          <p class="sub" style="margin-top:8px;">South of Tumwater, the corridor shifts toward smaller-scale and highway-oriented lodging.</p>
-          <div class="table-wrap" style="margin-top:14px;">
-            <table class="table">
-              <thead><tr><th>Market</th><th>Major Hotels</th><th>Positioning</th><th>Implication</th></tr></thead>
-              <tbody>
-                <tr><td><strong>Centralia / Chehalis</strong></td><td>Great Wolf Lodge (destination family resort), Holiday Inn Express, Best Western</td><td>Family resort + highway lodging</td><td>Demonstrates success of destination programming in smaller markets</td></tr>
-                <tr><td><strong>Kelso / Longview</strong></td><td>Comfort Inn, Red Lion</td><td>Highway / industrial</td><td>Limited experiential competition</td></tr>
-                <tr><td><strong>Vancouver, WA</strong></td><td>Hilton Vancouver, AC Hotel, Heathman Lodge</td><td>Regional business + boutique</td><td>Moderate competition, growing market</td></tr>
-                <tr><td><strong>Portland</strong></td><td>The Nines, Sentinel, Hyatt Regency Portland, Dossier</td><td>Urban luxury, lifestyle, convention</td><td>Strong destination draw, but urban-focused</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="pi-callout" style="margin-top:18px;"><h4>Key Insight</h4><p>Southbound supply is fragmented and largely utilitarian, with the exception of Great Wolf Lodge. There is a clear gap for a high-quality, experiential, adult-oriented destination between Olympia and Portland.</p></div>
 
           <h3 style="margin-top:34px;">Corridor Positioning &mdash; A Strategic White Space</h3>
           <div class="grid grid-3" style="margin-top:14px;">
@@ -5004,12 +4993,18 @@ document.addEventListener('click', function(e){
    ============================================================ */
 var _cmMap = null, _cmDone = false;
 var CM_SITE = [-122.9039, 47.0176]; /* Tumwater Brewery */
-/* I-5 corridor spine (north -> south), approximate */
+/* I-5 corridor spine routed through every market, north -> south, approximate */
 var CM_SPINE = [
-  [-122.3328,47.6061],[-122.3088,47.4502],[-122.4443,47.2529],
-  [-122.7160,47.1100],CM_SITE,[-122.9540,46.7162],[-122.9051,46.1462],
-  [-122.6700,45.6300],[-122.6765,45.5152]
+  [-122.3328,47.6061], /* Seattle */
+  [-122.3088,47.4502], /* SeaTac */
+  [-122.4443,47.2529], /* Tacoma */
+  CM_SITE,             /* Tumwater */
+  [-122.9540,46.7162], /* Centralia */
+  [-122.9051,46.1462], /* Kelso / Longview */
+  [-122.6615,45.6387], /* Vancouver, WA */
+  [-122.6765,45.5152]  /* Portland */
 ];
+var CM_SEGLABEL = {north:'Northern corridor', south:'Southern corridor', site:'The white space'};
 var CM_MARKETS = [
   {seg:'north', c:[-122.3328,47.6061], t:'Seattle Core', pos:'Luxury, convention, global tourism', hotels:'Four Seasons, Fairmont Olympic, Hyatt Regency (1,200+ rooms), Sheraton Grand', imp:'Premium pricing, dense competition, urban experience'},
   {seg:'north', c:[-122.3088,47.4502], t:'SeaTac / Airport', pos:'High-volume transient, airline, business', hotels:'Hilton Seattle Airport, DoubleTree, Radisson, Marriott SeaTac', imp:'Functional, high occupancy, low differentiation'},
@@ -5023,9 +5018,20 @@ var CM_SEGC = {north:'#2383e2', south:'#d9803a', site:'#c0392b'};
 
 function _cmMarkerEl(color, big){
   var el = document.createElement('div');
-  var d = big ? 18 : 13;
-  el.style.cssText = 'width:'+d+'px;height:'+d+'px;border-radius:50%;background:'+color+';border:2px solid #fff;box-shadow:0 0 0 1.5px rgba(0,0,0,.18);cursor:pointer;';
+  el.className = 'cm-pin' + (big ? ' cm-pin-site' : '');
+  el.style.setProperty('--pin', color);
   return el;
+}
+/* build a styled popup card; rows = [[label,value],...] */
+function cmCard(seg, title, rows){
+  var c = CM_SEGC[seg];
+  var body = rows.map(function(r){
+    return '<div class="cmp-row"><span class="cmp-lbl">'+r[0]+'</span><p>'+r[1]+'</p></div>';
+  }).join('');
+  return '<div class="cmp" style="--seg:'+c+'">'
+    + '<div class="cmp-head"><span class="cmp-badge">'+CM_SEGLABEL[seg]+'</span>'
+    + '<strong class="cmp-title">'+title+'</strong></div>'
+    + '<div class="cmp-body">'+body+'</div></div>';
 }
 
 function initCorridorMap(){
@@ -5050,7 +5056,7 @@ function initCorridorMap(){
     });
   } catch(err){
     var lg = document.getElementById('cmLegend'); if (lg) lg.style.display='none';
-    host.outerHTML = '<div class="am-mapfallback">Interactive map unavailable in this browser. The corridor tables below describe each market in full.</div>';
+    host.outerHTML = '<div class="am-mapfallback">Interactive corridor map unavailable in this browser. The summaries below describe the northern and southern markets in full.</div>';
     return;
   }
   _cmMap = map;
@@ -5066,15 +5072,19 @@ function initCorridorMap(){
     /* market markers */
     CM_MARKETS.forEach(function(m){
       var el = _cmMarkerEl(CM_SEGC[m.seg], false);
-      var html = '<strong>'+m.t+'</strong><span class="cm-pos">'+m.pos+'</span>'+m.hotels+'<em>'+m.imp+'</em>';
-      var mk = new maplibregl.Marker({element:el}).setLngLat(m.c).setPopup(new maplibregl.Popup({offset:14}).setHTML(html)).addTo(map);
+      var html = cmCard(m.seg, m.t, [['Positioning',m.pos],['Representative hotels',m.hotels],['Implication',m.imp]]);
+      var mk = new maplibregl.Marker({element:el}).setLngLat(m.c).setPopup(new maplibregl.Popup({offset:15, maxWidth:'300px', closeButton:true}).setHTML(html)).addTo(map);
       markers[m.seg].push(mk);
     });
 
     /* the site, emphasized */
     var sEl = _cmMarkerEl(CM_SEGC.site, true);
-    var sHtml = '<strong>Tumwater Brewery</strong><span class="cm-pos">The white space</span>Accessible, but uniquely capable of a destination experience<em>110 Deschutes Way SW, Tumwater, WA</em>';
-    markers.site.push(new maplibregl.Marker({element:sEl}).setLngLat(CM_SITE).setPopup(new maplibregl.Popup({offset:16}).setHTML(sHtml)).addTo(map));
+    var sHtml = cmCard('site', 'Tumwater Brewery', [
+      ['Positioning','Accessible, yet uniquely capable of a destination experience'],
+      ['The setting','Riverfront, historic, walkable campus, the white space between two very different markets'],
+      ['Address','110 Deschutes Way SW, Tumwater, WA']
+    ]);
+    markers.site.push(new maplibregl.Marker({element:sEl}).setLngLat(CM_SITE).setPopup(new maplibregl.Popup({offset:17, maxWidth:'320px', closeButton:true}).setHTML(sHtml)).addTo(map));
 
     /* frame the corridor */
     var b = new maplibregl.LngLatBounds();
