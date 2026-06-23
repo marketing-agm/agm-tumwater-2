@@ -15,6 +15,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+<!-- MapLibre GL (interactive Access & Mobility map, Location tab) -->
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
+<script defer src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 <style>
 /* ============================================================
    AGM TEMPLATE — TOKENS
@@ -249,6 +252,29 @@ ul{margin:0; padding:0; list-style:none;}
 .amx .am-grid p{font-size:14px; line-height:1.65; color:var(--text-3); margin:0;}
 .amx .am-vis{margin-top:18px;}
 @media(max-width:620px){.amx .am-grid{grid-template-columns:1fr;} .amx .am-attr{display:none;} .amx .am-body{padding-left:0;}}
+
+/* location: access map + rows side-by-side */
+.am-split{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:28px; align-items:start;}
+.am-mapcol{position:sticky; top:calc(var(--hdr) + 18px);}
+.am-mapwrap{position:relative; border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; background:var(--surface-2);}
+#amMap{width:100%; height:460px;}
+#amMap .maplibregl-popup-content{font:500 13px var(--sans); color:var(--text); border-radius:var(--radius); padding:10px 13px; box-shadow:0 4px 18px rgba(0,0,0,.12);}
+#amMap .maplibregl-popup-content strong{display:block; font-family:var(--serif); font-size:14px; margin-bottom:2px;}
+#amMap .maplibregl-ctrl-attrib{font-size:10px;}
+.am-mapfallback{display:flex; align-items:center; justify-content:center; text-align:center; padding:28px; color:var(--text-3); font-size:13px; line-height:1.6;}
+.am-legend{position:absolute; left:12px; top:12px; z-index:2; display:flex; flex-direction:column; align-items:flex-start; gap:6px; background:color-mix(in srgb, var(--surface) 88%, transparent); border:1px solid var(--border); border-radius:var(--radius); padding:9px 10px; backdrop-filter:blur(6px); max-width:46%;}
+.am-toggle{display:inline-flex; align-items:center; gap:7px; font:600 11.5px var(--sans); color:var(--text-3); background:transparent; border:none; padding:3px 4px; cursor:pointer; letter-spacing:.01em; line-height:1.2;}
+.am-toggle::before{content:""; width:14px; height:3px; border-radius:2px; background:var(--am-c,var(--accent)); opacity:.25; transition:opacity .15s var(--ease);}
+.am-toggle.is-on{color:var(--text);}
+.am-toggle.is-on::before{opacity:1;}
+.am-toggle[data-layer="vehicular"]{--am-c:#2383e2;}
+.am-toggle[data-layer="walk-onsite"]{--am-c:#1a7a3a;}
+.am-toggle[data-layer="walk-offsite"]{--am-c:#5fae6e;}
+.am-toggle[data-layer="bike"]{--am-c:#8b5cf6;}
+.am-toggle[data-layer="transit"]{--am-c:#d9803a;}
+.am-toggle[data-layer="arrival"]{--am-c:#c0392b;}
+.am-rows .amx:first-of-type{border-top:none;}
+@media(max-width:860px){.am-split{grid-template-columns:1fr; gap:18px;} .am-mapcol{position:static;} #amMap{height:340px;}}
 
 /* image frames */
 .topo{background-image:repeating-linear-gradient(115deg, transparent 0 13px, var(--border-soft) 13px 14px);}
@@ -1405,9 +1431,24 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
           <p class="eyebrow">Access &amp; Mobility</p>
           <h2>Connected to the Corridor, Protected by the Setting</h2>
           <p class="lead">The site balances regional connectivity with a secluded, resort-like arrival. Each layer of access, from the interstate to the internal pedestrian realm, reinforces the experience of moving from infrastructure into a destination.</p>
-          <p class="sub" style="margin-top:10px;">Site reference: 110 Deschutes Way SW, Tumwater, WA 98501. Expand each category for detail and opportunities.</p>
-          <div style="margin-top:18px;">
-            <details class="amx">
+          <p class="sub" style="margin-top:10px;">Site reference: 110 Deschutes Way SW, Tumwater, WA 98501. Select a category on the map or expand a row for detail and opportunities.</p>
+          <div class="am-split" style="margin-top:20px;">
+            <div class="am-mapcol">
+              <div class="am-mapwrap">
+                <div id="amMap" role="application" aria-label="Interactive access and mobility map of the Tumwater Brewery site"></div>
+                <div class="am-legend" id="amLegend" role="group" aria-label="Map layers">
+                  <button type="button" class="am-toggle is-on" data-layer="vehicular">Vehicular</button>
+                  <button type="button" class="am-toggle is-on" data-layer="walk-onsite">Walk · on-site</button>
+                  <button type="button" class="am-toggle is-on" data-layer="walk-offsite">Walk · off-site</button>
+                  <button type="button" class="am-toggle is-on" data-layer="bike">Bike</button>
+                  <button type="button" class="am-toggle is-on" data-layer="transit">Transit</button>
+                  <button type="button" class="am-toggle is-on" data-layer="arrival">Arrival</button>
+                </div>
+              </div>
+              <p class="src" style="margin:8px 0 0; font-size:11px; color:var(--faint);">Illustrative routing, approximate for orientation only. Base map &copy; OpenStreetMap contributors, &copy; CARTO.</p>
+            </div>
+            <div class="am-rows">
+            <details class="amx" data-layer="vehicular">
               <summary><svg class="am-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l1.5-4.5A2 2 0 0 1 8.4 7h7.2a2 2 0 0 1 1.9 1.5L19 13"/><path d="M3 13h18v4a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><circle cx="7" cy="16" r="0.5"/><circle cx="17" cy="16" r="0.5"/></svg>Vehicular Access<span class="am-attr">Regional highway connectivity</span></summary>
               <div class="am-body">
                 <div class="am-grid">
@@ -1417,7 +1458,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
                 <div class="am-vis frame wide topo" role="img" aria-label="Aerial showing I-5, Capitol Blvd, and site entry points"><div><p class="ft">Visual</p><p class="fd">Aerial showing I-5, Capitol Blvd, and site entry points.</p></div></div>
               </div>
             </details>
-            <details class="amx">
+            <details class="amx" data-layer="walk-onsite">
               <summary><svg class="am-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="4" r="1.6"/><path d="M12 7v6l-3 4M12 13l3 4M9 9l3 1 3-1"/></svg>Walkability &mdash; On-Site<span class="am-attr">Internal pedestrian environment</span></summary>
               <div class="am-body">
                 <div class="am-grid">
@@ -1427,7 +1468,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
                 <div class="am-vis frame wide topo" role="img" aria-label="Rendering or diagram of internal pedestrian paths and riverfront trails"><div><p class="ft">Visual</p><p class="fd">Internal pedestrian paths and riverfront trails.</p></div></div>
               </div>
             </details>
-            <details class="amx">
+            <details class="amx" data-layer="walk-offsite">
               <summary><svg class="am-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="4" r="1.6"/><path d="M12 7v6l-3 4M12 13l3 4M9 9l3 1 3-1"/></svg>Walkability &mdash; Off-Site<span class="am-attr">External pedestrian connections</span></summary>
               <div class="am-body">
                 <div class="am-grid">
@@ -1437,7 +1478,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
                 <div class="am-vis frame wide topo" role="img" aria-label="Map showing trail connections and gaps"><div><p class="ft">Visual</p><p class="fd">Map showing trail connections and gaps.</p></div></div>
               </div>
             </details>
-            <details class="amx">
+            <details class="amx" data-layer="bike">
               <summary><svg class="am-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M6 17l4-7h5l3 7M10 10l-2-4H6m6 4l3 0"/></svg>Bikeability<span class="am-attr">Regional cycling integration</span></summary>
               <div class="am-body">
                 <div class="am-grid">
@@ -1447,7 +1488,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
                 <div class="am-vis frame wide topo" role="img" aria-label="Regional bike network map or cyclist imagery along river trails"><div><p class="ft">Visual</p><p class="fd">Regional bike network and river-trail routes.</p></div></div>
               </div>
             </details>
-            <details class="amx">
+            <details class="amx" data-layer="transit">
               <summary><svg class="am-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="3" width="12" height="14" rx="2"/><path d="M6 9h12M9 17l-2 3M15 17l2 3"/><circle cx="9" cy="13" r="0.6"/><circle cx="15" cy="13" r="0.6"/></svg>Transit Access<span class="am-attr">Public transportation availability</span></summary>
               <div class="am-body">
                 <div class="am-grid">
@@ -1457,7 +1498,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
                 <div class="am-vis frame wide topo" role="img" aria-label="Transit map showing routes and Amtrak location"><div><p class="ft">Visual</p><p class="fd">Transit routes and Amtrak location.</p></div></div>
               </div>
             </details>
-            <details class="amx">
+            <details class="amx" data-layer="arrival">
               <summary><svg class="am-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Arrival Experience<span class="am-attr">Sequential site entry</span></summary>
               <div class="am-body">
                 <div class="am-grid">
@@ -1471,7 +1512,8 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
                 </div>
               </div>
             </details>
-          </div>
+            </div><!-- /.am-rows -->
+          </div><!-- /.am-split -->
         </section>
 
         <!-- §4 · Riverfront Campus and Local Demand Anchors -->
@@ -4877,6 +4919,7 @@ function engageRoute(route){
     if (secs > 2) track('page_dwell', {page:_route, seconds:secs});
   }
   _route = route; _enter = Date.now(); _marks = {};
+  if (route === 'location-overview') initAccessMap();
 }
 window.addEventListener('scroll', function(){
   var h = document.documentElement;
@@ -4963,6 +5006,154 @@ document.addEventListener('click', function(e){
     track('es_gallery', {src: t.getAttribute('data-src')});
   });
 })();
+
+/* ============================================================
+   Access & Mobility interactive map (Location tab, MapLibre)
+   Lazy-initialized on first view. Illustrative geometry,
+   approximate for orientation; swap GEO below for surveyed data.
+   ============================================================ */
+var _amMap = null, _amInit = false;
+var AM_SITE = [-122.90385, 47.01755]; /* 110 Deschutes Way SW, Tumwater */
+var AM_COLORS = {vehicular:'#2383e2','walk-onsite':'#1a7a3a','walk-offsite':'#5fae6e',bike:'#8b5cf6',transit:'#d9803a',arrival:'#c0392b'};
+/* Illustrative GeoJSON. Lines = [lng,lat] paths; points = POIs. */
+var AM_GEO = {
+  'vehicular': {lines:[
+      [[-122.8980,47.0090],[-122.8985,47.0150],[-122.8995,47.0205],[-122.9005,47.0270]], /* I-5 corridor */
+      [[-122.9015,47.0240],[-122.9030,47.0205],[-122.9038,47.0188],[-122.9039,47.0176]]  /* Capitol Blvd -> site */
+    ], points:[
+      {c:[-122.9008,47.0193],t:'I-5 Exit 103',d:'Custer Way / 2nd Ave interchange'},
+      {c:[-122.9039,47.0176],t:'Site entry',d:'Deschutes Way / Boston St SE'}
+    ]},
+  'walk-onsite': {lines:[
+      [[-122.9044,47.0181],[-122.9039,47.0176],[-122.9034,47.0170],[-122.9030,47.0165]], /* riverfront path */
+      [[-122.9039,47.0176],[-122.9032,47.0178],[-122.9028,47.0172]]                       /* internal loop */
+    ], points:[
+      {c:[-122.9036,47.0173],t:'Riverfront trail',d:'Internal walkable campus + bridges'}
+    ]},
+  'walk-offsite': {lines:[
+      [[-122.9030,47.0165],[-122.9026,47.0172],[-122.9024,47.0181]],                       /* to Brewery Park */
+      [[-122.9039,47.0176],[-122.9046,47.0200],[-122.9050,47.0235]]                        /* toward Capitol Lake */
+    ], points:[
+      {c:[-122.9024,47.0181],t:'Brewery Park',d:'Brewery Park at the Falls'},
+      {c:[-122.9050,47.0240],t:'Capitol Lake',d:'Partial links, infrastructure gaps'}
+    ]},
+  'bike': {lines:[
+      [[-122.9030,47.0162],[-122.9040,47.0200],[-122.9052,47.0250],[-122.9060,47.0300]],   /* Deschutes / Woodland trail */
+      [[-122.9050,47.0235],[-122.9020,47.0240],[-122.8990,47.0235]]                        /* Capitol Lake loop */
+    ], points:[
+      {c:[-122.9060,47.0300],t:'Woodland Trail',d:'Regional routes: Olympia, Lacey, Tumwater'}
+    ]},
+  'transit': {lines:[
+      [[-122.9039,47.0176],[-122.9030,47.0260],[-122.9020,47.0340]]                        /* toward Olympia hub */
+    ], points:[
+      {c:[-122.9020,47.0340],t:'Olympia transit hub',d:'Intercity Transit connections'},
+      {c:[-122.7890,47.0265],t:'Amtrak (Olympia-Lacey)',d:'Centennial Station, ~15 min east'}
+    ]},
+  'arrival': {lines:[
+      [[-122.9008,47.0193],[-122.9020,47.0185],[-122.9035,47.0182],[-122.9039,47.0176],[-122.9034,47.0170]]
+    ], points:[
+      {c:[-122.9008,47.0193],t:'1 · I-5 / Capitol Blvd',d:'Exit and commercial edge'},
+      {c:[-122.9035,47.0182],t:'2 · Wooded descent',d:'Boston St SE'},
+      {c:[-122.9032,47.0169],t:'3 · Brewery reveal',d:'Arrival at the campus'}
+    ]}
+};
+var AM_LAYERS = Object.keys(AM_GEO);
+
+function amFeatureCollection(layer){
+  var g = AM_GEO[layer], feats = [];
+  (g.lines||[]).forEach(function(coords){ feats.push({type:'Feature',properties:{layer:layer},geometry:{type:'LineString',coordinates:coords}}); });
+  (g.points||[]).forEach(function(p){ feats.push({type:'Feature',properties:{layer:layer,title:p.t,desc:p.d},geometry:{type:'Point',coordinates:p.c}}); });
+  return {type:'FeatureCollection',features:feats};
+}
+
+function initAccessMap(){
+  if (_amInit) return;
+  var host = document.getElementById('amMap');
+  if (!host) return;
+  _amInit = true;
+  if (typeof maplibregl === 'undefined' || !maplibregl.supported || !maplibregl.supported()){
+    host.parentNode.querySelector('.am-legend') && (host.parentNode.querySelector('.am-legend').style.display='none');
+    host.outerHTML = '<div class="am-mapfallback">Interactive map unavailable in this browser. The categories below describe the site’s access and mobility in full.</div>';
+    return;
+  }
+  var dark = document.documentElement.getAttribute('data-theme')==='dark';
+  var theme = dark ? 'dark_all' : 'light_all';
+  var tiles = ['a','b','c','d'].map(function(s){ return 'https://'+s+'.basemaps.cartocdn.com/'+theme+'/{z}/{x}/{y}.png'; });
+  var map = new maplibregl.Map({
+    container:'amMap',
+    style:{version:8, sources:{carto:{type:'raster',tiles:tiles,tileSize:256,attribution:'&copy; OpenStreetMap contributors &copy; CARTO'}}, layers:[{id:'carto',type:'raster',source:'carto'}]},
+    center:AM_SITE, zoom:12.4, attributionControl:true
+  });
+  _amMap = map;
+  map.addControl(new maplibregl.NavigationControl({showCompass:false}), 'bottom-right');
+  map.on('load', function(){
+    /* site marker */
+    var el = document.createElement('div');
+    el.style.cssText='width:14px;height:14px;border-radius:50%;background:var(--accent);border:2px solid #fff;box-shadow:0 0 0 2px rgba(0,0,0,.15);';
+    new maplibregl.Marker({element:el}).setLngLat(AM_SITE).setPopup(new maplibregl.Popup({offset:14}).setHTML('<strong>Tumwater Brewery</strong>110 Deschutes Way SW')).addTo(map);
+    AM_LAYERS.forEach(function(layer){
+      var src = 'am-'+layer, c = AM_COLORS[layer];
+      map.addSource(src, {type:'geojson', data:amFeatureCollection(layer)});
+      var linePaint = {'line-color':c,'line-width':layer==='arrival'?4:3,'line-opacity':.85};
+      if (layer==='walk-offsite' || layer==='walk-onsite') linePaint['line-dasharray']=[2,1.5];
+      map.addLayer({id:src+'-line', source:src, type:'line', filter:['==','$type','LineString'],
+        layout:{'line-cap':'round','line-join':'round'}, paint:linePaint});
+      map.addLayer({id:src+'-pt', source:src, type:'circle', filter:['==','$type','Point'],
+        paint:{'circle-radius':5,'circle-color':c,'circle-stroke-width':2,'circle-stroke-color':'#fff'}});
+      map.on('click', src+'-pt', function(e){
+        var p = e.features[0].properties;
+        new maplibregl.Popup({offset:12}).setLngLat(e.features[0].geometry.coordinates).setHTML('<strong>'+p.title+'</strong>'+(p.desc||'')).addTo(map);
+      });
+      map.on('mouseenter', src+'-pt', function(){ map.getCanvas().style.cursor='pointer'; });
+      map.on('mouseleave', src+'-pt', function(){ map.getCanvas().style.cursor=''; });
+    });
+  });
+
+  /* fit map to a layer's geometry */
+  function amFitLayer(layer){
+    var g = AM_GEO[layer], b = new maplibregl.LngLatBounds();
+    (g.lines||[]).forEach(function(cs){ cs.forEach(function(c){ b.extend(c); }); });
+    (g.points||[]).forEach(function(p){ b.extend(p.c); });
+    b.extend(AM_SITE);
+    if (!b.isEmpty()) map.fitBounds(b, {padding:60, maxZoom:14, duration:700});
+  }
+  function amSetVisible(layer, on){
+    ['-line','-pt'].forEach(function(sfx){
+      if (map.getLayer('am-'+layer+sfx)) map.setLayoutProperty('am-'+layer+sfx,'visibility', on?'visible':'none');
+    });
+  }
+  function whenReady(fn){ if (map.isStyleLoaded()) fn(); else map.once('idle', fn); }
+
+  /* legend toggles */
+  document.querySelectorAll('#amLegend .am-toggle').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var layer = btn.getAttribute('data-layer');
+      var on = btn.classList.toggle('is-on');
+      whenReady(function(){ amSetVisible(layer, on); });
+      if (on){
+        whenReady(function(){ amFitLayer(layer); });
+        var row = document.querySelector('.am-rows .amx[data-layer="'+layer+'"]');
+        if (row && !row.open) row.open = true;
+      }
+      track('map_layer_toggle', {layer:layer, on:on});
+    });
+  });
+
+  /* row open -> focus that layer on the map */
+  document.querySelectorAll('.am-rows .amx').forEach(function(row){
+    row.addEventListener('toggle', function(){
+      if (!row.open) return;
+      var layer = row.getAttribute('data-layer');
+      if (!layer) return;
+      var btn = document.querySelector('#amLegend .am-toggle[data-layer="'+layer+'"]');
+      if (btn && !btn.classList.contains('is-on')){ btn.classList.add('is-on'); whenReady(function(){ amSetVisible(layer,true); }); }
+      whenReady(function(){ amFitLayer(layer); });
+    });
+  });
+
+  /* size correctly once the tab is actually visible */
+  setTimeout(function(){ map.resize(); }, 60);
+}
 
 /* init */
 showRoute(currentRoute());
