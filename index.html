@@ -219,6 +219,21 @@ ul{margin:0; padding:0; list-style:none;}
 .program-table tfoot td{font-family:var(--serif); font-size:15.5px; letter-spacing:-0.01em;}
 .program-table tfoot .pt-area{font-size:15.5px;}
 
+/* public-investment page modules */
+.pi-status{display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; padding:4px 11px; border-radius:999px; margin-bottom:16px;}
+.pi-status.ok{background:var(--ok-wash); color:var(--ok);}
+.pi-status.req{background:var(--warn-wash); color:var(--warn);}
+.pi-amt{display:block; font-family:var(--serif); font-weight:600; font-size:15px; color:var(--text); letter-spacing:-0.01em; margin:0 0 10px;}
+.src a{color:inherit; text-decoration:underline; text-underline-offset:2px; text-decoration-thickness:1px; text-decoration-color:var(--border);}
+.src a:hover{color:var(--accent); text-decoration-color:var(--accent);}
+.pi-callout{border:1px solid var(--border); border-left:3px solid var(--accent); border-radius:0 var(--radius) var(--radius) 0; background:var(--surface-2); padding:26px 30px;}
+.pi-callout h4{margin:0 0 8px;}
+.pi-callout p{margin:0; color:var(--text-3); font-size:14px; line-height:1.7;}
+/* tighter, divider-free section flow so the page reads as one narrative */
+#page-city-investing-first section{margin-bottom:52px;}
+#page-city-investing-first section + section{border-top:none; padding-top:0;}
+#page-city-investing-first h2{margin-bottom:14px;}
+
 /* image frames */
 .topo{background-image:repeating-linear-gradient(115deg, transparent 0 13px, var(--border-soft) 13px 14px);}
 .frame{aspect-ratio:5/4; border:1px solid var(--border); border-radius:var(--radius); background:var(--surface-2); position:relative; overflow:hidden; display:grid; place-items:center; text-align:center; padding:28px;}
@@ -397,6 +412,23 @@ ul{margin:0; padding:0; list-style:none;}
 .faq[open] summary::after{transform:rotate(45deg);}
 .faq p{font-size:13.5px; color:var(--text-3); line-height:1.7; margin:0 0 20px; max-width:62ch;}
 
+/* progressive-disclosure toggle (inside cards and sections) */
+.disclose{margin-top:15px; border-top:1px solid var(--border-soft);}
+.disclose>summary{cursor:pointer; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:10px; padding-top:13px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--accent);}
+.disclose>summary::-webkit-details-marker{display:none;}
+.disclose>summary::after{content:"+"; font:400 16px var(--sans); color:var(--faint); transition:transform .15s var(--ease);}
+.disclose[open]>summary::after{transform:rotate(45deg);}
+.disclose>summary:hover{color:var(--accent-hover);}
+.disclose-body{padding-top:13px;}
+.disclose-body p{font-size:13.5px; color:var(--text-3); line-height:1.7; margin:0 0 10px;}
+.disclose-body .src{margin:6px 0 0;}
+.disclose-body .src a{margin-right:2px;}
+/* full-width checklist (Plan Goals) */
+.goals-list{list-style:none; margin:14px 0 0; padding:0;}
+.goals-list li{display:flex; align-items:center; gap:14px; padding:14px 2px; border-top:1px solid var(--border-soft); font-size:15px; color:var(--text-2); line-height:1.45;}
+.goals-list li:first-child{border-top:none;}
+.goals-check{flex:none; width:24px; height:24px; border-radius:50%; background:var(--accent-wash); color:var(--accent); display:inline-flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; line-height:1;}
+
 /* print tear-sheets (C10) */
 @media print{
   .topbar,.hamburger,.theme-toggle,.btn,.rail-cta,.lightbox,.hs-pin,.hs-pop,.map-tip,.toggle3{display:none!important;}
@@ -454,8 +486,8 @@ ul{margin:0; padding:0; list-style:none;}
 /* full-width body text on the new tabs */
 .page.wide .lead{max-width:none; font-size:16.5px; line-height:1.6;}
 .page.wide .measure{max-width:none;}
-.page.wide .sub{max-width:none;}
-.page.wide .lead + .sub{margin-top:14px; font-size:15px; color:var(--text-3);}
+.page.wide .sub{max-width:none; font-size:16.5px; color:var(--text-2); line-height:1.6;}
+.page.wide .lead + .sub{margin-top:14px;}
 /* emphasized key statements inside leads */
 .page.wide .lead strong,.page.wide .measure strong{color:var(--text); font-weight:700;}
 .page.wide .lead em.hl{font-style:normal; font-weight:700; color:var(--text); box-shadow:inset 0 -0.42em 0 var(--accent-wash);}
@@ -465,6 +497,13 @@ ul{margin:0; padding:0; list-style:none;}
 .flow .node::before{content:counter(flow,decimal-leading-zero); font-family:var(--serif); font-weight:700; font-size:12px; color:var(--accent); letter-spacing:.06em;}
 .flow .node h4{font-size:14px; margin:8px 0 6px;}
 .flow .node p{font-size:12.5px; color:var(--text-3); margin:0; line-height:1.55;}
+/* icon card grid: 3 across, full-width final cell */
+.icon-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:28px;}
+.icon-grid > :nth-child(4){grid-column:1 / -1;}
+.icon-card{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:30px 30px;}
+.icon-card h4{font-size:15px; margin:0 0 9px;}
+.icon-card p{font-size:13.5px; color:var(--text-3); line-height:1.7; margin:0; max-width:64ch;}
+@media(max-width:880px){.icon-grid{grid-template-columns:1fr;} .icon-grid > :nth-child(4){grid-column:auto;}}
 /* balance: consistent metric rhythm + tidy placeholder frames on wide pages */
 .page.wide .metrics{gap:30px 44px;}
 .page.wide .gallery .frame{min-height:150px;}
@@ -603,6 +642,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
           <div class="dd-group">Superseded</div>
           <button class="dropdown-item" data-route="heritage-archive">Heritage, full history &amp; timeline<small>prev</small></button>
           <button class="dropdown-item" data-route="dev-vision-archive">Development Vision, master plan<small>prev</small></button>
+          <button class="dropdown-item" data-route="city-investing-first-archive">Public Investment (prev)<small>prev</small></button>
           <div class="dd-group">Current build (v3)</div>
           <button class="dropdown-item" data-route="summary">Executive Summary<small>v3</small></button>
           <button class="dropdown-item" data-route="relevance">Strategic &amp; Historical<small>v3</small></button>
@@ -1073,83 +1113,205 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
         </section>
       </div>
 
-      <!-- ================= TAB 4 · WHY NOW · THE CITY IS INVESTING FIRST ================= -->
+      <!-- ================= TAB 4 · PUBLIC INVESTMENT & REDEVELOPMENT READINESS ================= -->
       <div class="page wide" id="page-city-investing-first">
 
-        <!-- §1 · The City Is Investing First -->
+        <!-- §1 · Hero -->
         <section class="reveal">
-          <p class="eyebrow">Ahead of Private Capital</p>
-          <h2>You&rsquo;re Not Starting From Zero: You&rsquo;re Inheriting a Decade of City Groundwork</h2>
-          <p class="lead">The brewery is not a standalone parcel. It is the anchor of the City of Tumwater&rsquo;s adopted Brewery District Plan, and an <em class="hl">unusual level of municipal commitment</em> is reducing the cost, complexity, and timeline of redevelopment before private capital arrives, planning, environmental review, transportation strategy, and a public-realm framework a developer inherits rather than builds.</p>
+          <p class="eyebrow">Public Platform</p>
+          <h2>A Site Already Carried Forward by Public Investment</h2>
+          <p class="lead">The public sector has already established the Brewery District as a priority redevelopment platform, with planning, environmental review, infrastructure strategy, and public-realm investment converging around the former Olympia Brewery site.</p>
+          <p class="sub">Together these workstreams create a more organized path for mixed-use redevelopment: a legacy asset supported by civic momentum, entitlement visibility, environmental readiness, and a district-scale strategy designed to advance the property from long-dormant industrial site to regional destination.</p>
+          <div class="frame wide topo" style="margin-top:24px;" role="img" aria-label="Oblique aerial of the former brewery, Deschutes River, Tumwater Falls, Brewery Park, and the surrounding Brewery District">
+            <div>
+              <p class="ft">Brewery District aerial</p>
+              <p class="fd">Former Olympia Brewery, Deschutes River, Tumwater Falls, and Brewery Park</p>
+              <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin-top:18px;">
+                <span class="chip" style="background:var(--accent-wash); color:var(--accent);">Adopted District Plan</span>
+                <span class="chip" style="background:var(--accent-wash); color:var(--accent);">Environmental Work Underway</span>
+                <span class="chip" style="background:var(--accent-wash); color:var(--accent);">Riverfront Public Realm</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- §2 · Public Investment Snapshot -->
+        <section class="reveal">
+          <p class="eyebrow">Investment Snapshot</p>
+          <h2>Six Public Investments Converging on One Outcome</h2>
+          <p class="lead">Six distinct public workstreams, some funded and underway, others requested or in active planning, are advancing the same outcome: a redevelopment-ready Brewery District &mdash; each one reducing an unknown that typically slows complex adaptive-reuse projects.</p>
           <div class="grid grid-3" style="margin-top:24px;">
-            <div class="card"><h4>Brewery District Plan (2014 / 2020)</h4><p>An adopted policy framework designates the brewery and its surroundings a special subarea for sense of place, access, safety, and economic opportunity.</p><p class="src" style="margin-top:10px; font-size:11px; color:var(--faint);"><a href="https://www.ci.tumwater.wa.us/departments/community-development-department/long-range-planning/brewery-district-plan" target="_blank" rel="noopener">City of Tumwater</a></p></div>
-            <div class="card"><h4>Planned Action EIS &amp; Brownfield Work</h4><p>The City is defining environmental, floodplain, wetland, traffic, and utility requirements ahead of a private proposal, improving redevelopment readiness.</p><p class="src" style="margin-top:10px; font-size:11px; color:var(--faint);"><a href="https://www.ci.tumwater.wa.us/business/the-brewery/brownfields" target="_blank" rel="noopener">City, Brownfields</a></p></div>
-            <div class="card"><h4>$6.6M E Street Connection</h4><p>A 2026 legislative priority (with a $550K EIS request) to connect Capitol Boulevard and Cleveland Avenue, cross the river and rail line, and support district redevelopment.</p><p class="src" style="margin-top:10px; font-size:11px; color:var(--faint);"><a href="https://www.ci.tumwater.wa.us/government/legislative-priorities" target="_blank" rel="noopener">City, Legislative Priorities</a></p></div>
-            <div class="card"><h4>$2.5M Deschutes Valley Trail</h4><p>A funded trail-design contract plus Tumwater Historical Park, Brewery Park at the Falls, and Falls Fest reinforce the riverfront destination thesis.</p><p class="src" style="margin-top:10px; font-size:11px; color:var(--faint);"><a href="https://www.thejoltnews.com/stories/tumwater-city-council-approves-25m-contract-to-design-deschutes-valley-trail,26715" target="_blank" rel="noopener">The JOLT</a></p></div>
-            <div class="card"><h4>State-Level Attention (HB 1742)</h4><p>A sustainable-urban-design framework whose criteria point directly at the former brewery, a signal the site is no longer just a local issue.</p><p class="src" style="margin-top:10px; font-size:11px; color:var(--faint);"><a href="https://app.leg.wa.gov/BillSummary/?BillNumber=1742&amp;Year=2026" target="_blank" rel="noopener">WA Legislature</a></p></div>
-            <div class="card"><h4>Funded Environmental Work</h4><p>EPA Brownfields and Washington Ecology partnerships fund Phase I/II assessments and cleanup planning ahead of acquisition.</p><p class="src" style="margin-top:10px; font-size:11px; color:var(--faint);"><a href="https://www.theolympian.com/news/local/article276496471.html" target="_blank" rel="noopener">The Olympian, EPA grant</a></p></div>
+            <div class="card">
+              <span class="pi-status ok">Adopted / Amended</span>
+              <h4>Brewery District Plan</h4>
+              <p>The adopted policy foundation for a mixed-use, walkable district &mdash; transportation, public realm, building character, and phasing.</p>
+              <details class="disclose">
+                <summary>Background &amp; sources</summary>
+                <div class="disclose-body">
+                  <p>Adopted by the City Council on May 6, 2014 and amended December 5, 2020, the plan reframes an auto-oriented commercial node as a walkable neighborhood center, codified in the Brewery District (BD) zone.</p>
+                  <p class="src">Sources: <a href="https://www.ci.tumwater.wa.us/departments/community-development-department/long-range-planning/brewery-district-plan" target="_blank" rel="noopener">City of Tumwater</a> &middot; <a href="https://www.codepublishing.com/WA/Tumwater/html/Tumwater18/Tumwater1827.html" target="_blank" rel="noopener">Tumwater Municipal Code 18.27</a> &middot; <a href="https://www.thurstontalk.com/2013/02/26/tumwater-brewery-redevelopment/" target="_blank" rel="noopener">ThurstonTalk</a></p>
+                </div>
+              </details>
+            </div>
+            <div class="card">
+              <span class="pi-status ok">Funded / Underway</span>
+              <h4>Brownfield Assessment Funding</h4>
+              <p class="pi-amt">$500K EPA Brownfields Assessment Grant</p>
+              <p>Funds site assessments, cleanup planning, and reuse planning across the Brewery District and Capitol Boulevard corridor.</p>
+              <details class="disclose">
+                <summary>Background &amp; sources</summary>
+                <div class="disclose-body">
+                  <p>The City secured a $500K EPA Brownfields Assessment Grant, plus a roughly $200K Washington Ecology grant, to inventory and assess brownfield properties &mdash; work prompted by the brewery&rsquo;s 2003 closure, which left a large brownfield at the district&rsquo;s center.</p>
+                  <p class="src">Sources: <a href="https://www.epa.gov/newsreleases/epa-selects-7-washington-projects-receive-45-million-assess-and-clean-contaminated" target="_blank" rel="noopener">EPA</a> &middot; <a href="https://www.thejoltnews.com/stories/tumwater-to-receive-grants-to-redevelop-old-brewery-site-and-wsdot-facility,14803" target="_blank" rel="noopener">The JOLT</a> &middot; <a href="https://washingtonstatestandard.com/2023/06/17/500k-grant-marks-small-step-toward-a-new-future-for-olympia-brewery-site/" target="_blank" rel="noopener">WA State Standard</a></p>
+                </div>
+              </details>
+            </div>
+            <div class="card">
+              <span class="pi-status ok">Underway</span>
+              <h4>Ecology + Environmental Partnerships</h4>
+              <p>Advances environmental evaluation, cleanup, and community engagement around contaminated and perceived-contaminated properties.</p>
+              <details class="disclose">
+                <summary>Background &amp; sources</summary>
+                <div class="disclose-body">
+                  <p>Washington&rsquo;s Department of Ecology is engaged on documented soil and groundwater contamination, including a 2019 transformer (PCB) release to the Deschutes River and Capitol Lake that reached a 2023 settlement, and is advancing the adjacent Deschutes Estuary restoration alongside the City, Olympia, and the Squaxin Island Tribe.</p>
+                  <p class="src">Sources: <a href="https://ecology.wa.gov/spills-cleanup/spills/spill-preparedness-response/responding-to-spill-incidents/spill-incidents/olympia-brewery-transformer-spill" target="_blank" rel="noopener">WA Ecology &mdash; spill response</a> &middot; <a href="https://ecology.wa.gov/about-us/who-we-are/news/2023/nov-8-ecology-olympia-brewery-owner-reach-settlement-over-2019-spill" target="_blank" rel="noopener">2023 settlement</a> &middot; <a href="https://ecology.wa.gov/ecologys-work-near-you/regional-work/southwest-region/deschutes-estuary-restoration" target="_blank" rel="noopener">Deschutes Estuary restoration</a></p>
+                </div>
+              </details>
+            </div>
+            <div class="card">
+              <span class="pi-status req">Underway / Funding Requested</span>
+              <h4>Planned Action EIS</h4>
+              <p class="pi-amt">$550K state funding requested</p>
+              <p>A district-level environmental and entitlement framework &mdash; development scenarios, mitigation, traffic, utilities, wetlands, floodplain, and cleanup.</p>
+              <details class="disclose">
+                <summary>Background &amp; sources</summary>
+                <div class="disclose-body">
+                  <p>The City has requested roughly $550,000 in state funding to run a year-long Brewery District Planned Action EIS in 2026, consolidating district-level environmental review ahead of individual development proposals.</p>
+                  <p class="src">Sources: <a href="https://www.ci.tumwater.wa.us/government/legislative-priorities" target="_blank" rel="noopener">City of Tumwater &mdash; 2026 Legislative Priorities</a> &middot; <a href="https://www.thejoltnews.com/stories/tumwater-to-receive-grants-to-redevelop-old-brewery-site-and-wsdot-facility,14803" target="_blank" rel="noopener">The JOLT</a></p>
+                </div>
+              </details>
+            </div>
+            <div class="card">
+              <span class="pi-status req">Local Investment + State Request</span>
+              <h4>E Street Connection</h4>
+              <p class="pi-amt">$2.1M local planning &amp; design &middot; $6.6M state requested</p>
+              <p>A new east-west corridor linking Capitol Boulevard and Cleveland Avenue, strengthening district access and mobility.</p>
+              <details class="disclose">
+                <summary>Background &amp; sources</summary>
+                <div class="disclose-body">
+                  <p>The City has invested roughly $2.1M locally in planning and design and is requesting about $6.6M in state transportation funding to complete design, engineering, permitting, and right-of-way for the new corridor and Deschutes River crossing.</p>
+                  <p class="src">Sources: <a href="https://www.ci.tumwater.wa.us/government/legislative-priorities/e-street-connection" target="_blank" rel="noopener">City of Tumwater</a> &middot; <a href="https://www.ci.tumwater.wa.us/government/legislative-priorities" target="_blank" rel="noopener">2026 Legislative Priorities</a> &middot; <a href="https://www.thejoltnews.com/stories/tumwater-residents-concerned-e-street-extension-will-rip-through-forested-hill,13825" target="_blank" rel="noopener">The JOLT</a></p>
+                </div>
+              </details>
+            </div>
+            <div class="card">
+              <span class="pi-status req">Long-Term Priority / Active Planning</span>
+              <h4>Deschutes Valley Trail + Riverfront Public Realm</h4>
+              <p>Connects parks, the Deschutes River, Capitol Lake, and Tumwater Falls into the recreation network surrounding the property.</p>
+              <details class="disclose">
+                <summary>Background &amp; sources</summary>
+                <div class="disclose-body">
+                  <p>The City accepted roughly $5.8M in state funding and approved a roughly $2.5M design contract for the trail, which links five parks and the riverfront and ties into Brewery Park at Tumwater Falls.</p>
+                  <p class="src">Sources: <a href="https://www.ci.tumwater.wa.us/departments/parks-recreation-department/parks-trails/deschutes-valley-trail" target="_blank" rel="noopener">City of Tumwater</a> &middot; <a href="https://www.thejoltnews.com/stories/tumwater-to-receive-58-million-in-state-funding-for-deschutes-valley-trail-project,16375" target="_blank" rel="noopener">The JOLT &mdash; $5.8M</a> &middot; <a href="https://www.thejoltnews.com/stories/tumwater-city-council-approves-25m-contract-to-design-deschutes-valley-trail,26715" target="_blank" rel="noopener">design contract</a></p>
+                </div>
+              </details>
+            </div>
+          </div>
+          <p class="src" style="margin-top:18px; font-size:11px; color:var(--faint);">Public figures include a mix of funded grants, local investment, and legislative funding requests. Requested items are identified separately and are not presented as committed funding.</p>
+        </section>
+
+        <!-- §3 · Adopted Framework + Public Realm -->
+        <section class="reveal">
+          <p class="eyebrow">Plan &amp; Public Realm</p>
+          <h2>It Begins With an Adopted District Plan</h2>
+          <p class="lead">Tumwater has established the Brewery District as a priority redevelopment area through the Brewery District Plan, adopted in 2014 and amended in 2020, positioning the district as a multi-modal activity center.</p>
+          <details class="disclose" style="border-top:none; margin-top:6px;">
+            <summary>Read more</summary>
+            <div class="disclose-body">
+              <p>The 2014 market analysis prepared for the City and Thurston County EDC reached a similar conclusion, identifying full build-out potential of roughly 425,000 square feet across residential, hotel, retail, office, and community amenities, with phased execution and public/private coordination.</p>
+            </div>
+          </details>
+          <div class="frame wide topo" style="margin-top:24px;" role="img" aria-label="Brewery District boundary map showing Custer Way, Capitol Boulevard, Tumwater Falls, Brewery Park, Deschutes River, and the brewery parcels"><div><p class="ft">Brewery District map</p><p class="fd">District boundary, key corridors, and brewery parcels in context.</p></div></div>
+          <div class="card" style="margin-top:24px;">
+            <h4>Plan Goals</h4>
+            <ul class="goals-list">
+              <li><span class="goals-check" aria-hidden="true">&#10003;</span>Mixed-use, walkable district identity</li>
+              <li><span class="goals-check" aria-hidden="true">&#10003;</span>Transportation enhancements and multimodal access</li>
+              <li><span class="goals-check" aria-hidden="true">&#10003;</span>Public-realm and open-space improvements</li>
+              <li><span class="goals-check" aria-hidden="true">&#10003;</span>Building-character and design guidance</li>
+              <li><span class="goals-check" aria-hidden="true">&#10003;</span>Historic identity and adaptive-reuse framework</li>
+              <li><span class="goals-check" aria-hidden="true">&#10003;</span>Implementation strategies and phasing</li>
+              <li><span class="goals-check" aria-hidden="true">&#10003;</span>Housing, businesses, and economic opportunity</li>
+            </ul>
+          </div>
+          <p class="lead" style="margin-top:34px;">Those goals are already taking shape in the public realm around the site &mdash; from the E Street Connection linking Capitol Boulevard and Cleveland Avenue to the Deschutes Valley Trail and riverfront.</p>
+          <div class="grid grid-2" style="margin-top:20px;">
+            <div class="card">
+              <h4>Access</h4>
+              <p>Boston Street SE improvements, Custer Way frontage, fire access, pedestrian safety, and ADA strategy. Access is the single biggest unlock for the lower site, and the City&rsquo;s E Street investment is already advancing it. What reads as a hard-to-reach parcel today becomes a connected, walkable address.</p>
+            </div>
+            <div class="card">
+              <h4>Trails</h4>
+              <p>Deschutes Valley Trail, park connections, regional trail alignment, and pedestrian circulation. A funded regional trail will route foot and bike traffic directly past the property, turning passing recreation into built-in daily demand. Few infill sites inherit a public amenity of this scale at their doorstep.</p>
+            </div>
+            <div class="card">
+              <h4>Riverfront</h4>
+              <p>Deschutes River, Tumwater Falls, Brewery Park, riparian restoration, and public access. The waterfall and river frontage are irreplaceable &mdash; the kind of natural setting that anchors a destination and cannot be engineered anywhere else. Restoration and public-access work only sharpen that edge.</p>
+            </div>
+            <div class="card">
+              <h4>Destination Uses</h4>
+              <p>Hospitality, restaurant, event, spa, outdoor gathering, wedding venue, kayak and water access, and courtyard programming. The setting supports premium, experience-driven uses that command rate and draw regional visitors. This is a place people travel to, not simply pass through.</p>
+            </div>
           </div>
         </section>
 
-        <!-- §2 · The Window Is Open Now -->
+        <!-- §4 · Environmental Readiness -->
         <section class="reveal">
-          <p class="eyebrow">The Window</p>
-          <h2>The Basis Advantage Compresses as the District Activates</h2>
-          <p class="lead">The public investments above are dated and underway, the 2026 E Street legislative ask, the estuary restoration in design, the funded trail, HB 1742 in the current session. Each one that completes makes the site more valuable and more contested. The basis advantage available to an early developer narrows as the district moves from planning to delivery.</p>
-          <div class="flow">
-            <div class="node"><h4>EPA / Ecology Grants</h4><p>Public funding supports environmental work.</p></div>
-            <div class="node"><h4>Environmental Studies</h4><p>Conditions assessed and documented.</p></div>
-            <div class="node"><h4>Planned Action EIS</h4><p>Coordinated environmental review pathway.</p></div>
-            <div class="node"><h4>Execution Clarity</h4><p>A more defined framework for capital.</p></div>
-            <div class="node"><h4>Private Investment</h4><p>Capital formation against a clear path.</p></div>
+          <p class="eyebrow">Cleanup &amp; Entitlement</p>
+          <h2>Environmental Readiness Is Already in Motion</h2>
+          <p class="lead">Tumwater has moved beyond concept planning into active environmental and brownfield work, with secured funding to investigate site conditions and a Planned Action EIS underway to evaluate redevelopment impacts upfront.</p>
+          <details class="disclose" style="border-top:none; margin-top:6px;">
+            <summary>Read more</summary>
+            <div class="disclose-body">
+              <p>The work translates a complex brownfield and riverfront setting &mdash; steep slopes, wetlands, FEMA flood zone, aquifer recharge area, and known contamination &mdash; into a clearer framework for approvals.</p>
+            </div>
+          </details>
+          <div class="icon-grid">
+            <div class="icon-card">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent); margin-bottom:16px; display:block;" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+              <h4>Assessment</h4>
+              <p>Phase I / Phase II investigations and site inventory. These define the nature and extent of soil and groundwater contamination before design decisions are made.</p>
+            </div>
+            <div class="icon-card">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent); margin-bottom:16px; display:block;" aria-hidden="true"><path d="M12 2.7S6 8.7 6 13.2a6 6 0 0 0 12 0C18 8.7 12 2.7 12 2.7z"/></svg>
+              <h4>Cleanup Planning</h4>
+              <p>Cleanup plans and reuse planning tied to future development. Remediation approaches are matched to intended end uses, so cleanup and construction can advance together rather than in sequence.</p>
+            </div>
+            <div class="icon-card">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent); margin-bottom:16px; display:block;" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M9 14l2 2 4-4"/></svg>
+              <h4>Planned Action EIS</h4>
+              <p>District-level review of impacts, alternatives, and mitigation. Future proposals tier off a single environmental record instead of starting SEPA review from scratch.</p>
+            </div>
+            <div class="icon-card">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent); margin-bottom:16px; display:block;" aria-hidden="true"><path d="M5 21V4"/><path d="M5 4h12l-2.5 4L17 12H5"/></svg>
+              <h4>Execution Framework</h4>
+              <p>A more predictable path for proposals consistent with the adopted framework. Entitlement, mitigation, and infrastructure expectations are defined up front, lowering approval risk for a future developer.</p>
+            </div>
+          </div>
+          <div class="pi-callout" style="margin-top:24px;">
+            <h4>State-Level Visibility</h4>
+            <p>Recent legislative activity has positioned the Olympia Brewery site within a broader conversation about environmentally sustainable urban redevelopment. While proposed funding and policy mechanisms should not be presented as committed capital, the activity reinforces the site&rsquo;s profile beyond local planning and signals continued public interest in advancing a viable redevelopment path.</p>
           </div>
         </section>
 
-        <!-- §3 · Planned Action EIS -->
+        <!-- §5 · Closing statement -->
         <section class="reveal">
-          <p class="eyebrow">Entitlement Acceleration</p>
-          <h2>Planned Action EIS: A Development &ldquo;Fast Lane&rdquo;</h2>
-          <p class="lead">The City is preparing a <em class="hl">Planned Action Environmental Impact Statement (EIS)</em> for the Brewery District, designed to substantially reduce development uncertainty and expedite future approvals.</p>
-          <p class="lead" style="margin-top:14px;">Upon completion, qualifying projects may rely upon district-wide environmental analysis rather than undertaking extensive project-specific environmental review. Benefits include:</p>
-          <ul class="hl-list">
-            <li>Reduced SEPA entitlement risk</li>
-            <li>Shortened approval timelines</li>
-            <li>Established mitigation frameworks</li>
-            <li>Greater certainty regarding traffic, utilities, wetlands, and floodplain constraints</li>
-            <li>Improved coordination with state and regional agencies</li>
-            <li>Enhanced lender and institutional investor confidence</li>
-          </ul>
-          <p class="lead" style="margin-top:16px;">For large-scale mixed-use projects, the value of entitlement certainty often exceeds the value of direct grant funding by reducing carrying costs, accelerating construction starts, and improving capital market execution. Tumwater has publicly described the Planned Action EIS as a mechanism to create a development &ldquo;fast lane&rdquo; for projects aligned with the Brewery District vision.</p>
-        </section>
-
-        <!-- §4 · Commitments & Alignment -->
-        <section class="reveal">
-          <p class="eyebrow">The Record</p>
-          <h2>Commitments Already in Place</h2>
-          <div class="table-wrap" style="margin-top:8px;">
-            <table class="table">
-              <thead><tr><th>Public action</th><th>Status / date</th><th>Source</th></tr></thead>
-              <tbody>
-                <tr><td>Deschutes Estuary restoration &amp; 5th Avenue Dam removal</td><td>Final EIS Oct 2022; design underway</td><td>WA DES Final EIS (2022)</td></tr>
-                <tr><td>EPA Brownfields assessment grant ($500,000)</td><td>Awarded 2023</td><td>EPA / City of Tumwater (2023)</td></tr>
-                <tr><td>Custer Way frontage paving</td><td>Observed complete, June 2024</td><td>KPFF (2024), citing City</td></tr>
-                <tr><td>Sanitary lift station &amp; river force main</td><td>City capital project, 2008</td><td>City of Tumwater (2008)</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <p class="eyebrow" style="margin-top:28px;">Where the City and a Developer Align</p>
-          <p class="lead" style="margin-top:8px;">A hospitality-led, mixed-use adaptive reuse project advances multiple public objectives at once, which is why the Brewery District is the City&rsquo;s highest redevelopment priority, backed by staff, funding, and policy.</p>
-          <div class="grid grid-3" style="margin-top:14px;">
-            <div class="card"><h4>Hospitality &amp; Tourism</h4><p>Destination lodging, dining, and craft-beverage visitor activity.</p></div>
-            <div class="card"><h4>Mixed-Use &amp; Housing</h4><p>A vibrant, walkable district with residential activation.</p></div>
-            <div class="card"><h4>Historic Preservation</h4><p>Adaptive reuse of the brewery structures.</p></div>
-            <div class="card"><h4>Corridor &amp; Infrastructure</h4><p>Capitol Boulevard reinvestment and public infrastructure activation.</p></div>
-            <div class="card"><h4>Jobs &amp; Tax Base</h4><p>Employment generation and tax-base growth.</p></div>
-            <div class="card"><h4>Brownfield Reuse</h4><p>Reuse of a highly visible legacy property.</p></div>
-          </div>
-          <div style="margin-top:22px; display:flex; gap:10px; flex-wrap:wrap;">
-            <button class="btn btn-primary" data-route="property-overview">See the property overview</button>
-            <button class="btn btn-ghost btn-arrow" data-route="location-overview">Location &amp; regional demand</button>
+          <div class="card" style="text-align:center; padding:52px 40px; background:var(--surface-2);">
+            <p style="font-family:var(--serif); font-size:21px; line-height:1.6; color:var(--text); max-width:64ch; margin:0 auto;">Few adaptive-reuse opportunities arrive with this much public groundwork already in motion. The opportunity is to convert that civic momentum into a privately executable mixed-use destination anchored by historic identity, riverfront access, and long-term regional relevance.</p>
+            <div style="margin-top:30px; display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
+              <button class="btn btn-primary" data-route="property-overview">See the property overview</button>
+              <button class="btn btn-ghost btn-arrow" data-route="dev-vision">Development vision</button>
+            </div>
           </div>
         </section>
       </div>
