@@ -423,6 +423,11 @@ ul{margin:0; padding:0; list-style:none;}
 .disclose-body p{font-size:13.5px; color:var(--text-3); line-height:1.7; margin:0 0 10px;}
 .disclose-body .src{margin:6px 0 0;}
 .disclose-body .src a{margin-right:2px;}
+/* full-width checklist (Plan Goals) */
+.goals-list{list-style:none; margin:14px 0 0; padding:0;}
+.goals-list li{display:flex; align-items:center; gap:14px; padding:14px 2px; border-top:1px solid var(--border-soft); font-size:15px; color:var(--text-2); line-height:1.45;}
+.goals-list li:first-child{border-top:none;}
+.goals-check{flex:none; width:24px; height:24px; border-radius:50%; background:var(--accent-wash); color:var(--accent); display:inline-flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; line-height:1;}
 
 /* print tear-sheets (C10) */
 @media print{
@@ -1106,6 +1111,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
 
         <!-- §1 · Hero -->
         <section class="reveal">
+          <p class="eyebrow">Public Platform</p>
           <h2>A Site Already Carried Forward by Public Investment</h2>
           <p class="lead">The public sector has already established the Brewery District as a priority redevelopment platform, with planning, environmental review, infrastructure strategy, and public-realm investment converging around the former Olympia Brewery site.</p>
           <p class="sub">Together these workstreams create a more organized path for mixed-use redevelopment: a legacy asset supported by civic momentum, entitlement visibility, environmental readiness, and a district-scale strategy designed to advance the property from long-dormant industrial site to regional destination.</p>
@@ -1124,6 +1130,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
 
         <!-- §2 · Public Investment Snapshot -->
         <section class="reveal">
+          <p class="eyebrow">Investment Snapshot</p>
           <h2>Six Public Investments Converging on One Outcome</h2>
           <p class="lead">Six distinct public workstreams, some funded and underway, others requested or in active planning, are advancing the same outcome: a redevelopment-ready Brewery District &mdash; each one reducing an unknown that typically slows complex adaptive-reuse projects.</p>
           <div class="grid grid-3" style="margin-top:24px;">
@@ -1208,41 +1215,39 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
 
         <!-- §3 · Adopted Public Framework -->
         <section class="reveal">
+          <p class="eyebrow">Adopted Framework</p>
           <h2>It Begins With an Adopted District Plan</h2>
           <p class="lead">Tumwater has established the Brewery District as a priority redevelopment area through the Brewery District Plan, adopted in 2014 and amended in 2020, positioning the district as a multi-modal activity center.</p>
-          <p class="sub">The significance is not only that a plan exists, but that the former brewery is embedded in a broader district strategy. The City frames the area around access, economic opportunity, placemaking, and reuse of a historically significant industrial site &mdash; treating the brewery as a district-scale opportunity rather than an isolated adaptive-reuse exercise.</p>
           <details class="disclose" style="border-top:none; margin-top:6px;">
             <summary>Read more</summary>
             <div class="disclose-body">
               <p>The 2014 market analysis prepared for the City and Thurston County EDC reached a similar conclusion, identifying full build-out potential of roughly 425,000 square feet across residential, hotel, retail, office, and community amenities, with phased execution and public/private coordination.</p>
             </div>
           </details>
-          <div class="grid grid-2" style="margin-top:24px; align-items:stretch;">
-            <div class="frame topo" role="img" aria-label="Brewery District boundary map showing Custer Way, Capitol Boulevard, Tumwater Falls, Brewery Park, Deschutes River, and the brewery parcels"><div><p class="ft">Brewery District map</p><p class="fd">District boundary, key corridors, and brewery parcels in context.</p></div></div>
-            <div class="card">
-              <h4>Plan Goals</h4>
-              <ul style="margin:12px 0 0; padding-left:18px; line-height:1.85; color:var(--text-2); font-size:14px;">
-                <li>Mixed-use, walkable district identity</li>
-                <li>Transportation enhancements and multimodal access</li>
-                <li>Public-realm and open-space improvements</li>
-                <li>Building-character and design guidance</li>
-                <li>Historic identity and adaptive-reuse framework</li>
-                <li>Implementation strategies and phasing</li>
-                <li>Housing, businesses, and economic opportunity</li>
-              </ul>
-            </div>
+          <div class="frame wide topo" style="margin-top:24px;" role="img" aria-label="Brewery District boundary map showing Custer Way, Capitol Boulevard, Tumwater Falls, Brewery Park, Deschutes River, and the brewery parcels"><div><p class="ft">Brewery District map</p><p class="fd">District boundary, key corridors, and brewery parcels in context.</p></div></div>
+          <div class="card" style="margin-top:24px;">
+            <h4>Plan Goals</h4>
+            <ul class="goals-list">
+              <li><span class="goals-check" aria-hidden="true">&#10003;</span>Mixed-use, walkable district identity</li>
+              <li><span class="goals-check" aria-hidden="true">&#10003;</span>Transportation enhancements and multimodal access</li>
+              <li><span class="goals-check" aria-hidden="true">&#10003;</span>Public-realm and open-space improvements</li>
+              <li><span class="goals-check" aria-hidden="true">&#10003;</span>Building-character and design guidance</li>
+              <li><span class="goals-check" aria-hidden="true">&#10003;</span>Historic identity and adaptive-reuse framework</li>
+              <li><span class="goals-check" aria-hidden="true">&#10003;</span>Implementation strategies and phasing</li>
+              <li><span class="goals-check" aria-hidden="true">&#10003;</span>Housing, businesses, and economic opportunity</li>
+            </ul>
           </div>
         </section>
 
         <!-- §4 · Environmental Readiness -->
         <section class="reveal">
+          <p class="eyebrow">Cleanup &amp; Entitlement</p>
           <h2>Environmental Readiness Is Already in Motion</h2>
           <p class="lead">Tumwater has moved beyond concept planning into active environmental and brownfield work, with secured funding to investigate site conditions and a Planned Action EIS underway to evaluate redevelopment impacts upfront.</p>
-          <p class="sub">The EPA Brownfields Assessment Grant funds site assessments, cleanup planning, and community outreach across the Brewery District and Capitol Boulevard corridor. The Planned Action EIS, the most important entitlement-readiness tool underway, examines redevelopment options, assesses impacts and cleanup needs, and recommends mitigation.</p>
           <details class="disclose" style="border-top:none; margin-top:6px;">
             <summary>Read more</summary>
             <div class="disclose-body">
-              <p>The work advances through partnerships with the EPA, Washington Department of Ecology, Tribes, property owners, and technical consultants. Together these efforts translate a complex brownfield and riverfront setting &mdash; steep slopes, wetlands, FEMA flood zone, aquifer recharge area, and known contamination &mdash; into a clearer framework for approvals.</p>
+              <p>The work translates a complex brownfield and riverfront setting &mdash; steep slopes, wetlands, FEMA flood zone, aquifer recharge area, and known contamination &mdash; into a clearer framework for approvals.</p>
             </div>
           </details>
           <div class="flow" style="margin-top:28px;">
@@ -1255,15 +1260,9 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
 
         <!-- §5 · Infrastructure and Public Realm -->
         <section class="reveal">
+          <p class="eyebrow">Access &amp; Public Realm</p>
           <h2>And the Public Realm Is Taking Shape Around It</h2>
           <p class="lead">The City&rsquo;s public investment agenda strengthens the brewery&rsquo;s surrounding environment, from the E Street Connection linking Capitol Boulevard and Cleveland Avenue to the Deschutes Valley Trail and riverfront public realm.</p>
-          <p class="sub">Public-realm investment is equally central: the Deschutes Valley Trail connects neighborhoods, parks, the river, Capitol Lake, and Tumwater Falls, and together with Brewery Park and the historic structures, supports a destination-oriented redevelopment thesis.</p>
-          <details class="disclose" style="border-top:none; margin-top:6px;">
-            <summary>Read more</summary>
-            <div class="disclose-body">
-              <p>Site access remains a critical execution factor &mdash; the civil due-diligence report identifies Boston Street SE as the only clear vehicular access to the lower site, with alternatives requiring significant earthwork, and future planning must address fire-apparatus access, pedestrian safety, ADA, and environmental constraints.</p>
-            </div>
-          </details>
           <div class="frame wide topo" style="margin-top:24px;" role="img" aria-label="Tumwater Falls and Deschutes River with the brewery campus beyond"><div><p class="ft">Tumwater Falls / Deschutes River</p><p class="fd">The riverfront public realm anchoring the site&rsquo;s destination positioning.</p></div></div>
           <div class="grid grid-2" style="margin-top:24px;">
             <div class="card">
