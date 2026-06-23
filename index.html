@@ -224,6 +224,8 @@ ul{margin:0; padding:0; list-style:none;}
 .pi-status.ok{background:var(--ok-wash); color:var(--ok);}
 .pi-status.req{background:var(--warn-wash); color:var(--warn);}
 .pi-amt{display:block; font-family:var(--serif); font-weight:600; font-size:15px; color:var(--text); letter-spacing:-0.01em; margin:0 0 10px;}
+.src a{color:inherit; text-decoration:underline; text-underline-offset:2px; text-decoration-thickness:1px; text-decoration-color:var(--border);}
+.src a:hover{color:var(--accent); text-decoration-color:var(--accent);}
 .pi-callout{border:1px solid var(--border); border-left:3px solid var(--accent); border-radius:0 var(--radius) var(--radius) 0; background:var(--surface-2); padding:26px 30px;}
 .pi-callout h4{margin:0 0 8px;}
 .pi-callout p{margin:0; color:var(--text-3); font-size:14px; line-height:1.7;}
@@ -467,8 +469,8 @@ ul{margin:0; padding:0; list-style:none;}
 /* full-width body text on the new tabs */
 .page.wide .lead{max-width:none; font-size:16.5px; line-height:1.6;}
 .page.wide .measure{max-width:none;}
-.page.wide .sub{max-width:none;}
-.page.wide .lead + .sub{margin-top:14px; font-size:15px; color:var(--text-3);}
+.page.wide .sub{max-width:none; font-size:16.5px; color:var(--text-2); line-height:1.6;}
+.page.wide .lead + .sub{margin-top:14px;}
 /* emphasized key statements inside leads */
 .page.wide .lead strong,.page.wide .measure strong{color:var(--text); font-weight:700;}
 .page.wide .lead em.hl{font-style:normal; font-weight:700; color:var(--text); box-shadow:inset 0 -0.42em 0 var(--accent-wash);}
@@ -1094,7 +1096,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
         <section class="reveal">
           <h2>A Site Already Carried Forward by Public Investment</h2>
           <p class="lead">The public sector has already established the Brewery District as a priority redevelopment platform, with planning, environmental review, infrastructure strategy, and public-realm investment converging around the former Olympia Brewery site.</p>
-          <p class="sub">Tumwater&rsquo;s adopted Brewery District Plan, brownfield assessment work, Planned Action EIS efforts, transportation priorities, trail planning, riverfront initiatives, and state-level visibility create a more organized path for mixed-use redevelopment, a legacy asset supported by civic momentum, entitlement visibility, environmental readiness, and a district-scale strategy designed to advance the property from long-dormant industrial site to regional destination.</p>
+          <p class="sub">Together these workstreams create a more organized path for mixed-use redevelopment: a legacy asset supported by civic momentum, entitlement visibility, environmental readiness, and a district-scale strategy designed to advance the property from long-dormant industrial site to regional destination.</p>
           <div class="frame wide topo" style="margin-top:24px;" role="img" aria-label="Oblique aerial of the former brewery, Deschutes River, Tumwater Falls, Brewery Park, and the surrounding Brewery District">
             <div>
               <p class="ft">Brewery District aerial</p>
@@ -1117,40 +1119,40 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
               <span class="pi-status ok">Adopted / Amended</span>
               <h4>Brewery District Plan</h4>
               <p>Establishes the policy foundation for a mixed-use, walkable district with transportation, public-realm, building-character, implementation, and phasing strategies.</p>
-              <p class="src" style="margin-top:14px; font-size:11px; color:var(--faint);">City of Tumwater</p>
+              <p class="src" style="margin-top:14px; font-size:11px; color:var(--faint);"><a href="https://www.ci.tumwater.wa.us/departments/community-development-department/long-range-planning/brewery-district-plan" target="_blank" rel="noopener">City of Tumwater</a></p>
             </div>
             <div class="card">
               <span class="pi-status ok">Funded / Underway</span>
               <h4>Brownfield Assessment Funding</h4>
               <p class="pi-amt">$500K EPA Brownfields Assessment Grant</p>
               <p>Supports environmental site assessments, cleanup planning, reuse planning, community outreach, and a clearer understanding of redevelopment conditions.</p>
-              <p class="src" style="margin-top:14px; font-size:11px; color:var(--faint);">EPA, City of Tumwater</p>
+              <p class="src" style="margin-top:14px; font-size:11px; color:var(--faint);"><a href="https://www.epa.gov/brownfields" target="_blank" rel="noopener">EPA</a>, <a href="https://www.ci.tumwater.wa.us/business/developing-our-city" target="_blank" rel="noopener">City of Tumwater</a></p>
             </div>
             <div class="card">
               <span class="pi-status ok">Underway</span>
               <h4>Ecology + Environmental Partnerships</h4>
               <p>Advances environmental evaluation, early planning, economic analysis, and community engagement around contaminated or perceived-contaminated properties.</p>
-              <p class="src" style="margin-top:14px; font-size:11px; color:var(--faint);">WA Dept. of Ecology, City of Tumwater, private owners, agency partners</p>
+              <p class="src" style="margin-top:14px; font-size:11px; color:var(--faint);"><a href="https://ecology.wa.gov" target="_blank" rel="noopener">WA Dept. of Ecology</a>, <a href="https://www.ci.tumwater.wa.us/business/developing-our-city" target="_blank" rel="noopener">City of Tumwater</a>, private owners, agency partners</p>
             </div>
             <div class="card">
               <span class="pi-status req">Underway / Funding Requested</span>
               <h4>Planned Action EIS</h4>
               <p class="pi-amt">$550K state funding requested</p>
               <p>Creates a district-level environmental and entitlement framework addressing development scenarios, mitigation, traffic, utilities, wetlands, floodplain considerations, and cleanup needs.</p>
-              <p class="src" style="margin-top:14px; font-size:11px; color:var(--faint);">City of Tumwater, state agencies, technical consultants</p>
+              <p class="src" style="margin-top:14px; font-size:11px; color:var(--faint);"><a href="https://www.ci.tumwater.wa.us/government/legislative-priorities" target="_blank" rel="noopener">City of Tumwater</a>, state agencies, technical consultants</p>
             </div>
             <div class="card">
               <span class="pi-status req">Local Investment + State Request</span>
               <h4>E Street Connection</h4>
               <p class="pi-amt">$2.1M local planning &amp; design &middot; $6.6M state requested</p>
               <p>Supports broader east-west mobility, district access, and the City&rsquo;s long-term vision for a walkable economic hub around the Craft District, Brewery property, trails, and riverfront.</p>
-              <p class="src" style="margin-top:14px; font-size:11px; color:var(--faint);">City of Tumwater, Washington State Legislature</p>
+              <p class="src" style="margin-top:14px; font-size:11px; color:var(--faint);"><a href="https://www.ci.tumwater.wa.us/government/legislative-priorities/e-street-connection" target="_blank" rel="noopener">City of Tumwater</a>, <a href="https://leg.wa.gov" target="_blank" rel="noopener">Washington State Legislature</a></p>
             </div>
             <div class="card">
               <span class="pi-status req">Long-Term Priority / Active Planning</span>
               <h4>Deschutes Valley Trail + Riverfront Public Realm</h4>
               <p>Connects parks, trails, Capitol Lake, the Deschutes River, Tumwater Falls, and the broader recreation network surrounding the property.</p>
-              <p class="src" style="margin-top:14px; font-size:11px; color:var(--faint);">City of Tumwater, Parks Department, regional partners</p>
+              <p class="src" style="margin-top:14px; font-size:11px; color:var(--faint);"><a href="https://www.ci.tumwater.wa.us/departments/parks-recreation-department/parks-trails/deschutes-valley-trail" target="_blank" rel="noopener">City of Tumwater</a>, Parks Department, regional partners</p>
             </div>
           </div>
           <p class="src" style="margin-top:18px; font-size:11px; color:var(--faint);">Public figures include a mix of funded grants, local investment, and legislative funding requests. Requested items are identified separately and are not presented as committed funding.</p>
@@ -1176,32 +1178,18 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
               </ul>
             </div>
           </div>
-          <div class="grid grid-3" style="margin-top:24px;">
-            <div class="card">
-              <h4>Planning Foundation</h4>
-              <p>The Brewery District Plan establishes the public policy structure for redevelopment, public realm, transportation, and district identity.</p>
-            </div>
-            <div class="card">
-              <h4>Market Direction</h4>
-              <p>Mixed-use programming has been studied across residential, hospitality, retail, office, and community-oriented uses.</p>
-            </div>
-            <div class="card">
-              <h4>Public / Private Logic</h4>
-              <p>Public-sector participation is recognized as important for infrastructure, parking, access, and historic rehabilitation economics.</p>
-            </div>
-          </div>
         </section>
 
         <!-- §4 · Environmental Readiness -->
         <section class="reveal">
           <h2>Environmental Readiness Is Already in Motion</h2>
           <p class="lead">Tumwater has moved beyond concept planning into active environmental and brownfield work, with secured funding to investigate site conditions and a Planned Action EIS underway to evaluate redevelopment impacts upfront.</p>
-          <p class="sub">The most concrete funded item is the EPA Brownfields Assessment Grant, supporting site assessments, cleanup planning, inventory, reuse planning, and community outreach across the Brewery District and Capitol Boulevard corridor, advanced through partnerships with the EPA, Washington Department of Ecology, Tribes, property owners, and technical consultants. The Planned Action EIS is the most important entitlement-readiness tool currently underway: it examines multiple redevelopment options, assesses impacts and cleanup needs, and recommends mitigation, translating a complex brownfield and riverfront setting, one with steep slopes, wetlands, riparian habitat, FEMA flood zone, Critical Aquifer Recharge Area, and known soil and groundwater contamination, into a clearer framework for approvals.</p>
+          <p class="sub">The EPA Brownfields Assessment Grant funds site assessments, cleanup planning, and community outreach across the Brewery District and Capitol Boulevard corridor. It advances through partnerships with the EPA, Washington Department of Ecology, Tribes, property owners, and technical consultants. The Planned Action EIS, the most important entitlement-readiness tool underway, examines redevelopment options, assesses impacts and cleanup needs, and recommends mitigation. Together they translate a complex brownfield and riverfront setting&mdash;steep slopes, wetlands, FEMA flood zone, aquifer recharge area, and known contamination&mdash;into a clearer framework for approvals.</p>
           <div class="flow" style="margin-top:28px;">
-            <div class="node"><h4>Assessment</h4><p>Phase I / Phase II investigations and site inventory.</p></div>
-            <div class="node"><h4>Cleanup Planning</h4><p>Cleanup plans and reuse planning tied to future development.</p></div>
-            <div class="node"><h4>Planned Action EIS</h4><p>District-level review of impacts, alternatives, and mitigation.</p></div>
-            <div class="node"><h4>Execution Framework</h4><p>A more predictable path for proposals consistent with the adopted framework.</p></div>
+            <div class="node"><h4>Assessment</h4><p>Phase I / Phase II investigations and site inventory. These define the nature and extent of soil and groundwater contamination before design decisions are made.</p></div>
+            <div class="node"><h4>Cleanup Planning</h4><p>Cleanup plans and reuse planning tied to future development. Remediation approaches are matched to intended end uses, so cleanup and construction can advance together rather than in sequence.</p></div>
+            <div class="node"><h4>Planned Action EIS</h4><p>District-level review of impacts, alternatives, and mitigation. Future proposals tier off a single environmental record instead of starting SEPA review from scratch.</p></div>
+            <div class="node"><h4>Execution Framework</h4><p>A more predictable path for proposals consistent with the adopted framework. Entitlement, mitigation, and infrastructure expectations are defined up front, lowering approval risk for a future developer.</p></div>
           </div>
           <div class="pi-callout" style="margin-top:24px;">
             <h4>Environmental Readiness</h4>
