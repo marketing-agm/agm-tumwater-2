@@ -15,6 +15,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+<!-- MapLibre GL (interactive Access & Mobility map, Location tab) -->
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
+<script defer src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 <style>
 /* ============================================================
    AGM TEMPLATE — TOKENS
@@ -233,6 +236,74 @@ ul{margin:0; padding:0; list-style:none;}
 #page-city-investing-first section{margin-bottom:52px;}
 #page-city-investing-first section + section{border-top:none; padding-top:0;}
 #page-city-investing-first h2{margin-bottom:14px;}
+
+/* location: access & mobility collapsible rows */
+.amx{border-top:1px solid var(--border-soft);}
+.amx:last-of-type{border-bottom:1px solid var(--border-soft);}
+.amx summary{cursor:pointer; list-style:none; display:flex; align-items:center; gap:14px; padding:20px 2px; font:600 16px var(--serif); color:var(--text); letter-spacing:-0.01em;}
+.amx summary::-webkit-details-marker{display:none;}
+.amx .am-ico{flex:0 0 auto; color:var(--accent); display:block;}
+.amx .am-attr{margin-left:auto; font:500 11.5px var(--sans); color:var(--text-3); text-transform:uppercase; letter-spacing:.05em; text-align:right;}
+.amx summary::after{content:"+"; font:400 20px var(--sans); color:var(--faint); margin-left:14px; transition:transform .15s var(--ease);}
+.amx[open] summary::after{transform:rotate(45deg);}
+.amx .am-body{padding:2px 0 24px 38px;}
+.amx .am-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px 30px;}
+.amx .am-lbl{font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--accent); margin:0 0 5px;}
+.amx .am-grid p{font-size:14px; line-height:1.65; color:var(--text-3); margin:0;}
+.amx .am-vis{margin-top:18px;}
+@media(max-width:620px){.amx .am-grid{grid-template-columns:1fr;} .amx .am-attr{display:none;} .amx .am-body{padding-left:0;}}
+
+/* location: interactive regional corridor map */
+.cm-wrap{position:relative; border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; background:var(--surface-2);}
+#corridorMap{width:100%; height:560px;}
+.cm-wrap .maplibregl-ctrl-attrib{font-size:10px;}
+/* corridor pins */
+.cm-pin{width:15px; height:15px; border-radius:50%; background:var(--pin,#2383e2); border:2.5px solid #fff; box-shadow:0 1px 4px rgba(0,0,0,.35); cursor:pointer; transition:transform .12s var(--ease);}
+.cm-pin:hover{transform:scale(1.22);}
+.cm-pin-site{width:22px; height:22px; box-shadow:0 0 0 5px color-mix(in srgb, var(--pin) 26%, transparent),0 1px 5px rgba(0,0,0,.4);}
+/* popup card (redesigned) */
+.cm-wrap .maplibregl-popup-content{padding:0; border-radius:10px; overflow:hidden; box-shadow:0 10px 34px rgba(0,0,0,.22); border:1px solid var(--border);}
+.cm-wrap .maplibregl-popup-close-button{width:26px; height:26px; font-size:18px; color:#fff; right:4px; top:4px; border-radius:50%; line-height:1;}
+.cm-wrap .maplibregl-popup-tip{display:none;}
+.cmp{font-family:var(--sans); background:var(--surface);}
+.cmp-head{background:var(--seg,#2383e2); padding:13px 16px 12px;}
+.cmp-badge{display:inline-block; font-size:9.5px; font-weight:700; text-transform:uppercase; letter-spacing:.09em; color:#fff; opacity:.82;}
+.cmp-title{display:block; font-family:var(--serif); font-size:18px; font-weight:700; color:#fff; letter-spacing:-0.01em; margin-top:3px; line-height:1.2;}
+a.cmp-link{text-decoration:none; transition:opacity .12s var(--ease);}
+a.cmp-link:hover{opacity:.82; text-decoration:underline; text-underline-offset:2px;}
+.cmp-sub{display:block; font-size:11px; font-weight:600; color:#fff; opacity:.85; margin-top:3px; letter-spacing:.01em;}
+.cmp-body{padding:13px 16px 15px;}
+.cmp-row + .cmp-row{margin-top:11px; padding-top:11px; border-top:1px solid var(--border-soft);}
+.cmp-lbl{display:block; font-size:9.5px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:var(--seg,var(--accent)); margin-bottom:3px;}
+.cmp-row p{margin:0; font-size:13px; line-height:1.5; color:var(--text-2);}
+.am-mapfallback{display:flex; align-items:center; justify-content:center; text-align:center; padding:28px; color:var(--text-3); font-size:13px; line-height:1.6;}
+.am-legend{position:absolute; left:12px; top:12px; z-index:2; display:flex; flex-direction:column; align-items:flex-start; gap:6px; background:color-mix(in srgb, var(--surface) 90%, transparent); border:1px solid var(--border); border-radius:var(--radius); padding:9px 11px; backdrop-filter:blur(6px);}
+.am-toggle{display:inline-flex; align-items:center; gap:8px; font:600 11.5px var(--sans); color:var(--text-3); background:transparent; border:none; padding:3px 4px; cursor:pointer; letter-spacing:.01em; line-height:1.2;}
+.am-toggle::before{content:""; width:11px; height:11px; border-radius:50%; background:var(--am-c,var(--accent)); opacity:.22; transition:opacity .15s var(--ease);}
+.am-toggle.is-on{color:var(--text);}
+.am-toggle.is-on::before{opacity:1;}
+.am-toggle[data-seg="north"]{--am-c:#2383e2;}
+.am-toggle[data-seg="south"]{--am-c:#d9803a;}
+.am-toggle[data-seg="site"]{--am-c:#c0392b;}
+.am-toggle[data-seg="comp"]{--am-c:#14857a;}
+.am-toggle[data-seg="conn"]{--am-c:#9aa0a6;}
+.am-rows .amx:first-of-type,.amx:first-of-type{border-top:none;}
+/* highway connector labels */
+.cm-hwy{font:700 10px var(--sans); letter-spacing:.03em; color:var(--text-2); background:color-mix(in srgb, var(--surface) 92%, transparent); border:1px solid var(--border-strong); border-radius:3px; padding:1px 5px; white-space:nowrap; box-shadow:0 1px 3px rgba(0,0,0,.14);}
+@media(max-width:860px){#corridorMap{height:400px;}}
+/* location: tighter section rhythm */
+#page-location-overview section{margin-bottom:52px;}
+#page-location-overview section + section{padding-top:46px;}
+/* comparable-destination cards */
+.comp-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:14px; margin-top:20px;}
+.comp-card{padding:24px 26px;}
+.comp-card h4{margin-bottom:7px; font-size:15px;}
+.comp-card .comp-rel{color:var(--text-3); font-size:12.5px; line-height:1.55; margin:0 0 14px; padding-bottom:13px; border-bottom:1px solid var(--border-soft);}
+.comp-card ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:11px;}
+.comp-card li{font-size:13.5px; line-height:1.3;}
+.comp-card li a{color:var(--text); font-weight:600; text-decoration:none; border-bottom:1px solid color-mix(in srgb, var(--accent) 55%, transparent); transition:color .12s var(--ease), border-color .12s var(--ease);}
+.comp-card li a:hover{color:var(--accent); border-color:var(--accent);}
+.comp-card li .comp-loc{display:block; color:var(--faint); font-size:11px; margin-top:2px; letter-spacing:.01em;}
 
 /* image frames */
 .topo{background-image:repeating-linear-gradient(115deg, transparent 0 13px, var(--border-soft) 13px 14px);}
@@ -847,7 +918,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
           <p class="eyebrow">Water as the Origin Story</p>
           <h2>A Landmark Shaped by Water, Trade, and Industry</h2>
           <p class="lead">The Olympia Brewery site is one of Tumwater&rsquo;s most significant historic and cultural landmarks, a riverfront place shaped by the Deschutes River, Tumwater Falls, artesian water, early regional commerce, and the Olympia Beer brand. Long before its industrial use, the area was stewarded by the Steh-chass people for thousands of years, with the river and nearby inlet supporting settlement, trade, and regional connection.</p>
-          <div class="frame wide has-img" style="margin-top:24px;" role="button" tabindex="0" aria-label="Aerial context: the Deschutes River, Tumwater Falls, Tumwater Historical Park, and the brewery site"><img src="images/tb-overhead-shot.png" alt="Aerial context map showing the Deschutes River, Tumwater Falls, Tumwater Historical Park, and the Old Olympia Brewery buildings" /><div><p class="ft">Site context</p><p class="fd">Water, falls, river, park, and the brewery site in one frame.</p></div></div>
+          <div class="frame wide has-img" style="margin-top:24px;" role="button" tabindex="0" aria-label="Aerial context: the Deschutes River, Tumwater Falls, Tumwater Historical Park, and the brewery site"><img src="images/tb-overhead-shot-new.png" alt="Aerial context map showing the Deschutes River, Tumwater Falls, Tumwater Historical Park, and the Old Olympia Brewery buildings" /><div><p class="ft">Site context</p><p class="fd">Water, falls, river, park, and the brewery site in one frame.</p></div></div>
           <p class="lead" style="margin-top:24px;">The property became part of Tumwater&rsquo;s industrial identity in 1896, when the brewery site was selected for its proximity to Tumwater Falls and the artesian springs below the property. That relationship between water, power, and production became the foundation of Olympia Beer&rsquo;s identity and inspired its famous slogan: &ldquo;It&rsquo;s the Water.&rdquo;</p>
         </section>
 
@@ -1319,45 +1390,190 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
       <!-- ================= TAB 5 · LOCATION & REGIONAL DEMAND ================= -->
       <div class="page wide" id="page-location-overview">
 
-        <!-- §1 · Location -->
+        <!-- §1 · Executive Location Thesis -->
         <section class="reveal">
-          <p class="eyebrow">Location</p>
-          <h2>At the Junction of I-5 and the Deschutes River Valley</h2>
-          <p class="lead">The site is located in Tumwater, Washington, the southernmost city in the Puget Sound region, minutes from the Washington State Capitol campus and downtown Olympia, with direct I-5 visibility and access from the Custer Way interchange.</p>
-          <div class="frame wide has-img" style="margin-top:22px;" role="button" tabindex="0" aria-label="The site in its regional setting"><img src="images/tb-overhead-shot.png" alt="The brewery campus and Deschutes River in context" /><div><p class="ft">The site in context</p><p class="fd">Detailed regional access map available in the data room.</p></div></div>
-          <div style="margin-top:16px; display:flex; flex-wrap:wrap; gap:8px;">
-            <span class="chip">Seattle</span><span class="chip">Tacoma</span><span class="chip">JBLM</span><span class="chip">Olympia</span><span class="chip">Port of Olympia</span><span class="chip">Airport</span><span class="chip">I-5</span><span class="chip">Government Center</span>
+          <p class="eyebrow">Location &amp; Market Context</p>
+          <h2>A Rare Convergence of Access, River, and History</h2>
+          <p class="lead">Tumwater Brewery is a rare South Sound asset where regional corridor access, a riverfront setting, historic architecture, and civic proximity converge on one 34-acre platform, visible and connected from the I-5 / Highway 101 junction, yet protected by wooded topography, the Deschutes River, Tumwater Falls, and the historic brewery itself.</p>
+          <div class="frame wide has-img" style="margin-top:24px;" role="button" tabindex="0" aria-label="Aerial of the brewery campus, Deschutes River, Tumwater Falls, Capitol Lake, and the Olympia / Capitol direction"><img src="images/tb-overhead-shot-new.png" alt="Aerial showing I-5, the Deschutes River, Tumwater Falls, the historic brewery campus, and the Olympia / Capitol direction" /><div><p class="ft">Regional setting</p><p class="fd">I-5, the Deschutes River, Tumwater Falls, Capitol Lake, and the historic brewery campus.</p></div></div>
+          <div class="grid grid-2" style="margin-top:24px;">
+            <div class="card"><h4>Regional Access</h4><p>I-5 and Highway 101 corridor access linking Olympia, Tacoma, Seattle, Portland, and the Olympic Peninsula.</p></div>
+            <div class="card"><h4>Riverfront Identity</h4><p>Direct relationship to the Deschutes River, Tumwater Falls, Brewery Park, and the Capitol Lake landscape.</p></div>
+            <div class="card"><h4>Historic Character</h4><p>Olympia Brewery legacy, pre-Prohibition architecture, Brew Tower presence, and deep regional recognition.</p></div>
+            <div class="card"><h4>Campus Potential</h4><p>Secluded arrival, internal walkability, lodging, events, dining, wellness, public realm, and trail activation.</p></div>
+          </div>
+          <div class="pi-callout" style="margin-top:20px;"><h4>The Strategic Takeaway</h4><p>Between a dense, expensive urban north and a sparse, highway-oriented south, Tumwater is the accessible white space, a riverfront, historic, walkable campus that converts Seattle&ndash;Portland pass-through into intentional, destination stays. Corridor visibility, a one-of-a-kind setting, and no comparable experiential supply nearby make the position hard to replicate.</p></div>
+        </section>
+
+        <!-- §2 · Regional Corridor Deep Dive -->
+        <section class="reveal">
+          <p class="eyebrow">Regional Corridor</p>
+          <h2>The I-5 Hospitality Spine and the Regional Comparable Set</h2>
+          <p class="lead">Tumwater Brewery sits within one of the most heavily traveled hospitality corridors in the Pacific Northwest. Interstate 5 functions as a continuous chain of lodging nodes, from large urban convention hotels to highway-oriented select-service clusters. The map plots both the corridor markets and the experiential destination hotels, the true comparable set, across Washington: supply is abundant, but very little of it pairs corridor access with a destination-quality, experiential environment.</p>
+          <div class="cm-wrap" style="margin-top:22px;">
+            <div id="corridorMap" role="application" aria-label="Interactive map of the I-5 hospitality corridor and Washington experiential hotel comparables, with Tumwater at the midpoint"></div>
+            <div class="am-legend" id="cmLegend" role="group" aria-label="Corridor filter">
+              <button type="button" class="am-toggle is-on" data-seg="north">Northern Markets</button>
+              <button type="button" class="am-toggle is-on" data-seg="south">Southern Markets</button>
+              <button type="button" class="am-toggle is-on" data-seg="site">Tumwater Brewery</button>
+              <button type="button" class="am-toggle is-on" data-seg="comp">Comparable Hotels</button>
+              <button type="button" class="am-toggle is-on" data-seg="conn">Highway Connections</button>
+            </div>
+          </div>
+          <p class="src" style="margin:8px 0 0; font-size:11px; color:var(--faint);">Illustrative corridor and market locations, approximate for orientation. Select a marker for market detail. Base map &copy; OpenStreetMap contributors, &copy; CARTO.</p>
+
+          <p class="sub" style="margin-top:14px;">Select any marker for detail, corridor markets show positioning and representative hotels; each comparable links to its website. Use the legend to isolate a layer.</p>
+          <div class="grid grid-2" style="margin-top:20px;">
+            <div class="pi-callout"><h4>North &mdash; Olympia to Seattle</h4><p>Dense, urban, and expensive. Tumwater is the decompression point, nature, history, and space within a 60&ndash;90 minute drive.</p></div>
+            <div class="pi-callout"><h4>South &mdash; Olympia to Portland</h4><p>Fragmented and largely utilitarian, a clear gap for a high-quality, experiential, adult-oriented destination.</p></div>
+          </div>
+
+          <h3 style="margin-top:34px;">The Real Comparables Are Experiential Destinations</h3>
+          <p class="lead" style="margin-top:8px;">Local select-service hotels validate steady demand but do not compete on experience or setting. Tumwater&rsquo;s true comparable set is the experiential destinations mapped above, drawing visitors statewide on setting, history, food and beverage, and wellness rather than location alone.</p>
+          <div class="comp-grid">
+            <div class="card comp-card">
+              <h4>Adaptive-reuse &amp; heritage</h4>
+              <p class="comp-rel">Campus-based lodging, dining, and events inside historic buildings.</p>
+              <ul>
+                <li><a href="https://www.mcmenamins.com/anderson-school" target="_blank" rel="noopener">McMenamins Anderson School</a><span class="comp-loc">Bothell</span></li>
+                <li><a href="https://www.mcmenamins.com/elks-temple" target="_blank" rel="noopener">McMenamins Elks Temple</a><span class="comp-loc">Tacoma</span></li>
+                <li><a href="https://www.thelodgeatstedward.com" target="_blank" rel="noopener">The Lodge at St. Edward State Park</a><span class="comp-loc">Kenmore</span></li>
+                <li><a href="https://www.thornewoodcastle.com" target="_blank" rel="noopener">Thornewood Castle</a><span class="comp-loc">Lakewood</span></li>
+                <li><a href="https://www.rosarioresort.com" target="_blank" rel="noopener">Rosario Resort</a><span class="comp-loc">Orcas Island</span></li>
+              </ul>
+            </div>
+            <div class="card comp-card">
+              <h4>Nature &amp; wellness resorts</h4>
+              <p class="comp-rel">Water, falls, and forest settings with spa, retreat, and wedding programming, the closest analog to the falls-and-river site.</p>
+              <ul>
+                <li><a href="https://www.salishlodge.com" target="_blank" rel="noopener">Salish Lodge &amp; Spa</a><span class="comp-loc">Snoqualmie Falls</span></li>
+                <li><a href="https://www.alderbrookresort.com" target="_blank" rel="noopener">Alderbrook Resort &amp; Spa</a><span class="comp-loc">Hood Canal</span></li>
+                <li><a href="https://suncadia.com" target="_blank" rel="noopener">Suncadia Resort</a><span class="comp-loc">Cle Elum</span></li>
+                <li><a href="https://www.skamania.com" target="_blank" rel="noopener">Skamania Lodge</a><span class="comp-loc">Columbia Gorge</span></li>
+                <li><a href="https://www.semiahmoo.com" target="_blank" rel="noopener">Semiahmoo Resort</a><span class="comp-loc">Blaine</span></li>
+                <li><a href="https://www.sunmountainlodge.com" target="_blank" rel="noopener">Sun Mountain Lodge</a><span class="comp-loc">Methow Valley</span></li>
+              </ul>
+            </div>
+            <div class="card comp-card">
+              <h4>Wine-country boutique</h4>
+              <p class="comp-rel">Destination dining and wine tourism driving premium midweek and weekend rates.</p>
+              <ul>
+                <li><a href="https://www.willowslodge.com" target="_blank" rel="noopener">Willows Lodge</a><span class="comp-loc">Woodinville</span></li>
+                <li><a href="https://www.eritageresort.com" target="_blank" rel="noopener">Eritage Resort</a><span class="comp-loc">Walla Walla</span></li>
+                <li><a href="https://marcuswhitmanhotel.com" target="_blank" rel="noopener">The Marcus Whitman</a><span class="comp-loc">Walla Walla</span></li>
+                <li><a href="https://www.finchwallawalla.com" target="_blank" rel="noopener">The FINCH</a><span class="comp-loc">Walla Walla</span></li>
+                <li><a href="https://www.lodgelakechelan.com" target="_blank" rel="noopener">The Lodge at Lake Chelan</a><span class="comp-loc">Manson</span></li>
+                <li><a href="https://sagecliffe.com" target="_blank" rel="noopener">Sagecliffe Resort &amp; Spa</a><span class="comp-loc">Quincy (formerly Cave B)</span></li>
+              </ul>
+            </div>
+            <div class="card comp-card">
+              <h4>Alpine village destinations</h4>
+              <p class="comp-rel">Immersive, themed, wellness-led destinations commanding strong year-round rates.</p>
+              <ul>
+                <li><a href="https://posthotelleavenworth.com" target="_blank" rel="noopener">Posthotel Leavenworth</a><span class="comp-loc">Leavenworth &middot; adults-only spa</span></li>
+                <li><a href="https://www.sleepinglady.com" target="_blank" rel="noopener">Sleeping Lady Mountain Resort</a><span class="comp-loc">Leavenworth</span></li>
+              </ul>
+            </div>
+            <div class="card comp-card">
+              <h4>Regional design &amp; landmark</h4>
+              <p class="comp-rel">Differentiated identity and design within a secondary-city market.</p>
+              <ul>
+                <li><a href="https://www.hotelmuranotacoma.com" target="_blank" rel="noopener">Hotel Murano</a><span class="comp-loc">Tacoma</span></li>
+                <li><a href="https://www.davenporthotelcollection.com" target="_blank" rel="noopener">The Davenport</a><span class="comp-loc">Spokane</span></li>
+                <li><a href="https://www.innatthemarket.com" target="_blank" rel="noopener">Inn at the Market</a><span class="comp-loc">Seattle</span></li>
+              </ul>
+            </div>
           </div>
         </section>
 
-        <!-- §2 · Adjacencies -->
+        <!-- §3 · Access, Mobility, Connectivity -->
         <section class="reveal">
-          <p class="eyebrow">Adjacencies</p>
-          <h2>A Setting That Serves Local Demand and Regional Visitors</h2>
-          <div class="grid grid-3" style="margin-top:8px;">
-            <div class="card"><h4>Deschutes River &amp; Tumwater Falls</h4><p>Signature natural features at the property edge.</p></div>
-            <div class="card"><h4>Tumwater Historical Park &amp; Schmidt House</h4><p>Adjacent civic and heritage assets.</p></div>
-            <div class="card"><h4>Custer Way / Capitol Boulevard</h4><p>Arterial frontage at I-5 Exit 103.</p></div>
-            <div class="card"><h4>Planned Deschutes Estuary Restoration</h4><p>State-led project along the frontage.</p></div>
-            <div class="card"><h4>Union Pacific Rail Corridor</h4><p>Defines the upland edge of the site.</p></div>
-            <div class="card"><h4>Brewery / Craft District</h4><p>Surrounding redevelopment context.</p></div>
+          <p class="eyebrow">Access &amp; Mobility</p>
+          <h2>Connected to the Corridor, Protected by the Setting</h2>
+          <p class="lead">The site balances regional connectivity with a secluded, resort-like arrival. Each layer of access, from the interstate to the internal pedestrian realm, reinforces the experience of moving from infrastructure into a destination.</p>
+          <p class="sub" style="margin-top:10px;">Site reference: 110 Deschutes Way SW, Tumwater, WA 98501. Expand each category for detail and opportunities.</p>
+          <div style="margin-top:18px;">
+            <details class="amx" data-layer="vehicular">
+              <summary><svg class="am-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l1.5-4.5A2 2 0 0 1 8.4 7h7.2a2 2 0 0 1 1.9 1.5L19 13"/><path d="M3 13h18v4a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><circle cx="7" cy="16" r="0.5"/><circle cx="17" cy="16" r="0.5"/></svg>Vehicular Access<span class="am-attr">Regional highway connectivity</span></summary>
+              <div class="am-body">
+                <div class="am-grid">
+                  <div><p class="am-lbl">Details</p><p>Immediate access to I-5 via Tumwater Blvd and Capitol Blvd; direct connection to Highway 101; 5 minutes to Olympia, 60 minutes to Tacoma, 90 minutes to Seattle and Portland.</p></div>
+                  <div><p class="am-lbl">Opportunities</p><p>Leverage corridor visibility and accessibility while preserving internal campus separation.</p></div>
+                </div>
+                <div class="am-vis frame wide topo" role="img" aria-label="Aerial showing I-5, Capitol Blvd, and site entry points"><div><p class="ft">Visual</p><p class="fd">Aerial showing I-5, Capitol Blvd, and site entry points.</p></div></div>
+              </div>
+            </details>
+            <details class="amx" data-layer="walk-onsite">
+              <summary><svg class="am-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="4" r="1.6"/><path d="M12 7v6l-3 4M12 13l3 4M9 9l3 1 3-1"/></svg>Walkability &mdash; On-Site<span class="am-attr">Internal pedestrian environment</span></summary>
+              <div class="am-body">
+                <div class="am-grid">
+                  <div><p class="am-lbl">Details</p><p>Strong potential for a walkable campus, with riverfront trails, bridges, and internal circulation; the topography enhances the experience.</p></div>
+                  <div><p class="am-lbl">Opportunities</p><p>Design as a fully walkable destination campus.</p></div>
+                </div>
+                <div class="am-vis frame wide topo" role="img" aria-label="Rendering or diagram of internal pedestrian paths and riverfront trails"><div><p class="ft">Visual</p><p class="fd">Internal pedestrian paths and riverfront trails.</p></div></div>
+              </div>
+            </details>
+            <details class="amx" data-layer="walk-offsite">
+              <summary><svg class="am-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="4" r="1.6"/><path d="M12 7v6l-3 4M12 13l3 4M9 9l3 1 3-1"/></svg>Walkability &mdash; Off-Site<span class="am-attr">External pedestrian connections</span></summary>
+              <div class="am-body">
+                <div class="am-grid">
+                  <div><p class="am-lbl">Details</p><p>Connections to Brewery Park and Tumwater Falls; partial links to Capitol Lake and Olympia; limited infrastructure along arterials.</p></div>
+                  <div><p class="am-lbl">Opportunities</p><p>Strengthen trail connections to Olympia and Capitol Lake.</p></div>
+                </div>
+                <div class="am-vis frame wide topo" role="img" aria-label="Map showing trail connections and gaps"><div><p class="ft">Visual</p><p class="fd">Map showing trail connections and gaps.</p></div></div>
+              </div>
+            </details>
+            <details class="amx" data-layer="bike">
+              <summary><svg class="am-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M6 17l4-7h5l3 7M10 10l-2-4H6m6 4l3 0"/></svg>Bikeability<span class="am-attr">Regional cycling integration</span></summary>
+              <div class="am-body">
+                <div class="am-grid">
+                  <div><p class="am-lbl">Details</p><p>Adjacent to Deschutes River trails; connects to the Olympia Woodland Trail; access to the Capitol Lake loop; regional routes linking Olympia, Lacey, and Tumwater.</p></div>
+                  <div><p class="am-lbl">Opportunities</p><p>Develop a cycling hub with rentals, storage, and repair stations; integrate into recreation tourism.</p></div>
+                </div>
+                <div class="am-vis frame wide topo" role="img" aria-label="Regional bike network map or cyclist imagery along river trails"><div><p class="ft">Visual</p><p class="fd">Regional bike network and river-trail routes.</p></div></div>
+              </div>
+            </details>
+            <details class="amx" data-layer="transit">
+              <summary><svg class="am-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="3" width="12" height="14" rx="2"/><path d="M6 9h12M9 17l-2 3M15 17l2 3"/><circle cx="9" cy="13" r="0.6"/><circle cx="15" cy="13" r="0.6"/></svg>Transit Access<span class="am-attr">Public transportation availability</span></summary>
+              <div class="am-body">
+                <div class="am-grid">
+                  <div><p class="am-lbl">Details</p><p>Intercity Transit service; connection to the Olympia transit hub; limited high-frequency service; Amtrak ~15 minutes away; regional bus links.</p></div>
+                  <div><p class="am-lbl">Opportunities</p><p>Shuttle connections to the Capitol, downtown Olympia, and Amtrak; support workforce access.</p></div>
+                </div>
+                <div class="am-vis frame wide topo" role="img" aria-label="Transit map showing routes and Amtrak location"><div><p class="ft">Visual</p><p class="fd">Transit routes and Amtrak location.</p></div></div>
+              </div>
+            </details>
+            <details class="amx" data-layer="arrival">
+              <summary><svg class="am-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Arrival Experience<span class="am-attr">Sequential site entry</span></summary>
+              <div class="am-body">
+                <div class="am-grid">
+                  <div><p class="am-lbl">Details</p><p>Exit I-5 &rarr; Capitol Blvd &rarr; commercial edge &rarr; Boston St SE &rarr; wooded descent &rarr; brewery reveal.</p></div>
+                  <div><p class="am-lbl">Opportunities</p><p>Emphasize arrival as an experiential transition from infrastructure to destination.</p></div>
+                </div>
+                <div class="gallery am-vis" style="grid-template-columns:repeat(3,1fr);">
+                  <div class="frame topo" role="img" aria-label="I-5 and Capitol Blvd approach"><div><p class="ft">1</p><p class="fd">I-5 / Capitol Blvd</p></div></div>
+                  <div class="frame topo" role="img" aria-label="Wooded descent on Boston St SE"><div><p class="ft">2</p><p class="fd">Wooded descent</p></div></div>
+                  <div class="frame topo" role="img" aria-label="The brewery reveal"><div><p class="ft">3</p><p class="fd">Brewery reveal</p></div></div>
+                </div>
+              </div>
+            </details>
           </div>
         </section>
 
-        <!-- §3 · Regional Growth Drivers -->
+        <!-- §4 · Sources -->
         <section class="reveal">
-          <p class="eyebrow">Regional Growth Drivers</p>
-          <h2>Multiple Demand Channels Within a Single Controlled Land Position</h2>
-          <p class="lead">Regional demand is supported by public employment, military activity, tourism, transportation access, manufacturing, logistics, and the broader Olympia-Tumwater-Lacey market, supporting a mixed-use program across lodging, residential, retail, food and beverage, events, and destination uses.</p>
-          <div class="grid grid-3" style="margin-top:24px;">
-            <div class="card"><h4>State Government</h4><p>Minutes from the Capitol campus and downtown Olympia.</p><p class="src" style="margin-top:8px; font-size:11px; color:var(--faint);">24,000+ state jobs in Thurston County</p></div>
-            <div class="card"><h4>Airport Expansion</h4><p>Airport-area activity supports South Sound employment and business travel.</p></div>
-            <div class="card"><h4>Manufacturing</h4><p>Industrial heritage aligns with food production, craft beverage, and maker uses.</p></div>
-            <div class="card"><h4>Logistics</h4><p>I-5 connects to Seattle, Tacoma, Portland, and regional recreation.</p><p class="src" style="margin-top:8px; font-size:11px; color:var(--faint);">100K&ndash;150K vehicles/day on I-5 near the site</p></div>
-            <div class="card"><h4>Defense</h4><p>JBLM is a major regional employment and population driver.</p><p class="src" style="margin-top:8px; font-size:11px; color:var(--faint);">50,000+ JBLM military / civilian jobs</p></div>
-            <div class="card"><h4>Tourism</h4><p>Captures visitors between the Capitol, Puget Sound, the Olympic Peninsula, Mount Rainier, and the coast.</p><p class="src" style="margin-top:8px; font-size:11px; color:var(--faint);">2M+ annual visitors; 1M+ overnight</p></div>
-          </div>
-          <p class="src" style="margin:14px 0 0; font-size:11px; color:var(--faint);">Figures per prior strategic market analysis (2014 base year); directional and to be refreshed in underwriting.</p>
+          <p class="eyebrow">Sources</p>
+          <h2>Reference Materials</h2>
+          <ul style="margin:14px 0 0; padding-left:18px; line-height:1.85; color:var(--text-3); font-size:13px; max-width:80ch;">
+            <li>Historic Olympia Brewery Conceptual Design Report, Weinstein A+U, August 2022.</li>
+            <li>Tumwater Brewery Concept D Package, GCH, August 2023.</li>
+            <li>Falls Development Feasibility Study / Civil Due-Diligence Report, KPFF, June 2024.</li>
+            <li>Strategic Market Opportunity Analysis for the Northern Brewery Properties at the Former Olympia Brewing Site, The Concord Group / THG, July 2014.</li>
+            <li>City of Tumwater visitor materials, Brewery District Plan, Brownfields materials, and legislative / planning updates.</li>
+            <li>Experience Olympia &amp; Beyond destination planning and tourism materials.</li>
+            <li>Olympia Tumwater Foundation / Brewery Park at Tumwater Falls materials.</li>
+            <li>Washington experiential-hotel comparable research, including McMenamins, The Lodge at St. Edward State Park, Salish Lodge &amp; Spa, Alderbrook Resort &amp; Spa, Suncadia, Skamania Lodge, Willows Lodge, Posthotel &amp; Sleeping Lady (Leavenworth), The Lodge at Lake Chelan, Cave B Inn, Eritage Resort and Walla Walla wine-country hotels, and The Davenport (Spokane); destination-marketing and Tripadvisor/booking listings, 2025&ndash;2026.</li>
+          </ul>
         </section>
       </div>
 
@@ -1739,7 +1955,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
           <div class="gallery" style="margin-top:12px;">
             <div class="frame has-img" role="button" tabindex="0" aria-label="Historic brick architecture"><img src="images/tb-main-img%20(1).png" alt="" /><div><p class="ft">Historic brick architecture</p></div></div>
             <div class="frame has-img" role="button" tabindex="0" aria-label="Riverfront setting"><img src="images/tb-og-eyelevel-across-river.png" alt="" /><div><p class="ft">Riverfront setting</p></div></div>
-            <div class="frame has-img" role="button" tabindex="0" aria-label="The campus from above"><img src="images/tb-overhead-shot.png" alt="" /><div><p class="ft">Campus &amp; river</p></div></div>
+            <div class="frame has-img" role="button" tabindex="0" aria-label="The campus from above"><img src="images/tb-overhead-shot-new.png" alt="" /><div><p class="ft">Campus &amp; river</p></div></div>
             <div class="frame has-img" role="button" tabindex="0" aria-label="The brewhouse landmark"><img src="images/tb-main-img.png" alt="" /><div><p class="ft">The brewhouse landmark</p></div></div>
             <div class="frame has-img" role="button" tabindex="0" aria-label="River and falls setting"><img src="images/tb-main-img-2.png" alt="" /><div><p class="ft">River &amp; falls setting</p></div></div>
             <div class="frame has-img" role="button" tabindex="0" aria-label="Concept aerial"><img src="images/tb-main-img-2%20(1).png" alt="" /><div><p class="ft">Concept aerial</p></div></div>
@@ -4681,6 +4897,7 @@ function engageRoute(route){
     if (secs > 2) track('page_dwell', {page:_route, seconds:secs});
   }
   _route = route; _enter = Date.now(); _marks = {};
+  if (route === 'location-overview') initCorridorMap();
 }
 window.addEventListener('scroll', function(){
   var h = document.documentElement;
@@ -4767,6 +4984,183 @@ document.addEventListener('click', function(e){
     track('es_gallery', {src: t.getAttribute('data-src')});
   });
 })();
+
+/* ============================================================
+   Regional Corridor interactive map (Location tab, MapLibre)
+   Lazy-initialized on first view; waits for the deferred lib.
+   Illustrative corridor + market locations, approximate.
+   ============================================================ */
+var _cmMap = null, _cmDone = false;
+var CM_SITE = [-122.9039, 47.0176]; /* Tumwater Brewery */
+/* I-5 corridor spine routed through every market, north -> south, approximate */
+var CM_SPINE = [
+  [-122.3328,47.6061], /* Seattle */
+  [-122.3088,47.4502], /* SeaTac */
+  [-122.4443,47.2529], /* Tacoma */
+  CM_SITE,             /* Tumwater */
+  [-122.9540,46.7162], /* Centralia */
+  [-122.9051,46.1462], /* Kelso / Longview */
+  [-122.6615,45.6387], /* Vancouver, WA */
+  [-122.6765,45.5152]  /* Portland */
+];
+var CM_SEGLABEL = {north:'Northern corridor', south:'Southern corridor', site:'The white space'};
+/* major highway connections off the I-5 spine, illustrative. label = pill at `at` */
+var CM_CONN = [
+  {name:'I-405', label:'I-405', at:[-122.19,47.62], line:[[-122.26,47.46],[-122.19,47.59],[-122.19,47.62],[-122.21,47.72],[-122.28,47.83]]},
+  {name:'I-90 (east)', label:'I-90 →', at:[-121.99,47.55], line:[[-122.33,47.59],[-122.23,47.59],[-122.12,47.57],[-121.99,47.53],[-121.80,47.45]]},
+  {name:'US-101 (peninsula)', label:'US-101', at:[-123.08,47.10], line:[[-122.905,47.045],[-122.98,47.06],[-123.10,47.10],[-123.22,47.20]]},
+  {name:'SR-16 (Kitsap)', label:'SR-16', at:[-122.56,47.30], line:[[-122.445,47.255],[-122.52,47.27],[-122.585,47.33]]},
+  {name:'US-12 (east)', label:'US-12 →', at:[-122.80,46.72], line:[[-122.954,46.716],[-122.80,46.72],[-122.60,46.70]]},
+  {name:'I-205 (Portland)', label:'I-205', at:[-122.56,45.56], line:[[-122.66,45.66],[-122.57,45.60],[-122.56,45.54],[-122.56,45.45]]}
+];
+var CM_MARKETS = [
+  {seg:'north', c:[-122.3328,47.6061], t:'Seattle Core', pos:'Luxury, convention, global tourism', hotels:'Four Seasons, Fairmont Olympic, Hyatt Regency (1,200+ rooms), Sheraton Grand', imp:'Premium pricing, dense competition, urban experience'},
+  {seg:'north', c:[-122.3088,47.4502], t:'SeaTac / Airport', pos:'High-volume transient, airline, business', hotels:'Hilton Seattle Airport, DoubleTree, Radisson, Marriott SeaTac', imp:'Functional, high occupancy, low differentiation'},
+  {seg:'north', c:[-122.4443,47.2529], t:'Tacoma', pos:'Urban, convention, business', hotels:'Hotel Murano, Marriott Tacoma Downtown, Courtyard Tacoma Downtown', imp:'Strong event/corporate demand, limited resort character'},
+  {seg:'south', c:[-122.9540,46.7162], t:'Centralia / Chehalis', pos:'Family resort + highway lodging', hotels:'Great Wolf Lodge, Holiday Inn Express, Best Western', imp:'Destination programming works in smaller markets'},
+  {seg:'south', c:[-122.9051,46.1462], t:'Kelso / Longview', pos:'Highway / industrial', hotels:'Comfort Inn, Red Lion', imp:'Limited experiential competition'},
+  {seg:'south', c:[-122.6615,45.6387], t:'Vancouver, WA', pos:'Regional business + boutique', hotels:'Hilton Vancouver, AC Hotel, Heathman Lodge', imp:'Moderate competition, growing market'},
+  {seg:'south', c:[-122.6765,45.5152], t:'Portland', pos:'Urban luxury, lifestyle, convention', hotels:'The Nines, Sentinel, Hyatt Regency Portland, Dossier', imp:'Strong draw, but urban-focused'}
+];
+var CM_SEGC = {north:'#2383e2', south:'#d9803a', site:'#c0392b', comp:'#14857a'};
+/* Washington experiential hotel comparables (the true competitive set), approximate locations */
+var CM_COMPS = [
+  {c:[-122.144,47.754], t:'Willows Lodge', loc:'Woodinville', cat:'Wine-country boutique', url:'https://www.willowslodge.com', rel:'Award-winning dining and spa anchoring Woodinville wine country, a campus-style destination near 100+ tasting rooms.'},
+  {c:[-122.205,47.762], t:'McMenamins Anderson School', loc:'Bothell', cat:'Adaptive-reuse & heritage', url:'https://www.mcmenamins.com/anderson-school', rel:'A 1930s schoolhouse reborn as lodging, restaurants, bars, pool, and theater, the clearest adaptive-reuse campus analog.'},
+  {c:[-122.265,47.734], t:'The Lodge at St. Edward State Park', loc:'Kenmore', cat:'Adaptive-reuse & heritage', url:'https://www.thelodgeatstedward.com', rel:'A restored seminary in a state park, heritage architecture turned boutique hotel, dining, and event venue.'},
+  {c:[-122.561,47.165], t:'Thornewood Castle', loc:'Lakewood', cat:'Historic event lodging', url:'https://www.thornewoodcastle.com', rel:'A Tudor-Gothic estate driving premium wedding, retreat, and heritage-event demand.'},
+  {c:[-122.868,48.646], t:'Rosario Resort', loc:'Orcas Island', cat:'Historic resort', url:'https://www.rosarioresort.com', rel:'A historic mansion-anchored island resort, heritage building plus waterfront resort programming.'},
+  {c:[-121.838,47.542], t:'Salish Lodge & Spa', loc:'Snoqualmie Falls', cat:'Nature & wellness resort', url:'https://www.salishlodge.com', rel:'A waterfall-front lodge and spa, the closest analog to a falls-and-river destination thesis.'},
+  {c:[-123.103,47.350], t:'Alderbrook Resort & Spa', loc:'Union, Hood Canal', cat:'Nature & wellness resort', url:'https://www.alderbrookresort.com', rel:'Waterfront resort, spa, dining, and weddings drawing regional leisure to a remote setting.'},
+  {c:[-121.085,47.215], t:'Suncadia Resort', loc:'Cle Elum', cat:'Nature & wellness resort', url:'https://suncadia.com', rel:'A large destination resort with lodge, spa, golf, and events in a non-urban market.'},
+  {c:[-121.905,45.699], t:'Skamania Lodge', loc:'Columbia Gorge', cat:'Nature & wellness resort', url:'https://www.skamania.com', rel:'A gorge-view lodge built on scenery, weddings, and outdoor recreation.'},
+  {c:[-122.787,48.992], t:'Semiahmoo Resort', loc:'Blaine', cat:'Nature & wellness resort', url:'https://www.semiahmoo.com', rel:'A waterfront spa-and-golf resort capturing destination and event demand near the border.'},
+  {c:[-120.247,48.452], t:'Sun Mountain Lodge', loc:'Winthrop, Methow Valley', cat:'Nature & wellness resort', url:'https://www.sunmountainlodge.com', rel:'A mountaintop destination lodge, scenery and recreation drive a strong year-round draw.'},
+  {c:[-120.661,47.587], t:'Posthotel Leavenworth', loc:'Leavenworth', cat:'Alpine village destination', url:'https://posthotelleavenworth.com', rel:'An adults-only alpine spa hotel commanding premium rates on wellness and setting alone.'},
+  {c:[-120.694,47.591], t:'Sleeping Lady Mountain Resort', loc:'Leavenworth', cat:'Alpine village destination', url:'https://www.sleepinglady.com', rel:'An arts-and-nature retreat campus for groups, weddings, and conferences.'},
+  {c:[-120.157,47.883], t:'The Lodge at Lake Chelan', loc:'Manson', cat:'Wine-country boutique', url:'https://www.lodgelakechelan.com', rel:'A new boutique hotel amid Lake Chelan wineries, lake-and-vineyard leisure demand.'},
+  {c:[-119.985,47.000], t:'Sagecliffe Resort & Spa', loc:'Quincy (formerly Cave B)', cat:'Wine-country boutique', url:'https://sagecliffe.com', rel:'A cliffside vineyard resort by the Gorge Amphitheatre, setting-driven destination stays.'},
+  {c:[-118.300,46.034], t:'Eritage Resort', loc:'Walla Walla', cat:'Wine-country boutique', url:'https://www.eritageresort.com', rel:'A 300-acre luxury suite resort with lake and Blue Mountain views in wine country.'},
+  {c:[-118.342,46.066], t:'The Marcus Whitman', loc:'Walla Walla', cat:'Wine-country boutique', url:'https://marcuswhitmanhotel.com', rel:'A landmark downtown Walla Walla hotel at the center of the wine-tourism market.'},
+  {c:[-118.334,46.060], t:'The FINCH', loc:'Walla Walla', cat:'Wine-country boutique', url:'https://www.finchwallawalla.com', rel:'A design-forward boutique hotel built on Walla Walla wine tourism.'},
+  {c:[-117.424,47.657], t:'The Davenport', loc:'Spokane', cat:'Regional design & landmark', url:'https://www.davenporthotelcollection.com', rel:'A historic landmark hotel and its modern Grand sibling, differentiated identity in a secondary city.'}
+];
+function _cmMarkerEl(color, big){
+  var el = document.createElement('div');
+  el.className = 'cm-pin' + (big ? ' cm-pin-site' : '');
+  el.style.setProperty('--pin', color);
+  return el;
+}
+/* build a styled popup card; rows = [[label,value],...]; url makes the title a link */
+function cmCard(color, badge, title, subtitle, rows, url){
+  var body = rows.map(function(r){
+    return '<div class="cmp-row"><span class="cmp-lbl">'+r[0]+'</span><p>'+r[1]+'</p></div>';
+  }).join('');
+  var titleHtml = url
+    ? '<a class="cmp-title cmp-link" href="'+url+'" target="_blank" rel="noopener">'+title+' &#8599;</a>'
+    : '<strong class="cmp-title">'+title+'</strong>';
+  return '<div class="cmp" style="--seg:'+color+'">'
+    + '<div class="cmp-head"><span class="cmp-badge">'+badge+'</span>'
+    + titleHtml
+    + (subtitle ? '<span class="cmp-sub">'+subtitle+'</span>' : '')
+    + '</div><div class="cmp-body">'+body+'</div></div>';
+}
+
+function initCorridorMap(){
+  if (_cmDone) return;
+  var host = document.getElementById('corridorMap');
+  if (!host) return;
+  if (typeof maplibregl === 'undefined'){           /* deferred lib not ready yet */
+    if (initCorridorMap._tries === undefined) initCorridorMap._tries = 0;
+    if (initCorridorMap._tries++ < 60){ setTimeout(initCorridorMap, 100); return; }
+    return; /* give up quietly; rows/tables remain */
+  }
+  _cmDone = true;
+  var map;
+  try {
+    var dark = document.documentElement.getAttribute('data-theme')==='dark';
+    var theme = dark ? 'dark_all' : 'light_all';
+    var tiles = ['a','b','c','d'].map(function(s){ return 'https://'+s+'.basemaps.cartocdn.com/'+theme+'/{z}/{x}/{y}.png'; });
+    map = new maplibregl.Map({
+      container:'corridorMap',
+      style:{version:8, sources:{carto:{type:'raster',tiles:tiles,tileSize:256,attribution:'&copy; OpenStreetMap contributors &copy; CARTO'}}, layers:[{id:'carto',type:'raster',source:'carto'}]},
+      center:[-122.62,46.55], zoom:6.4, attributionControl:true
+    });
+  } catch(err){
+    var lg = document.getElementById('cmLegend'); if (lg) lg.style.display='none';
+    host.outerHTML = '<div class="am-mapfallback">Interactive corridor map unavailable in this browser. The summaries below describe the northern and southern markets in full.</div>';
+    return;
+  }
+  _cmMap = map;
+  map.addControl(new maplibregl.NavigationControl({showCompass:false}), 'bottom-right');
+
+  var markers = {north:[], south:[], site:[], comp:[], conn:[]};
+
+  map.on('load', function(){
+    /* highway connections (drawn beneath the spine) */
+    map.addSource('cm-conn', {type:'geojson', data:{type:'FeatureCollection', features:CM_CONN.map(function(h){
+      return {type:'Feature', properties:{name:h.name}, geometry:{type:'LineString', coordinates:h.line}};
+    })}});
+    map.addLayer({id:'cm-conn', type:'line', source:'cm-conn', layout:{'line-cap':'round','line-join':'round'}, paint:{'line-color':'#b4b9bf','line-width':2,'line-opacity':.9,'line-dasharray':[2.5,1.5]}});
+    /* connection labels */
+    CM_CONN.forEach(function(h){
+      var el = document.createElement('div'); el.className='cm-hwy'; el.textContent=h.label;
+      markers.conn.push(new maplibregl.Marker({element:el}).setLngLat(h.at).addTo(map));
+    });
+
+    /* corridor spine */
+    map.addSource('cm-spine', {type:'geojson', data:{type:'Feature',geometry:{type:'LineString',coordinates:CM_SPINE}}});
+    map.addLayer({id:'cm-spine', type:'line', source:'cm-spine', layout:{'line-cap':'round','line-join':'round'}, paint:{'line-color':'#5d646c','line-width':4,'line-opacity':.85}});
+
+    /* market markers */
+    CM_MARKETS.forEach(function(m){
+      var el = _cmMarkerEl(CM_SEGC[m.seg], false);
+      var html = cmCard(CM_SEGC[m.seg], CM_SEGLABEL[m.seg], m.t, null, [['Positioning',m.pos],['Representative hotels',m.hotels],['Implication',m.imp]]);
+      var mk = new maplibregl.Marker({element:el}).setLngLat(m.c).setPopup(new maplibregl.Popup({offset:15, maxWidth:'340px', closeButton:true}).setHTML(html)).addTo(map);
+      markers[m.seg].push(mk);
+    });
+
+    /* comparable hotels (the true competitive set) */
+    CM_COMPS.forEach(function(p){
+      var el = _cmMarkerEl(CM_SEGC.comp, false);
+      var html = cmCard(CM_SEGC.comp, p.cat, p.t, p.loc, [['Why it is a comparable', p.rel]], p.url);
+      var mk = new maplibregl.Marker({element:el}).setLngLat(p.c).setPopup(new maplibregl.Popup({offset:15, maxWidth:'340px', closeButton:true}).setHTML(html)).addTo(map);
+      markers.comp.push(mk);
+    });
+
+    /* the site, emphasized */
+    var sEl = _cmMarkerEl(CM_SEGC.site, true);
+    var sHtml = cmCard(CM_SEGC.site, 'The white space', 'Tumwater Brewery', '110 Deschutes Way SW, Tumwater', [
+      ['Positioning','Accessible, yet uniquely capable of a destination experience'],
+      ['The setting','Riverfront, historic, walkable campus, the white space between two very different markets'],
+      ['Why it wins','Corridor visibility, a one-of-a-kind setting, and no comparable experiential supply nearby']
+    ]);
+    markers.site.push(new maplibregl.Marker({element:sEl}).setLngLat(CM_SITE).setPopup(new maplibregl.Popup({offset:18, maxWidth:'340px', closeButton:true}).setHTML(sHtml)).addTo(map));
+
+    /* frame everything (spine, connectors, comparables) so the full landscape is in view */
+    var b = new maplibregl.LngLatBounds();
+    CM_SPINE.forEach(function(c){ b.extend(c); });
+    CM_CONN.forEach(function(h){ h.line.forEach(function(c){ b.extend(c); }); });
+    CM_COMPS.forEach(function(p){ b.extend(p.c); });
+    map.fitBounds(b, {padding:{top:40,bottom:40,left:110,right:36}, maxZoom:7.4, duration:0});
+  });
+
+  function setSeg(seg, on){
+    (markers[seg]||[]).forEach(function(mk){ mk.getElement().style.display = on ? '' : 'none'; });
+    if (seg==='conn' && map.getLayer('cm-conn')) map.setLayoutProperty('cm-conn','visibility', on?'visible':'none');
+  }
+  document.querySelectorAll('#cmLegend .am-toggle').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var seg = btn.getAttribute('data-seg');
+      var on = btn.classList.toggle('is-on');
+      setSeg(seg, on);
+      track('corridor_filter', {segment:seg, on:on});
+    });
+  });
+
+  setTimeout(function(){ map.resize(); }, 60);
+}
+
 
 /* init */
 showRoute(currentRoute());
