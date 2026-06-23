@@ -294,6 +294,8 @@ a.cmp-link:hover{opacity:.82; text-decoration:underline; text-underline-offset:2
 /* location: tighter section rhythm */
 #page-location-overview section{margin-bottom:52px;}
 #page-location-overview section + section{padding-top:46px;}
+#page-investment-opportunity section{margin-bottom:48px;}
+#page-investment-opportunity section + section{padding-top:42px;}
 /* comparable-destination cards */
 .comp-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:14px; margin-top:20px;}
 .comp-card{padding:24px 26px;}
@@ -711,6 +713,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
         <button class="nav-link" aria-haspopup="true">Archive ▾</button>
         <div class="dropdown-menu" style="max-height:72vh; overflow:auto; min-width:280px;">
           <div class="dd-group">Superseded</div>
+          <button class="dropdown-item" data-route="executive-summary-archive">The Opportunity (prev)<small>prev</small></button>
           <button class="dropdown-item" data-route="heritage-archive">Heritage, full history &amp; timeline<small>prev</small></button>
           <button class="dropdown-item" data-route="dev-vision-archive">Development Vision, master plan<small>prev</small></button>
           <button class="dropdown-item" data-route="city-investing-first-archive">Public Investment (prev)<small>prev</small></button>
@@ -764,13 +767,188 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
       <!-- ================= TAB 1 · OVERVIEW ================= -->
       <div class="page wide" id="page-executive-summary">
 
+        <!-- §1 · Hero + landmark narrative -->
+        <section class="reveal">
+          <p class="eyebrow">Public Investment Creating Private Value</p>
+          <h2>A Landmark the Region Already Knows, and a Place That Still Holds Its Story</h2>
+          <div class="es-gallery" style="margin-top:24px;">
+            <div class="es-main"><img id="esMainImg" src="images/tb-overhead-main.png" alt="Aerial view of the Olympia Brewery riverfront campus" /></div>
+            <div class="es-thumbs">
+              <button class="es-thumb is-active" data-src="images/tb-overhead-main.png" aria-label="Aerial view of the Olympia Brewery riverfront campus"><img src="images/tb-overhead-main.png" alt="" /></button>
+              <button class="es-thumb" data-src="images/tb-og-eyelevel-across-river.png" aria-label="Eye-level view of the brewery across the Deschutes River"><img src="images/tb-og-eyelevel-across-river.png" alt="" /></button>
+              <button class="es-thumb" data-src="images/tb-main-img%20(1).png" aria-label="The historic brewhouse and campus"><img src="images/tb-main-img%20(1).png" alt="" /></button>
+              <button class="es-thumb" data-src="images/tb-main-img-2%20(1).png" aria-label="The brewery campus and river setting"><img src="images/tb-main-img-2%20(1).png" alt="" /></button>
+            </div>
+          </div>
+          <div style="margin-top:18px; display:flex; flex-wrap:wrap; gap:8px;">
+            <span class="chip">34.18 Acres</span><span class="chip">Historic Brewery Campus</span><span class="chip">Deschutes Riverfront</span><span class="chip">I-5 Visibility</span><span class="chip">Brewery District Priority Area</span>
+          </div>
+          <p class="eyebrow" style="margin-top:28px;">Historic Icon Setting</p>
+          <p class="lead">The Tumwater Brewery is not simply a redevelopment site. It is a civic priority, a historic landmark, and one of the rare places in the Pacific Northwest where public investment, regional memory, and private opportunity are converging at once.</p>
+          <p class="lead" style="margin-top:16px;">For more than a century, the former Olympia Brewery has stood at the edge of the Deschutes River as one of the South Sound&rsquo;s most recognizable landmarks. Its brick tower, pre-Prohibition architecture, riverfront setting, and &ldquo;It&rsquo;s the Water&rdquo; legacy are already embedded in the region&rsquo;s identity. Few sites arrive with this level of recognition. Fewer still combine that history with 34 acres of riverfront land, direct I-5 visibility, adjacency to Tumwater Falls, and proximity to the Washington State Capitol.</p>
+          <div class="gallery" style="margin-top:22px; grid-template-columns:repeat(3,1fr);">
+            <div class="frame has-img" role="button" tabindex="0" aria-label="The Brew Tower viewed across the Deschutes River"><img src="images/tb-og-eyelevel-across-river.png" alt="The brick Brew Tower across the Deschutes River" /><div><p class="ft">Brew Tower</p></div></div>
+            <div class="frame has-img" role="button" tabindex="0" aria-label="Historic brewery masonry architecture"><img src="images/tb-main-img.png" alt="Historic brewery masonry and large windows" /><div><p class="ft">Historic architecture</p></div></div>
+            <div class="frame has-img" role="button" tabindex="0" aria-label="The Deschutes River and falls setting"><img src="images/tb-main-img-2.png" alt="The Deschutes River and falls setting" /><div><p class="ft">River &amp; falls setting</p></div></div>
+          </div>
+          <div class="table-wrap" style="margin-top:24px;">
+            <table class="table">
+              <thead><tr><th>What already exists</th><th>Significance</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Historic Olympia Brewery identity</strong></td><td>A recognized regional story and brand legacy, providing immediate brand equity and emotional connection for visitors.</td></tr>
+                <tr><td><strong>Pre-Prohibition masonry architecture</strong></td><td>Irreplaceable adaptive-reuse character, offering authenticity that cannot be replicated in new construction.</td></tr>
+                <tr><td><strong>Deschutes River and Tumwater Falls setting</strong></td><td>Natural destination value and a strong placemaking foundation that enhances experiential appeal and supports year-round visitation.</td></tr>
+                <tr><td><strong>I-5 visibility and Capitol proximity</strong></td><td>Regional access and institutional relevance, ensuring consistent exposure and connectivity to key regional drivers.</td></tr>
+                <tr><td><strong>34-acre assemblage</strong></td><td>Scale for a true destination campus, not a single-building reuse, allowing phased development and a diverse mix of uses.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- §2 · Public commitment -->
+        <section class="reveal">
+          <p class="eyebrow">Public Groundwork Underway</p>
+          <h2>Public Commitment Is Already Accelerating the Site&rsquo;s Transformation</h2>
+          <p class="lead">What makes the opportunity especially compelling is the level of public-sector momentum already forming around it. The City of Tumwater has established the Brewery District as a priority redevelopment area, supported by district planning, environmental assessment funding, brownfield work, infrastructure strategy, trail investment, riverfront public-realm planning, and continued preservation of the City-owned Brew Tower.</p>
+          <p class="lead" style="margin-top:16px;">This is a legacy asset already supported by meaningful public investment and coordinated planning, rather than a site awaiting initial momentum. The public framework is already advancing the conditions that matter most for long-term redevelopment: access, infrastructure, environmental review, public realm, district connectivity, and preservation.</p>
+          <div class="table-wrap" style="margin-top:22px;">
+            <table class="table">
+              <thead><tr><th>Public-sector initiative</th><th>Redevelopment relevance</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Brewery District planning</strong></td><td>Establishes the broader land-use and placemaking framework and a coordinated vision that guides future development decisions.</td></tr>
+                <tr><td><strong>Environmental assessment and brownfield work</strong></td><td>Advances site understanding and redevelopment readiness, reducing uncertainty and supporting more efficient project planning.</td></tr>
+                <tr><td><strong>Infrastructure and access strategy</strong></td><td>Addresses key physical constraints and long-term circulation, ensuring the site can support increased activity and visitor access.</td></tr>
+                <tr><td><strong>Trail and riverfront public-realm investment</strong></td><td>Strengthens connectivity, public access, and destination appeal, enhancing the user experience and drawing consistent foot traffic.</td></tr>
+                <tr><td><strong>Brew Tower preservation</strong></td><td>Reinforces the historic anchor and civic identity, preserving a recognizable landmark that strengthens branding and storytelling.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <figure style="margin:24px 0 0;">
+            <img src="images/tb-overhead-shot-new-FINAL.png" alt="Brewery District context map showing the site, trails, Tumwater Falls, the Deschutes River, Custer Way, and surrounding public assets" style="width:100%; height:auto; display:block; border:1px solid var(--border); border-radius:var(--radius);" />
+            <figcaption class="src" style="margin:8px 0 0; font-size:11px; color:var(--faint);">Brewery District context: the site, trails, falls, river, Custer Way, and surrounding public assets.</figcaption>
+          </figure>
+        </section>
+
+        <!-- §3 · Private opportunity -->
+        <section class="reveal">
+          <p class="eyebrow">The Next Phase</p>
+          <h2>A Private Opportunity to Carry the Momentum Into a Destination</h2>
+          <p class="lead">The next phase is not about creating a place from scratch; it is about activating a place the region already believes in. That public groundwork creates a rare opening for private execution. The site can be repositioned as a hospitality-led mixed-use destination anchored by boutique lodging, restaurants, events, weddings, wellness, curated retail, public open space, trails, river access, and selective residential use.</p>
+          <p class="lead" style="margin-top:16px;">The result is a development platform with multiple revenue drivers and an emotional center that cannot be manufactured through new construction. The history gives the site identity. The riverfront gives it atmosphere. The public investment gives it momentum. The private opportunity is to bring those forces together into a destination worthy of the landmark.</p>
+          <figure style="margin:24px 0 0;">
+            <img src="images/tb-hospitality-architectural-program-diagram-new.png" alt="Conceptual hospitality programming diagram showing hotel, event space, restaurant, spa and wellness, trails, open space, and river access" style="width:100%; height:auto; display:block; border:1px solid var(--border); border-radius:var(--radius);" />
+            <figcaption class="src" style="margin:8px 0 0; font-size:11px; color:var(--faint);">Conceptual hospitality programming: lodging, events, restaurant, spa and wellness, trails, open space, and river access. Illustrative.</figcaption>
+          </figure>
+          <div class="table-wrap" style="margin-top:24px;">
+            <table class="table">
+              <thead><tr><th>Destination program</th><th>Role in the opportunity</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Boutique lodging</strong></td><td>Establishes overnight demand and destination identity, anchoring the site as a multi-day destination for visitors.</td></tr>
+                <tr><td><strong>Events and weddings</strong></td><td>Activates the historic setting and riverfront character, creating consistent programming and revenue throughout the year.</td></tr>
+                <tr><td><strong>Restaurants and food / beverage</strong></td><td>Connects the brewery legacy to daily public use, encouraging repeat visitation from locals and tourists.</td></tr>
+                <tr><td><strong>Wellness and hospitality amenities</strong></td><td>Expands the visitor experience and premium positioning, enhancing the site&rsquo;s appeal as a retreat-oriented destination.</td></tr>
+                <tr><td><strong>Trails, open space, and river access</strong></td><td>Integrates the campus into the public realm and strengthens connectivity with surrounding natural and civic assets.</td></tr>
+                <tr><td><strong>Selective residential use</strong></td><td>Supports long-term district vitality and mixed-use balance, contributing a built-in community that sustains activity.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="lead" style="margin-top:20px;">At its core, Tumwater Brewery presents an opportunity to build on existing public investment, preserve a significant historic site, and establish a distinctive riverfront destination for the South Sound, a strong foundation for private investment to advance its redevelopment and long-term value.</p>
+        </section>
+
+        <!-- §4 · Final CTA -->
+        <section class="reveal">
+          <div class="frame wide has-img" role="button" tabindex="0" aria-label="Golden-hour view of the riverfront brewery district"><img src="images/tb-rendering-hotel-eye-level-courtyard-golden-hour-common-space.png" alt="Golden-hour rendering of the riverfront brewery destination" /><div><p class="ft">The opportunity</p><p class="fd">A riverfront destination worthy of the landmark.</p></div></div>
+          <div class="card" style="margin-top:20px; text-align:center; padding:40px; background:var(--surface-2);">
+            <p class="lead" style="max-width:64ch; margin:0 auto;">Request access to the redevelopment materials to review the public investment framework, concept studies, civil diligence, and site vision behind the opportunity.</p>
+            <div style="margin-top:22px; display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
+              <button class="btn btn-primary" data-route="call-to-action">Request the Data Room</button>
+              <button class="btn btn-ghost btn-arrow" data-route="city-investing-first">See the public investment</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- §3 · Investment Highlights -->
+        <section class="reveal">
+          <p class="eyebrow">Investment Highlights</p>
+          <h2>Why This Opportunity Merits Attention</h2>
+          <p class="lead">Eight characteristics distinguish this offering from a conventional redevelopment site, spanning scale, heritage, program flexibility, setting, regional access, and a pre-development record already in hand.</p>
+          <div class="grid grid-2 hl-cards" style="margin-top:24px;">
+            <div class="card">
+              <h4>Generational 34-Acre Riverfront Assemblage</h4>
+              <ul class="hl-list">
+                <li>Four contiguous parcels, 34.18 acres along the Deschutes, combining riverfront, upland, historic, and infrastructure-adjacent land in one offering.</li>
+                <li>Scale, frontage, and long-term placemaking potential that are uncommon in the South Sound.</li>
+              </ul>
+              <button class="more" data-route="property-overview">View the property</button>
+            </div>
+            <div class="card">
+              <h4>Olympia Brewery Heritage Identity</h4>
+              <ul class="hl-list">
+                <li>Anchored by the former Olympia Brewery, one of the region&rsquo;s most recognizable historic industrial assets, carrying cultural and brand equity across the Pacific Northwest.</li>
+                <li>The historic structures offer an authentic foundation for adaptive reuse: food and beverage, events, hospitality, and interpretive programming.</li>
+              </ul>
+              <button class="more" data-route="investment-opportunity">Explore the heritage</button>
+            </div>
+            <div class="card">
+              <h4>Adaptive Reuse and Destination Hospitality</h4>
+              <ul class="hl-list">
+                <li>Existing concept work supports a hospitality-led strategy centered on preservation, adaptive reuse, and destination placemaking.</li>
+                <li>The buildings could support a boutique hotel, resort-style campus, restaurant, or event venue, new revenue uses layered around the historic core.</li>
+              </ul>
+              <button class="more" data-route="dev-vision">See the vision</button>
+            </div>
+            <div class="card">
+              <h4>Event, Wedding, Spa, and Resort Programming</h4>
+              <ul class="hl-list">
+                <li>Concept planning identifies complementary uses, lodging, destination restaurant, event and outdoor wedding space, spa and wellness, trails, and river-oriented open space.</li>
+                <li>The waterfall, river, and historic setting support a destination model rather than a single-purpose hotel, diversifying revenue across uses.</li>
+              </ul>
+              <button class="more" data-route="dev-vision">See the program</button>
+            </div>
+            <div class="card">
+              <h4>Residential Overlay Opportunity</h4>
+              <ul class="hl-list">
+                <li>Prior concept work identifies a residential overlay that could add a recurring income layer and year-round activity within the broader program.</li>
+                <li>Housing areas may enable phased development and reduce reliance on a single revenue source.</li>
+              </ul>
+              <button class="more" data-route="dev-vision">Explore the master plan</button>
+            </div>
+            <div class="card">
+              <h4>Adjacency to Tumwater Falls, Historical Park, and Estuary Restoration</h4>
+              <ul class="hl-list">
+                <li>The site adjoins Tumwater Falls, Tumwater Historical Park, the Deschutes River, and the planned Deschutes Estuary restoration.</li>
+                <li>These civic and natural assets, and the future estuary restoration, strengthen the site&rsquo;s long-term ecological, recreational, and placemaking value.</li>
+              </ul>
+              <button class="more" data-route="location-overview">See the location</button>
+            </div>
+            <div class="card">
+              <h4>I-5 Visibility and Proximity to Olympia and the State Capitol</h4>
+              <ul class="hl-list">
+                <li>Visible from I-5 and minutes from the Washington State Capitol campus and downtown Olympia, a natural stop on the Seattle to Portland corridor with strong corporate, government, and tourism demand.</li>
+              </ul>
+              <button class="more" data-route="location-overview">Regional access</button>
+            </div>
+            <div class="card">
+              <h4>Concept and Civil Diligence Already Completed</h4>
+              <ul class="hl-list">
+                <li>Conceptual design (GCH Architecture), civil due diligence (KPFF), and market analysis (Concord Group) are complete, reducing early-stage uncertainty and enabling faster underwriting.</li>
+              </ul>
+              <button class="more" data-route="property-overview">Review the diligence</button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ============ ARCHIVED · THE OPPORTUNITY (full, pre-rework) ============ -->
+      <div class="page wide" id="page-executive-summary-archive">
+
         <!-- §1 · Hero -->
         <section class="reveal">
           <p class="eyebrow">Public Investment Creating Private Value</p>
           <h2 style="max-width:24ch;">A Rare Public-Private Redevelopment Opportunity</h2>
           <p class="lead">The Olympia Brewery redevelopment benefits from an <em class="hl">unusual level of municipal commitment and public-sector investment</em>. Unlike many large-scale brownfield redevelopment projects, the City of Tumwater has assumed a proactive role in removing development barriers, reducing entitlement risk, and positioning the Brewery District for private investment, a 34-acre heritage riverfront campus where the Deschutes River, Tumwater Falls, 1906 architecture, and direct Interstate&nbsp;5 visibility converge.</p>
           <div class="es-gallery" style="margin-top:28px;">
-            <div class="es-main"><img id="esMainImg" src="images/tb-overhead-main.png" alt="Aerial view of the Olympia Brewery riverfront campus" /></div>
+            <div class="es-main"><img src="images/tb-overhead-main.png" alt="Aerial view of the Olympia Brewery riverfront campus" /></div>
             <div class="es-thumbs">
               <button class="es-thumb is-active" data-src="images/tb-overhead-main.png" aria-label="Aerial view of the Olympia Brewery riverfront campus"><img src="images/tb-overhead-main.png" alt="" /></button>
               <button class="es-thumb" data-src="images/tb-og-eyelevel-across-river.png" aria-label="Eye-level view of the brewery across the Deschutes River"><img src="images/tb-og-eyelevel-across-river.png" alt="" /></button>
@@ -913,15 +1091,6 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
           </div>
         </section>
 
-        <!-- §2 · Water as the origin story -->
-        <section class="reveal">
-          <p class="eyebrow">Water as the Origin Story</p>
-          <h2>A Landmark Shaped by Water, Trade, and Industry</h2>
-          <p class="lead">The Olympia Brewery site is one of Tumwater&rsquo;s most significant historic and cultural landmarks, a riverfront place shaped by the Deschutes River, Tumwater Falls, artesian water, early regional commerce, and the Olympia Beer brand. Long before its industrial use, the area was stewarded by the Steh-chass people for thousands of years, with the river and nearby inlet supporting settlement, trade, and regional connection.</p>
-          <div class="frame wide has-img" style="margin-top:24px;" role="button" tabindex="0" aria-label="Aerial context: the Deschutes River, Tumwater Falls, Tumwater Historical Park, and the brewery site"><img src="images/tb-overhead-shot-new-FINAL.png" alt="Aerial context map showing the Deschutes River, Tumwater Falls, Tumwater Historical Park, and the Old Olympia Brewery buildings" /><div><p class="ft">Site context</p><p class="fd">Water, falls, river, park, and the brewery site in one frame.</p></div></div>
-          <p class="lead" style="margin-top:24px;">The property became part of Tumwater&rsquo;s industrial identity in 1896, when the brewery site was selected for its proximity to Tumwater Falls and the artesian springs below the property. That relationship between water, power, and production became the foundation of Olympia Beer&rsquo;s identity and inspired its famous slogan: &ldquo;It&rsquo;s the Water.&rdquo;</p>
-        </section>
-
         <!-- §2b · Heritage timeline (6-card, with images) -->
         <section class="reveal">
           <p class="eyebrow">Heritage Timeline</p>
@@ -971,6 +1140,14 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
               <div class="tl-full" hidden>All operations ceased in 2003, with little maintenance since. The structures remain significant and await the adaptive reuse at the center of this offering.</div>
             </button>
           </div>
+        </section>
+
+        <!-- §2 · Water as the origin story -->
+        <section class="reveal">
+          <p class="eyebrow">Water as the Origin Story</p>
+          <h2>A Landmark Shaped by Water, Trade, and Industry</h2>
+          <p class="lead">The Olympia Brewery site is one of Tumwater&rsquo;s most significant historic and cultural landmarks, a riverfront place shaped by the Deschutes River, Tumwater Falls, artesian water, early regional commerce, and the Olympia Beer brand. Long before its industrial use, the area was stewarded by the Steh-chass people for thousands of years, with the river and nearby inlet supporting settlement, trade, and regional connection.</p>
+          <p class="lead" style="margin-top:24px;">The property became part of Tumwater&rsquo;s industrial identity in 1896, when the brewery site was selected for its proximity to Tumwater Falls and the artesian springs below the property. That relationship between water, power, and production became the foundation of Olympia Beer&rsquo;s identity and inspired its famous slogan: &ldquo;It&rsquo;s the Water.&rdquo;</p>
         </section>
 
         <!-- §3 · The original brewery campus -->
@@ -4240,6 +4417,13 @@ var RAILS = {
     primary:['call-to-action','Request the data room'], secondary:['investment-opportunity','Explore the heritage'],
     foot:'Presented by AGM Real Estate Group to qualified parties under confidentiality.'
   },
+  'executive-summary-archive': {
+    eyebrow:'Olympia Brewery District', title:'The Opportunity (Archived)',
+    pos:'Prior Opportunity build, retained for reference: hero, at-a-glance, and the full Investment Highlights grid.',
+    glance:[['Assemblage','~34 acres'],['Anchor','Historic Olympia Brewery'],['Setting','Deschutes River & Falls'],['Visibility','Interstate 5'],['Proximity','State Capitol']],
+    primary:['call-to-action','Request the data room'], secondary:['executive-summary','Current opportunity'],
+    foot:'Archived version. The current Opportunity tab carries the public-investment narrative.'
+  },
   'investment-opportunity': {
     eyebrow:'', title:'Heritage as a Strategic Advantage',
     pos:'Brand, architecture, a City-owned landmark, riverfront setting, and a layered industrial past give the campus an identity that new construction cannot manufacture, heritage as market advantage, not nostalgia.',
@@ -4495,7 +4679,7 @@ function renderRail(route){
 /* ============================================================
    Router
    ============================================================ */
-var ROUTES = ['executive-summary','investment-opportunity','dev-vision','city-investing-first','location-overview','property-overview','financial-upside','call-to-action','heritage-archive','dev-vision-archive','summary','relevance','thesis','public-redevelopment','development-vision','location','growth','opportunity','vision','public-investment','due-diligence','sources','request','home','presentation','use-resort','use-club','use-tribal','use-investors','history','site','news','contact'];
+var ROUTES = ['executive-summary','investment-opportunity','dev-vision','city-investing-first','location-overview','property-overview','financial-upside','call-to-action','executive-summary-archive','heritage-archive','dev-vision-archive','summary','relevance','thesis','public-redevelopment','development-vision','location','growth','opportunity','vision','public-investment','due-diligence','sources','request','home','presentation','use-resort','use-club','use-tribal','use-investors','history','site','news','contact'];
 var TITLES = {
   'executive-summary':'The Opportunity, Olympia Brewery District',
   'investment-opportunity':'Heritage, Olympia Brewery District',
@@ -4505,6 +4689,7 @@ var TITLES = {
   'property-overview':'Property & Diligence, Olympia Brewery District',
   'financial-upside':'Financial Upside, Olympia Brewery District',
   'call-to-action':'Call to Action, Olympia Brewery District',
+  'executive-summary-archive':'The Opportunity (Archived), Olympia Brewery District',
   'heritage-archive':'Heritage (Archived), Olympia Brewery District',
   'dev-vision-archive':'Development Vision (Archived), Olympia Brewery District',
   'summary':'Executive Summary (v3), Olympia Brewery District',
