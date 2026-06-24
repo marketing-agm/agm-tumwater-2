@@ -223,6 +223,16 @@ ul{margin:0; padding:0; list-style:none;}
 .program-table tfoot td{font-family:var(--serif); font-size:15.5px; letter-spacing:-0.01em;}
 .program-table tfoot .pt-area{font-size:15.5px;}
 
+/* due-diligence tables: larger, less flat */
+.dd-table{font-size:14.5px;}
+.dd-table th{font-size:11.5px; padding:14px 22px; background:var(--surface-2);}
+.dd-table td{padding:17px 22px; vertical-align:top; line-height:1.62;}
+.dd-table tbody tr{transition:background .15s var(--ease);}
+.dd-table tbody tr:hover{background:var(--surface-2);}
+.dd-table td:first-child{width:32%; font-family:var(--serif); font-size:15px; font-weight:600; color:var(--text); letter-spacing:-0.01em;}
+.dd-table td:first-child strong{font-weight:600;}
+@media(max-width:620px){.dd-table td:first-child{width:auto;}}
+
 /* public-investment page modules */
 .pi-status{display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; padding:4px 11px; border-radius:999px; margin-bottom:16px;}
 .pi-status.ok{background:var(--ok-wash); color:var(--ok);}
@@ -297,7 +307,8 @@ a.cmp-link:hover{opacity:.82; text-decoration:underline; text-underline-offset:2
 #page-investment-opportunity section{margin-bottom:48px;}
 #page-investment-opportunity section + section{padding-top:42px;}
 /* comparable-destination cards */
-.comp-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:14px; margin-top:20px;}
+.comp-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:20px;}
+@media(max-width:700px){.comp-grid{grid-template-columns:1fr;}}
 .comp-card{padding:24px 26px;}
 .comp-card h4{margin-bottom:7px; font-size:15px;}
 .comp-card .comp-rel{color:var(--text-3); font-size:12.5px; line-height:1.55; margin:0 0 14px; padding-bottom:13px; border-bottom:1px solid var(--border-soft);}
@@ -359,7 +370,7 @@ a.cmp-link:hover{opacity:.82; text-decoration:underline; text-underline-offset:2
 .step p{font-size:13.5px; color:var(--text-3); margin:0; line-height:1.65; max-width:58ch;}
 
 /* form */
-.form{display:grid; gap:22px; max-width:560px;}
+.form{display:grid; gap:22px; max-width:none;}
 .field label{display:block; font-size:11px; font-weight:600; color:var(--text-3); text-transform:uppercase; letter-spacing:.05em; margin-bottom:8px;}
 .field input, .field select, .field textarea{width:100%; font-family:var(--sans); font-size:14px; color:var(--text); background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:12px 14px; transition:border-color .15s var(--ease), box-shadow .15s var(--ease);}
 .field input:focus, .field select:focus, .field textarea:focus{outline:none; border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-wash);}
@@ -398,7 +409,16 @@ a.cmp-link:hover{opacity:.82; text-decoration:underline; text-underline-offset:2
 .lightbox.has-nav .lb-nav{display:flex;}
 
 /* embedded imagery */
-.frame.has-img{padding:0; background:var(--surface-2);}
+.frame.has-img{padding:0; background:var(--surface-2); cursor:zoom-in;}
+figure img{cursor:zoom-in;}
+.img-tags{position:absolute; top:0; left:0; right:0; z-index:2; display:flex; flex-wrap:wrap; gap:8px; padding:14px;}
+.img-tags span{font:600 12.5px var(--sans); color:#fff; background:rgba(15,12,10,.6); border:1px solid rgba(255,255,255,.28); border-radius:5px; padding:6px 12px; letter-spacing:.01em; backdrop-filter:blur(4px);}
+/* public-realm icon cards (more breathing room) */
+.pi-realm{gap:18px;}
+.pi-realm .card{padding:34px 36px;}
+.pi-realm .card svg{color:var(--accent); display:block; margin-bottom:16px;}
+.pi-realm .card h4{margin-bottom:11px;}
+.pi-realm .card p{font-size:14.5px; line-height:1.72;}
 .frame.has-img img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
 .lb-fig{margin:0; max-width:min(1100px,94vw);}
 .lb-fig img{display:block; max-width:100%; max-height:82vh; margin:0 auto; border-radius:var(--radius);}
@@ -860,7 +880,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
           <div class="card" style="margin-top:20px; text-align:center; padding:40px; background:var(--surface-2);">
             <p class="lead" style="max-width:64ch; margin:0 auto;">Request access to the redevelopment materials to review the public investment framework, concept studies, civil diligence, and site vision behind the opportunity.</p>
             <div style="margin-top:22px; display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
-              <button class="btn btn-primary" data-route="call-to-action">Request the Data Room</button>
+              <button class="btn btn-primary" data-route="call-to-action">Contact Us</button>
               <button class="btn btn-ghost btn-arrow" data-route="city-investing-first">See the public investment</button>
             </div>
           </div>
@@ -964,7 +984,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
             <div class="metric"><div class="num">100K+</div><div class="lbl">vehicles a day past the site on I-5</div></div>
           </div>
           <div style="margin-top:26px; display:flex; gap:10px; flex-wrap:wrap;">
-            <button class="btn btn-primary" data-route="call-to-action">Request the Data Room</button>
+            <button class="btn btn-primary" data-route="call-to-action">Contact Us</button>
             <button class="btn btn-ghost btn-arrow" data-route="investment-opportunity">See why it can&rsquo;t be replicated</button>
             <button class="btn btn-ghost btn-arrow" data-route="city-investing-first">See why now</button>
           </div>
@@ -1066,6 +1086,14 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
       <!-- ================= TAB 2 · HERITAGE ================= -->
       <div class="page wide" id="page-investment-opportunity">
 
+        <!-- §0 · Site hero -->
+        <section class="reveal">
+          <div class="gallery" style="grid-template-columns:repeat(2,1fr);">
+            <div class="frame has-img" role="button" tabindex="0" aria-label="The Brew Tower with the Deschutes River and Tumwater Falls"><img loading="lazy" decoding="async" src="images/tb-og-tower-with-river-and-falls.webp" alt="The Brew Tower with the Deschutes River and Tumwater Falls" /><div><p class="ft">The tower today</p></div></div>
+            <div class="frame has-img" role="button" tabindex="0" aria-label="Historic view of the Brew Tower above the river"><img loading="lazy" decoding="async" src="images/tb-og-tower-with-river-old.webp" alt="Historic view of the Brew Tower above the Deschutes River" /><div><p class="ft">The tower, historic view</p></div></div>
+          </div>
+        </section>
+
         <!-- §1 · Intro + 2x2 advantage grid -->
         <section class="reveal">
           <h2>A Landmark Brewery Campus With Enduring Regional Identity</h2>
@@ -1088,6 +1116,14 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
               <p>The site&rsquo;s setting along the Deschutes River, Tumwater Falls, Brewery Park, Tumwater Historical Park, trails, and open space provides an established public-realm framework. Its layered post-brewing history, including paper, storage, Boeing-related manufacturing, and other industrial uses, further broadens the site&rsquo;s identity beyond a single historic chapter.</p>
             </div>
           </div>
+        </section>
+
+        <!-- §2 · Water as the origin story -->
+        <section class="reveal">
+          <p class="eyebrow">Water as the Origin Story</p>
+          <h2>A Landmark Shaped by Water, Trade, and Industry</h2>
+          <p class="lead">The Olympia Brewery site is one of Tumwater&rsquo;s most significant historic and cultural landmarks, a riverfront place shaped by the Deschutes River, Tumwater Falls, artesian water, early regional commerce, and the Olympia Beer brand. Long before its industrial use, the area was stewarded by the Steh-chass people for thousands of years, with the river and nearby inlet supporting settlement, trade, and regional connection.</p>
+          <p class="lead" style="margin-top:24px;">The property became part of Tumwater&rsquo;s industrial identity in 1896, when the brewery site was selected for its proximity to Tumwater Falls and the artesian springs below the property. That relationship between water, power, and production became the foundation of Olympia Beer&rsquo;s identity and inspired its famous slogan: &ldquo;It&rsquo;s the Water.&rdquo;</p>
         </section>
 
         <!-- §2b · Heritage timeline (6-card, with images) -->
@@ -1139,14 +1175,6 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
               <div class="tl-full" hidden>All operations ceased in 2003, with little maintenance since. The structures remain significant and await the adaptive reuse at the center of this offering.</div>
             </button>
           </div>
-        </section>
-
-        <!-- §2 · Water as the origin story -->
-        <section class="reveal">
-          <p class="eyebrow">Water as the Origin Story</p>
-          <h2>A Landmark Shaped by Water, Trade, and Industry</h2>
-          <p class="lead">The Olympia Brewery site is one of Tumwater&rsquo;s most significant historic and cultural landmarks, a riverfront place shaped by the Deschutes River, Tumwater Falls, artesian water, early regional commerce, and the Olympia Beer brand. Long before its industrial use, the area was stewarded by the Steh-chass people for thousands of years, with the river and nearby inlet supporting settlement, trade, and regional connection.</p>
-          <p class="lead" style="margin-top:24px;">The property became part of Tumwater&rsquo;s industrial identity in 1896, when the brewery site was selected for its proximity to Tumwater Falls and the artesian springs below the property. That relationship between water, power, and production became the foundation of Olympia Beer&rsquo;s identity and inspired its famous slogan: &ldquo;It&rsquo;s the Water.&rdquo;</p>
         </section>
 
         <!-- §3 · The original brewery campus -->
@@ -1355,7 +1383,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
           </details>
           <div style="margin-top:24px; display:flex; gap:10px; flex-wrap:wrap;">
             <button class="btn btn-primary" data-route="property-overview">Review the property</button>
-            <button class="btn btn-ghost btn-arrow" data-route="call-to-action">Request the data room</button>
+            <button class="btn btn-ghost btn-arrow" data-route="call-to-action">Contact Us</button>
           </div>
         </section>
       </div>
@@ -1369,11 +1397,15 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
           <h2>A Site Already Carried Forward by Public Investment</h2>
           <p class="lead">The public sector has already established the Brewery District as a priority redevelopment platform, with planning, environmental review, infrastructure strategy, and public-realm investment converging around the former Olympia Brewery site.</p>
           <p class="sub">Together these workstreams create a more organized path for mixed-use redevelopment: a legacy asset supported by civic momentum, entitlement visibility, environmental readiness, and a district-scale strategy designed to advance the property from long-dormant industrial site to regional destination.</p>
-          <div class="frame wide has-img" style="margin-top:24px;" role="img" aria-label="Aerial of the former brewery, Deschutes River, Tumwater Falls, Brewery Park, and the surrounding Brewery District"><img loading="lazy" decoding="async" src="images/tb-aerial-google-earth-brewery-district.webp" alt="Aerial of the former Olympia Brewery, the Deschutes River, Tumwater Falls, Brewery Park, and the surrounding Brewery District" /></div>
-          <div style="margin-top:14px; display:flex; gap:8px; flex-wrap:wrap;">
-            <span class="chip" style="background:var(--accent-wash); color:var(--accent);">Adopted District Plan</span>
-            <span class="chip" style="background:var(--accent-wash); color:var(--accent);">Environmental Work Underway</span>
-            <span class="chip" style="background:var(--accent-wash); color:var(--accent);">Riverfront Public Realm</span>
+          <div class="frame wide has-img" style="margin-top:24px;" role="img" aria-label="Aerial of the former brewery, Deschutes River, Tumwater Falls, Brewery Park, and the surrounding Brewery District">
+            <img loading="lazy" decoding="async" src="images/tb-aerial-google-earth-brewery-district.webp" alt="Aerial of the former Olympia Brewery, the Deschutes River, Tumwater Falls, Brewery Park, and the surrounding Brewery District" />
+            <div class="img-tags">
+              <span>Adopted &amp; Amended District Plan</span>
+              <span>Environmental &amp; Brownfield Funding</span>
+              <span>Riverfront Public-Realm Investment</span>
+              <span>34-Acre Riverfront Assemblage</span>
+              <span>Direct I-5 Visibility</span>
+            </div>
           </div>
         </section>
 
@@ -1490,20 +1522,24 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
             </ul>
           </div>
           <p class="lead" style="margin-top:34px;">Those goals are already taking shape in the public realm around the site &mdash; from the E Street Connection linking Capitol Boulevard and Cleveland Avenue to the Deschutes Valley Trail and riverfront.</p>
-          <div class="grid grid-2" style="margin-top:20px;">
+          <div class="grid grid-2 pi-realm" style="margin-top:20px;">
             <div class="card">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h6a4 4 0 0 0 4-4V7"/></svg>
               <h4>Access</h4>
               <p>Boston Street SE improvements, Custer Way frontage, fire access, pedestrian safety, and ADA strategy. Access is the single biggest unlock for the lower site, and the City&rsquo;s E Street investment is already advancing it. What reads as a hard-to-reach parcel today becomes a connected, walkable address.</p>
             </div>
             <div class="card">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"/><path d="M6 20l4-12 3 7 2-4 3 9"/></svg>
               <h4>Trails</h4>
               <p>Deschutes Valley Trail, park connections, regional trail alignment, and pedestrian circulation. A funded regional trail will route foot and bike traffic directly past the property, turning passing recreation into built-in daily demand. Few infill sites inherit a public amenity of this scale at their doorstep.</p>
             </div>
             <div class="card">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8c2.5-2.5 5.5-2.5 8 0s5.5 2.5 8 0"/><path d="M2 13c2.5-2.5 5.5-2.5 8 0s5.5 2.5 8 0"/><path d="M2 18c2.5-2.5 5.5-2.5 8 0s5.5 2.5 8 0"/></svg>
               <h4>Riverfront</h4>
               <p>Deschutes River, Tumwater Falls, Brewery Park, riparian restoration, and public access. The waterfall and river frontage are irreplaceable &mdash; the kind of natural setting that anchors a destination and cannot be engineered anywhere else. Restoration and public-access work only sharpen that edge.</p>
             </div>
             <div class="card">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
               <h4>Destination Uses</h4>
               <p>Hospitality, restaurant, event, spa, outdoor gathering, wedding venue, kayak and water access, and courtyard programming. The setting supports premium, experience-driven uses that command rate and draw regional visitors. This is a place people travel to, not simply pass through.</p>
             </div>
@@ -1585,31 +1621,31 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
         <!-- §2 · Regional Corridor Deep Dive -->
         <section class="reveal">
           <p class="eyebrow">Regional Corridor</p>
-          <h2>The I-5 Hospitality Spine and the Regional Comparable Set</h2>
-          <p class="lead">Tumwater Brewery sits within one of the most heavily traveled hospitality corridors in the Pacific Northwest. Interstate 5 functions as a continuous chain of lodging nodes, from large urban convention hotels to highway-oriented select-service clusters. The map plots both the corridor markets and the experiential destination hotels, the true comparable set, across Washington: supply is abundant, but very little of it pairs corridor access with a destination-quality, experiential environment.</p>
+          <h2>The Regional Hotel Landscape, and Where Tumwater Stands Apart</h2>
+          <p class="lead">Tumwater Brewery sits within one of the busiest hospitality corridors in the Pacific Northwest. The map plots the I-5 corridor markets alongside the region&rsquo;s experiential destination hotels, useful context for the competitive landscape, even though none pairs corridor access with a historic riverfront brewery the way this site does. They show where the competition is and how it performs, not a like-for-like match.</p>
           <div class="cm-wrap" style="margin-top:22px;">
-            <div id="corridorMap" role="application" aria-label="Interactive map of the I-5 hospitality corridor and Washington experiential hotel comparables, with Tumwater at the midpoint"></div>
+            <div id="corridorMap" role="application" aria-label="Interactive map of the I-5 hospitality corridor and Washington experiential hotels, with Tumwater at the midpoint"></div>
             <div class="am-legend" id="cmLegend" role="group" aria-label="Corridor filter">
               <button type="button" class="am-toggle is-on" data-seg="north">Northern Markets</button>
               <button type="button" class="am-toggle is-on" data-seg="south">Southern Markets</button>
               <button type="button" class="am-toggle is-on" data-seg="site">Tumwater Brewery</button>
-              <button type="button" class="am-toggle is-on" data-seg="comp">Comparable Hotels</button>
+              <button type="button" class="am-toggle is-on" data-seg="comp">Similar Hotels</button>
               <button type="button" class="am-toggle is-on" data-seg="conn">Highway Connections</button>
             </div>
           </div>
           <p class="src" style="margin:8px 0 0; font-size:11px; color:var(--faint);">Illustrative corridor and market locations, approximate for orientation. Select a marker for market detail. Base map &copy; OpenStreetMap contributors, &copy; CARTO.</p>
 
-          <p class="sub" style="margin-top:14px;">Select any marker for detail, corridor markets show positioning and representative hotels; each comparable links to its website. Use the legend to isolate a layer.</p>
+          <p class="sub" style="margin-top:14px;">Select any marker for detail, corridor markets show positioning and representative hotels; each similar hotel links to its website. Use the legend to isolate a layer.</p>
           <div class="grid grid-2" style="margin-top:20px;">
             <div class="pi-callout"><h4>North &mdash; Olympia to Seattle</h4><p>Dense, urban, and expensive. Tumwater is the decompression point, nature, history, and space within a 60&ndash;90 minute drive.</p></div>
             <div class="pi-callout"><h4>South &mdash; Olympia to Portland</h4><p>Fragmented and largely utilitarian, a clear gap for a high-quality, experiential, adult-oriented destination.</p></div>
           </div>
 
-          <h3 style="margin-top:34px;">The Real Comparables Are Experiential Destinations</h3>
-          <p class="lead" style="margin-top:8px;">Local select-service hotels validate steady demand but do not compete on experience or setting. Tumwater&rsquo;s true comparable set is the experiential destinations mapped above, drawing visitors statewide on setting, history, food and beverage, and wellness rather than location alone.</p>
+          <h3 style="margin-top:34px;">Similar Hotels, for Competitive Context</h3>
+          <p class="lead" style="margin-top:8px;">These experiential destinations are the closest reference points in Washington, helpful for sizing up the competition and where it sits. None is a true match for the riverfront brewery campus, but together they show the rates, programming, and demand that place-based hospitality commands.</p>
           <div class="comp-grid">
             <div class="card comp-card">
-              <h4>Adaptive-reuse &amp; heritage</h4>
+              <h4>Adaptive-Reuse &amp; Heritage</h4>
               <p class="comp-rel">Campus-based lodging, dining, and events inside historic buildings.</p>
               <ul>
                 <li><a href="https://www.mcmenamins.com/anderson-school" target="_blank" rel="noopener">McMenamins Anderson School</a><span class="comp-loc">Bothell</span></li>
@@ -1620,7 +1656,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
               </ul>
             </div>
             <div class="card comp-card">
-              <h4>Nature &amp; wellness resorts</h4>
+              <h4>Nature &amp; Wellness Resorts</h4>
               <p class="comp-rel">Water, falls, and forest settings with spa, retreat, and wedding programming, the closest analog to the falls-and-river site.</p>
               <ul>
                 <li><a href="https://www.salishlodge.com" target="_blank" rel="noopener">Salish Lodge &amp; Spa</a><span class="comp-loc">Snoqualmie Falls</span></li>
@@ -1632,7 +1668,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
               </ul>
             </div>
             <div class="card comp-card">
-              <h4>Wine-country boutique</h4>
+              <h4>Wine-Country Boutique</h4>
               <p class="comp-rel">Destination dining and wine tourism driving premium midweek and weekend rates.</p>
               <ul>
                 <li><a href="https://www.willowslodge.com" target="_blank" rel="noopener">Willows Lodge</a><span class="comp-loc">Woodinville</span></li>
@@ -1644,7 +1680,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
               </ul>
             </div>
             <div class="card comp-card">
-              <h4>Alpine village destinations</h4>
+              <h4>Alpine Village Destinations</h4>
               <p class="comp-rel">Immersive, themed, wellness-led destinations commanding strong year-round rates.</p>
               <ul>
                 <li><a href="https://posthotelleavenworth.com" target="_blank" rel="noopener">Posthotel Leavenworth</a><span class="comp-loc">Leavenworth &middot; adults-only spa</span></li>
@@ -1652,7 +1688,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
               </ul>
             </div>
             <div class="card comp-card">
-              <h4>Regional design &amp; landmark</h4>
+              <h4>Regional Design &amp; Landmark</h4>
               <p class="comp-rel">Differentiated identity and design within a secondary-city market.</p>
               <ul>
                 <li><a href="https://www.hotelmuranotacoma.com" target="_blank" rel="noopener">Hotel Murano</a><span class="comp-loc">Tacoma</span></li>
@@ -1661,6 +1697,22 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
               </ul>
             </div>
           </div>
+        </section>
+
+        <!-- §2b · Regional Demographics -->
+        <section class="reveal">
+          <p class="eyebrow">Regional Demographics</p>
+          <h2>A Growing, Affluent Capital Market</h2>
+          <p class="lead">The Olympia&ndash;Lacey&ndash;Tumwater metro (Thurston County) pairs steady population growth with above-average incomes and a stable state-government employment base, a deep, year-round demand pool for a destination hospitality campus.</p>
+          <div class="metrics" style="margin-top:24px;">
+            <div class="metric"><div class="num" data-static>~300K</div><div class="lbl">metro population (Thurston County)</div></div>
+            <div class="metric"><div class="num" data-static>$96.5K</div><div class="lbl">median household income (2024)</div></div>
+            <div class="metric"><div class="num" data-static>~1.4%</div><div class="lbl">annual population growth</div></div>
+            <div class="metric"><div class="num" data-static>66%</div><div class="lbl">middle-class households, among the highest of U.S. metros</div></div>
+            <div class="metric"><div class="num" data-static>24,000+</div><div class="lbl">state-government jobs in the county</div></div>
+            <div class="metric"><div class="num" data-static>2M+</div><div class="lbl">annual regional visitors</div></div>
+          </div>
+          <p class="src" style="margin:14px 0 0; font-size:11px; color:var(--faint);">Sources: U.S. Census Bureau / American Community Survey (2024), Thurston Regional Planning Council, and Pew Research (2024). Figures are directional.</p>
         </section>
 
         <!-- §3 · Access, Mobility, Connectivity -->
@@ -1747,6 +1799,28 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
       <!-- ================= TAB 6 · THE PROPERTY & DILIGENCE ================= -->
       <div class="page wide" id="page-property-overview">
 
+        <!-- §2 · Building Inventory -->
+        <section class="reveal">
+          <p class="eyebrow">Building Inventory</p>
+          <h2>Five Historic Structures, One Adaptive-Reuse Platform</h2>
+          <p class="sub" style="margin:0 0 14px;">Select a marker on the plan, or a building below, to read its character and strategic role.</p>
+          <div class="fp-wrap" id="fpWrap">
+            <img loading="lazy" decoding="async" src="images/tb-2d-as-built-floor-plan.webp" alt="As-built site plan of the five-building Olympia Brewery campus" />
+            <button class="fp-pin" data-bldg="brewhouse" style="left:16%; top:31%;">1<span class="fp-lbl">Brewhouse</span></button>
+            <button class="fp-pin" data-bldg="northstorage" style="left:40%; top:27%;">5<span class="fp-lbl">North Storage</span></button>
+            <button class="fp-pin" data-bldg="keghouse" style="left:87%; top:42%;">3<span class="fp-lbl">Keg House</span></button>
+            <button class="fp-pin" data-bldg="cellar" style="left:16%; top:67%;">2<span class="fp-lbl">Cellar</span></button>
+            <button class="fp-pin" data-bldg="warehouse" style="left:54%; top:67%;">4<span class="fp-lbl">Warehouse</span></button>
+          </div>
+          <div class="bldg-row" style="margin-top:18px;">
+            <button class="card bldg-card" data-bldg="brewhouse"><span class="bldg-n">1</span><h4>Brewhouse / Brew Tower</h4><p>Iconic visual and historic anchor; heritage programming, restaurant, tasting room, or brewpub.</p></button>
+            <button class="card bldg-card" data-bldg="cellar"><span class="bldg-n">2</span><h4>Cellar Building</h4><p>River-adjacent structure suited to boutique hotel rooms, suites, and hospitality amenities.</p></button>
+            <button class="card bldg-card" data-bldg="keghouse"><span class="bldg-n">3</span><h4>Keg House</h4><p>Enclosed structure suited to spa, wellness, bathhouse, retreat, or private event use.</p></button>
+            <button class="card bldg-card" data-bldg="warehouse"><span class="bldg-n">4</span><h4>Warehouse</h4><p>Flexible envelope for retail, food hall, restaurant, bar, or indoor event venue.</p></button>
+            <button class="card bldg-card" data-bldg="northstorage"><span class="bldg-n">5</span><h4>North Storage</h4><p>Courtyard-defining structure for events, catering, caf&eacute;, retail, or guest services.</p></button>
+          </div>
+        </section>
+
         <!-- §1 · The Assemblage -->
         <section class="reveal">
           <p class="eyebrow">Property Overview</p>
@@ -1774,28 +1848,6 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
           </div>
         </section>
 
-        <!-- §2 · Building Inventory -->
-        <section class="reveal">
-          <p class="eyebrow">Building Inventory</p>
-          <h2>Five Historic Structures, One Adaptive-Reuse Platform</h2>
-          <p class="sub" style="margin:0 0 14px;">Select a marker on the plan, or a building below, to read its character and strategic role.</p>
-          <div class="fp-wrap" id="fpWrap">
-            <img loading="lazy" decoding="async" src="images/tb-2d-as-built-floor-plan.webp" alt="As-built site plan of the five-building Olympia Brewery campus" />
-            <button class="fp-pin" data-bldg="brewhouse" style="left:16%; top:31%;">1<span class="fp-lbl">Brewhouse</span></button>
-            <button class="fp-pin" data-bldg="northstorage" style="left:40%; top:27%;">5<span class="fp-lbl">North Storage</span></button>
-            <button class="fp-pin" data-bldg="keghouse" style="left:87%; top:42%;">3<span class="fp-lbl">Keg House</span></button>
-            <button class="fp-pin" data-bldg="cellar" style="left:16%; top:67%;">2<span class="fp-lbl">Cellar</span></button>
-            <button class="fp-pin" data-bldg="warehouse" style="left:54%; top:67%;">4<span class="fp-lbl">Warehouse</span></button>
-          </div>
-          <div class="bldg-row" style="margin-top:18px;">
-            <button class="card bldg-card" data-bldg="brewhouse"><span class="bldg-n">1</span><h4>Brewhouse / Brew Tower</h4><p>Iconic visual and historic anchor; heritage programming, restaurant, tasting room, or brewpub.</p></button>
-            <button class="card bldg-card" data-bldg="cellar"><span class="bldg-n">2</span><h4>Cellar Building</h4><p>River-adjacent structure suited to boutique hotel rooms, suites, and hospitality amenities.</p></button>
-            <button class="card bldg-card" data-bldg="keghouse"><span class="bldg-n">3</span><h4>Keg House</h4><p>Enclosed structure suited to spa, wellness, bathhouse, retreat, or private event use.</p></button>
-            <button class="card bldg-card" data-bldg="warehouse"><span class="bldg-n">4</span><h4>Warehouse</h4><p>Flexible envelope for retail, food hall, restaurant, bar, or indoor event venue.</p></button>
-            <button class="card bldg-card" data-bldg="northstorage"><span class="bldg-n">5</span><h4>North Storage</h4><p>Courtyard-defining structure for events, catering, caf&eacute;, retail, or guest services.</p></button>
-          </div>
-        </section>
-
         <!-- §3 · Ownership Note -->
         <section class="reveal">
           <div class="card" style="border-color:var(--accent);">
@@ -1812,7 +1864,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
           <p class="lead">The 2024 civil feasibility materials identify the site as 3233 Boston Street SW, Tumwater, a four-parcel assemblage of 34.182 acres (1,488,963 SF) focused on Parcel B, the former Olympia Brewery. Parcel B is bounded by the Deschutes River to the north and west, the Union Pacific Railroad to the east, and Boston Street SE and the Schmidt House parcel to the south.</p>
           <p class="sub" style="margin-top:10px;">The Schmidt House parcel (Olympia Tumwater Foundation) and the City-owned Brew Tower outparcel are excluded from the acreage. Parcel C is an asphalt parking area split by the Schmidt parcel; Parcel A contains an abandoned 1966 warehouse in poor condition. The 2022 land-use analysis identifies a broader eight-parcel site of 35.22 acres (1,534,282 SF) within the HC, Historic Commercial zone.</p>
           <div class="table-wrap" style="margin-top:22px;">
-            <table class="table">
+            <table class="table dd-table">
               <thead><tr><th>Category</th><th>Due-diligence fact</th></tr></thead>
               <tbody>
                 <tr><td><strong>Zoning</strong></td><td>HC, Historic Commercial</td></tr>
@@ -1834,7 +1886,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
           <h2>Access, Right-of-Way &amp; Utilities</h2>
           <p class="lead">Primary vehicular access is from Boston Street SE, descending roughly 110 vertical feet from Custer Way to the brewery site. At Custer Way the road is about 20 ft wide at a ~9% slope; beyond the Parcel B gate the private drive narrows to roughly 12&ndash;20 ft at 8&ndash;15% grade. The civil report identifies no clear alternative to the existing drive without substantial earthwork, tree removal, steep-slope impacts, and easements.</p>
           <div class="table-wrap" style="margin-top:22px;">
-            <table class="table">
+            <table class="table dd-table">
               <thead><tr><th>Access / infrastructure</th><th>Existing condition / due-diligence fact</th></tr></thead>
               <tbody>
                 <tr><td><strong>Public ROW frontage</strong></td><td>Custer Way, Boston Street SE, Schmidt Place SW, Desoto Street</td></tr>
@@ -1852,7 +1904,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
             </table>
           </div>
           <div style="margin-top:22px; display:flex; gap:10px; flex-wrap:wrap;">
-            <button class="btn btn-primary" data-route="call-to-action">Request the Data Room</button>
+            <button class="btn btn-primary" data-route="call-to-action">Contact Us</button>
           </div>
         </section>
       </div>
@@ -1968,8 +2020,8 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
             <details class="faq"><summary>Utilities &amp; infrastructure</summary><p>Water service is present (an upgrade to a looped 8-inch main supports fire flow); sanitary service runs through an upgraded lift station to LOTT; PSE gas is extendable; three-phase power is present. Stormwater conveyance and treatment are design conditions.</p></details>
           </div>
           <div style="margin-top:20px; display:flex; gap:10px; flex-wrap:wrap;">
-            <button class="btn btn-primary" data-route="call-to-action">Request the data room</button>
-            <button class="btn btn-ghost" data-route="call-to-action">Request the Data Room</button>
+            <button class="btn btn-primary" data-route="call-to-action">Contact Us</button>
+            <button class="btn btn-ghost" data-route="call-to-action">Contact Us</button>
           </div>
         </section>
       </div>
@@ -1979,9 +2031,9 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
 
         <!-- §1 · The Process -->
         <section class="reveal">
-          <p class="eyebrow">Call to Action</p>
-          <h2>A Controlled Investor Process</h2>
-          <p class="lead">Qualified parties are directed to the offering memorandum, data room, source studies, concept plans, site maps, diligence materials, and financial exhibits. Access is subject to confidentiality review and investor qualification.</p>
+          <p class="eyebrow">Contact</p>
+          <h2>Start a Conversation</h2>
+          <p class="lead">The former Olympia Brewery is presented off-market. The full offering memorandum is in preparation; in the meantime, reach out directly to discuss the opportunity. All public source materials are linked below.</p>
           <div class="glance" style="margin-top:22px;">
             <div><div class="g-lbl">Representative</div><div class="g-val">Troy Gessel, AGM</div></div>
             <div><div class="g-lbl">Telephone</div><div class="g-val">206.622.8600</div></div>
@@ -1998,23 +2050,20 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
           </div>
         </section>
 
-        <!-- §2 · Request the Data Room -->
+        <!-- §2 · Contact -->
         <section class="reveal">
-          <p class="eyebrow">Request Access</p>
-          <h2>Request the Data Room</h2>
-          <p class="lead">Request access to source studies, concept materials, site maps, diligence reports, entitlement information, and financial exhibits.</p>
-          <div class="form-ok" id="caOk">Your request has been received. AGM Real Estate Group will respond with materials appropriate to your stated interest.</div>
+          <p class="eyebrow">Get in Touch</p>
+          <h2>Contact Us</h2>
+          <p class="lead">Send a note to start the conversation. We will follow up directly and share the full offering memorandum with qualified parties once it is available.</p>
+          <div class="form-ok" id="caOk">Thank you, your message has been received. We will be in touch.</div>
           <div class="form" id="caForm" style="margin-top:18px;">
-            <div class="row-2">
-              <div class="field"><label for="ca-name">Name</label><input id="ca-name" type="text" autocomplete="name" /></div>
-              <div class="field"><label for="ca-org">Organization</label><input id="ca-org" type="text" autocomplete="organization" /></div>
-            </div>
+            <div class="field"><label for="ca-name">Name</label><input id="ca-name" type="text" autocomplete="name" /></div>
+            <div class="field"><label for="ca-org">Organization</label><input id="ca-org" type="text" autocomplete="organization" /></div>
             <div class="field"><label for="ca-email">Email</label><input id="ca-email" type="email" autocomplete="email" /></div>
-            <div class="field"><label for="ca-msg">Requested materials</label><textarea id="ca-msg" placeholder="Offering memorandum, data room, concept plans, diligence reports, financial exhibits&hellip;"></textarea></div>
+            <div class="field"><label for="ca-msg">Message</label><textarea id="ca-msg" placeholder="Tell us a little about your interest in the opportunity&hellip;"></textarea></div>
             <div>
-              <button class="btn btn-primary" id="caSubmit">Request Data Room Access</button>
-              <button class="btn btn-ghost" data-route="call-to-action">Download OM</button>
-              <p class="form-note" style="margin-top:16px;">Access is subject to a confidentiality review and investor qualification. This site is not indexed.</p>
+              <button class="btn btn-primary" id="caSubmit">Contact Us</button>
+              <p class="form-note" style="margin-top:16px;">Presented off-market and not indexed. We respond to qualified inquiries.</p>
             </div>
           </div>
         </section>
@@ -2237,7 +2286,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
             <p class="measure sub" style="margin-top:8px;">Access, topography, floodplain, shoreline, historic preservation, and infrastructure all shape the strategy, and they are also what make this site impossible to replicate once it is entitled, cleaned up, and repositioned. The full constraint set and supporting diligence are detailed under Property.</p>
             <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
               <button class="btn btn-ghost btn-arrow" data-route="property-overview">Review the property &amp; diligence</button>
-              <button class="btn btn-ghost btn-arrow" data-route="call-to-action">Request the data room</button>
+              <button class="btn btn-ghost btn-arrow" data-route="call-to-action">Contact Us</button>
             </div>
           </div>
         </section>
@@ -2255,7 +2304,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
           <div style="margin-top:22px; display:flex; gap:10px; flex-wrap:wrap;">
             <button class="btn btn-primary" data-route="thesis">Investment Overview</button>
             <button class="btn btn-ghost" data-route="request">Request Offering Memorandum</button>
-            <button class="btn btn-ghost" data-route="request">Request Data Room Access</button>
+            <button class="btn btn-ghost" data-route="request">Contact Us</button>
           </div>
         </section>
 
@@ -2952,7 +3001,7 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
           <details class="faq"><summary>What is the environmental exposure?</summary><p>Soil and groundwater contamination (arsenic and priority metals) is documented, attributed to the former paint-shop area. A 2002 voluntary cleanup reached industrial levels. A 2018 fire and a 2019 transformer release warrant further investigation; defining a Phase II scope is a standard item, supported by the City's EPA Brownfields assessment. Agency records are in the data room.</p></details>
           <details class="faq"><summary>Can the access road support development?</summary><p>The civil study finds the Boston St SE alignment can meet fire-apparatus standards if widened, with preliminary 20- and 30-foot sections. The final section is a matter for negotiation with the City; the study recommends meeting early.</p></details>
           <details class="faq"><summary>How is flood risk addressed?</summary><p>Portions of Parcel B lie in FEMA Zone AE (base flood elevation 15 ft; flood-protection elevation 16 ft). Elevated and crawl-space construction is the established treatment, and the estuary restoration is projected to lower the base flood elevation in extreme river floods.</p></details>
-          <div style="margin-top:24px;"><button class="btn btn-primary" data-route="request">Request the data room</button></div>
+          <div style="margin-top:24px;"><button class="btn btn-primary" data-route="request">Contact Us</button></div>
         </section>
       </div>
 
@@ -4454,14 +4503,14 @@ var RAILS = {
     eyebrow:'Olympia Brewery District', title:'The South Sound&rsquo;s Defining Riverfront Opportunity',
     pos:'An unusual level of municipal commitment and public-sector investment is removing development barriers and positioning the Brewery District for private capital, on a 34-acre heritage riverfront campus anchoring the City&rsquo;s Brewery District Plan.',
     glance:[['Assemblage','~34 acres'],['Anchor','Historic Olympia Brewery'],['Setting','Deschutes River & Falls'],['Visibility','Interstate 5'],['Proximity','State Capitol']],
-    primary:['call-to-action','Request the data room'], secondary:['investment-opportunity','Explore the heritage'],
+    primary:['call-to-action','Contact us'], secondary:['investment-opportunity','Explore the heritage'],
     foot:'Presented by AGM Real Estate Group to qualified parties under confidentiality.'
   },
   'executive-summary-archive': {
     eyebrow:'Olympia Brewery District', title:'The Opportunity (Archived)',
     pos:'Prior Opportunity build, retained for reference: hero, at-a-glance, and the full Investment Highlights grid.',
     glance:[['Assemblage','~34 acres'],['Anchor','Historic Olympia Brewery'],['Setting','Deschutes River & Falls'],['Visibility','Interstate 5'],['Proximity','State Capitol']],
-    primary:['call-to-action','Request the data room'], secondary:['executive-summary','Current opportunity'],
+    primary:['call-to-action','Contact us'], secondary:['executive-summary','Current opportunity'],
     foot:'Archived version. The current Opportunity tab carries the public-investment narrative.'
   },
   'investment-opportunity': {
@@ -4496,7 +4545,7 @@ var RAILS = {
     eyebrow:'The City Moved First', title:'Barriers Removed Before You Arrive',
     pos:'Public planning, grants, environmental review, and infrastructure activation advance Brewery District revitalization and create a defined framework for private capital, before private capital arrives.',
     glance:[['EPA grant','$500,000 (2023)'],['E Street','$6.6M (2026 ask)'],['Trail','$2.5M design'],['Estuary EIS','WA DES, 2022'],['Partner','City of Tumwater']],
-    primary:['property-overview','See the property'], secondary:['call-to-action','Request data room'],
+    primary:['property-overview','See the property'], secondary:['call-to-action','Contact us'],
     foot:'Sources: WA DES Final EIS (2022); EPA / City of Tumwater (2023); KPFF (2024).'
   },
   'location-overview': {
@@ -4510,14 +4559,14 @@ var RAILS = {
     eyebrow:'The Land and the Buildings', title:'The Asset, in Full',
     pos:'Four parcels totaling 34.18 acres; Parcel B (32.07 acres) holds the five-building historic brewhouse complex, with zoning, critical-area, access, and utility diligence in one place.',
     glance:[['Assemblage','34.182 acres'],['Parcels','Four'],['Primary','Parcel B · 32.07 ac'],['Buildings','Five historic'],['Zoning','HC']],
-    primary:['call-to-action','Request the data room'], secondary:null,
+    primary:['call-to-action','Contact us'], secondary:null,
     foot:'Parcels and buildings per the KPFF civil due diligence and GCH report.'
   },
   'property-overview-archive': {
     eyebrow:'The Land and the Buildings', title:'The Asset, in Full (Archived)',
     pos:'Prior Property &amp; Diligence build, retained for reference: assemblage, building inventory, ownership, feasibility tools, environmental status, and execution diligence.',
     glance:[['Assemblage','34.182 acres'],['Parcels','Four'],['Primary','Parcel B · 32.07 ac'],['Buildings','Five historic'],['Zoning','HC']],
-    primary:['call-to-action','Request the data room'], secondary:null,
+    primary:['call-to-action','Contact us'], secondary:null,
     foot:'Archived version. Current Property tab carries the 2024 diligence snapshot.'
   },
   'call-to-action': {
@@ -4573,7 +4622,7 @@ var RAILS = {
     eyebrow:'Regional Growth Drivers', title:'Multiple Demand Channels, One Land Position',
     pos:'Government, defense, I-5 connectivity, and an underserved tourism market support a phased mixed-use strategy with up to ~425,000 SF of long-term buildout potential.',
     glance:[['State jobs','24,000+'],['JBLM','50,000+ jobs'],['I-5','100K–150K/day'],['Visitors','2M+ annual'],['Buildout','Up to 425,000 SF']],
-    primary:['request','Request the data room'], secondary:['thesis','Investment thesis'],
+    primary:['request','Contact us'], secondary:['thesis','Investment thesis'],
     foot:'Demand figures per prior strategic market analysis (2014 base year).'
   },
   'opportunity': {
@@ -4601,7 +4650,7 @@ var RAILS = {
     eyebrow:'Due Diligence', title:'The supporting record.',
     pos:'Parcels, heritage, zoning, environmental and critical areas, infrastructure, feasibility, reports, and drawings, documented in third-party studies and available under confidentiality.',
     glance:[['Assemblage','34.182 acres'],['Parcels','Four (B: 32.07 ac)'],['Civil study','KPFF, 2024'],['Concept','GCH, 2022–23'],['Buildings','Five historic']],
-    primary:['request','Request the data room'], secondary:['public-investment','Public investment'],
+    primary:['request','Contact us'], secondary:['public-investment','Public investment'],
     foot:'Conditions per the KPFF civil due diligence (draft, 2024). Buyer to verify independently.'
   },
   'sources': {
@@ -4660,7 +4709,7 @@ var RAILS = {
     eyebrow:'Investors & Family Offices', title:'A documented land basis with a phased development path.',
     pos:'Third-party civil due diligence and a completed conceptual program support underwriting and staged capital deployment.',
     glance:[['Land','34.18-acre assemblage'],['Parcels','Four (B: 32.07 ac)'],['Civil study','KPFF, 2024'],['Studied program','~192K SF'],['Entitlement','Critical-areas path']],
-    primary:['contact','Request the data room'], secondary:['site','View property details'],
+    primary:['contact','Contact us'], secondary:['site','View property details'],
     print:true,
     foot:'Constraints summarized from the KPFF civil due diligence (draft, 2024).'
   },
@@ -4675,7 +4724,7 @@ var RAILS = {
     eyebrow:'The Site', title:'The property record.',
     pos:'Parcels, access, utilities, the river and estuary, and the regulated critical areas, the canonical reference each use-case page draws on.',
     glance:[['Assemblage','34.182 acres'],['Parcels','Four'],['River','Deschutes (Type F)'],['Jurisdiction','City of Tumwater'],['Access','Custer Way / Boston St']],
-    primary:['contact','Request the data room'], secondary:['use-investors','Investor analysis'],
+    primary:['contact','Contact us'], secondary:['use-investors','Investor analysis'],
     foot:'Site systems and critical areas per the KPFF civil due diligence (draft, June 2024).'
   },
   'news': {
@@ -4860,7 +4909,7 @@ function openLightboxAt(frames, index){
   lbCurrentIndex = index;
   var f = frames[index];
   var im = f.querySelector('img');
-  var label = f.getAttribute('aria-label') || '';
+  var label = f.getAttribute('aria-label') || (f.querySelector('img') && f.querySelector('img').alt) || '';
   lbTitle.textContent = label;
   if (im){ lbImg.src = im.src; lbImg.alt = label; lbImg.style.display='block'; }
   else { lbImg.style.display='none'; }
@@ -4875,7 +4924,7 @@ function lbNavigate(dir){
   lbCurrentIndex = (lbCurrentIndex + dir + lbGalleryFrames.length) % lbGalleryFrames.length;
   var f = lbGalleryFrames[lbCurrentIndex];
   var im = f.querySelector('img');
-  var label = f.getAttribute('aria-label') || '';
+  var label = f.getAttribute('aria-label') || (f.querySelector('img') && f.querySelector('img').alt) || '';
   lbTitle.textContent = label;
   if (im){ lbImg.src = im.src; lbImg.alt = label; lbImg.style.display='block'; }
   else { lbImg.style.display='none'; }
@@ -4892,10 +4941,13 @@ document.addEventListener('click', function(e){
       var idx = frames.indexOf(f);
       openLightboxAt(frames, idx >= 0 ? idx : 0);
     } else {
-      var im = f.querySelector('img');
       openLightboxAt([f], 0);
     }
+    return;
   }
+  /* any standalone single image (figure) expands too */
+  var fig = e.target.closest('figure');
+  if (fig && fig.querySelector('img')){ openLightboxAt([fig], 0); }
 });
 
 document.addEventListener('keydown', function(e){
@@ -5362,7 +5414,7 @@ function initCorridorMap(){
     /* comparable hotels (the true competitive set) */
     CM_COMPS.forEach(function(p){
       var el = _cmMarkerEl(CM_SEGC.comp, false);
-      var html = cmCard(CM_SEGC.comp, p.cat, p.t, p.loc, [['Why it is a comparable', p.rel]], p.url);
+      var html = cmCard(CM_SEGC.comp, p.cat, p.t, p.loc, [['How it compares', p.rel]], p.url);
       var mk = new maplibregl.Marker({element:el}).setLngLat(p.c).setPopup(new maplibregl.Popup({offset:15, maxWidth:'340px', closeButton:true}).setHTML(html)).addTo(map);
       el.addEventListener('click', function(){ track('map_marker_click', {kind:'comparable', name:p.t, category:p.cat, location:p.loc}); });
       markers.comp.push(mk);
