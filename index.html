@@ -223,6 +223,27 @@ ul{margin:0; padding:0; list-style:none;}
 .program-table tfoot td{font-family:var(--serif); font-size:15.5px; letter-spacing:-0.01em;}
 .program-table tfoot .pt-area{font-size:15.5px;}
 
+/* regional demographics: clickable stat grid + modal */
+.demo-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:24px;}
+@media(max-width:760px){.demo-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:460px){.demo-grid{grid-template-columns:1fr;}}
+.demo-card{text-align:left; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:22px 22px; cursor:pointer; display:flex; flex-direction:column; gap:7px; transition:border-color .15s var(--ease), transform .15s var(--ease), box-shadow .15s var(--ease);}
+.demo-card:hover{border-color:var(--accent); transform:translateY(-2px); box-shadow:0 8px 22px rgba(0,0,0,.08);}
+.demo-num{font-family:var(--serif); font-weight:700; font-size:30px; color:var(--accent); letter-spacing:-0.02em; line-height:1;}
+.demo-lbl{font-size:13px; color:var(--text-2); line-height:1.42;}
+.demo-more{font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--faint); margin-top:2px; transition:color .15s var(--ease);}
+.demo-card:hover .demo-more{color:var(--accent);}
+.demomodal{position:fixed; inset:0; background:rgba(12,9,8,.62); display:none; align-items:center; justify-content:center; z-index:200; padding:24px;}
+.demomodal.open{display:flex;}
+.demomodal-box{background:var(--surface); border:1px solid var(--border); border-radius:8px; max-width:520px; width:100%; max-height:88vh; overflow:auto; position:relative; box-shadow:0 30px 80px rgba(0,0,0,.35);}
+.demomodal-close{position:absolute; top:12px; right:12px; width:34px; height:34px; border-radius:50%; border:none; background:var(--surface); color:var(--text); font-size:22px; line-height:1; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,.15);}
+.demomodal-close:hover{background:var(--surface-2);}
+.demomodal-body{padding:36px 34px 30px;}
+.demomodal-stat{font-family:var(--serif); font-weight:700; font-size:42px; color:var(--accent); letter-spacing:-0.02em; margin:0; line-height:1;}
+.demomodal-lbl{font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--text-3); margin:12px 0 0;}
+.demomodal-detail{font-size:15px; line-height:1.72; color:var(--text-2); margin:16px 0 0;}
+.demomodal-src{font-size:11px; color:var(--faint); margin:18px 0 0;}
+
 /* due-diligence tables: larger, less flat */
 .dd-table{font-size:14.5px;}
 .dd-table th{font-size:11.5px; padding:14px 22px; background:var(--surface-2);}
@@ -1703,14 +1724,14 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
         <section class="reveal">
           <p class="eyebrow">Regional Demographics</p>
           <h2>A Growing, Affluent Capital Market</h2>
-          <p class="lead">The Olympia&ndash;Lacey&ndash;Tumwater metro (Thurston County) pairs steady population growth with above-average incomes and a stable state-government employment base, a deep, year-round demand pool for a destination hospitality campus.</p>
-          <div class="metrics" style="margin-top:24px;">
-            <div class="metric"><div class="num" data-static>~300K</div><div class="lbl">metro population (Thurston County)</div></div>
-            <div class="metric"><div class="num" data-static>$96.5K</div><div class="lbl">median household income (2024)</div></div>
-            <div class="metric"><div class="num" data-static>~1.4%</div><div class="lbl">annual population growth</div></div>
-            <div class="metric"><div class="num" data-static>66%</div><div class="lbl">middle-class households, among the highest of U.S. metros</div></div>
-            <div class="metric"><div class="num" data-static>24,000+</div><div class="lbl">state-government jobs in the county</div></div>
-            <div class="metric"><div class="num" data-static>2M+</div><div class="lbl">annual regional visitors</div></div>
+          <p class="lead">The Olympia&ndash;Lacey&ndash;Tumwater metro (Thurston County) pairs steady population growth with above-average incomes and a stable state-government employment base, a deep, year-round demand pool for a destination hospitality campus. Select any figure to see why it matters for a boutique hotel.</p>
+          <div class="demo-grid">
+            <button type="button" class="demo-card" data-demo="population"><span class="demo-num">~300K</span><span class="demo-lbl">Metro population (Thurston County)</span><span class="demo-more">Why it matters &rarr;</span></button>
+            <button type="button" class="demo-card" data-demo="income"><span class="demo-num">$96.5K</span><span class="demo-lbl">Median household income (2024)</span><span class="demo-more">Why it matters &rarr;</span></button>
+            <button type="button" class="demo-card" data-demo="growth"><span class="demo-num">~1.4%</span><span class="demo-lbl">Annual population growth</span><span class="demo-more">Why it matters &rarr;</span></button>
+            <button type="button" class="demo-card" data-demo="middle"><span class="demo-num">66%</span><span class="demo-lbl">Middle-class households</span><span class="demo-more">Why it matters &rarr;</span></button>
+            <button type="button" class="demo-card" data-demo="jobs"><span class="demo-num">24,000+</span><span class="demo-lbl">State-government jobs in the county</span><span class="demo-more">Why it matters &rarr;</span></button>
+            <button type="button" class="demo-card" data-demo="visitors"><span class="demo-num">2M+</span><span class="demo-lbl">Annual regional visitors</span><span class="demo-more">Why it matters &rarr;</span></button>
           </div>
           <p class="src" style="margin:14px 0 0; font-size:11px; color:var(--faint);">Sources: U.S. Census Bureau / American Community Survey (2024), Thurston Regional Planning Council, and Pew Research (2024). Figures are directional.</p>
         </section>
@@ -4483,6 +4504,19 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
   </div>
 </div>
 
+<!-- ===================== DEMOGRAPHICS MODAL ===================== -->
+<div class="demomodal" id="demoModal" role="dialog" aria-modal="true" aria-label="Demographic detail">
+  <div class="demomodal-box">
+    <button class="demomodal-close" id="demoClose" aria-label="Close">×</button>
+    <div class="demomodal-body">
+      <p class="demomodal-stat" id="dmStat"></p>
+      <p class="demomodal-lbl" id="dmLbl"></p>
+      <p class="demomodal-detail" id="dmDetail"></p>
+      <p class="demomodal-src" id="dmSrc">Sources: U.S. Census Bureau / ACS (2024), Thurston Regional Planning Council, Pew Research (2024).</p>
+    </div>
+  </div>
+</div>
+
 <script>
 /* ============================================================
    Analytics stub — named events per brief §6/§8
@@ -5046,6 +5080,40 @@ lightbox.addEventListener('click', function(e){ if(e.target===lightbox) closeLig
     var t=e.target.closest('[data-bldg]');
     if(t){ openBldg(t.getAttribute('data-bldg')); return; }
     if(e.target===modal || e.target.closest('#bldgClose')) modal.classList.remove('open');
+  });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') modal.classList.remove('open'); });
+})();
+
+/* ============================================================
+   Regional demographics modal
+   ============================================================ */
+(function(){
+  var modal=document.getElementById('demoModal'); if(!modal) return;
+  var DEMO={
+    population:{stat:'~300,000', lbl:'Metro population (Thurston County)',
+      detail:'A resident base this size gives a boutique hotel a year-round demand floor that pure resort markets lack. Locals fill midweek rooms through visiting friends and family, staycations, and capital-related business travel, and they are the everyday customers for the restaurant, spa, and event spaces that drive a destination hotel’s non-room revenue. The project isn’t betting solely on seasonal tourism.'},
+    income:{stat:'$96,500', lbl:'Median household income (2024)',
+      detail:'Median household income runs well above the national figure, with Tumwater among the county’s highest. Affluent locals are exactly the market that pays premium rates for fine dining, spa services, weddings, and weekend getaways, the high-margin programming a boutique hotel is built around. That local purchasing power underwrites the food-and-beverage and events business a single-revenue hotel can’t rely on.'},
+    growth:{stat:'~1.4% / yr', lbl:'Annual population growth',
+      detail:'Olympia–Lacey–Tumwater has been one of the faster-growing metros in the country, adding roughly 7% of population from 2019 to 2024. Sustained growth means an expanding pipeline of new residents, businesses, weddings, and events, and it is the demonstrated demand trajectory lenders and operators want to see before committing to a destination asset.'},
+    middle:{stat:'66%', lbl:'Middle-class households',
+      detail:'A 2024 Pew study found Thurston County has one of the highest shares of middle-class households of any U.S. metro. An unusually broad, stable affluent middle class means resilient discretionary spending, the dining-out, weekend-stay, and wedding budgets that hold up even in downturns, which lowers the demand volatility a boutique hotel would otherwise face.'},
+    jobs:{stat:'24,000+', lbl:'State-government jobs in the county',
+      detail:'As the state capital, the region runs on recession-resistant public employment. That generates steady, year-round government and corporate lodging, meetings, receptions, and per-diem business travel, the reliable weekday base that complements weekend leisure and smooths a boutique hotel’s occupancy across the calendar.'},
+    visitors:{stat:'2M+', lbl:'Annual regional visitors',
+      detail:'Tumwater Falls, Brewery Park, the Capitol campus, and the I-5 corridor already pull millions of visitors and pass-through travelers each year. A destination hotel’s job is to convert that existing day-trip and drive-by demand into overnight stays, capturing visitors who today have no compelling reason, or place, to stay the night.'}
+  };
+  var dStat=document.getElementById('dmStat'), dLbl=document.getElementById('dmLbl'), dDetail=document.getElementById('dmDetail');
+  function openDemo(key){
+    var d=DEMO[key]; if(!d) return;
+    dStat.textContent=d.stat; dLbl.textContent=d.lbl; dDetail.textContent=d.detail;
+    modal.classList.add('open');
+    track('demographic_open', {stat:key});
+  }
+  document.addEventListener('click', function(e){
+    var t=e.target.closest('[data-demo]');
+    if(t){ openDemo(t.getAttribute('data-demo')); return; }
+    if(e.target===modal || e.target.closest('#demoClose')) modal.classList.remove('open');
   });
   document.addEventListener('keydown', function(e){ if(e.key==='Escape') modal.classList.remove('open'); });
 })();
