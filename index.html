@@ -227,12 +227,10 @@ ul{margin:0; padding:0; list-style:none;}
 .demo-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:24px;}
 @media(max-width:760px){.demo-grid{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:460px){.demo-grid{grid-template-columns:1fr;}}
-.demo-card{text-align:left; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:22px 22px; cursor:pointer; display:flex; flex-direction:column; gap:7px; transition:border-color .15s var(--ease), transform .15s var(--ease), box-shadow .15s var(--ease);}
+.demo-card{text-align:left; background:var(--bg); border:1px solid var(--border); border-radius:var(--radius); padding:30px 30px; cursor:pointer; display:flex; flex-direction:column; gap:12px; transition:border-color .15s var(--ease), transform .15s var(--ease), box-shadow .15s var(--ease);}
 .demo-card:hover{border-color:var(--accent); transform:translateY(-2px); box-shadow:0 8px 22px rgba(0,0,0,.08);}
-.demo-num{font-family:var(--serif); font-weight:700; font-size:30px; color:var(--accent); letter-spacing:-0.02em; line-height:1;}
-.demo-lbl{font-size:13px; color:var(--text-2); line-height:1.42;}
-.demo-more{font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--faint); margin-top:2px; transition:color .15s var(--ease);}
-.demo-card:hover .demo-more{color:var(--accent);}
+.demo-num{font-family:var(--serif); font-weight:500; font-size:30px; color:var(--text); letter-spacing:-0.02em; line-height:1;}
+.demo-lbl{font-size:13.5px; color:var(--text-2); line-height:1.5;}
 .demomodal{position:fixed; inset:0; background:rgba(12,9,8,.62); display:none; align-items:center; justify-content:center; z-index:200; padding:24px;}
 .demomodal.open{display:flex;}
 .demomodal-box{background:var(--surface); border:1px solid var(--border); border-radius:8px; max-width:520px; width:100%; max-height:88vh; overflow:auto; position:relative; box-shadow:0 30px 80px rgba(0,0,0,.35);}
@@ -328,8 +326,9 @@ a.cmp-link:hover{opacity:.82; text-decoration:underline; text-underline-offset:2
 #page-investment-opportunity section{margin-bottom:48px;}
 #page-investment-opportunity section + section{padding-top:42px;}
 /* comparable-destination cards */
-.comp-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:20px;}
-@media(max-width:700px){.comp-grid{grid-template-columns:1fr;}}
+.comp-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:20px;}
+@media(max-width:880px){.comp-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.comp-grid{grid-template-columns:1fr;}}
 .comp-card{padding:24px 26px;}
 .comp-card h4{margin-bottom:7px; font-size:15px;}
 .comp-card .comp-rel{color:var(--text-3); font-size:12.5px; line-height:1.55; margin:0 0 14px; padding-bottom:13px; border-bottom:1px solid var(--border-soft);}
@@ -1726,12 +1725,12 @@ posthog.init('phc_q7FAYzyoamGEztQRM6kDZqEMnDdMkiad8Z5EUnnnPb6f', {
           <h2>A Growing, Affluent Capital Market</h2>
           <p class="lead">The Olympia&ndash;Lacey&ndash;Tumwater metro (Thurston County) pairs steady population growth with above-average incomes and a stable state-government employment base, a deep, year-round demand pool for a destination hospitality campus. Select any figure to see why it matters for a boutique hotel.</p>
           <div class="demo-grid">
-            <button type="button" class="demo-card" data-demo="population"><span class="demo-num">~300K</span><span class="demo-lbl">Metro population (Thurston County)</span><span class="demo-more">Why it matters &rarr;</span></button>
-            <button type="button" class="demo-card" data-demo="income"><span class="demo-num">$96.5K</span><span class="demo-lbl">Median household income (2024)</span><span class="demo-more">Why it matters &rarr;</span></button>
-            <button type="button" class="demo-card" data-demo="growth"><span class="demo-num">~1.4%</span><span class="demo-lbl">Annual population growth</span><span class="demo-more">Why it matters &rarr;</span></button>
-            <button type="button" class="demo-card" data-demo="middle"><span class="demo-num">66%</span><span class="demo-lbl">Middle-class households</span><span class="demo-more">Why it matters &rarr;</span></button>
-            <button type="button" class="demo-card" data-demo="jobs"><span class="demo-num">24,000+</span><span class="demo-lbl">State-government jobs in the county</span><span class="demo-more">Why it matters &rarr;</span></button>
-            <button type="button" class="demo-card" data-demo="visitors"><span class="demo-num">2M+</span><span class="demo-lbl">Annual regional visitors</span><span class="demo-more">Why it matters &rarr;</span></button>
+            <button type="button" class="demo-card" data-demo="population"><span class="demo-num">~300K</span><span class="demo-lbl">Metro population (Thurston County)</span></button>
+            <button type="button" class="demo-card" data-demo="income"><span class="demo-num">$96.5K</span><span class="demo-lbl">Median household income (2024)</span></button>
+            <button type="button" class="demo-card" data-demo="growth"><span class="demo-num">~1.4%</span><span class="demo-lbl">Annual population growth</span></button>
+            <button type="button" class="demo-card" data-demo="middle"><span class="demo-num">66%</span><span class="demo-lbl">Middle-class households</span></button>
+            <button type="button" class="demo-card" data-demo="jobs"><span class="demo-num">24,000+</span><span class="demo-lbl">State-government jobs in the county</span></button>
+            <button type="button" class="demo-card" data-demo="visitors"><span class="demo-num">2M+</span><span class="demo-lbl">Annual regional visitors</span></button>
           </div>
           <p class="src" style="margin:14px 0 0; font-size:11px; color:var(--faint);">Sources: U.S. Census Bureau / American Community Survey (2024), Thurston Regional Planning Council, and Pew Research (2024). Figures are directional.</p>
         </section>
